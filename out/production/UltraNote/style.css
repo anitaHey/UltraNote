@@ -1,0 +1,84 @@
+.font_size{
+    -fx-font-size:14px;
+    -fx-font-family: Microsoft JhengHei;
+}
+
+.stage_title{
+    -fx-background-color: #74828F;
+}
+
+.main_vbox{
+    -fx-background-color:#EAEAEA;
+}
+
+.stage_title_label{
+    -fx-text-fill:#EAEAEA;
+    -fx-padding:0px 10px;
+}
+
+.stage_exit{
+    -fx-text-fill:#EAEAEA;
+    -fx-background-color: TRANSPARENT;
+}
+
+.stage_exit:hover{
+    -fx-background-color: #3f464d;
+}
+
+.toolbar_button_hbox{
+    -fx-background-color: #74828F;
+}
+
+.toolbar_button{
+    -fx-background-color: #74828F;
+    -fx-text-fill:#EAEAEA;
+    -fx-pref-height:37px;
+    -fx-pref-width:150px;
+    -fx-border-width:0;
+}
+
+.toolbar_button:hover{
+    -fx-background-color: #3f464d;
+}
+
+.toolbar_button_press{
+    -fx-background-color: #c2cad1;
+    -fx-text-fill:#74828F;
+}
+
+.toolbar_button_press:hover{
+    -fx-background-color: #5a646e;
+    -fx-text-fill:#EAEAEA;
+}
+
+.toolbar_tool_hbox{
+    -fx-background-color: #c2cad1;
+}
+
+.toolbar_sm_button{
+    -fx-border-width:2px;
+    -fx-border-color: #a1a8ad;
+}
+
+.toolbar_sm_button:hover{
+    -fx-background-color: #a1a8ad;
+}
+
+.toolbar_sm_button:pressed{
+    -fx-background-color: #7f858a;
+}
+
+.toolbar_button_label{
+    -fx-alignment:CENTER;
+}
+.work_area{
+    -fx-background-color:#EAEAEA;
+}
+
+.work_paper{
+    -fx-background-color:#fff;
+}
+
+.work_scroll{
+    -fx-border-width:0px;
+}
