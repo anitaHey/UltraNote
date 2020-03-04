@@ -23,7 +23,7 @@ public class Main extends Application {
         scene.setRoot(loader.load());
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
-        Controller controller = loader.getController();
+        MainController controller = loader.getController();
         controller.Init();
         primaryStage.show();
     }

@@ -1,0 +1,10 @@
+.font_size{
+    -fx-font-size:14px;
+    -fx-font-family: Microsoft JhengHei;
+}
+
+.text_border_focus{
+    -fx-border-color: #a39e9e;
+    -fx-border-width: 2;
+    -fx-border-style: segments(5, 10, 10, 10)  line-cap round ;
+}

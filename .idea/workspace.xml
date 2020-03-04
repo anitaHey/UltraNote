@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20200304 Add text input.">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/UltraNote/META-INF/UltraNote.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/UltraNote/MainController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/UltraNote/Text_box$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/UltraNote/ToolbarController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/UltraNote/text_style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ToolbarController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/text_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UltraNote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UltraNote.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/MainFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/MainFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/TextBoxFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/TextBoxFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Text_box.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Text_box.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Toolbar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Toolbar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TextBoxFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextBoxFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Text_box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Text_box.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Toolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Toolbar.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Ydz7aHrZtTTrCsn4N2qIBVWLUm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/Oracle/JavaFX Scene Builder 2.0/JavaFX Scene Builder 2.0.exe" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="UltraNote" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="" />
+      <created>1583287093195</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583287093195</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="20200304 Add text input." />
+    <option name="LAST_COMMIT_MESSAGE" value="20200304 Add text input." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="140" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583287118562">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="140" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872@0.0.1368.872" timestamp="1583287118562" />
+    <state x="329" y="30" key="CommitChangelistDialog2" timestamp="1583304440788">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1583304440788" />
+    <state x="465" y="178" key="FileChooserDialogImpl" timestamp="1583293282737">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="465" y="178" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1583293282737" />
+    <state width="1326" height="207" key="GridCell.Tab.0.bottom" timestamp="1583304316272">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="207" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1583304316272" />
+    <state width="1326" height="207" key="GridCell.Tab.0.center" timestamp="1583304316271">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="207" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1583304316271" />
+    <state width="1326" height="207" key="GridCell.Tab.0.left" timestamp="1583304316271">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="207" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1583304316271" />
+    <state width="1326" height="207" key="GridCell.Tab.0.right" timestamp="1583304316272">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state width="1326" height="207" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1583304316272" />
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1583287097005">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1583287097005" />
+  </component>
+</project>

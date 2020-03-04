@@ -1,3 +1,5 @@
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.input.KeyCode;
@@ -28,17 +30,50 @@ public class Text_box extends TextFlow {
     @FXML
     public void initialize() {
         main_text.setOnKeyPressed(e -> {
-            if (isWordInput(e.getCode())) {
-                Text input = new Text(e.getText());
-                input.setFont(Font.font("Helvetica", FontWeight.BOLD, 30));
-                HBox hbox = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
-                hbox.getChildren().add(input);
+            HBox hbox;
+            switch(wordInput(e.getCode())){
+                case "word":
+                    Text input = new Text(e.getText());
+                    input.setFont(Font.font("Helvetica", FontWeight.BOLD, 20));
+                    hbox = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
+                    hbox.getChildren().add(input);
+                    if(hbox.getWidth()>this.getPrefWidth()-40){
+                        this.setPrefWidth(hbox.getWidth()+20);
+                    }
+                    break;
+                case "line":
+                    hbox = new HBox();
+                    hbox.setMinHeight(30);
+                    text_vbox.getChildren().add(hbox);
+                    CURRENT_LINE++;
+                    this.setPrefHeight(text_vbox.getHeight()+35);
+                    break;
+            }
+        });
+        main_text.setOnMouseClicked(e -> {
+            this.requestFocus();
+        });
+
+        main_text.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue) {
+                if (newPropertyValue) {
+                    getStyleClass().add("text_border_focus");
+                } else {
+                    getStyleClass().clear();
+                }
             }
         });
     }
 
-    public boolean isWordInput(KeyCode input){
-        return input.isDigitKey() || input.isLetterKey() || input.isWhitespaceKey();
+    public String wordInput(KeyCode input){
+        if(input == KeyCode.ENTER){
+            return "line";
+        }else if(input.isDigitKey() || input.isLetterKey() || input.isWhitespaceKey()){
+            return "word";
+        }
+
+        return "";
     }
 
 }

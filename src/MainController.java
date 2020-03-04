@@ -5,8 +5,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class Controller {
-    private static Controller instance;
+public class MainController {
+    private static MainController instance;
 
     @FXML
     Button exit, toolbar_file, toolbar_view, toolbar_insert, toolbar_text, toolbar_draw;
@@ -20,18 +20,20 @@ public class Controller {
     Toolbar toolbar_tool;
     int toolbar = -1;
 
-    public static Controller getInstance(){
+    public static MainController getInstance(){
         if(instance == null){
-            instance = new Controller();
+            instance = new MainController();
         }
         return instance;
     }
 
+    public static void setInstance(MainController newInstance){
+        instance = newInstance;
+    }
+
     public void Init() {
-        if(instance == null){
-            instance = new Controller();
-        }
-        System.out.println(instance+" "+ paper_pane);
+        setInstance(this);
+
         exit.setOnAction(actionEvent -> Platform.exit());
         toolbar_file.setOnAction(actionEvent -> {
             change_toolbar(1, toolbar_file);
@@ -76,7 +78,6 @@ public class Controller {
     }
 
     public void addText(Text_box input){
-        System.out.println(instance+" "+ paper_pane);
         paper_pane.getChildren().add(input);
     }
 }
