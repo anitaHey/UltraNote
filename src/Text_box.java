@@ -1,8 +1,11 @@
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.input.KeyCode;
+import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.input.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -54,16 +57,15 @@ public class Text_box extends TextFlow {
             this.requestFocus();
         });
 
-        main_text.focusedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue) {
-                if (newPropertyValue) {
-                    getStyleClass().add("text_border_focus");
-                } else {
-                    getStyleClass().clear();
-                }
+        main_text.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+            if (newPropertyValue) {
+                getStyleClass().add("text_border_focus");
+            } else {
+                getStyleClass().clear();
             }
         });
+
+        Draggable.Nature nature = new Draggable.Nature(main_text);
     }
 
     public String wordInput(KeyCode input){
@@ -75,5 +77,4 @@ public class Text_box extends TextFlow {
 
         return "";
     }
-
 }
