@@ -11,10 +11,6 @@ public class Draggable {
         None, DragStart, Drag, DragEnd
     }
 
-    public interface Interface {
-        public abstract Draggable.Nature getDraggableNature();
-    }
-
     public interface Listener {
         public void accept(Nature draggableNature, Event dragEvent);
     }
@@ -37,29 +33,6 @@ public class Draggable {
             this.eventNode = eventNode;
             this.dragNodes.addAll(Arrays.asList(dragNodes));
             this.eventNode.addEventHandler(MouseEvent.ANY, this);
-        }
-
-        public final boolean addDraggedNode(final Node node) {
-            if (!this.dragNodes.contains(node)) {
-                return this.dragNodes.add(node);
-            }
-            return false;
-        }
-
-        public final boolean addListener(final Listener listener) {
-            return this.dragListeners.add(listener);
-        }
-
-        public final void detatch() {
-            this.eventNode.removeEventFilter(MouseEvent.ANY, this);
-        }
-
-        public final List<Node> getDragNodes() {
-            return new ArrayList<>(this.dragNodes);
-        }
-
-        public final Node getEventNode() {
-            return this.eventNode;
         }
 
         @Override
@@ -105,20 +78,6 @@ public class Draggable {
                     }
                 }
             }
-
-        }
-
-        public final boolean removeDraggedNode(final Node node) {
-            return this.dragNodes.remove(node);
-        }
-
-        public final boolean removeListener(final Listener listener) {
-            return this.dragListeners.remove(listener);
-        }
-
-        public final void setLastMouse(final double lastMouseX, final double lastMouseY) {
-            this.lastMouseX = lastMouseX;
-            this.lastMouseY = lastMouseY;
         }
     }
 }
