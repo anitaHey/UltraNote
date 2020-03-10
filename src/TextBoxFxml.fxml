@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <fx:root fx:id="main_text" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="100.0" stylesheets="@text_style.css" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <VBox fx:id="text_vbox" prefHeight="35.0" prefWidth="100.0">
-         <children>
-            <HBox fx:id="first_hbox" prefHeight="35.0" prefWidth="100.0" />
-         </children>
-      </VBox>
-   </children>
+  <children>
+    <VBox fx:id="text_vbox" prefHeight="35.0" prefWidth="100.0" style="-fx-padding: 5;">
+      <children>
+        <HBox fx:id="first_hbox" prefHeight="35.0" prefWidth="100.0">
+               <children>
+                  <HBox fx:id="fir" prefHeight="100.0" prefWidth="5.0" />
+               </children></HBox>
+      </children>
+    </VBox>
+  </children>
 </fx:root>

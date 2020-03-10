@@ -1,26 +1,22 @@
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.input.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Text_box extends TextFlow {
+public class Text_box extends Pane{
     private int CURRENT_LINE = 0;
     private  boolean isFocused = false;
     Timer timer;
+    HBox hbox_line;
     public Text_box(){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TextBoxFxml.fxml"));
@@ -33,59 +29,35 @@ public class Text_box extends TextFlow {
     }
 
     @FXML
-    TextFlow main_text;
+    Pane main_text;
     @FXML
     VBox text_vbox;
     @FXML
-    HBox first_hbox;
+    HBox first_hbox, fir;
     @FXML
     public void initialize() {
-        listener改成Hbox，最外層border另外設
-        main_text.setOnKeyPressed(e -> {
-            HBox hbox_line;
-            switch(wordInput(e.getCode())){
-                case "word":
-                    HBox word = new HBox();
-                    Text input = new Text(e.getText());
-                    input.setFont(Font.font("Helvetica", FontWeight.BOLD, 20));
-                    word.getChildren().add(input);
-
-                    hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
-                    hbox_line.getChildren().add(word);
-
-                    setHboxFocus(word);
-                    word.requestFocus();
-
-                    if(hbox_line.getWidth()>this.getPrefWidth()-40){
-                        this.setPrefWidth(hbox_line.getWidth()+20);
-                    }
-                    break;
-                case "line":
-                    hbox_line = new HBox();
-                    hbox_line.setMinHeight(30);
-                    text_vbox.getChildren().add(hbox_line);
-                    CURRENT_LINE++;
-                    this.setPrefHeight(text_vbox.getHeight()+35);
-                    break;
-            }
-        });
+        setHboxFocus(fir);
+        setInputListener(fir);
+        Platform.runLater(() -> fir.requestFocus());
         main_text.setOnMouseClicked(e -> {
-            this.requestFocus();
+            focus_border(true);
+            checkClickLine(e);
         });
 
         main_text.setOnDragDetected(e -> {
-            this.requestFocus();
-        });
-
-        main_text.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
-            if (newPropertyValue) {
-                getStyleClass().add("text_border_focus");
-            } else {
-                getStyleClass().clear();
-            }
+            focus_border(true);
         });
 
         Draggable.Nature nature = new Draggable.Nature(main_text);
+    }
+
+    public void focus_border(boolean show){
+        if (show) {
+            main_text.getStyleClass().add("text_border_focus");
+        } else {
+            main_text.getStyleClass().clear();
+//           main_text.getStyleClass().remove("text_border_focus");
+        }
     }
 
     public String wordInput(KeyCode input){
@@ -104,15 +76,18 @@ public class Text_box extends TextFlow {
         });
 
         line.focusedProperty().addListener((observable, wasFocused, focused) -> {
-            System.out.println(line+" "+wasFocused+" "+focused);
+//            System.out.println(line+" "+wasFocused+" "+focused);
             if (focused) {
+                focus_border(true);
                 setTextInputAnimation(line);
             } else {
-                System.out.println();
+                focus_border(false);
                 if(timer!=null)
                     timer.cancel();
             }
         });
+
+        line.requestFocus();
     }
 
     public void setTextInputAnimation(HBox line){
@@ -131,5 +106,71 @@ public class Text_box extends TextFlow {
 
         timer = new Timer();
         timer.schedule(task, 500,1000);
+    }
+
+    public void setInputListener(HBox word_hbox){
+        word_hbox.setOnKeyPressed(e -> {
+            hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
+            int num = hbox_line.getChildren().indexOf(word_hbox);
+            if(num == -1) num = 0;
+
+            HBox word;
+            boolean fir = false;
+            if(word_hbox.getChildren().size() == 0)
+                fir = true;
+
+            switch(wordInput(e.getCode())){
+                case "word":
+                    Text input = new Text(e.getText());
+                    input.setFont(Font.font("Helvetica", FontWeight.BOLD, 20));
+
+                    if(fir) {
+                        word = new HBox();
+                        word.getChildren().add(input);
+
+                        setHboxFocus(word);
+                        setInputListener(word);
+                    } else word = word_hbox;
+
+                    hbox_line.getChildren().add(num, word);
+
+                    if(hbox_line.getWidth()>this.getPrefWidth()-40){
+                        this.setPrefWidth(hbox_line.getWidth()+30);
+                    }
+                    break;
+                case "line":
+                    hbox_line = new HBox();
+                    hbox_line.setMinHeight(30);
+
+                    HBox tem = new HBox();
+                    tem.setPrefHeight(100);
+                    tem.setPrefWidth(5);
+
+                    hbox_line.getChildren().add(tem);
+                    text_vbox.getChildren().add(hbox_line);
+                    CURRENT_LINE++;
+
+                    this.setPrefHeight(text_vbox.getHeight()+35);
+
+                    setHboxFocus(tem);
+                    setInputListener(tem);
+                    break;
+            }
+        });
+    }
+    public void checkClickLine(MouseEvent event){
+        double input_x = event.getSceneX();
+        double input_y = event.getSceneY();
+
+        for(int a = 0 ; a < text_vbox.getChildren().size() ; a++){
+            HBox tem =  (HBox)text_vbox.getChildren().get(a);
+            System.out.println(tem.getLayoutX() +" "+input_x);
+            if(input_x >= tem.getLayoutX() && input_x <= tem.getLayoutX()+tem.getPrefHeight()){
+                CURRENT_LINE = a;
+                System.out.println(a);
+                break;
+            }
+
+        }
     }
 }
