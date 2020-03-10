@@ -1,6 +1,8 @@
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
+import javafx.geometry.Insets;
 import javafx.scene.input.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -94,12 +96,14 @@ public class Text_box extends Pane{
         TimerTask task = new TimerTask(){
             @Override
             public void run() {
+                line.getStyleClass().remove("text_border_none");
                 line.getStyleClass().add("text_border_input");
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
+                line.getStyleClass().add("text_border_none");
                 line.getStyleClass().remove("text_border_input");
             }
         };
@@ -112,27 +116,26 @@ public class Text_box extends Pane{
         word_hbox.setOnKeyPressed(e -> {
             hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
             int num = hbox_line.getChildren().indexOf(word_hbox);
+            int length = hbox_line.getChildren().size()-1;
             if(num == -1) num = 0;
 
             HBox word;
-            boolean fir = false;
-            if(word_hbox.getChildren().size() == 0)
-                fir = true;
-
             switch(wordInput(e.getCode())){
                 case "word":
                     Text input = new Text(e.getText());
                     input.setFont(Font.font("Helvetica", FontWeight.BOLD, 20));
 
-                    if(fir) {
-                        word = new HBox();
-                        word.getChildren().add(input);
+                    word = new HBox();
+                    word.getChildren().add(input);
+                    word.getStyleClass().add("text_border_none");
 
-                        setHboxFocus(word);
-                        setInputListener(word);
-                    } else word = word_hbox;
-
+                    if(num != length) num += 1;
                     hbox_line.getChildren().add(num, word);
+
+                    setHboxFocus(word);
+
+
+                    
 
                     if(hbox_line.getWidth()>this.getPrefWidth()-40){
                         this.setPrefWidth(hbox_line.getWidth()+30);
@@ -145,6 +148,7 @@ public class Text_box extends Pane{
                     HBox tem = new HBox();
                     tem.setPrefHeight(100);
                     tem.setPrefWidth(5);
+                    tem.getStyleClass().add("text_border_none");
 
                     hbox_line.getChildren().add(tem);
                     text_vbox.getChildren().add(hbox_line);
@@ -159,18 +163,21 @@ public class Text_box extends Pane{
         });
     }
     public void checkClickLine(MouseEvent event){
-        double input_x = event.getSceneX();
-        double input_y = event.getSceneY();
+        double input_x = event.getScreenX();
+        double input_y = event.getScreenY();
 
         for(int a = 0 ; a < text_vbox.getChildren().size() ; a++){
             HBox tem =  (HBox)text_vbox.getChildren().get(a);
-            System.out.println(tem.getLayoutX() +" "+input_x);
-            if(input_x >= tem.getLayoutX() && input_x <= tem.getLayoutX()+tem.getPrefHeight()){
+            Bounds bound_tem = tem.localToScreen(tem.getBoundsInLocal());
+
+            if(input_y >= bound_tem.getMinY() && input_y <= bound_tem.getMaxY()){
                 CURRENT_LINE = a;
-                System.out.println(a);
+                HBox last = (HBox)tem.getChildren().get(tem.getChildren().size()-1);
+                Bounds bound_last = last.localToScreen(last.getBoundsInLocal());
+                if(input_x >= bound_last.getMaxX())
+                    last.requestFocus();
                 break;
             }
-
         }
     }
 }

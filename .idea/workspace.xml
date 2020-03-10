@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20200310">
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20200304 Add text input.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/TextBoxFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/TextBoxFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Text_box.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Text_box.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/text_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/text_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TextBoxFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextBoxFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Text_box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Text_box.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/text_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,26 +111,26 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="552" y="327" width="266" height="216" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1583304539757" />
-    <state width="1326" height="148" key="GridCell.Tab.0.bottom" timestamp="1583832799497">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="180" key="GridCell.Tab.0.bottom" timestamp="1583854106462">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="148" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1583832799497" />
-    <state width="1876" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583771627827" />
-    <state width="1326" height="148" key="GridCell.Tab.0.center" timestamp="1583832799496">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583854106462" />
+    <state width="1876" height="180" key="GridCell.Tab.0.center" timestamp="1583854106462">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="148" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1583832799496" />
-    <state width="1876" height="180" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583771627826" />
-    <state width="1326" height="148" key="GridCell.Tab.0.left" timestamp="1583832799496">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="180" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583854106462" />
+    <state width="1876" height="180" key="GridCell.Tab.0.left" timestamp="1583854106462">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="148" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1583832799496" />
-    <state width="1876" height="180" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583771627826" />
-    <state width="1326" height="148" key="GridCell.Tab.0.right" timestamp="1583832799497">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="180" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583854106462" />
+    <state width="1876" height="180" key="GridCell.Tab.0.right" timestamp="1583854106462">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="148" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1583832799497" />
-    <state width="1876" height="180" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583771627827" />
+    <state width="1876" height="180" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583854106462" />
     <state x="440" y="93" key="SettingsEditor" timestamp="1583489423550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -141,9 +144,10 @@
     </state>
     <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1583392663750" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583750624151" />
-    <state x="395" y="228" key="git4idea.merge.GitPullDialog" timestamp="1583373808130">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state x="554" y="272" key="git4idea.merge.GitPullDialog" timestamp="1583843368716">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="395" y="228" key="git4idea.merge.GitPullDialog/0.0.1368.872@0.0.1368.872" timestamp="1583373808130" />
+    <state x="554" y="272" key="git4idea.merge.GitPullDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583843368716" />
   </component>
 </project>

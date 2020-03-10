@@ -8,3 +8,13 @@
     -fx-border-width: 2;
     -fx-border-style: segments(5, 10, 10, 10)  line-cap round ;
 }
+
+.text_border_input{
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: #a39e9e;
+}
+
+.text_border_none{
+    -fx-border-width: 0 0.5 0 0;
+    -fx-border-color: transparent;
+}
