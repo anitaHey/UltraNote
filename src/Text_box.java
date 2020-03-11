@@ -19,6 +19,7 @@ public class Text_box extends Pane{
     private  boolean isFocused = false;
     Timer timer;
     HBox hbox_line;
+    boolean pass = true;
     public Text_box(){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("TextBoxFxml.fxml"));
@@ -62,16 +63,6 @@ public class Text_box extends Pane{
         }
     }
 
-    public String wordInput(KeyCode input){
-        if(input == KeyCode.ENTER){
-            return "line";
-        }else if(input.isDigitKey() || input.isLetterKey() || input.isWhitespaceKey()){
-            return "word";
-        }
-
-        return "";
-    }
-
     public void setHboxFocus(HBox line){
         line.setOnMouseClicked(e -> {
             line.requestFocus();
@@ -96,10 +87,11 @@ public class Text_box extends Pane{
         TimerTask task = new TimerTask(){
             @Override
             public void run() {
+//                System.out.println(line);
                 line.getStyleClass().remove("text_border_none");
                 line.getStyleClass().add("text_border_input");
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(400);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -109,57 +101,12 @@ public class Text_box extends Pane{
         };
 
         timer = new Timer();
-        timer.schedule(task, 500,1000);
+        timer.schedule(task, 400,800);
     }
 
     public void setInputListener(HBox word_hbox){
-        word_hbox.setOnKeyPressed(e -> {
-            hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
-            int num = hbox_line.getChildren().indexOf(word_hbox);
-            int length = hbox_line.getChildren().size()-1;
-            if(num == -1) num = 0;
-
-            HBox word;
-            switch(wordInput(e.getCode())){
-                case "word":
-                    Text input = new Text(e.getText());
-                    input.setFont(Font.font("Helvetica", FontWeight.BOLD, 20));
-
-                    word = new HBox();
-                    word.getChildren().add(input);
-                    word.getStyleClass().add("text_border_none");
-
-                    if(num != length) num += 1;
-                    hbox_line.getChildren().add(num, word);
-
-                    setHboxFocus(word);
-
-
-                    
-
-                    if(hbox_line.getWidth()>this.getPrefWidth()-40){
-                        this.setPrefWidth(hbox_line.getWidth()+30);
-                    }
-                    break;
-                case "line":
-                    hbox_line = new HBox();
-                    hbox_line.setMinHeight(30);
-
-                    HBox tem = new HBox();
-                    tem.setPrefHeight(100);
-                    tem.setPrefWidth(5);
-                    tem.getStyleClass().add("text_border_none");
-
-                    hbox_line.getChildren().add(tem);
-                    text_vbox.getChildren().add(hbox_line);
-                    CURRENT_LINE++;
-
-                    this.setPrefHeight(text_vbox.getHeight()+35);
-
-                    setHboxFocus(tem);
-                    setInputListener(tem);
-                    break;
-            }
+        word_hbox.addEventFilter(KeyEvent.ANY, e -> {
+            input(e, word_hbox);
         });
     }
     public void checkClickLine(MouseEvent event){
@@ -178,6 +125,75 @@ public class Text_box extends Pane{
                     last.requestFocus();
                 break;
             }
+        }
+    }
+
+    public synchronized void input(KeyEvent e, HBox word_hbox){
+        hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
+        int num = hbox_line.getChildren().indexOf(word_hbox);
+        int length = hbox_line.getChildren().size();
+        if(num == -1) num = 0;
+        boolean first = false;
+        if(word_hbox.getChildren().size() == 0)
+            first = true;
+        HBox word;
+        if(e.getEventType().toString().equals("KEY_PRESSED")) {
+            switch(e.getCode()) {
+                case ENTER:
+                    pass = false;
+                    hbox_line = new HBox();
+                    hbox_line.setMinHeight(30);
+
+                    HBox tem = new HBox();
+                    tem.setPrefWidth(5);
+                    tem.getStyleClass().add("text_border_none");
+
+                    hbox_line.getChildren().add(tem);
+                    text_vbox.getChildren().add(hbox_line);
+                    CURRENT_LINE++;
+
+                    this.setPrefHeight(text_vbox.getHeight()+30);
+
+                    setHboxFocus(tem);
+                    setInputListener(tem);
+
+                    break;
+                case LEFT:
+                    if(num>0){
+                        hbox_line.getChildren().get(num-1).requestFocus();
+                    }else{
+                        if(CURRENT_LINE != 0){
+                            CURRENT_LINE--;
+                            hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
+                            hbox_line.getChildren().get(hbox_line.getChildren().size()-1).requestFocus();
+                        }
+                    }
+                    break;
+            }
+        }else if(e.getEventType().toString().equals("KEY_TYPED") && pass) {
+            Text input = new Text(e.getCharacter());
+            input.setFont(Font.font("Helvetica", FontWeight.BOLD, 20));
+
+            if(first){
+                word = word_hbox;
+                word.getChildren().add(input);
+            }else{
+                word = new HBox();
+                word.getChildren().add(input);
+                word.getStyleClass().add("text_border_none");
+
+                if(num != length) num += 1;
+                hbox_line.getChildren().add(num, word);
+
+                setHboxFocus(word);
+                setInputListener(word);
+            }
+
+            if(hbox_line.getWidth()>this.getPrefWidth()-40){
+                this.setPrefWidth(hbox_line.getWidth()+30);
+            }
+        }else{
+            pass = true;
         }
     }
 }

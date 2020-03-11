@@ -8,9 +8,9 @@
   <children>
     <VBox fx:id="text_vbox" prefHeight="35.0" prefWidth="100.0" style="-fx-padding: 5;">
       <children>
-        <HBox fx:id="first_hbox" prefHeight="35.0" prefWidth="100.0">
+        <HBox fx:id="first_hbox" prefHeight="35.0" prefWidth="100.0" >
                <children>
-                  <HBox fx:id="fir" prefHeight="100.0" prefWidth="5.0" styleClass="text_border_none" />
+                  <HBox fx:id="fir" prefWidth="5.0" styleClass="text_border_none" />
                </children></HBox>
       </children>
     </VBox>
