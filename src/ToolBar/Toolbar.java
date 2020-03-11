@@ -1,16 +1,14 @@
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+package ToolBar;
 
-import java.io.IOException;
+import Controller.ToolbarController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.HBox;
 
 public class Toolbar extends HBox {
 
     public Toolbar(){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ToolbarFxml.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/ToolbarFxml.fxml"));
             ToolbarController controller = new ToolbarController();
             loader.setController(controller);
             loader.setRoot(this);

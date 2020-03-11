@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20200310">
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/TextBoxFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/TextBoxFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Text_box.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Text_box.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/text_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/text_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TextBoxFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TextBoxFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Text_box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Text_box.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/text_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/text_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Draggable$Event.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Draggable$Listener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Draggable$Nature.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Draggable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/MainFxml.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/TextBoxFxml.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Text_box.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Toolbar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/ToolbarController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/ToolbarFxml.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/text_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Draggable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Draggable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/MainFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TextBoxFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/TextBoxFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Text_box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Text_box.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Toolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToolBar/Toolbar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ToolbarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ToolbarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ToolbarFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/ToolbarFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/text_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/text_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,10 +53,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files (x86)/Oracle/JavaFX Scene Builder 2.0/JavaFX Scene Builder 2.0.exe" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/css" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="ToolBar" />
+      <recent name="InsertObj" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Desktop\Project\UltraNote\src\css" />
+      <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -82,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583304463150</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="20200311 Input feature revise.">
+      <created>1583856918332</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583856918332</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -90,7 +129,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="20200304 Add text input." />
-    <option name="LAST_COMMIT_MESSAGE" value="20200304 Add text input." />
+    <MESSAGE value="20200311 Input feature revise." />
+    <option name="LAST_COMMIT_MESSAGE" value="20200311 Input feature revise." />
   </component>
   <component name="WindowStateProjectService">
     <state x="196" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583489308957">
@@ -98,39 +138,47 @@
     </state>
     <state x="140" y="92" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872@0.0.1368.872" timestamp="1583287118562" />
     <state x="196" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583489308957" />
+    <state x="690" y="299" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1583926417274">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="299" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583926417274" />
+    <state x="748" y="403" width="424" height="244" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583926507651">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="748" y="403" width="424" height="244" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583926507651" />
     <state x="329" y="30" key="CommitChangelistDialog2" timestamp="1583832862664">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1583832862664" />
-    <state x="653" y="212" key="FileChooserDialogImpl" timestamp="1583489357741">
+    <state x="653" y="212" key="FileChooserDialogImpl" timestamp="1583926383497">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="465" y="178" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1583293282737" />
-    <state x="653" y="212" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583489357741" />
+    <state x="653" y="212" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583926383497" />
     <state x="552" y="327" width="266" height="216" key="Github.ShareDialog" timestamp="1583304539757">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="552" y="327" width="266" height="216" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1583304539757" />
-    <state width="1326" height="148" key="GridCell.Tab.0.bottom" timestamp="1583912566981">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="180" key="GridCell.Tab.0.bottom" timestamp="1583931893144">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="148" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1583912566981" />
-    <state width="1876" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583854106462" />
-    <state width="1326" height="148" key="GridCell.Tab.0.center" timestamp="1583912566981">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583931893144" />
+    <state width="1876" height="180" key="GridCell.Tab.0.center" timestamp="1583931893144">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="148" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1583912566981" />
-    <state width="1876" height="180" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583854106462" />
-    <state width="1326" height="148" key="GridCell.Tab.0.left" timestamp="1583912566981">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="180" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583931893144" />
+    <state width="1876" height="180" key="GridCell.Tab.0.left" timestamp="1583931893144">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="148" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1583912566981" />
-    <state width="1876" height="180" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583854106462" />
-    <state width="1326" height="148" key="GridCell.Tab.0.right" timestamp="1583912566981">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="180" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583931893144" />
+    <state width="1876" height="180" key="GridCell.Tab.0.right" timestamp="1583931893144">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="148" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1583912566981" />
-    <state width="1876" height="180" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583854106462" />
+    <state width="1876" height="180" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583931893144" />
     <state x="440" y="93" key="SettingsEditor" timestamp="1583489423550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -144,10 +192,10 @@
     </state>
     <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1583392663750" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583750624151" />
-    <state x="554" y="272" key="git4idea.merge.GitPullDialog" timestamp="1583843368716">
+    <state x="554" y="272" key="git4idea.merge.GitPullDialog" timestamp="1583917695847">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="395" y="228" key="git4idea.merge.GitPullDialog/0.0.1368.872@0.0.1368.872" timestamp="1583373808130" />
-    <state x="554" y="272" key="git4idea.merge.GitPullDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583843368716" />
+    <state x="554" y="272" key="git4idea.merge.GitPullDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583917695847" />
   </component>
 </project>

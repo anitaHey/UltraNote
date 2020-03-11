@@ -1,3 +1,7 @@
+package Controller;
+
+import Controller.MainController;
+import InsertObj.Text_box;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
