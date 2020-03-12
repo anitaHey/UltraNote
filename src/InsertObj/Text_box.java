@@ -1,6 +1,5 @@
 package InsertObj;
 
-import InsertObj.Draggable;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,18 +15,19 @@ import javafx.scene.text.Text;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Text_box extends Pane{
+public class Text_box extends Pane {
     private int CURRENT_LINE = 0;
     Timer timer;
     HBox hbox_line;
     boolean pass = true;
-    public Text_box(){
-        try{
+
+    public Text_box() {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/TextBoxFxml.fxml"));
             loader.setController(this);
             loader.setRoot(this);
             loader.load();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -38,11 +38,13 @@ public class Text_box extends Pane{
     VBox text_vbox;
     @FXML
     HBox first_hbox, fir;
+
     @FXML
     public void initialize() {
         setHboxFocus(fir);
         setInputListener(fir);
         Platform.runLater(() -> fir.requestFocus());
+
         main_text.setOnMouseClicked(e -> {
             focus_border(true);
             checkClickLine(e);
@@ -52,10 +54,10 @@ public class Text_box extends Pane{
             focus_border(true);
         });
 
-        Draggable.Nature nature = new Draggable.Nature(main_text);
+        new Draggable.Move(main_text);
     }
 
-    public void focus_border(boolean show){
+    public void focus_border(boolean show) {
         if (show) {
             main_text.getStyleClass().add("text_border_focus");
         } else {
@@ -64,7 +66,7 @@ public class Text_box extends Pane{
         }
     }
 
-    public void setHboxFocus(HBox line){
+    public void setHboxFocus(HBox line) {
         line.setOnMouseClicked(e -> {
             line.requestFocus();
         });
@@ -75,7 +77,7 @@ public class Text_box extends Pane{
                 setTextInputAnimation(line);
             } else {
                 focus_border(false);
-                if(timer!=null)
+                if (timer != null)
                     timer.cancel();
             }
         });
@@ -83,14 +85,14 @@ public class Text_box extends Pane{
         line.requestFocus();
     }
 
-    public void setTextInputAnimation(HBox line){
-        TimerTask task = new TimerTask(){
+    public void setTextInputAnimation(HBox line) {
+        TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 line.getStyleClass().remove("text_border_none");
                 line.getStyleClass().add("text_border_input");
                 try {
-                    Thread.sleep(400);
+                    Thread.sleep(300);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -100,154 +102,167 @@ public class Text_box extends Pane{
         };
 
         timer = new Timer();
-        timer.schedule(task, 400,800);
+        timer.schedule(task, 300, 600);
     }
 
-    public void setInputListener(HBox word_hbox){
+    public void setInputListener(HBox word_hbox) {
         word_hbox.addEventFilter(KeyEvent.ANY, e -> {
             input(e, word_hbox);
         });
     }
-    public void checkClickLine(MouseEvent event){
+
+    public void checkClickLine(MouseEvent event) {
         double input_x = event.getScreenX();
         double input_y = event.getScreenY();
 
-        for(int a = 0 ; a < text_vbox.getChildren().size() ; a++){
-            HBox tem =  (HBox)text_vbox.getChildren().get(a);
+        for (int a = 0; a < text_vbox.getChildren().size(); a++) {
+            HBox tem = (HBox) text_vbox.getChildren().get(a);
             Bounds bound_tem = tem.localToScreen(tem.getBoundsInLocal());
 
-            if(input_y >= bound_tem.getMinY() && input_y <= bound_tem.getMaxY()){
+            if (input_y >= bound_tem.getMinY() && input_y <= bound_tem.getMaxY()) {
                 CURRENT_LINE = a;
-                HBox last = (HBox)tem.getChildren().get(tem.getChildren().size()-1);
+                HBox last = (HBox) tem.getChildren().get(tem.getChildren().size() - 1);
                 Bounds bound_last = last.localToScreen(last.getBoundsInLocal());
-                if(input_x >= bound_last.getMaxX())
+                if (input_x >= bound_last.getMaxX())
                     last.requestFocus();
                 break;
             }
         }
     }
 
-    public synchronized void input(KeyEvent e, HBox word_hbox){
-        hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
+    public synchronized void input(KeyEvent e, HBox word_hbox) {
+        hbox_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE);
         int num = hbox_line.getChildren().indexOf(word_hbox);
         int length = hbox_line.getChildren().size();
-        if(num == -1) num = 0;
+        if (num == -1) num = 0;
         HBox word;
 
-        if(e.getEventType().toString().equals("KEY_PRESSED")) {
-            switch(e.getCode()) {
+        if (e.getEventType().toString().equals("KEY_PRESSED")) {
+            switch (e.getCode()) {
                 case ENTER:
                     pass = false;
                     HBox hbox_new_line = new HBox();
                     hbox_new_line.setMinHeight(30);
 
                     HBox tem = new HBox();
-                    tem.setPrefWidth(3);
+                    tem.setPrefWidth(2);
+
                     tem.getStyleClass().add("text_border_none");
 
-
-                    if(num != length-1){
-                        for(int a = length-1;a>num;a--){
-                            HBox old_hbox = (HBox)hbox_line.getChildren().get(a);
-                            hbox_new_line.getChildren().add(0,old_hbox);
+                    if (num != length - 1) {
+                        for (int a = length - 1; a > num; a--) {
+                            HBox old_hbox = (HBox) hbox_line.getChildren().get(a);
+                            hbox_new_line.getChildren().add(0, old_hbox);
                         }
                     }
 
-                    hbox_new_line.getChildren().add(0,tem);
-                    text_vbox.getChildren().add(hbox_new_line);
+                    hbox_new_line.getChildren().add(0, tem);
                     CURRENT_LINE++;
-
-                    this.setPrefHeight(text_vbox.getHeight()+30);
+                    text_vbox.getChildren().add(CURRENT_LINE, hbox_new_line);
 
                     setHboxFocus(tem);
                     setInputListener(tem);
 
-                    hbox_new_line.getChildren().get(hbox_new_line.getChildren().size()-1).requestFocus();
+                    hbox_new_line.getChildren().get(0).requestFocus();
                     break;
                 case BACK_SPACE:
-                    //還沒設長度!!!!!!
-                    //每行hbox設寬度偵測
-                    if(num>0){
+                    pass = false;
+                    if (num > 0) {
                         int lastword = num - 1;
                         Platform.runLater(() -> hbox_line.getChildren().get(lastword).requestFocus());
 
                         hbox_line.getChildren().remove(num);
-                    }else{
-                        if(CURRENT_LINE != 0){
-                            HBox hbox_last_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE-1);
-                            for(int a = 1; a < length;a++){
-                                HBox old_hbox = (HBox)hbox_line.getChildren().get(0);
+
+                    } else {
+                        if (CURRENT_LINE != 0) {
+                            HBox hbox_last_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE - 1);
+                            int last_length = hbox_last_line.getChildren().size();
+                            for (int a = 1; a < length; a++) {
+                                HBox old_hbox = (HBox) hbox_line.getChildren().get(1);
                                 hbox_last_line.getChildren().add(old_hbox);
                             }
                             text_vbox.getChildren().remove(CURRENT_LINE);
                             CURRENT_LINE--;
-                            hbox_last_line.getChildren().get(hbox_last_line.getChildren().size()-1).requestFocus();
+                            hbox_last_line.getChildren().get(last_length - 1).requestFocus();
+                        }
+                    }
+                    break;
+                case DELETE:
+                    pass = false;
+                    if (num < length-1)
+                        hbox_line.getChildren().remove(num+1);
+                    else {
+                        if (CURRENT_LINE != text_vbox.getChildren().size()-1) {
+                            HBox hbox_last_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE + 1);
+                            int last_length = hbox_last_line.getChildren().size();
+                            for (int a = 1; a < last_length; a++) {
+                                HBox old_hbox = (HBox) hbox_last_line.getChildren().get(1);
+                                hbox_line.getChildren().add(old_hbox);
+                            }
+                            text_vbox.getChildren().remove(CURRENT_LINE+1);
+
+                            hbox_line.getChildren().get(length - 1).requestFocus();
                         }
                     }
                     break;
                 case LEFT:
-                    if(num>0)
-                        hbox_line.getChildren().get(num-1).requestFocus();
-                    else{
-                        if(CURRENT_LINE != 0){
+                    if (num > 0)
+                        hbox_line.getChildren().get(num - 1).requestFocus();
+                    else {
+                        if (CURRENT_LINE != 0) {
                             CURRENT_LINE--;
-                            hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
-                            hbox_line.getChildren().get(hbox_line.getChildren().size()-1).requestFocus();
+                            hbox_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE);
+                            hbox_line.getChildren().get(hbox_line.getChildren().size() - 1).requestFocus();
                         }
                     }
                     break;
                 case RIGHT:
-                    if(num < length-1)
-                        hbox_line.getChildren().get(num+1).requestFocus();
-                    else{
-                        if(CURRENT_LINE != text_vbox.getChildren().size()-1){
+                    if (num < length - 1)
+                        hbox_line.getChildren().get(num + 1).requestFocus();
+                    else {
+                        if (CURRENT_LINE != text_vbox.getChildren().size() - 1) {
                             CURRENT_LINE++;
-                            hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
+                            hbox_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE);
                             hbox_line.getChildren().get(0).requestFocus();
                         }
                     }
                     break;
                 case UP:
-                    if(CURRENT_LINE > 0){
+                    if (CURRENT_LINE > 0) {
                         CURRENT_LINE--;
-                        hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
-                        if(num >= hbox_line.getChildren().size())
-                            hbox_line.getChildren().get(hbox_line.getChildren().size()-1).requestFocus();
+                        hbox_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE);
+                        if (num >= hbox_line.getChildren().size())
+                            hbox_line.getChildren().get(hbox_line.getChildren().size() - 1).requestFocus();
                         else
                             hbox_line.getChildren().get(num).requestFocus();
                     }
                     break;
                 case DOWN:
-                    if(CURRENT_LINE < text_vbox.getChildren().size()-1){
+                    if (CURRENT_LINE < text_vbox.getChildren().size() - 1) {
                         CURRENT_LINE++;
-                        hbox_line = (HBox)text_vbox.getChildren().get(CURRENT_LINE);
-                        if(num >= hbox_line.getChildren().size())
-                            hbox_line.getChildren().get(hbox_line.getChildren().size()-1).requestFocus();
+                        hbox_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE);
+                        if (num >= hbox_line.getChildren().size())
+                            hbox_line.getChildren().get(hbox_line.getChildren().size() - 1).requestFocus();
                         else
                             hbox_line.getChildren().get(num).requestFocus();
                     }
                     break;
             }
-        }else if(e.getEventType().toString().equals("KEY_TYPED") && pass) {
+        } else if (e.getEventType().toString().equals("KEY_TYPED") && pass) {
             Text input = new Text(e.getCharacter());
             input.setFont(Font.font("Helvetica", FontWeight.BOLD, 20));
 
 
-                word = new HBox();
-                word.getChildren().add(input);
-                word.getStyleClass().add("text_border_none");
+            word = new HBox();
+            word.getChildren().add(input);
+            word.getStyleClass().add("text_border_none");
 
-                if(num != length) num += 1;
-                hbox_line.getChildren().add(num, word);
+            if (num != length) num += 1;
+            hbox_line.getChildren().add(num, word);
 
-                setHboxFocus(word);
-                setInputListener(word);
-
-
-            if(hbox_line.getWidth()>this.getPrefWidth()-40)
-                this.setPrefWidth(hbox_line.getWidth()+30);
-
-        }else{
+            setHboxFocus(word);
+            setInputListener(word);
+        } else {
             pass = true;
         }
     }

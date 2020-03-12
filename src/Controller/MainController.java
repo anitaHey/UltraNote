@@ -1,5 +1,6 @@
 package Controller;
 
+import InsertObj.Paper;
 import InsertObj.Text_box;
 import ToolBar.Toolbar;
 import javafx.application.Platform;
@@ -56,6 +57,8 @@ public class MainController {
         });
 
         toolbar_tool = new Toolbar();
+
+        Paper.setCurentPaper(paper_pane);
     }
 
     public void change_toolbar(int tool, Button press){

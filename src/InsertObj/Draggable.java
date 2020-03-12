@@ -1,12 +1,15 @@
 package InsertObj;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 public class Draggable {
     public enum Event {
@@ -14,12 +17,12 @@ public class Draggable {
     }
 
     public interface Listener {
-        public void accept(Nature draggableNature, Event dragEvent);
+        public void accept(Move draggableNature, Event dragEvent);
     }
 
-    public static final class Nature implements EventHandler<MouseEvent> {
-        private double lastMouseX = 0, lastMouseY = 0; // scene coords
-
+    public static final class Move implements EventHandler<MouseEvent> {
+        private Pane paper = Paper.getCurentPaper();
+        private double lastMouseX = 0, lastMouseY = 0;
         private boolean dragging = false;
 
         private final boolean enabled = true;
@@ -27,11 +30,11 @@ public class Draggable {
         private final List<Node> dragNodes = new ArrayList<>();
         private final List<Listener> dragListeners = new ArrayList<>();
 
-        public Nature(final Node node) {
+        public Move(final Node node) {
             this(node, node);
         }
 
-        public Nature(final Node eventNode, final Node... dragNodes) {
+        public Move(final Node eventNode, final Node... dragNodes) {
             this.eventNode = eventNode;
             this.dragNodes.addAll(Arrays.asList(dragNodes));
             this.eventNode.addEventHandler(MouseEvent.ANY, this);
@@ -53,12 +56,24 @@ public class Draggable {
                     }
                 }
                 if (this.dragging) {
-                    final double deltaX = event.getSceneX() - this.lastMouseX;
-                    final double deltaY = event.getSceneY() - this.lastMouseY;
+
+                    double deltaX = event.getSceneX() - this.lastMouseX;
+                    double deltaY = event.getSceneY() - this.lastMouseY;
+//                    System.out.println("X : "+event.getSceneX()+" "+this.lastMouseX+" = "+deltaX);
+//                    System.out.println("Y : "+event.getSceneY()+" "+this.lastMouseY+" = "+deltaY);
 
                     for (final Node dragNode : this.dragNodes) {
                         final double initialTranslateX = dragNode.getTranslateX();
                         final double initialTranslateY = dragNode.getTranslateY();
+
+                        Bounds bounds = paper.getBoundsInLocal();
+                        Bounds dragNodeBounds = dragNode.localToScreen(bounds);
+
+                        System.out.println("X: "+bounds.getMinX()+","+dragNodeBounds.getMinX());
+                        System.out.println("Y: "+bounds.getMinY()+","+dragNodeBounds.getMinY());
+                        if(dragNodeBounds.getMinX()<bounds.getMinX()||dragNodeBounds.getMaxX()>bounds.getMaxX()) deltaX = 0;
+                        if(dragNodeBounds.getMinY()<bounds.getMinY()||dragNodeBounds.getMaxY()>bounds.getMaxY()) deltaY = 0;
+
                         dragNode.setTranslateX(initialTranslateX + deltaX);
                         dragNode.setTranslateY(initialTranslateY + deltaY);
                     }
