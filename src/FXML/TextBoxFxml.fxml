@@ -4,15 +4,18 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root fx:id="main_text" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/text_style.css" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="main_text" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-insets: 5,0,0,0;" stylesheets="@../css/text_style.css" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <VBox fx:id="text_vbox" prefHeight="35.0" prefWidth="100.0" style="-fx-padding: 5;">
+    <VBox fx:id="text_vbox" prefHeight="45.0" prefWidth="100.0">
       <children>
-        <HBox fx:id="first_hbox" prefHeight="30.0" prefWidth="100.0">
+        <HBox fx:id="first_hbox" prefHeight="40.0" prefWidth="100.0">
                <children>
                   <HBox fx:id="fir" prefWidth="2.0" styleClass="text_border_none" />
                </children></HBox>
       </children>
+         <padding>
+            <Insets bottom="0" left="15.0" right="15.0" top="15.0" />
+         </padding>
     </VBox>
   </children>
 </fx:root>

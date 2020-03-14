@@ -18,3 +18,7 @@
     -fx-border-width: 0 1 0 0;
     -fx-border-color: transparent;
 }
+
+.text_select{
+    -fx-background-color: #a39e9e;
+}

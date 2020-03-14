@@ -2,6 +2,7 @@ package InsertObj;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -42,37 +43,45 @@ public class Draggable {
 
         @Override
         public final void handle(final MouseEvent event) {
-            if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
+            if(MouseEvent.MOUSE_MOVED == event.getEventType()){
+                for (final Node dragNode : this.dragNodes) {
+                    if (isBorder(dragNode, event)) {
+                        paper.setCursor(Cursor.MOVE);
+                    }else{
+                        paper.setCursor(Cursor.TEXT);
+                    }
+                }
+            } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
                 if (this.enabled && this.eventNode.contains(event.getX(), event.getY())) {
                     this.lastMouseX = event.getSceneX();
                     this.lastMouseY = event.getSceneY();
+                    for (final Node dragNode : this.dragNodes) {
+                        if (isBorder(dragNode, event)) {
+                            paper.setCursor(Cursor.MOVE);
+                            this.dragging = true;
+                            for (final Listener listener : this.dragListeners) {
+                                listener.accept(this, Draggable.Event.DragStart);
+                            }
+                        }
+                    }
                     event.consume();
                 }
             } else if (MouseEvent.MOUSE_DRAGGED == event.getEventType()) {
-                if (!this.dragging) {
-                    this.dragging = true;
-                    for (final Listener listener : this.dragListeners) {
-                        listener.accept(this, Draggable.Event.DragStart);
-                    }
-                }
                 if (this.dragging) {
-
                     double deltaX = event.getSceneX() - this.lastMouseX;
                     double deltaY = event.getSceneY() - this.lastMouseY;
-//                    System.out.println("X : "+event.getSceneX()+" "+this.lastMouseX+" = "+deltaX);
-//                    System.out.println("Y : "+event.getSceneY()+" "+this.lastMouseY+" = "+deltaY);
 
                     for (final Node dragNode : this.dragNodes) {
                         final double initialTranslateX = dragNode.getTranslateX();
                         final double initialTranslateY = dragNode.getTranslateY();
 
-                        Bounds bounds = paper.getBoundsInLocal();
-                        Bounds dragNodeBounds = dragNode.localToScreen(bounds);
+                        Bounds dragNodeBounds = dragNode.getBoundsInParent();
 
-                        System.out.println("X: "+bounds.getMinX()+","+dragNodeBounds.getMinX());
-                        System.out.println("Y: "+bounds.getMinY()+","+dragNodeBounds.getMinY());
-                        if(dragNodeBounds.getMinX()<bounds.getMinX()||dragNodeBounds.getMaxX()>bounds.getMaxX()) deltaX = 0;
-                        if(dragNodeBounds.getMinY()<bounds.getMinY()||dragNodeBounds.getMaxY()>bounds.getMaxY()) deltaY = 0;
+                        if(dragNodeBounds.getMinX()< 0) deltaX = 1;
+                        else if(dragNodeBounds.getMaxX()>paper.getWidth()) deltaX = -1;
+
+                        if(dragNodeBounds.getMinY()< 0) deltaY = 1;
+                        else if(dragNodeBounds.getMaxY()>paper.getHeight()) deltaY = -1;
 
                         dragNode.setTranslateX(initialTranslateX + deltaX);
                         dragNode.setTranslateY(initialTranslateY + deltaY);
@@ -94,7 +103,19 @@ public class Draggable {
                         listener.accept(this, Draggable.Event.DragEnd);
                     }
                 }
+            }else if(MouseEvent.MOUSE_EXITED == event.getEventType()){
+                paper.setCursor(Cursor.DEFAULT);
             }
+        }
+
+        public boolean isBorder(Node dragNode, MouseEvent event){
+                Bounds dragNodeBounds = dragNode.getBoundsInParent();
+                Boolean top = (Math.abs(event.getY()) <= 15);
+                Boolean bottom = (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= 15);
+                Boolean left = (Math.abs(event.getX()) <= 15);
+                Boolean right = (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 15);
+
+            return top || bottom || left || right;
         }
     }
 }
