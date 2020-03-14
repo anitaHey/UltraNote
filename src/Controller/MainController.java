@@ -40,28 +40,27 @@ public class MainController {
         setInstance(this);
 
         exit.setOnAction(actionEvent -> Platform.exit());
+//        toolbar_tool = new Toolbar();
         toolbar_file.setOnAction(actionEvent -> {
-            change_toolbar(1, toolbar_file);
+            change_toolbar(1, toolbar_file, Toolbar.Type.FileFXML);
         });
         toolbar_view.setOnAction(actionEvent -> {
-            change_toolbar(2, toolbar_view);
+            change_toolbar(2, toolbar_view, Toolbar.Type.ViewFXML);
         });
         toolbar_insert.setOnAction(actionEvent -> {
-            change_toolbar(3, toolbar_insert);
+            change_toolbar(3, toolbar_insert, Toolbar.Type.InsertFXML);
         });
         toolbar_text.setOnAction(actionEvent -> {
-            change_toolbar(4, toolbar_text);
+            change_toolbar(4, toolbar_text, Toolbar.Type.TextFXML);
         });
         toolbar_draw.setOnAction(actionEvent -> {
-            change_toolbar(5, toolbar_draw);
+            change_toolbar(5, toolbar_draw, Toolbar.Type.DrawFXML);
         });
-
-        toolbar_tool = new Toolbar();
 
         Paper.setCurentPaper(paper_pane);
     }
 
-    public void change_toolbar(int tool, Button press){
+    public void change_toolbar(int tool, Button press, Toolbar.Type type){
         if(toolbar == tool) {
             toolbar = -1;
             toolbar_vbox.getChildren().remove(2);
@@ -69,10 +68,12 @@ public class MainController {
             press.getStyleClass().remove("toolbar_button_press");
         }else if(toolbar == -1){
             toolbar = tool;
+            toolbar_tool = new Toolbar(type);
+//            toolbar_tool.change(type);
             toolbar_vbox.getChildren().add(2, toolbar_tool);
             work_scroll.setPrefHeight(500);
             press.getStyleClass().add("toolbar_button_press");
-        }else {
+        } else {
             toolbar_file.getStyleClass().remove("toolbar_button_press");
             toolbar_view.getStyleClass().remove("toolbar_button_press");
             toolbar_insert.getStyleClass().remove("toolbar_button_press");
@@ -80,6 +81,10 @@ public class MainController {
             toolbar_draw.getStyleClass().remove("toolbar_button_press");
 
             toolbar = tool;
+            toolbar_tool = new Toolbar(type);
+            toolbar_vbox.getChildren().remove(2);
+            toolbar_vbox.getChildren().add(2, toolbar_tool);
+//            toolbar_tool.change(type);
             press.getStyleClass().add("toolbar_button_press");
         }
     }
