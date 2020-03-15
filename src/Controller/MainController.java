@@ -42,19 +42,19 @@ public class MainController {
         exit.setOnAction(actionEvent -> Platform.exit());
 //        toolbar_tool = new Toolbar();
         toolbar_file.setOnAction(actionEvent -> {
-            change_toolbar(1, toolbar_file, Toolbar.Type.FileFXML);
+            change_toolbar(1, toolbar_file, Toolbar.Type.File);
         });
         toolbar_view.setOnAction(actionEvent -> {
-            change_toolbar(2, toolbar_view, Toolbar.Type.ViewFXML);
+            change_toolbar(2, toolbar_view, Toolbar.Type.View);
         });
         toolbar_insert.setOnAction(actionEvent -> {
-            change_toolbar(3, toolbar_insert, Toolbar.Type.InsertFXML);
+            change_toolbar(3, toolbar_insert, Toolbar.Type.Insert);
         });
         toolbar_text.setOnAction(actionEvent -> {
-            change_toolbar(4, toolbar_text, Toolbar.Type.TextFXML);
+            change_toolbar(4, toolbar_text, Toolbar.Type.Text);
         });
         toolbar_draw.setOnAction(actionEvent -> {
-            change_toolbar(5, toolbar_draw, Toolbar.Type.DrawFXML);
+            change_toolbar(5, toolbar_draw, Toolbar.Type.Draw);
         });
 
         Paper.setCurentPaper(paper_pane);

@@ -1,35 +1,34 @@
 package ToolBar;
 
-import Controller.ToolbarController;
+import Controller.*;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.layout.HBox;
 
 public class Toolbar extends HBox {
-    ToolbarController controller;
     public enum Type{
-        FileFXML("../FXML/Toolbar_FileFxml.fxml"),
-        ViewFXML("../FXML/Toolbar_ViewFxml.fxml"),
-        InsertFXML("../FXML/Toolbar_InsertFxml.fxml"),
-        TextFXML("../FXML/Toolbar_TextFxml.fxml"),
-        DrawFXML("../FXML/Toolbar_DrawFxml.fxml");
+        File("../FXML/Toolbar_FileFxml.fxml", new Toolbar_FileController()),
+        View("../FXML/Toolbar_ViewFxml.fxml", new Toolbar_ViewController()),
+        Insert("../FXML/Toolbar_InsertFxml.fxml", new Toolbar_InsertController()),
+        Text("../FXML/Toolbar_TextFxml.fxml", new Toolbar_TextController()),
+        Draw("../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController());
 
         private final String URL;
+        private final Object controller;
 
-        Type(String url){
+        Type(String url, Object controller){
             this.URL = url;
+            this.controller = controller;
         }
     }
 
     public Toolbar(Type type){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource(type.URL));
-            controller = new ToolbarController();
-            loader.setController(this);
+            loader.setController(type.controller);
             loader.setRoot(this);
             loader.load();
         }catch (Exception e){
-            System.out.println(e);
+//            System.out.println(e);
         }
     }
 

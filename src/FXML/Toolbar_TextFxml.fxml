@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -9,14 +10,6 @@
 <?import javafx.scene.layout.*?>
 
 <fx:root prefHeight="115.0" prefWidth="990.0" spacing="15.0" stylesheets="@../css/style.css" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <VBox fx:id="toolbar_insert_text" prefHeight="61.0" prefWidth="117.0" styleClass="toolbar_sm_button">
-         <children>
-            <Label prefHeight="71.0" prefWidth="114.0" styleClass="toolbar_button_label" text="文字" />
-         </children>
-      </VBox>
-      <Label text="text" />
-   </children>
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
    </padding>
@@ -24,4 +17,15 @@
       <String fx:value="toolbar_tool_hbox" />
       <String fx:value="font_size" />
    </styleClass>
+   <children>
+      <HBox prefHeight="55.0" prefWidth="257.0">
+         <children>
+            <Button fx:id="text_bold" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="B" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
 </fx:root>

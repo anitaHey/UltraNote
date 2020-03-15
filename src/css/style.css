@@ -56,6 +56,7 @@
 }
 
 .toolbar_sm_button{
+    -fx-background-color: transparent;
     -fx-border-width:2px;
     -fx-border-color: #a1a8ad;
 }
@@ -71,6 +72,7 @@
 .toolbar_button_label{
     -fx-alignment:CENTER;
 }
+
 .work_area{
     -fx-background-color:#EAEAEA;
 }

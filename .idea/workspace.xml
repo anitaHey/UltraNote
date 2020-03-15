@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FXML/Toolbar_FileFxml.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FXML/Toolbar_TextFxml.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FXML/Toolbar_ViewFxml.fxml" afterDir="false" />
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20200310">
+      <change afterPath="$PROJECT_DIR$/src/Controller/Toolbar_DrawController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Toolbar_FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Toolbar_TextController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Toolbar_ViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/ToolbarFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_DrawFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ToolbarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_DrawFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_DrawFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_FileFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_FileFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_TextFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_TextFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_ViewFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_ViewFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/Text_box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Text_box.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ToolBar/Toolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToolBar/Toolbar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,16 +48,19 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Desktop\Project\UltraNote\src\css" />
+      <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="InsertObj" />
       <recent name="" />
       <recent name="ToolBar" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Desktop\Project\UltraNote\src\css" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
     </key>
   </component>
@@ -149,29 +159,33 @@
     </state>
     <state x="465" y="178" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1583293282737" />
     <state x="653" y="212" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583926383497" />
+    <state x="509" y="333" width="372" height="205" key="Github.CreateGistDialog" timestamp="1584244802196">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="509" y="333" width="372" height="205" key="Github.CreateGistDialog/0.0.1368.872@0.0.1368.872" timestamp="1584244802196" />
     <state x="552" y="327" width="266" height="216" key="Github.ShareDialog" timestamp="1583304539757">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="552" y="327" width="266" height="216" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1583304539757" />
-    <state width="1876" height="258" key="GridCell.Tab.0.bottom" timestamp="1584200373761">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="148" key="GridCell.Tab.0.bottom" timestamp="1584244016039">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="148" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1584000179073" />
+    <state width="1326" height="148" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1584244016039" />
     <state width="1876" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1584200373761" />
-    <state width="1876" height="258" key="GridCell.Tab.0.center" timestamp="1584200373761">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="148" key="GridCell.Tab.0.center" timestamp="1584244016039">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="148" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1584000179073" />
+    <state width="1326" height="148" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1584244016039" />
     <state width="1876" height="258" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1584200373761" />
-    <state width="1876" height="258" key="GridCell.Tab.0.left" timestamp="1584200373761">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="148" key="GridCell.Tab.0.left" timestamp="1584244016039">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="148" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1584000179073" />
+    <state width="1326" height="148" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1584244016039" />
     <state width="1876" height="258" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1584200373761" />
-    <state width="1876" height="258" key="GridCell.Tab.0.right" timestamp="1584200373761">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="148" key="GridCell.Tab.0.right" timestamp="1584244016039">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="148" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1584000179073" />
+    <state width="1326" height="148" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1584244016039" />
     <state width="1876" height="258" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1584200373761" />
     <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1584157256423">
       <screen x="0" y="0" width="1920" height="1040" />

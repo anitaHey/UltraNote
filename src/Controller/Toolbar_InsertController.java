@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-public class ToolbarController {
+public class Toolbar_InsertController {
     private MainController controller = MainController.getInstance();
     @FXML
     VBox toolbar_insert_text;

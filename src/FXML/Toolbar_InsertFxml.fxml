@@ -15,7 +15,6 @@
             <Label prefHeight="71.0" prefWidth="114.0" styleClass="toolbar_button_label" text="文字" />
          </children>
       </VBox>
-      <Label text="insert" />
    </children>
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
