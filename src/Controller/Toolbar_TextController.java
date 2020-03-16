@@ -57,6 +57,7 @@ public class Toolbar_TextController {
                     }
                 }
                 text_hbox.get(0).requestFocus();
+                setBoldPressed(getInstance().text_hbox);
             }
         });
 
@@ -67,17 +68,18 @@ public class Toolbar_TextController {
                     if (textHbox.getChildren().size() > 0) {
                         Text text = (Text) textHbox.getChildren().get(0);
                         if (getInstance().press_italic)
-                            text.getStyleClass().remove("text_italic");
-                        else if (!text.getStyleClass().contains("text_italic")){
-                            text.setFont(Font.font("serif", 20));
-                            text.getStyleClass().add("text_italic");
+                            text.setFont(Font.font(text.getFont().getFamily(), FontPosture.REGULAR, text.getFont().getSize()));
+                        else {
+                            text.setFont(Font.font(text.getFont().getFamily(), FontPosture.ITALIC, text.getFont().getSize()));
+//                            text.getStyleClass().add("text_italic");
 
 //                            text.setFont(Font.font("serif", FontPosture.ITALIC, 14));
                         }
-                        System.out.println(text);
+//                        System.out.println(text);
                     }
                 }
                 text_hbox.get(0).requestFocus();
+                setItalicPressed(getInstance().text_hbox);
             }
         });
     }
@@ -91,7 +93,7 @@ public class Toolbar_TextController {
 
     public void setBoldPressed(ArrayList<HBox> hbox){
         getInstance().text_bold.getStyleClass().remove("toolbar_sm_button_pressed");
-        getInstance().press_bold = true;
+        getInstance().press_bold = hbox.size() != 0;
         for (HBox hBox : hbox) {
             if (hBox.getChildren().size() > 0) {
                 Text text = (Text) hBox.getChildren().get(0);
@@ -101,22 +103,28 @@ public class Toolbar_TextController {
                 }
             }
         }
-        if (getInstance().press_bold) getInstance().text_bold.getStyleClass().add("toolbar_sm_button_pressed");
+
+        if (getInstance().press_bold)
+            if(!getInstance().text_bold.getStyleClass().contains("toolbar_sm_button_pressed"))
+                getInstance().text_bold.getStyleClass().add("toolbar_sm_button_pressed");
     }
 
     public void setItalicPressed(ArrayList<HBox> hbox){
         getInstance().text_italic.getStyleClass().remove("toolbar_sm_button_pressed");
-        getInstance().press_italic = true;
+        getInstance().press_italic = hbox.size() != 0;
         for (HBox hBox : hbox) {
             if (hBox.getChildren().size() > 0) {
                 Text text = (Text) hBox.getChildren().get(0);
-                if (!text.getStyleClass().contains("text_italic")) {
+                if(!text.getFont().getStyle().contains("Italic")){
+//                if (!text.getStyleClass().contains("text_italic")) {
                     getInstance().press_italic = false;
                     break;
                 }
             }
         }
-        if (getInstance().press_italic) getInstance().text_italic.getStyleClass().add("toolbar_sm_button_pressed");
+        if (getInstance().press_italic)
+            if(!getInstance().text_italic.getStyleClass().contains("toolbar_sm_button_pressed"))
+                getInstance().text_italic.getStyleClass().add("toolbar_sm_button_pressed");
     }
 
     public void clearCurentText() {

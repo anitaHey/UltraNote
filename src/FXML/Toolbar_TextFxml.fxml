@@ -23,7 +23,7 @@
          <children>
             <Button fx:id="text_bold" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="B" textAlignment="JUSTIFY">
                <font>
-                  <Font name="Serif Bold" size="28.0" />
+                  <Font name="Microsoft JhengHei Bold" size="28.0" />
                </font>
             </Button>
             <Button fx:id="text_italic" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="I" textAlignment="JUSTIFY">
