@@ -81,10 +81,6 @@
     -fx-alignment:CENTER;
 }
 
-.text_bold{
-    -fx-font-weight: bold;
-}
-
 .work_area{
     -fx-background-color:#EAEAEA;
 }

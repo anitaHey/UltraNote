@@ -4,8 +4,12 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root fx:id="main_text" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-insets: 5,0,0,0;" stylesheets="@../css/text_style.css" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
+<?import java.net.URL?>
+<fx:root fx:id="main_text" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-insets: 5,0,0,0;" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <styleClass>
+        <String fx:value="font_size" />
+    </styleClass>
+    <children>
     <VBox fx:id="text_vbox" prefHeight="45.0" prefWidth="100.0">
       <children>
         <HBox fx:id="first_hbox" prefHeight="40.0" prefWidth="100.0">
@@ -18,4 +22,8 @@
          </padding>
     </VBox>
   </children>
+    <stylesheets>
+        <URL value="@../css/text_style.css" />
+        <URL value="@../css/text_box.css" />
+    </stylesheets>
 </fx:root>

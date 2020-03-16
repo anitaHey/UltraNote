@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root prefHeight="115.0" prefWidth="990.0" spacing="15.0" stylesheets="@../css/style.css" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="115.0" prefWidth="990.0" spacing="15.0" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
    </padding>
@@ -18,14 +19,22 @@
       <String fx:value="font_size" />
    </styleClass>
    <children>
-      <HBox prefHeight="55.0" prefWidth="257.0">
+      <HBox prefHeight="55.0" prefWidth="257.0" spacing="15.0">
          <children>
             <Button fx:id="text_bold" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="B" textAlignment="JUSTIFY">
                <font>
-                  <Font name="System Bold" size="28.0" />
+                  <Font name="Serif Bold" size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="text_italic" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="I" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="Serif Italic" size="28.0" />
                </font>
             </Button>
          </children>
       </HBox>
    </children>
+   <stylesheets>
+      <URL value="@../css/style.css" />
+   </stylesheets>
 </fx:root>

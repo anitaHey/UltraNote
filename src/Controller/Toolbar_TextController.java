@@ -7,14 +7,19 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Toolbar_TextController {
     private static Toolbar_TextController instance;
     ArrayList<HBox> text_hbox = null;
-    Boolean press;
+    Boolean press_bold;
+    Boolean press_italic;
 
     public static Toolbar_TextController getInstance() {
         if (instance == null) {
@@ -28,43 +33,90 @@ public class Toolbar_TextController {
     }
 
     @FXML
-    Button text_bold;
+    Button text_bold, text_italic;
 
     @FXML
     public void initialize() {
         setInstance(this);
 
+//        press.put("bold",false);
+//        press.put("italic",false);
+
         text_bold.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            setBoldPressed(getInstance().text_hbox);
             if (getInstance().text_hbox != null) {
                 for (HBox textHbox : getInstance().text_hbox) {
                     if (textHbox.getChildren().size() > 0) {
                         Text text = (Text) textHbox.getChildren().get(0);
-                        System.out.println(text);
-                        if (getInstance().press)
+                        if (getInstance().press_bold)
                             text.getStyleClass().remove("text_bold");
-                        else if (!text.getStyleClass().contains("text_bold")) text.getStyleClass().add("text_bold");
+                        else if (!text.getStyleClass().contains("text_bold")){
+                            text.getStyleClass().add("text_bold");
+                        }
+                        System.out.println(text);
                     }
                 }
+                text_hbox.get(0).requestFocus();
+            }
+        });
+
+        text_italic.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            setItalicPressed(getInstance().text_hbox);
+            if (getInstance().text_hbox != null) {
+                for (HBox textHbox : getInstance().text_hbox) {
+                    if (textHbox.getChildren().size() > 0) {
+                        Text text = (Text) textHbox.getChildren().get(0);
+                        if (getInstance().press_italic)
+                            text.getStyleClass().remove("text_italic");
+                        else if (!text.getStyleClass().contains("text_italic")){
+                            text.setFont(Font.font("serif", 20));
+                            text.getStyleClass().add("text_italic");
+
+//                            text.setFont(Font.font("serif", FontPosture.ITALIC, 14));
+                        }
+                        System.out.println(text);
+                    }
+                }
+                text_hbox.get(0).requestFocus();
             }
         });
     }
 
     public void setCurentText(ArrayList<HBox> hbox) {
         getInstance().text_hbox = hbox;
-        getInstance().text_bold.getStyleClass().remove("toolbar_sm_button_pressed");
 
-        getInstance().press = true;
+        setBoldPressed(hbox);
+        setItalicPressed(hbox);
+    }
+
+    public void setBoldPressed(ArrayList<HBox> hbox){
+        getInstance().text_bold.getStyleClass().remove("toolbar_sm_button_pressed");
+        getInstance().press_bold = true;
         for (HBox hBox : hbox) {
             if (hBox.getChildren().size() > 0) {
                 Text text = (Text) hBox.getChildren().get(0);
                 if (!text.getStyleClass().contains("text_bold")) {
-                    getInstance().press = false;
+                    getInstance().press_bold = false;
                     break;
                 }
             }
         }
+        if (getInstance().press_bold) getInstance().text_bold.getStyleClass().add("toolbar_sm_button_pressed");
+    }
 
-        if (getInstance().press) getInstance().text_bold.getStyleClass().add("toolbar_sm_button_pressed");
+    public void setItalicPressed(ArrayList<HBox> hbox){
+        getInstance().text_italic.getStyleClass().remove("toolbar_sm_button_pressed");
+        getInstance().press_italic = true;
+        for (HBox hBox : hbox) {
+            if (hBox.getChildren().size() > 0) {
+                Text text = (Text) hBox.getChildren().get(0);
+                if (!text.getStyleClass().contains("text_italic")) {
+                    getInstance().press_italic = false;
+                    break;
+                }
+            }
+        }
+        if (getInstance().press_italic) getInstance().text_italic.getStyleClass().add("toolbar_sm_button_pressed");
     }
 
     public void clearCurentText() {

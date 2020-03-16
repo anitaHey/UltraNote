@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-//粗字體能連續!!!!!!!!!!!!!!!!!!!!!!!!
+
 public class Text_box extends Pane {
     private int CURRENT_LINE = 0;
     Timer timer;
