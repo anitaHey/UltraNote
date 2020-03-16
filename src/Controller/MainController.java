@@ -36,43 +36,90 @@ public class MainController {
         instance = newInstance;
     }
 
+    public enum Type{
+        File(1,"../FXML/Toolbar_FileFxml.fxml", new Toolbar_FileController()),
+        View(2,"../FXML/Toolbar_ViewFxml.fxml", new Toolbar_ViewController()),
+        Insert(3,"../FXML/Toolbar_InsertFxml.fxml", new Toolbar_InsertController()),
+        Text(4,"../FXML/Toolbar_TextFxml.fxml", new Toolbar_TextController()),
+        Draw(5,"../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController());
+
+        private final int id;
+        private Button btn;
+        private final String URL;
+        private final Object controller;
+
+        Type(int id, String url, Object controller){
+            this.id = id;
+            this.URL = url;
+            this.controller = controller;
+        }
+
+        public void setBtn(Button btn){
+            this.btn = btn;
+        }
+
+        public String getURL(){
+            return URL;
+        }
+
+        public Object getController(){
+            return controller;
+        }
+
+        public int getId(){
+            return id;
+        }
+
+        public Button getButton(){
+            return btn;
+        }
+    }
+
     public void Init() {
         setInstance(this);
+
+        Type.File.setBtn(toolbar_file);
+        Type.View.setBtn(toolbar_view);
+        Type.Insert.setBtn(toolbar_insert);
+        Type.Text.setBtn(toolbar_text);
+        Type.Draw.setBtn(toolbar_draw);
 
         exit.setOnAction(actionEvent -> Platform.exit());
 //        toolbar_tool = new Toolbar();
         toolbar_file.setOnAction(actionEvent -> {
-            change_toolbar(1, toolbar_file, Toolbar.Type.File);
+            change_toolbar(Type.File, true);
         });
         toolbar_view.setOnAction(actionEvent -> {
-            change_toolbar(2, toolbar_view, Toolbar.Type.View);
+            change_toolbar(Type.View, true);
         });
         toolbar_insert.setOnAction(actionEvent -> {
-            change_toolbar(3, toolbar_insert, Toolbar.Type.Insert);
+            change_toolbar(Type.Insert, true);
         });
         toolbar_text.setOnAction(actionEvent -> {
-            change_toolbar(4, toolbar_text, Toolbar.Type.Text);
+            change_toolbar(Type.Text, true);
         });
         toolbar_draw.setOnAction(actionEvent -> {
-            change_toolbar(5, toolbar_draw, Toolbar.Type.Draw);
+            change_toolbar(Type.Draw, true);
         });
 
         Paper.setCurentPaper(paper_pane);
     }
 
-    public void change_toolbar(int tool, Button press, Toolbar.Type type){
-        if(toolbar == tool) {
-            toolbar = -1;
-            toolbar_vbox.getChildren().remove(2);
-            work_scroll.setPrefHeight(615);
-            press.getStyleClass().remove("toolbar_button_press");
+    public void change_toolbar(Type type, boolean close){
+        if(toolbar == type.getId()) {
+            if(close){
+                toolbar = -1;
+                toolbar_vbox.getChildren().remove(2);
+                work_scroll.setPrefHeight(615);
+                type.getButton().getStyleClass().remove("toolbar_button_press");
+            }
         }else if(toolbar == -1){
-            toolbar = tool;
+            toolbar = type.getId();
             toolbar_tool = new Toolbar(type);
 //            toolbar_tool.change(type);
             toolbar_vbox.getChildren().add(2, toolbar_tool);
             work_scroll.setPrefHeight(500);
-            press.getStyleClass().add("toolbar_button_press");
+            type.getButton().getStyleClass().add("toolbar_button_press");
         } else {
             toolbar_file.getStyleClass().remove("toolbar_button_press");
             toolbar_view.getStyleClass().remove("toolbar_button_press");
@@ -80,12 +127,12 @@ public class MainController {
             toolbar_text.getStyleClass().remove("toolbar_button_press");
             toolbar_draw.getStyleClass().remove("toolbar_button_press");
 
-            toolbar = tool;
+            toolbar = type.getId();
             toolbar_tool = new Toolbar(type);
             toolbar_vbox.getChildren().remove(2);
             toolbar_vbox.getChildren().add(2, toolbar_tool);
 //            toolbar_tool.change(type);
-            press.getStyleClass().add("toolbar_button_press");
+            type.getButton().getStyleClass().add("toolbar_button_press");
         }
     }
 

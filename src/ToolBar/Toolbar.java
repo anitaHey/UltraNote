@@ -5,26 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
 
 public class Toolbar extends HBox {
-    public enum Type{
-        File("../FXML/Toolbar_FileFxml.fxml", new Toolbar_FileController()),
-        View("../FXML/Toolbar_ViewFxml.fxml", new Toolbar_ViewController()),
-        Insert("../FXML/Toolbar_InsertFxml.fxml", new Toolbar_InsertController()),
-        Text("../FXML/Toolbar_TextFxml.fxml", new Toolbar_TextController()),
-        Draw("../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController());
-
-        private final String URL;
-        private final Object controller;
-
-        Type(String url, Object controller){
-            this.URL = url;
-            this.controller = controller;
-        }
-    }
-
-    public Toolbar(Type type){
+    public Toolbar(MainController.Type type){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(type.URL));
-            loader.setController(type.controller);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(type.getURL()));
+            loader.setController(type.getController());
             loader.setRoot(this);
             loader.load();
         }catch (Exception e){

@@ -1,5 +1,7 @@
 package InsertObj;
 
+import Controller.MainController;
+import Controller.Toolbar_TextController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +17,7 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-
+//粗字體能連續!!!!!!!!!!!!!!!!!!!!!!!!
 public class Text_box extends Pane {
     private int CURRENT_LINE = 0;
     Timer timer;
@@ -23,7 +25,7 @@ public class Text_box extends Pane {
     boolean pass = true;
     int[] select_text = {-1, -1};
     ArrayList<HBox> select_text_hbox = new ArrayList<>();
-
+    Toolbar_TextController controller = Toolbar_TextController.getInstance();
     public Text_box() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/TextBoxFxml.fxml"));
@@ -47,10 +49,12 @@ public class Text_box extends Pane {
         setHboxFocus(fir);
         setInputListener(fir);
         Platform.runLater(() -> fir.requestFocus());
+        MainController.getInstance().change_toolbar(MainController.Type.Text,false);
 
         main_text.setOnMouseClicked(e -> {
             focus_border(true);
             checkClickLine(e);
+            MainController.getInstance().change_toolbar(MainController.Type.Text,false);
         });
 
         main_text.setOnDragDetected(e -> {
@@ -121,12 +125,14 @@ public class Text_box extends Pane {
             }
         }
         for (HBox selectTextHbox : select_text_hbox) selectTextHbox.getStyleClass().add("text_select");
+        controller.setCurentText(select_text_hbox);
     }
 
     public void focus_border(boolean show) {
         if (show) {
             main_text.getStyleClass().add("text_border_focus");
             getStyleClass().remove("text_select");
+            Paper.setFocusObject(this);
         } else {
             main_text.getStyleClass().clear();
 //           main_text.getStyleClass().remove("text_border_focus");
@@ -136,6 +142,7 @@ public class Text_box extends Pane {
     public void clearSelectText(boolean all) {
         for (HBox selectTextHbox : select_text_hbox) selectTextHbox.getStyleClass().remove("text_select");
         select_text_hbox.clear();
+        controller.clearCurentText();
         if (all) select_text[0] = -1;
     }
 
@@ -325,8 +332,7 @@ public class Text_box extends Pane {
             }
         } else if (e.getEventType().toString().equals("KEY_TYPED") && pass) {
             Text input = new Text(e.getCharacter());
-            input.setFont(Font.font("Helvetica", FontWeight.BOLD, 20));
-
+            input.setFont(Font.font("Helvetica", FontWeight.NORMAL, 20));
 
             word = new HBox();
             word.getChildren().add(input);

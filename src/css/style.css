@@ -61,6 +61,14 @@
     -fx-border-color: #a1a8ad;
 }
 
+.toolbar_sm_button_pressed{
+    -fx-background-color: #a1a8ad;
+}
+
+.toolbar_sm_button_pressed:hover{
+    -fx-border-color: #717578;
+}
+
 .toolbar_sm_button:hover{
     -fx-background-color: #a1a8ad;
 }
@@ -71,6 +79,10 @@
 
 .toolbar_button_label{
     -fx-alignment:CENTER;
+}
+
+.text_bold{
+    -fx-font-weight: bold;
 }
 
 .work_area{
