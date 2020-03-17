@@ -19,7 +19,7 @@
       <String fx:value="font_size" />
    </styleClass>
    <children>
-      <HBox prefHeight="55.0" prefWidth="257.0" spacing="15.0">
+      <HBox prefHeight="63.0" prefWidth="921.0" spacing="15.0">
          <children>
             <Button fx:id="text_bold" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="B" textAlignment="JUSTIFY">
                <font>
@@ -29,6 +29,11 @@
             <Button fx:id="text_italic" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="I" textAlignment="JUSTIFY">
                <font>
                   <Font name="Serif Italic" size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="text_underline" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="U" textAlignment="JUSTIFY" underline="true">
+               <font>
+                  <Font name="Microsoft JhengHei" size="28.0" />
                </font>
             </Button>
          </children>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20200310">
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_TextController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_TextController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/TextBoxFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/TextBoxFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_TextFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_TextFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InsertObj/Text_box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Text_box.java" afterDir="false" />
     </list>
@@ -119,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584200419573</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="20200316 Add italic text.">
+      <created>1584345321576</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1584345321576</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -130,7 +136,8 @@
     <MESSAGE value="20200311 Input feature revise." />
     <MESSAGE value="20200314 Move and text select." />
     <MESSAGE value="20200314 Change toolbar." />
-    <option name="LAST_COMMIT_MESSAGE" value="20200314 Change toolbar." />
+    <MESSAGE value="20200316 Add italic text." />
+    <option name="LAST_COMMIT_MESSAGE" value="20200316 Add italic text." />
   </component>
   <component name="WindowStateProjectService">
     <state x="196" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583489308957">
@@ -165,25 +172,25 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="552" y="327" width="266" height="216" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1583304539757" />
-    <state width="1876" height="169" key="GridCell.Tab.0.bottom" timestamp="1584371613217">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="148" key="GridCell.Tab.0.bottom" timestamp="1584430312048">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="148" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1584345281893" />
+    <state width="1326" height="148" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1584430312048" />
     <state width="1876" height="169" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1584371613217" />
-    <state width="1876" height="169" key="GridCell.Tab.0.center" timestamp="1584371613217">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="148" key="GridCell.Tab.0.center" timestamp="1584430312048">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="148" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1584345281893" />
+    <state width="1326" height="148" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1584430312048" />
     <state width="1876" height="169" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1584371613217" />
-    <state width="1876" height="169" key="GridCell.Tab.0.left" timestamp="1584371613217">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="148" key="GridCell.Tab.0.left" timestamp="1584430312048">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="148" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1584345281893" />
+    <state width="1326" height="148" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1584430312048" />
     <state width="1876" height="169" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1584371613217" />
-    <state width="1876" height="169" key="GridCell.Tab.0.right" timestamp="1584371613217">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="148" key="GridCell.Tab.0.right" timestamp="1584430312048">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="148" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1584345281893" />
+    <state width="1326" height="148" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1584430312048" />
     <state width="1876" height="169" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1584371613217" />
     <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1584281236130">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -223,6 +230,10 @@
     </state>
     <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1583392663750" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1584151372835" />
+    <state x="483" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584434447845">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="483" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872@0.0.1368.872" timestamp="1584434447845" />
     <state x="554" y="272" key="git4idea.merge.GitPullDialog" timestamp="1584358972740">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

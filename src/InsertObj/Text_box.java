@@ -332,7 +332,7 @@ public class Text_box extends Pane {
             }
         } else if (e.getEventType().toString().equals("KEY_TYPED") && pass) {
             Text input = new Text(e.getCharacter());
-            input.setFont(Font.font("Consolas", FontWeight.NORMAL, 30));
+            input.setFont(Font.font("Consolas", FontWeight.NORMAL, 25));
 
             word = new HBox();
             word.getChildren().add(input);
