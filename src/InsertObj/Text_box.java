@@ -6,6 +6,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
 import javafx.scene.input.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -13,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -26,6 +28,7 @@ public class Text_box extends Pane {
     int[] select_text = {-1, -1};
     ArrayList<HBox> select_text_hbox = new ArrayList<>();
     Toolbar_TextController controller = Toolbar_TextController.getInstance();
+
     public Text_box() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/TextBoxFxml.fxml"));
@@ -46,10 +49,13 @@ public class Text_box extends Pane {
 
     @FXML
     public void initialize() {
+        first_hbox.setAlignment(Pos.BOTTOM_LEFT);
         setHboxFocus(fir);
         setInputListener(fir);
         Platform.runLater(() -> fir.requestFocus());
         MainController.getInstance().change_toolbar(MainController.Type.Text,false);
+
+
 
         main_text.setOnMouseClicked(e -> {
             focus_border(true);
@@ -225,9 +231,11 @@ public class Text_box extends Pane {
                     pass = false;
                     HBox hbox_new_line = new HBox();
                     hbox_new_line.setMinHeight(30);
+                    hbox_new_line.setAlignment(Pos.BOTTOM_LEFT);
 
                     HBox tem = new HBox();
                     tem.setPrefWidth(2);
+                    tem.setAlignment(Pos.BOTTOM_LEFT);
 
                     tem.getStyleClass().add("text_border_none");
 
@@ -335,6 +343,7 @@ public class Text_box extends Pane {
             input.setFont(Font.font("Consolas", FontWeight.NORMAL, 25));
 
             word = new HBox();
+            word.setAlignment(Pos.BOTTOM_LEFT);
             word.getChildren().add(input);
             word.getStyleClass().add("text_border_none");
 

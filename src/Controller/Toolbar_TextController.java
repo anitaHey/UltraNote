@@ -1,7 +1,12 @@
 package Controller;
 
+import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -14,9 +19,12 @@ import java.util.ArrayList;
 public class Toolbar_TextController {
     private static Toolbar_TextController instance;
     ArrayList<HBox> text_hbox = null;
+    int[] font_size = {8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
+
     Boolean press_bold;
     Boolean press_italic;
     Boolean press_underline;
+    Boolean font_change;
 
     public static Toolbar_TextController getInstance() {
         if (instance == null) {
@@ -31,13 +39,20 @@ public class Toolbar_TextController {
 
     @FXML
     Button text_bold, text_italic, text_underline;
+    @FXML
+    ComboBox<String> text_font_combo;
+    @FXML
+    ComboBox<String> font_size_combo;
 
     @FXML
     public void initialize() {
         setInstance(this);
 
+        for (int size : font_size)
+            font_size_combo.getItems().add(String.valueOf(size));
+
         text_bold.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            setBoldPressed(getInstance().text_hbox);
+            setBoldPressed();
             FontPosture fontposture = null;
             if (getInstance().text_hbox != null) {
                 for (HBox textHbox : getInstance().text_hbox) {
@@ -53,13 +68,13 @@ public class Toolbar_TextController {
                             text.setFont(Font.font(text.getFont().getFamily(), FontWeight.BOLD, fontposture, text.getFont().getSize()));
                     }
                 }
-                text_hbox.get(0).requestFocus();
-                setBoldPressed(getInstance().text_hbox);
+                getInstance().text_hbox.get(0).requestFocus();
+                setBoldPressed();
             }
         });
 
         text_italic.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            setItalicPressed(getInstance().text_hbox);
+            setItalicPressed();
             FontWeight fontweight = null;
             if (getInstance().text_hbox != null) {
                 for (HBox textHbox : getInstance().text_hbox) {
@@ -75,13 +90,13 @@ public class Toolbar_TextController {
                             text.setFont(Font.font(text.getFont().getFamily(), fontweight, FontPosture.ITALIC, text.getFont().getSize()));
                     }
                 }
-                text_hbox.get(0).requestFocus();
-                setItalicPressed(getInstance().text_hbox);
+                getInstance().text_hbox.get(0).requestFocus();
+                setItalicPressed();
             }
         });
 
         text_underline.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            setUnderlinePressed(getInstance().text_hbox);
+            setUnderlinePressed();
             if (getInstance().text_hbox != null) {
                 for (HBox textHbox : getInstance().text_hbox) {
                     if (textHbox.getChildren().size() > 0) {
@@ -93,8 +108,26 @@ public class Toolbar_TextController {
                             text.setUnderline(true);
                     }
                 }
-                text_hbox.get(0).requestFocus();
-                setUnderlinePressed(getInstance().text_hbox);
+                getInstance().text_hbox.get(0).requestFocus();
+                setUnderlinePressed();
+            }
+        });
+
+        font_size_combo.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if(oldValue != null && newValue!= null && !oldValue.equals(newValue)){
+                try{
+                    double tem_size = Double.parseDouble(newValue);
+                    if (getInstance().text_hbox != null) {
+                        for (HBox textHbox : getInstance().text_hbox) {
+                            if (textHbox.getChildren().size() > 0) {
+                                Text text = (Text) textHbox.getChildren().get(0);
+                                text.setStyle("-fx-font-size:"+ (int) tem_size);
+                            }
+                        }
+                    }
+                }catch(Exception e){
+                    System.out.println(e);
+                }
             }
         });
     }
@@ -102,20 +135,24 @@ public class Toolbar_TextController {
     public void setCurentText(ArrayList<HBox> hbox) {
         getInstance().text_hbox = hbox;
 
-        setBoldPressed(hbox);
-        setItalicPressed(hbox);
-        setUnderlinePressed(hbox);
+        setBoldPressed();
+        setItalicPressed();
+        setUnderlinePressed();
+        setFontSize();
     }
 
-    public void setBoldPressed(ArrayList<HBox> hbox) {
+    public void setBoldPressed() {
         getInstance().text_bold.getStyleClass().remove("toolbar_sm_button_pressed");
-        getInstance().press_bold = hbox.size() != 0;
-        for (HBox hBox : hbox) {
-            if (hBox.getChildren().size() > 0) {
-                Text text = (Text) hBox.getChildren().get(0);
-                if (!text.getFont().getStyle().contains("Bold")) {
-                    getInstance().press_bold = false;
-                    break;
+        getInstance().press_bold = getInstance().text_hbox.size() != 0;
+
+        if (getInstance().text_hbox != null) {
+            for (HBox hBox : getInstance().text_hbox) {
+                if (hBox.getChildren().size() > 0) {
+                    Text text = (Text) hBox.getChildren().get(0);
+                    if (!text.getFont().getStyle().contains("Bold")) {
+                        getInstance().press_bold = false;
+                        break;
+                    }
                 }
             }
         }
@@ -125,15 +162,18 @@ public class Toolbar_TextController {
                 getInstance().text_bold.getStyleClass().add("toolbar_sm_button_pressed");
     }
 
-    public void setItalicPressed(ArrayList<HBox> hbox) {
+    public void setItalicPressed() {
         getInstance().text_italic.getStyleClass().remove("toolbar_sm_button_pressed");
-        getInstance().press_italic = hbox.size() != 0;
-        for (HBox hBox : hbox) {
-            if (hBox.getChildren().size() > 0) {
-                Text text = (Text) hBox.getChildren().get(0);
-                if (!text.getFont().getStyle().contains("Italic")) {
-                    getInstance().press_italic = false;
-                    break;
+        getInstance().press_italic = getInstance().text_hbox.size() != 0;
+
+        if (getInstance().text_hbox != null) {
+            for (HBox hBox : getInstance().text_hbox) {
+                if (hBox.getChildren().size() > 0) {
+                    Text text = (Text) hBox.getChildren().get(0);
+                    if (!text.getFont().getStyle().contains("Italic")) {
+                        getInstance().press_italic = false;
+                        break;
+                    }
                 }
             }
         }
@@ -142,21 +182,46 @@ public class Toolbar_TextController {
                 getInstance().text_italic.getStyleClass().add("toolbar_sm_button_pressed");
     }
 
-    public void setUnderlinePressed(ArrayList<HBox> hbox) {
+    public void setUnderlinePressed() {
         getInstance().text_underline.getStyleClass().remove("toolbar_sm_button_pressed");
-        getInstance().press_underline = hbox.size() != 0;
-        for (HBox hBox : hbox) {
-            if (hBox.getChildren().size() > 0) {
-                Text text = (Text) hBox.getChildren().get(0);
-                if (!text.isUnderline()) {
-                    getInstance().press_underline = false;
-                    break;
+        getInstance().press_underline = getInstance().text_hbox.size() != 0;
+
+        if (getInstance().text_hbox != null) {
+            for (HBox hBox : getInstance().text_hbox) {
+                if (hBox.getChildren().size() > 0) {
+                    Text text = (Text) hBox.getChildren().get(0);
+                    if (!text.isUnderline()) {
+                        getInstance().press_underline = false;
+                        break;
+                    }
                 }
             }
         }
         if (getInstance().press_underline)
             if (!getInstance().text_underline.getStyleClass().contains("toolbar_sm_button_pressed"))
                 getInstance().text_underline.getStyleClass().add("toolbar_sm_button_pressed");
+    }
+
+    public synchronized void setFontSize() {
+        double current_size = 0;
+
+        if (getInstance().text_hbox != null) {
+            for (HBox hBox : getInstance().text_hbox) {
+                if (hBox.getChildren().size() > 0) {
+                    Text text = (Text) hBox.getChildren().get(0);
+                    double tem_size = text.getFont().getSize();
+
+                    if (current_size == 0) current_size = tem_size;
+                    else if (current_size != tem_size) {
+                        current_size = 0;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (current_size == 0) getInstance().font_size_combo.getSelectionModel().clearSelection();
+        else getInstance().font_size_combo.setValue(String.valueOf((int)current_size));
     }
 
     public void clearCurentText() {

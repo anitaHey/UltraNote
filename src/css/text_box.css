@@ -1,6 +1,6 @@
 .font_size{
-    -fx-font-size:14px;
-    -fx-font-family: serif;
+    -fx-font-size:25px;
+    -fx-font-family: Consolas;
 }
 
 .text_border_focus{

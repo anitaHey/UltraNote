@@ -29,18 +29,26 @@
                   </HBox>
                </children>
             </VBox>
-            <ScrollPane fx:id="work_scroll" fitToWidth="true" focusTraversable="false" prefHeight="615.0" prefWidth="990.0" styleClass="work_scroll">
+            <ScrollPane fx:id="work_scroll" fitToWidth="true" prefHeight="615.0" prefWidth="990.0">
                <content>
-                  <VBox prefWidth="971.0">
+                  <VBox prefWidth="971.0" styleClass="no_focus">
                      <children>
-                        <Pane prefHeight="610.0" prefWidth="988.0" styleClass="work_area">
+                        <Pane prefHeight="610.0" prefWidth="988.0">
                            <children>
                               <Pane fx:id="paper_pane" layoutX="91.0" layoutY="47.0" prefHeight="529.0" prefWidth="809.0" styleClass="work_paper" />
                            </children>
+                           <styleClass>
+                              <String fx:value="work_area" />
+                              <String fx:value="no_focus" />
+                           </styleClass>
                         </Pane>
                      </children>
                   </VBox>
                </content>
+               <styleClass>
+                  <String fx:value="work_scroll" />
+                  <String fx:value="no_focus" />
+               </styleClass>
             </ScrollPane>
          </children>
       </VBox>

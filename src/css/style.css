@@ -1,3 +1,7 @@
+.no_focus:focused{
+    -fx-background-color: transparent;
+}
+
 .font_size{
     -fx-font-size:14px;
     -fx-font-family: Microsoft JhengHei;
@@ -57,8 +61,6 @@
 
 .toolbar_sm_button{
     -fx-background-color: transparent;
-    -fx-border-width:2px;
-    -fx-border-color: #a1a8ad;
 }
 
 .toolbar_sm_button_pressed{
@@ -79,6 +81,53 @@
 
 .toolbar_button_label{
     -fx-alignment:CENTER;
+}
+
+.toolbar_combobox .list-view {
+    -fx-background-color:#edf3f7;
+    -fx-border-width:0 1 1 1;
+    -fx-border-color:#7e919e;
+}
+
+.toolbar_combobox .list-cell{
+    -fx-background-color:#edf3f7;
+    -fx-text-fill: black;
+}
+
+.toolbar_combobox .list-cell:hover{
+     -fx-background-color: #99aebd;
+ }
+
+.toolbar_combobox .scroll-bar:vertical {
+    -fx-background-color:  #edf3f7;
+}
+
+.toolbar_combobox .scroll-bar:vertical .track{
+    -fx-background-color:  #edf3f7;
+}
+
+.toolbar_combobox .scroll-bar:vertical .thumb{
+    -fx-background-color: #99aebd;
+}
+
+.combo-box-base{
+    -fx-background-color:#edf3f7;
+}
+
+.toolbar_combobox .text-input{
+    -fx-background-color:#edf3f7;
+    -fx-border-width:1 0 1 1;
+    -fx-border-color:#7e919e;
+}
+
+.toolbar_combobox .arrow-button{
+    -fx-background-color:#edf3f7;
+    -fx-border-width:1 1 1 0;
+    -fx-border-color:#7e919e;
+}
+
+.toolbar_combobox .arrow{
+    -fx-background-color: #7e919e;
 }
 
 .work_area{

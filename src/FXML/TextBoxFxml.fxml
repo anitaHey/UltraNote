@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<?import java.net.URL?>
 <fx:root fx:id="main_text" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
          style="-fx-border-insets: 5,0,0,0;" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8"
-         xmlns:fx="http://javafx.com/fxml/1">
-    <styleClass>
-        <String fx:value="font_size"/>
-    </styleClass>
-    <stylesheets>
-        <URL value="@../css/text_style.css"/>
-        <URL value="@../css/text_box.css"/>
-    </stylesheets>
+         xmlns:fx="http://javafx.com/fxml/1" styleClass="font_size" stylesheets="@../css/text_box.css">
     <VBox fx:id="text_vbox" prefHeight="45.0" prefWidth="100.0">
         <padding>
-            <Insets left="15.0" right="15.0" top="15.0"/>
+            <Insets left="15.0" right="15.0" top="15.0" />
         </padding>
         <HBox fx:id="first_hbox" prefHeight="40.0" prefWidth="100.0">
-            <HBox fx:id="fir" prefWidth="2.0" styleClass="text_border_none"/>
+            <HBox fx:id="fir" prefWidth="2.0" styleClass="text_border_none" />
         </HBox>
     </VBox>
 </fx:root>

@@ -2,42 +2,52 @@
 
 <?import java.net.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root prefHeight="115.0" prefWidth="990.0" spacing="15.0" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="115.0" prefWidth="990.0" spacing="5.0" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <padding>
-      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <styleClass>
       <String fx:value="toolbar_tool_hbox" />
       <String fx:value="font_size" />
    </styleClass>
    <children>
-      <HBox prefHeight="63.0" prefWidth="921.0" spacing="15.0">
+      <VBox prefHeight="75.0" prefWidth="300.0" spacing="10.0">
          <children>
-            <Button fx:id="text_bold" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="B" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="Microsoft JhengHei Bold" size="28.0" />
-               </font>
-            </Button>
-            <Button fx:id="text_italic" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="I" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="Serif Italic" size="28.0" />
-               </font>
-            </Button>
-            <Button fx:id="text_underline" mnemonicParsing="false" prefHeight="69.0" prefWidth="65.0" styleClass="toolbar_sm_button" text="U" textAlignment="JUSTIFY" underline="true">
-               <font>
-                  <Font name="Microsoft JhengHei" size="28.0" />
-               </font>
-            </Button>
+            <HBox prefHeight="34.0" prefWidth="300.0" spacing="2.0">
+               <children>
+                  <ComboBox fx:id="text_font_combo" editable="true" prefHeight="32.0" prefWidth="221.0" styleClass="toolbar_combobox" />
+                  <ComboBox fx:id="font_size_combo" editable="true" prefHeight="32.0" prefWidth="78.0" styleClass="toolbar_combobox" />
+               </children>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="353.0">
+               <children>
+                  <Button fx:id="text_bold" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" styleClass="toolbar_sm_button" text="B" textAlignment="JUSTIFY">
+                     <font>
+                        <Font name="Microsoft JhengHei Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="text_italic" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" styleClass="toolbar_sm_button" text="I" textAlignment="JUSTIFY">
+                     <font>
+                        <Font name="Serif Italic" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="text_underline" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" styleClass="toolbar_sm_button" text="U" textAlignment="JUSTIFY" underline="true">
+                     <font>
+                        <Font name="Microsoft JhengHei" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </children>
    <stylesheets>
       <URL value="@../css/style.css" />
