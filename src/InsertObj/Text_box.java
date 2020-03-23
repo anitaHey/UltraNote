@@ -45,17 +45,17 @@ public class Text_box extends Pane {
     @FXML
     VBox text_vbox;
     @FXML
-    HBox first_hbox, fir;
+    HBox first_hbox, first_underline, fir;
 
     @FXML
     public void initialize() {
         first_hbox.setAlignment(Pos.BOTTOM_LEFT);
+        first_underline.setAlignment(Pos.BOTTOM_CENTER);
+        fir.setAlignment(Pos.BOTTOM_CENTER);
         setHboxFocus(fir);
         setInputListener(fir);
         Platform.runLater(() -> fir.requestFocus());
         MainController.getInstance().change_toolbar(MainController.Type.Text,false);
-
-
 
         main_text.setOnMouseClicked(e -> {
             focus_border(true);
@@ -73,7 +73,7 @@ public class Text_box extends Pane {
                     HBox tem = (HBox) text_vbox.getChildren().get(a);
                     for (int b = 0; b < tem.getChildren().size(); b++) {
                         HBox sm_tem = (HBox) tem.getChildren().get(b);
-                        if (sm_tem.getChildren().size() > 0) {
+                        if (((HBox)sm_tem.getChildren().get(0)).getChildren().size() > 0) {
                             Bounds bound_tem = sm_tem.localToParent(tem.getBoundsInParent());
                             if (bound_tem.contains(e.getX(), e.getY())) addTextSelect(a, b);
                         }
@@ -220,10 +220,10 @@ public class Text_box extends Pane {
 
     public synchronized void input(KeyEvent e, HBox word_hbox) {
         hbox_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE);
-        int num = hbox_line.getChildren().indexOf(word_hbox);
+        int num = hbox_line.getChildren().indexOf(word_hbox.getParent());
         int length = hbox_line.getChildren().size();
         if (num == -1) num = 0;
-        HBox word;
+        HBox border_word, underline_word;
 
         if (e.getEventType().toString().equals("KEY_PRESSED")) {
             switch (e.getCode()) {
@@ -233,11 +233,14 @@ public class Text_box extends Pane {
                     hbox_new_line.setMinHeight(30);
                     hbox_new_line.setAlignment(Pos.BOTTOM_LEFT);
 
-                    HBox tem = new HBox();
-                    tem.setPrefWidth(2);
-                    tem.setAlignment(Pos.BOTTOM_LEFT);
+                    border_word = new HBox();
+                    border_word.setPrefWidth(2);
+                    border_word.setAlignment(Pos.BOTTOM_CENTER);
+                    border_word.getStyleClass().add("text_border_none");
 
-                    tem.getStyleClass().add("text_border_none");
+                    underline_word = new HBox();
+                    underline_word.setAlignment(Pos.BOTTOM_CENTER);
+                    underline_word.getChildren().add(border_word);
 
                     if (num != length - 1) {
                         for (int a = length - 1; a > num; a--) {
@@ -246,20 +249,20 @@ public class Text_box extends Pane {
                         }
                     }
 
-                    hbox_new_line.getChildren().add(0, tem);
+                    hbox_new_line.getChildren().add(0, underline_word);
                     CURRENT_LINE++;
                     text_vbox.getChildren().add(CURRENT_LINE, hbox_new_line);
 
-                    setHboxFocus(tem);
-                    setInputListener(tem);
+                    setHboxFocus(border_word);
+                    setInputListener(border_word);
 
-                    hbox_new_line.getChildren().get(0).requestFocus();
+                    ((HBox)hbox_line.getChildren().get(0)).getChildren().get(0).requestFocus();
                     break;
                 case BACK_SPACE:
                     pass = false;
                     if (num > 0) {
                         int lastword = num - 1;
-                        Platform.runLater(() -> hbox_line.getChildren().get(lastword).requestFocus());
+                        Platform.runLater(() -> ((HBox)hbox_line.getChildren().get(lastword)).getChildren().get(0).requestFocus());
 
                         hbox_line.getChildren().remove(num);
 
@@ -273,7 +276,7 @@ public class Text_box extends Pane {
                             }
                             text_vbox.getChildren().remove(CURRENT_LINE);
                             CURRENT_LINE--;
-                            hbox_last_line.getChildren().get(last_length - 1).requestFocus();
+                            ((HBox)hbox_last_line.getChildren().get(last_length  - 1)).getChildren().get(0).requestFocus();
                         }
                     }
                     break;
@@ -291,29 +294,29 @@ public class Text_box extends Pane {
                             }
                             text_vbox.getChildren().remove(CURRENT_LINE + 1);
 
-                            hbox_line.getChildren().get(length - 1).requestFocus();
+                            ((HBox)hbox_line.getChildren().get(length - 1)).getChildren().get(0).requestFocus();
                         }
                     }
                     break;
                 case LEFT:
                     if (num > 0)
-                        hbox_line.getChildren().get(num - 1).requestFocus();
+                        ((HBox)hbox_line.getChildren().get(num - 1)).getChildren().get(0).requestFocus();
                     else {
                         if (CURRENT_LINE != 0) {
                             CURRENT_LINE--;
                             hbox_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE);
-                            hbox_line.getChildren().get(hbox_line.getChildren().size() - 1).requestFocus();
+                            ((HBox)hbox_line.getChildren().get(hbox_line.getChildren().size() - 1)).getChildren().get(0).requestFocus();
                         }
                     }
                     break;
                 case RIGHT:
                     if (num < length - 1)
-                        hbox_line.getChildren().get(num + 1).requestFocus();
+                        ((HBox)hbox_line.getChildren().get(num + 1)).getChildren().get(0).requestFocus();
                     else {
                         if (CURRENT_LINE != text_vbox.getChildren().size() - 1) {
                             CURRENT_LINE++;
                             hbox_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE);
-                            hbox_line.getChildren().get(0).requestFocus();
+                            ((HBox)hbox_line.getChildren().get(0)).getChildren().get(0).requestFocus();
                         }
                     }
                     break;
@@ -322,9 +325,9 @@ public class Text_box extends Pane {
                         CURRENT_LINE--;
                         hbox_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE);
                         if (num >= hbox_line.getChildren().size())
-                            hbox_line.getChildren().get(hbox_line.getChildren().size() - 1).requestFocus();
+                            ((HBox)hbox_line.getChildren().get(hbox_line.getChildren().size() - 1)).getChildren().get(0).requestFocus();
                         else
-                            hbox_line.getChildren().get(num).requestFocus();
+                            ((HBox)hbox_line.getChildren().get(num)).getChildren().get(0).requestFocus();
                     }
                     break;
                 case DOWN:
@@ -332,9 +335,9 @@ public class Text_box extends Pane {
                         CURRENT_LINE++;
                         hbox_line = (HBox) text_vbox.getChildren().get(CURRENT_LINE);
                         if (num >= hbox_line.getChildren().size())
-                            hbox_line.getChildren().get(hbox_line.getChildren().size() - 1).requestFocus();
+                            ((HBox)hbox_line.getChildren().get(hbox_line.getChildren().size() - 1)).getChildren().get(0).requestFocus();
                         else
-                            hbox_line.getChildren().get(num).requestFocus();
+                            ((HBox)hbox_line.getChildren().get(num)).getChildren().get(0).requestFocus();
                     }
                     break;
             }
@@ -342,16 +345,20 @@ public class Text_box extends Pane {
             Text input = new Text(e.getCharacter());
             input.setFont(Font.font("Consolas", FontWeight.NORMAL, 25));
 
-            word = new HBox();
-            word.setAlignment(Pos.BOTTOM_LEFT);
-            word.getChildren().add(input);
-            word.getStyleClass().add("text_border_none");
+            border_word = new HBox();
+            border_word.setAlignment(Pos.BOTTOM_CENTER);
+            border_word.getChildren().add(input);
+            border_word.getStyleClass().add("text_border_none");
+
+            underline_word = new HBox();
+            underline_word.setAlignment(Pos.BOTTOM_CENTER);
+            underline_word.getChildren().add(border_word);
 
             if (num != length) num += 1;
-            hbox_line.getChildren().add(num, word);
+            hbox_line.getChildren().add(num, underline_word);
 
-            setHboxFocus(word);
-            setInputListener(word);
+            setHboxFocus(border_word);
+            setInputListener(border_word);
         } else {
             pass = true;
         }
@@ -370,7 +377,7 @@ public class Text_box extends Pane {
     public void setRequestFocus(HBox line, HBox last){
         line.requestFocus();
         clearSelectText(true);
-        int num = last.getChildren().indexOf(line);
+        int num = last.getChildren().indexOf(line.getParent());
         select_text[0] = CURRENT_LINE;
         select_text[1] = num;
     }

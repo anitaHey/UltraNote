@@ -24,7 +24,6 @@ public class Toolbar_TextController {
     Boolean press_bold;
     Boolean press_italic;
     Boolean press_underline;
-    Boolean font_change;
 
     public static Toolbar_TextController getInstance() {
         if (instance == null) {
@@ -50,6 +49,7 @@ public class Toolbar_TextController {
 
         for (int size : font_size)
             font_size_combo.getItems().add(String.valueOf(size));
+        font_size_combo.setValue("");
 
         text_bold.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             setBoldPressed();
@@ -57,7 +57,7 @@ public class Toolbar_TextController {
             if (getInstance().text_hbox != null) {
                 for (HBox textHbox : getInstance().text_hbox) {
                     if (textHbox.getChildren().size() > 0) {
-                        Text text = (Text) textHbox.getChildren().get(0);
+                        Text text = (Text) ((HBox)textHbox.getChildren().get(0)).getChildren().get(0);
 
                         if (text.getFont().getStyle().contains("Italic")) fontposture = FontPosture.ITALIC;
                         else fontposture = FontPosture.REGULAR;
@@ -68,7 +68,7 @@ public class Toolbar_TextController {
                             text.setFont(Font.font(text.getFont().getFamily(), FontWeight.BOLD, fontposture, text.getFont().getSize()));
                     }
                 }
-                getInstance().text_hbox.get(0).requestFocus();
+                getInstance().text_hbox.get(0).getChildren().get(0).requestFocus();
                 setBoldPressed();
             }
         });
@@ -79,7 +79,7 @@ public class Toolbar_TextController {
             if (getInstance().text_hbox != null) {
                 for (HBox textHbox : getInstance().text_hbox) {
                     if (textHbox.getChildren().size() > 0) {
-                        Text text = (Text) textHbox.getChildren().get(0);
+                        Text text = (Text) ((HBox)textHbox.getChildren().get(0)).getChildren().get(0);
 
                         if (text.getFont().getStyle().contains("Bold")) fontweight = FontWeight.BOLD;
                         else fontweight = FontWeight.NORMAL;
@@ -90,7 +90,7 @@ public class Toolbar_TextController {
                             text.setFont(Font.font(text.getFont().getFamily(), fontweight, FontPosture.ITALIC, text.getFont().getSize()));
                     }
                 }
-                getInstance().text_hbox.get(0).requestFocus();
+                getInstance().text_hbox.get(0).getChildren().get(0).requestFocus();
                 setItalicPressed();
             }
         });
@@ -100,28 +100,43 @@ public class Toolbar_TextController {
             if (getInstance().text_hbox != null) {
                 for (HBox textHbox : getInstance().text_hbox) {
                     if (textHbox.getChildren().size() > 0) {
-                        Text text = (Text) textHbox.getChildren().get(0);
+                        Text text = (Text) ((HBox)textHbox.getChildren().get(0)).getChildren().get(0);
+                        int width = (text.getFont().getSize()<10)?1:(int)(text.getFont().getSize()/10);
 
                         if (getInstance().press_underline)
-                            text.setUnderline(false);
+                            textHbox.setStyle("");
                         else
-                            text.setUnderline(true);
+                            textHbox.setStyle("-fx-border-width: 0 0 "+ width +" 0; -fx-border-color: #525252;");
                     }
                 }
-                getInstance().text_hbox.get(0).requestFocus();
+                getInstance().text_hbox.get(0).getChildren().get(0).requestFocus();
                 setUnderlinePressed();
             }
         });
 
         font_size_combo.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if(oldValue != null && newValue!= null && !oldValue.equals(newValue)){
+            if(newValue.length()!= 0 && !oldValue.equals(newValue)){
+                FontWeight fontweight;
+                FontPosture fontposture;
                 try{
                     double tem_size = Double.parseDouble(newValue);
                     if (getInstance().text_hbox != null) {
                         for (HBox textHbox : getInstance().text_hbox) {
                             if (textHbox.getChildren().size() > 0) {
-                                Text text = (Text) textHbox.getChildren().get(0);
-                                text.setStyle("-fx-font-size:"+ (int) tem_size);
+                                Text text = (Text) ((HBox)textHbox.getChildren().get(0)).getChildren().get(0);
+
+                                if (text.getFont().getStyle().contains("Bold")) fontweight = FontWeight.BOLD;
+                                else fontweight = FontWeight.NORMAL;
+
+                                if (text.getFont().getStyle().contains("Italic")) fontposture = FontPosture.ITALIC;
+                                else fontposture = FontPosture.REGULAR;
+
+                                text.setFont(Font.font(text.getFont().getFamily(), fontweight, fontposture, (int) tem_size));
+
+                                if(textHbox.getStyle().length()>0){
+                                    int width = (text.getFont().getSize()<10)?1:(int)(text.getFont().getSize()/10);
+                                    textHbox.setStyle("-fx-border-width: 0 0 "+ width +" 0; -fx-border-color: #525252;");
+                                }
                             }
                         }
                     }
@@ -148,7 +163,7 @@ public class Toolbar_TextController {
         if (getInstance().text_hbox != null) {
             for (HBox hBox : getInstance().text_hbox) {
                 if (hBox.getChildren().size() > 0) {
-                    Text text = (Text) hBox.getChildren().get(0);
+                    Text text = (Text) ((HBox)hBox.getChildren().get(0)).getChildren().get(0);
                     if (!text.getFont().getStyle().contains("Bold")) {
                         getInstance().press_bold = false;
                         break;
@@ -169,7 +184,7 @@ public class Toolbar_TextController {
         if (getInstance().text_hbox != null) {
             for (HBox hBox : getInstance().text_hbox) {
                 if (hBox.getChildren().size() > 0) {
-                    Text text = (Text) hBox.getChildren().get(0);
+                    Text text = (Text) ((HBox)hBox.getChildren().get(0)).getChildren().get(0);
                     if (!text.getFont().getStyle().contains("Italic")) {
                         getInstance().press_italic = false;
                         break;
@@ -189,8 +204,7 @@ public class Toolbar_TextController {
         if (getInstance().text_hbox != null) {
             for (HBox hBox : getInstance().text_hbox) {
                 if (hBox.getChildren().size() > 0) {
-                    Text text = (Text) hBox.getChildren().get(0);
-                    if (!text.isUnderline()) {
+                    if (hBox.getStyle().length() == 0) {
                         getInstance().press_underline = false;
                         break;
                     }
@@ -204,11 +218,11 @@ public class Toolbar_TextController {
 
     public synchronized void setFontSize() {
         double current_size = 0;
-
         if (getInstance().text_hbox != null) {
             for (HBox hBox : getInstance().text_hbox) {
                 if (hBox.getChildren().size() > 0) {
-                    Text text = (Text) hBox.getChildren().get(0);
+
+                    Text text = (Text) ((HBox)hBox.getChildren().get(0)).getChildren().get(0);
                     double tem_size = text.getFont().getSize();
 
                     if (current_size == 0) current_size = tem_size;
@@ -220,8 +234,10 @@ public class Toolbar_TextController {
             }
         }
 
-        if (current_size == 0) getInstance().font_size_combo.getSelectionModel().clearSelection();
-        else getInstance().font_size_combo.setValue(String.valueOf((int)current_size));
+        if (current_size == 0)
+            getInstance().font_size_combo.setValue("");
+        else
+            getInstance().font_size_combo.setValue(String.valueOf((int)current_size));
     }
 
     public void clearCurentText() {
