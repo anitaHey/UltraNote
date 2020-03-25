@@ -49,9 +49,10 @@ public class Text_box extends Pane {
 
     @FXML
     public void initialize() {
-        first_hbox.setAlignment(Pos.BOTTOM_LEFT);
+        first_hbox.setAlignment(Pos.BASELINE_LEFT);
         first_underline.setAlignment(Pos.BOTTOM_CENTER);
         fir.setAlignment(Pos.BOTTOM_CENTER);
+
         setHboxFocus(fir);
         setInputListener(fir);
         Platform.runLater(() -> fir.requestFocus());
@@ -100,6 +101,8 @@ public class Text_box extends Pane {
                 else if (num < select_text[1])
                     for (int a = num; a <= select_text[1]; a++)
                         select_text_hbox.add((HBox) ((HBox) text_vbox.getChildren().get(line)).getChildren().get(a));
+                else
+                    select_text_hbox.add((HBox) ((HBox) text_vbox.getChildren().get(line)).getChildren().get(num));
             } else if (line < select_text[0]) {
                 HBox hbox = (HBox) text_vbox.getChildren().get(select_text[0]);
                 for (int a = 0; a <= select_text[1]; a++)
@@ -212,7 +215,7 @@ public class Text_box extends Pane {
                 HBox last = (HBox) tem.getChildren().get(tem.getChildren().size() - 1);
                 Bounds bound_last = last.localToScreen(last.getBoundsInLocal());
                 if (input_x >= bound_last.getMaxX())
-                    setRequestFocus(last, tem);
+                    setRequestFocus((HBox)(last.getChildren().get(0)), tem);
                 break;
             }
         }
@@ -256,7 +259,7 @@ public class Text_box extends Pane {
                     setHboxFocus(border_word);
                     setInputListener(border_word);
 
-                    ((HBox)hbox_line.getChildren().get(0)).getChildren().get(0).requestFocus();
+                    ((HBox)hbox_new_line.getChildren().get(0)).getChildren().get(0).requestFocus();
                     break;
                 case BACK_SPACE:
                     pass = false;

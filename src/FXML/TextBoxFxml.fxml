@@ -12,7 +12,7 @@
         </padding>
         <HBox fx:id="first_hbox" prefHeight="40.0" prefWidth="100.0">
             <HBox fx:id="first_underline">
-                <HBox fx:id="fir" prefWidth="2.0" styleClass="text_border_none" />
+                <HBox fx:id="fir" prefWidth="2.0"  prefHeight="40.0" styleClass="text_border_none" />
             </HBox>
         </HBox>
     </VBox>
