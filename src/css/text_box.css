@@ -9,15 +9,15 @@
     -fx-border-style: segments(5, 10, 10, 10)  line-cap round ;
 }
 
-.text_border_input{
-    -fx-border-width: 0 1 0 0;
+.text_bg_input{
     -fx-border-color: #a39e9e;
+    -fx-border-width: 0 1 0 0;
 }
 
-.text_border_none{
-    -fx-border-width: 0 1 0 0;
-    -fx-border-color: transparent;
-}
+.text_bg_none{
+     -fx-border-color: transparent;
+     -fx-border-width: 0 1 0 0;
+ }
 
 .text_select{
     -fx-background-color: #a39e9e;
