@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root fx:id="main_text" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-         style="-fx-border-insets: 5,0,0,0;" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8"
-         xmlns:fx="http://javafx.com/fxml/1" styleClass="font_size" stylesheets="@../css/text_box.css">
-    <VBox fx:id="text_vbox" prefHeight="45.0" prefWidth="100.0">
-        <padding>
+<fx:root fx:id="main_text" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-insets: 5,0,0,0;" styleClass="font_size" stylesheets="@../css/text_box.css" type="javafx.scene.layout.Pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox fx:id="text_vbox" prefWidth="100.0">
+         <children>
+            <VBox prefHeight="45.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="BASELINE_LEFT" prefHeight="40.0">
+                     <children>
+                        <Pane fx:id="fir" prefHeight="30.0" prefWidth="0" styleClass="text_bg_input" />
+                     </children>
+                  </HBox>
+                  <HBox />
+               </children>
+            </VBox>
+         </children>
+         <padding>
             <Insets left="15.0" right="15.0" top="15.0" />
-        </padding>
-        <HBox fx:id="first_hbox" prefHeight="40.0" prefWidth="100.0">
-            <HBox fx:id="first_underline">
-                <HBox fx:id="fir" prefWidth="2.0"  prefHeight="40.0" styleClass="text_border_none" />
-            </HBox>
-        </HBox>
-    </VBox>
+         </padding>
+      </VBox>
+   </children>
 </fx:root>
