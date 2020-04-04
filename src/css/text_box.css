@@ -22,3 +22,8 @@
 .text_select{
     -fx-background-color: #a39e9e;
 }
+
+.test{
+    -fx-border-color: #a39e9e;
+    -fx-border-width: 1 1 1 1;
+}
