@@ -96,7 +96,7 @@ public class TextObj extends Label {
     public void setFontColor(String input){
         fontColor = input;
         this.setTextFill(Color.web(input));
-        getUnderlineObj().setColor(input);
+        getUnderlineObj().setUnderlineColor(input);
     }
 
     public String getFontColor(){
@@ -105,12 +105,12 @@ public class TextObj extends Label {
 
     public void setUnderProperty(){
         this.widthProperty().addListener((obs, oldVal, newVal) -> {
-            getUnderlineObj().setWidth(newVal.intValue());
+            getUnderlineObj().setUnderlineWidth(newVal.intValue());
         });
 
         this.heightProperty().addListener((obs, oldVal, newVal) -> {
             int height = ( getFontSize()<10) ? 1: (getFontSize()/10);
-            getUnderlineObj().setHeight(height);
+            getUnderlineObj().setUnderlineHeight(height);
         });
     }
 }

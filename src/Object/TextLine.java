@@ -1,6 +1,7 @@
 package Object;
 
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -27,6 +28,7 @@ public class TextLine extends VBox {
 
         this.getChildren().add(wordHBox);
         this.getChildren().add(underlineHBox);
+        this.setSpacing(-5);
     }
 
     public void addWord(TextObj text, TextUnderline underline, int num){
