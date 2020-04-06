@@ -9,8 +9,7 @@ import javafx.scene.paint.Color;
 public class TextUnderline extends Pane {
     String color = "#000";
     public TextUnderline(){
-        this.setHeight(2);
-        this.setWidth(10);
+        super();
     }
 
     public void setUnderline(Boolean input, String input_color){

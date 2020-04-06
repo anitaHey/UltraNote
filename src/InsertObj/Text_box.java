@@ -149,7 +149,7 @@ public class Text_box extends Pane {
         if (show) {
             main_text.getStyleClass().add("text_border_focus");
         } else {
-            main_text.getStyleClass().remove("text_border_focus");
+            main_text.getStyleClass().clear();
         }
     }
 

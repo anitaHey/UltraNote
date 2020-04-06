@@ -2,6 +2,7 @@ package Object;
 
 import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class TextLine extends VBox {
