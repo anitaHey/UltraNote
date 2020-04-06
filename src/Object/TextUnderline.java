@@ -7,33 +7,40 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
 public class TextUnderline extends Pane {
-    String color = "#000";
+    String color = "TRANSPARENT";
+    int height = 0;
     public TextUnderline(){
         super();
+
+        this.setMaxHeight(0);
     }
 
     public void setUnderline(Boolean input, String input_color){
-        if(input){
-            color = input_color;
-            this.setStyle("-fx-background-color: "+ color + ";");
-        }
-        else this.setStyle("");
+        if(input) color = input_color;
+        else color = "TRANSPARENT";
+
+        this.setStyle("-fx-border-color: "+ color + ";" + "-fx-border-width:" + height+" 0 0 0;");
     }
 
     public boolean isTextUnderline(){
-        return this.getStyle().length()>0;
+        return !color.equals("TRANSPARENT");
     }
 
-    public void setColor(String input_color){
+    public void setUnderlineColor(String input_color){
         color = input_color;
-        this.setStyle("-fx-background-color: "+ color + ";");
+
+        this.setStyle("-fx-border-color: "+ color + ";" + "-fx-border-width:" + height+" 0 0 0;");
     }
 
-    public void setHeight(int input) {
-        this.setPrefHeight(input);
+    public void setUnderlineHeight(int input) {
+        height = input;
+
+        this.setStyle("-fx-border-color: "+ color + ";" + "-fx-border-width:" + height+" 0 0 0;");
     }
 
-    public void setWidth(double input){
+    public void setUnderlineWidth(int input){
         this.setPrefWidth(input);
     }
+
+
 }
