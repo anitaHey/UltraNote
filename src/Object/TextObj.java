@@ -119,14 +119,15 @@ public class TextObj extends Label {
         return fontColor;
     }
 
+    public void setUnderHeight(){
+        int height = (getFontSize() < 10) ? 1 : (getFontSize() / 10);
+        getUnderlineObj().setUnderlineHeight(height);
+    }
+
     public void setUnderProperty() {
         this.widthProperty().addListener((obs, oldVal, newVal) -> {
             getUnderlineObj().setUnderlineWidth(newVal.intValue());
         });
-
-        this.heightProperty().addListener((obs, oldVal, newVal) -> {
-            int height = (getFontSize() < 10) ? 1 : (getFontSize() / 10);
-            getUnderlineObj().setUnderlineHeight(height);
-        });
+        setUnderHeight();
     }
 }

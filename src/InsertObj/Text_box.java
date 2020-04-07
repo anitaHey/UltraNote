@@ -13,6 +13,7 @@ import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -27,7 +28,9 @@ public class Text_box extends Pane {
     boolean pass = true;
     boolean setCurrentText = false;
     int[] select_text = {-1, -1};
-    ArrayList<TextObj> select_text_hbox = new ArrayList<>();
+    ArrayList<TextObj> select_text_obj = new ArrayList<>();
+    ArrayList<TextLine> select_text_line = new ArrayList<>();
+
     Toolbar_TextController controller = Toolbar_TextController.getInstance();
     TextProperty property = TextProperty.getInstance();
     Timer timer;
@@ -101,52 +104,57 @@ public class Text_box extends Pane {
             clearSelectText(false);
 
             if (line == select_text[0]) {
+                select_text_line.add(getLine(line));
                 if (num > select_text[1])
                     for (int a = select_text[1] + 1; a <= num; a++)
                         try {
-                            select_text_hbox.add(getLine(line).getIndex(a));
+                            select_text_obj.add(getLine(line).getIndex(a));
                         } catch (Exception e) {
                             System.out.println(e);
                         }
                 else if (num < select_text[1])
                     for (int a = num; a <= select_text[1]; a++)
-                        select_text_hbox.add(getLine(line).getIndex(a));
+                        select_text_obj.add(getLine(line).getIndex(a));
                 else
-                    select_text_hbox.add(getLine(line).getIndex(num));
+                    select_text_obj.add(getLine(line).getIndex(num));
             } else if (line < select_text[0]) {
                 TextLine hbox = getLine(select_text[0]);
-
+                select_text_line.add(hbox);
                 for (int a = 0; a <= select_text[1]; a++)
-                    select_text_hbox.add(hbox.getIndex(a));
+                    select_text_obj.add(hbox.getIndex(a));
 
                 for (int a = line + 1; a < select_text[0]; a++) {
                     hbox = getLine(a);
+                    select_text_line.add(hbox);
                     for (int b = 0; b < hbox.getHBoxSize(); b++)
-                        select_text_hbox.add(hbox.getIndex(b));
+                        select_text_obj.add(hbox.getIndex(b));
                 }
                 hbox = getLine(line);
+                select_text_line.add(hbox);
                 for (int a = num; a < hbox.getHBoxSize(); a++)
-                    select_text_hbox.add(hbox.getIndex(a));
+                    select_text_obj.add(hbox.getIndex(a));
             } else {
                 TextLine hbox = getLine(select_text[0]);
-
+                select_text_line.add(hbox);
                 for (int a = select_text[1] + 1; a < hbox.getHBoxSize(); a++)
-                    select_text_hbox.add(hbox.getIndex(a));
+                    select_text_obj.add(hbox.getIndex(a));
 
                 for (int a = select_text[0] + 1; a < line; a++) {
                     hbox = getLine(a);
+                    select_text_line.add(hbox);
                     for (int b = 0; b < hbox.getHBoxSize(); b++)
-                        select_text_hbox.add(hbox.getIndex(b));
+                        select_text_obj.add(hbox.getIndex(b));
                 }
                 hbox = getLine(line);
+                select_text_line.add(hbox);
                 for (int a = 0; a <= num; a++)
-                    select_text_hbox.add(hbox.getIndex(a));
+                    select_text_obj.add(hbox.getIndex(a));
             }
         }
-        for (Node selectTextHbox : select_text_hbox) {
+        for (Node selectTextHbox : select_text_obj) {
             selectTextHbox.getStyleClass().add("text_select");
         }
-        controller.setSelectText(select_text_hbox);
+        controller.setSelectText(select_text_obj, select_text_line);
     }
 
     public void focus_border(boolean show) {
@@ -381,8 +389,8 @@ public class Text_box extends Pane {
     }
 
     public void clearSelectText(boolean all) {
-        for (TextObj selectTextHbox : select_text_hbox) selectTextHbox.getStyleClass().remove("text_select");
-        select_text_hbox.clear();
+        for (TextObj selectTextHbox : select_text_obj) selectTextHbox.getStyleClass().remove("text_select");
+        select_text_obj.clear();
         controller.clearCurentText();
         if (all) select_text[0] = -1;
     }
