@@ -5,16 +5,14 @@ import Controller.Toolbar_TextController;
 import Object.TextLine;
 import Object.TextObj;
 import Object.TextUnderline;
+import Object.TextProperty;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -27,21 +25,22 @@ public class Text_box extends Pane {
     private int CURRENT_LINE = 0;
     TextLine hbox_line;
     boolean pass = true;
+    boolean setCurrentText = false;
     int[] select_text = {-1, -1};
     ArrayList<TextObj> select_text_hbox = new ArrayList<>();
     Toolbar_TextController controller = Toolbar_TextController.getInstance();
+    TextProperty property = TextProperty.getInstance();
     Timer timer;
 
-    public Text_box(){
-        try{
+    public Text_box() {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/TextBoxFxml.fxml"));
             loader.setController(this);
             loader.setRoot(this);
             loader.load();
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
-
     }
 
     @FXML
@@ -51,19 +50,21 @@ public class Text_box extends Pane {
 
     @FXML
     public void initialize() {
+        property.setDefault();
+
         line = new TextLine();
         text_vbox.getChildren().add(line);
-
         setInputFocus(line.getIndex(0));
         setInputListener(line.getIndex(0));
 
+        setCurrentText = true;
         Platform.runLater(() -> line.getIndex(0).requestFocus());
-        MainController.getInstance().change_toolbar(MainController.Type.Text,false);
+        MainController.getInstance().change_toolbar(MainController.Type.Text, false);
 
-        main_text.setOnMouseClicked(e->{
+        main_text.setOnMouseClicked(e -> {
             focus_border(true);
             checkClickLine(e);
-            MainController.getInstance().change_toolbar(MainController.Type.Text,false);
+            MainController.getInstance().change_toolbar(MainController.Type.Text, false);
         });
 
         main_text.setOnDragDetected(e -> {
@@ -87,10 +88,13 @@ public class Text_box extends Pane {
         new Draggable.Move(main_text);
     }
 
-    public TextLine getLine(int index){
-        return (TextLine)text_vbox.getChildren().get(index);
+    public TextLine getLine(int index) {
+        return (TextLine) text_vbox.getChildren().get(index);
     }
-    public int getLineSize(){ return text_vbox.getChildren().size(); }
+
+    public int getLineSize() {
+        return text_vbox.getChildren().size();
+    }
 
     public void addTextSelect(int line, int num) {
         if (select_text[0] != -1) {
@@ -139,10 +143,10 @@ public class Text_box extends Pane {
                     select_text_hbox.add(hbox.getIndex(a));
             }
         }
-        for (Node selectTextHbox : select_text_hbox){
+        for (Node selectTextHbox : select_text_hbox) {
             selectTextHbox.getStyleClass().add("text_select");
         }
-        controller.setCurrentText(select_text_hbox);
+        controller.setSelectText(select_text_hbox);
     }
 
     public void focus_border(boolean show) {
@@ -156,7 +160,6 @@ public class Text_box extends Pane {
     public void setInputFocus(TextObj text) {
         text.setOnMouseClicked(e -> {
             hbox_line = getLine(CURRENT_LINE);
-
             setRequestFocus(text, hbox_line);
         });
 
@@ -166,6 +169,11 @@ public class Text_box extends Pane {
                 text.getStyleClass().add("text_bg_input");
                 text.getStyleClass().remove("text_bg_none");
                 setTextInputAnimation(text);
+                if (setCurrentText) {
+                    property.setCurrent(text.isTextUnderline(), text.getFontWeight(), text.getFontPosture(), text.getFontFamily(), text.getFontColor(), text.getFontSize());
+                    controller.setCurrentText(text);
+                    setCurrentText = false;
+                }
             } else {
                 focus_border(false);
                 text.getStyleClass().remove("text_bg_input");
@@ -175,6 +183,7 @@ public class Text_box extends Pane {
             }
         });
 
+        setCurrentText = true;
         text.requestFocus();
     }
 
@@ -194,7 +203,7 @@ public class Text_box extends Pane {
 
             if (input_y >= bound_tem.getMinY() && input_y <= bound_tem.getMaxY()) {
                 CURRENT_LINE = a;
-                TextObj last = tem.getIndex(tem.getHBoxSize() -1);
+                TextObj last = tem.getIndex(tem.getHBoxSize() - 1);
                 Bounds bound_last = last.localToScreen(last.getBoundsInLocal());
                 if (input_x >= bound_last.getMaxX())
                     setRequestFocus(last, tem);
@@ -233,6 +242,7 @@ public class Text_box extends Pane {
                     pass = false;
                     if (num > 0) {
                         int lastword = num - 1;
+                        setCurrentText = true;
                         Platform.runLater(() -> hbox_line.getIndex(lastword).requestFocus());
 
                         hbox_line.removeIndex(num);
@@ -247,14 +257,15 @@ public class Text_box extends Pane {
 
                             text_vbox.getChildren().remove(CURRENT_LINE);
                             CURRENT_LINE--;
-                            last_line.getIndex(last_line.getHBoxSize()-1).requestFocus();
+                            setCurrentText = true;
+                            last_line.getIndex(last_line.getHBoxSize() - 1).requestFocus();
                         }
                     }
                     break;
                 case DELETE:
                     pass = false;
                     if (num < length - 1) {
-                        hbox_line.removeIndex(num+1);
+                        hbox_line.removeIndex(num + 1);
                     } else {
                         if (CURRENT_LINE != text_vbox.getChildren().size() - 1) {
                             TextLine last_line = getLine(CURRENT_LINE + 1);
@@ -263,30 +274,34 @@ public class Text_box extends Pane {
                                 TextObj old_node = last_line.getIndex(1);
                                 hbox_line.addWord(old_node, old_node.getUnderlineObj(), -1);
                             }
-
+                            setCurrentText = true;
                             text_vbox.getChildren().remove(CURRENT_LINE + 1);
                             hbox_line.getIndex(length - 1).requestFocus();
                         }
                     }
                     break;
                 case RIGHT:
-                    if (num < length - 1)
+                    if (num < length - 1) {
+                        setCurrentText = true;
                         hbox_line.getIndex(num + 1).requestFocus();
-                    else {
+                    } else {
                         if (CURRENT_LINE != text_vbox.getChildren().size() - 1) {
                             CURRENT_LINE++;
                             hbox_line = getLine(CURRENT_LINE);
+                            setCurrentText = true;
                             hbox_line.getIndex(0).requestFocus();
                         }
                     }
                     break;
                 case LEFT:
-                    if (num > 0)
+                    if (num > 0) {
+                        setCurrentText = true;
                         hbox_line.getIndex(num - 1).requestFocus();
-                    else {
+                    } else {
                         if (CURRENT_LINE != 0) {
                             CURRENT_LINE--;
-                            hbox_line =getLine(CURRENT_LINE);
+                            hbox_line = getLine(CURRENT_LINE);
+                            setCurrentText = true;
                             hbox_line.getIndex(hbox_line.getHBoxSize() - 1).requestFocus();
                         }
                     }
@@ -295,6 +310,7 @@ public class Text_box extends Pane {
                     if (CURRENT_LINE > 0) {
                         CURRENT_LINE--;
                         hbox_line = getLine(CURRENT_LINE);
+                        setCurrentText = true;
                         if (num >= hbox_line.getHBoxSize())
                             hbox_line.getIndex(hbox_line.getHBoxSize() - 1).requestFocus();
                         else
@@ -305,6 +321,7 @@ public class Text_box extends Pane {
                     if (CURRENT_LINE < getLineSize() - 1) {
                         CURRENT_LINE++;
                         hbox_line = getLine(CURRENT_LINE);
+                        setCurrentText = true;
                         if (num >= hbox_line.getHBoxSize())
                             hbox_line.getIndex(hbox_line.getHBoxSize() - 1).requestFocus();
                         else
@@ -326,9 +343,10 @@ public class Text_box extends Pane {
         }
     }
 
-    public void setRequestFocus(TextObj line, TextLine last){
-        line.requestFocus();
+    public void setRequestFocus(TextObj line, TextLine last) {
+        setCurrentText = true;
         clearSelectText(true);
+        line.requestFocus();
         select_text[0] = CURRENT_LINE;
         select_text[1] = last.getTextIndex(line);
     }

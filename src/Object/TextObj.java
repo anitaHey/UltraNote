@@ -7,109 +7,125 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 
 public class TextObj extends Label {
+    TextProperty property = TextProperty.getInstance();
+
     TextUnderline underline;
+    boolean bool_under;
     FontWeight fontWeight;
     FontPosture fontPosture;
     String fontFamily;
-    String fontColor = "#000000";
+    String fontColor;
     int fontSize;
 
-    public TextObj (String input){
+    public TextObj(String input) {
         super(input);
 
+        bool_under = false;
         underline = null;
         fontWeight = null;
         fontPosture = null;
         fontFamily = "";
         fontSize = -1;
 
-        this.setTextFont("Consolas", FontWeight.NORMAL, FontPosture.REGULAR, 25);
+        bool_under = property.getUnderline();
+        fontColor = property.getFontColor();
+        this.setTextFont(property.getFontFamily(), property.getFontWeight(), property.getFontPosture(), property.getFontSize());
+        this.setFontColor(property.getFontColor());
         this.getStyleClass().add("text_bg_input");
     }
 
-    public void setTextFont(String family, FontWeight weight, FontPosture posture, int size){
-        if(weight != null) fontWeight = weight;
-        if(posture != null) fontPosture = posture;
-        if(family != null) fontFamily = family;
-        if(size != -1) {
+    public void setTextFont(String family, FontWeight weight, FontPosture posture, int size) {
+        if (weight != null) fontWeight = weight;
+        if (posture != null) fontPosture = posture;
+        if (family != null) fontFamily = family;
+        if (size != -1) {
             fontSize = size;
-            if(getUnderlineObj() != null) setUnderProperty();
+            if (getUnderlineObj() != null) setUnderProperty();
         }
 
         this.setFont(Font.font(fontFamily, fontWeight, fontPosture, fontSize));
     }
 
-    public void setTextFamily(String family){
+    public void setTextFamily(String family) {
         fontFamily = family;
         this.setFont(Font.font(fontFamily, fontWeight, fontPosture, fontSize));
     }
 
-    public void setFontWeight(FontWeight weight){
+    public void setFontWeight(FontWeight weight) {
         fontWeight = weight;
         this.setFont(Font.font(fontFamily, fontWeight, fontPosture, fontSize));
     }
 
-    public void setFontSize(int size){
+    public void setFontSize(int size) {
         fontSize = size;
         this.setFont(Font.font(fontFamily, fontWeight, fontPosture, fontSize));
     }
 
-    public void setFontPosture(FontPosture posture){
+    public void setFontPosture(FontPosture posture) {
         fontPosture = posture;
         this.setFont(Font.font(fontFamily, fontWeight, fontPosture, fontSize));
     }
 
-    public int getFontSize(){
+    public int getFontSize() {
         return fontSize;
     }
 
-    public String getFontFamily(){
+    public String getFontFamily() {
         return fontFamily;
     }
 
-    public boolean isBold(){
-        return this.getFont().getStyle().contains("Bold");
+    public FontPosture getFontPosture() {
+        return fontPosture;
+    }
+
+    public FontWeight getFontWeight() {
+        return fontWeight;
+    }
+
+    public boolean isBold() {
+        return getFontWeight() == FontWeight.BOLD;
     }
 
     public boolean isItalic() {
-        return this.getFont().getStyle().contains("Italic");
+        return getFontPosture() == FontPosture.ITALIC;
     }
 
-    public void setUnderlineObj(TextUnderline new_underline){
+    public void setUnderlineObj(TextUnderline new_underline) {
         underline = new_underline;
         setUnderProperty();
+        if (bool_under) this.setTextUnderline(true, null);
     }
 
-    public TextUnderline getUnderlineObj(){
+    public TextUnderline getUnderlineObj() {
         return underline;
     }
 
-    public boolean isTextUnderline(){
+    public boolean isTextUnderline() {
         return getUnderlineObj().isTextUnderline();
     }
 
-    public void setTextUnderline(Boolean input, String color){
-        if(color == null) color = this.fontColor;
+    public void setTextUnderline(Boolean input, String color) {
+        if (color == null) color = this.fontColor;
         getUnderlineObj().setUnderline(input, color);
     }
 
-    public void setFontColor(String input){
+    public void setFontColor(String input) {
         fontColor = input;
         this.setTextFill(Color.web(input));
-        getUnderlineObj().setUnderlineColor(input);
+        if (getUnderlineObj() != null) getUnderlineObj().setUnderlineColor(input);
     }
 
-    public String getFontColor(){
+    public String getFontColor() {
         return fontColor;
     }
 
-    public void setUnderProperty(){
+    public void setUnderProperty() {
         this.widthProperty().addListener((obs, oldVal, newVal) -> {
             getUnderlineObj().setUnderlineWidth(newVal.intValue());
         });
 
         this.heightProperty().addListener((obs, oldVal, newVal) -> {
-            int height = ( getFontSize()<10) ? 1: (getFontSize()/10);
+            int height = (getFontSize() < 10) ? 1 : (getFontSize() / 10);
             getUnderlineObj().setUnderlineHeight(height);
         });
     }

@@ -10,7 +10,7 @@ public class TextLine extends VBox {
     HBox wordHBox;
     HBox underlineHBox;
 
-    public TextLine(){
+    public TextLine() {
         wordHBox = new HBox();
         underlineHBox = new HBox();
 
@@ -31,37 +31,37 @@ public class TextLine extends VBox {
         this.setSpacing(-5);
     }
 
-    public void addWord(TextObj text, TextUnderline underline, int num){
-        if(num != -1){
+    public void addWord(TextObj text, TextUnderline underline, int num) {
+        if (num != -1) {
             getWordHBox().getChildren().add(num, text);
             getUnderlineHBox().getChildren().add(num, underline);
-        }else{
+        } else {
             getWordHBox().getChildren().add(text);
             getUnderlineHBox().getChildren().add(underline);
         }
     }
 
-    public HBox getWordHBox(){
+    public HBox getWordHBox() {
         return wordHBox;
     }
 
-    public HBox getUnderlineHBox(){
+    public HBox getUnderlineHBox() {
         return underlineHBox;
     }
 
-    public int getHBoxSize(){
+    public int getHBoxSize() {
         return getWordHBox().getChildren().size();
     }
 
-    public TextObj getIndex(int index){
-        return (TextObj)getWordHBox().getChildren().get(index);
+    public TextObj getIndex(int index) {
+        return (TextObj) getWordHBox().getChildren().get(index);
     }
 
-    public int getTextIndex(TextObj input){
+    public int getTextIndex(TextObj input) {
         return getWordHBox().getChildren().indexOf(input);
     }
 
-    public void removeIndex(int index){
+    public void removeIndex(int index) {
         getWordHBox().getChildren().remove(index);
         getUnderlineHBox().getChildren().remove(index);
     }
