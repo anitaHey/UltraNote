@@ -391,6 +391,7 @@ public class Text_box extends Pane {
     public void clearSelectText(boolean all) {
         for (TextObj selectTextHbox : select_text_obj) selectTextHbox.getStyleClass().remove("text_select");
         select_text_obj.clear();
+        select_text_line.clear();
         controller.clearCurentText();
         if (all) select_text[0] = -1;
     }

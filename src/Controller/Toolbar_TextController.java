@@ -3,15 +3,22 @@ package Controller;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import Object.TextObj;
 import Object.TextLine;
 import Object.TextProperty;
+import Object.TextColorPicker;
 
 import java.util.ArrayList;
 
@@ -46,10 +53,16 @@ public class Toolbar_TextController {
     ComboBox<String> text_font_combo;
     @FXML
     ComboBox<String> font_size_combo;
+    @FXML
+    VBox text_color;
+    @FXML
+    Pane text_color_pane;
 
     @FXML
     public void initialize() {
         setInstance(this);
+
+        text_color_pane.setStyle("-fx-background-color:"+property.getFontColor()+";");
 
         boldProperty.addListener((observable, oldValue, newValue) -> {
             if (newValue) {
@@ -173,6 +186,13 @@ public class Toolbar_TextController {
                 }
             }
         });
+
+        TextColorPicker colorPicker = new TextColorPicker();
+        ContextMenu
+        text_color.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            colorPicker.
+            popUp.show(text_color, event.getScreenX(), event.getScreenY());
+        });
     }
 
     public void checkUnderline() {
@@ -186,7 +206,6 @@ public class Toolbar_TextController {
 
             if (a == 0 && a == length - 1) {
                 int index = line.getTextIndex(getInstance().text_hbox.get(0));
-
                 for(int b = index-1; b>=0;b--){
                     TextObj word = line.getIndex(b);
                     if(!word.isTextUnderline()) break;
@@ -224,7 +243,6 @@ public class Toolbar_TextController {
             int height = (max < 10) ? 1 : (max / 10);
             for(TextObj word : change)
                 word.getUnderlineObj().setUnderlineHeight(height);
-
             change.clear();
         }
     }
@@ -232,7 +250,6 @@ public class Toolbar_TextController {
     public void setSelectText(ArrayList<TextObj> hbox, ArrayList<TextLine> line) {
         getInstance().text_hbox = hbox;
         getInstance().text_line = line;
-
         setBoldPressed();
         setItalicPressed();
         setUnderlinePressed();
@@ -314,6 +331,7 @@ public class Toolbar_TextController {
 
     public void clearCurentText() {
         getInstance().text_hbox = null;
+        getInstance().text_line = null;
         getInstance().currentText = null;
         getInstance().underlineProperty.set(false);
         getInstance().italicProperty.set(false);
