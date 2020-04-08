@@ -141,3 +141,14 @@
 .work_scroll{
     -fx-border-width:0px;
 }
+
+.color-picker{
+    -fx-background-color: #c2cad1;
+}
+.color-picker .color-picker-label .picker-color {
+    -fx-alignment : bottom-center;
+}
+
+.color-picker .color-picker-label{
+    -fx-text-fill:transparent;
+}

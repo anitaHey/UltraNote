@@ -41,19 +41,7 @@
                         <Font name="Microsoft JhengHei" size="14.0" />
                      </font>
                   </Button>
-                  <VBox fx:id="text_color" alignment="CENTER" fillWidth="false" prefHeight="33.0" prefWidth="34.0" styleClass="toolbar_sm_button">
-                     <children>
-                        <Label text="A">
-                           <font>
-                              <Font name="Microsoft JhengHei" size="14.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="-3.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Pane fx:id="text_color_pane" prefHeight="4.0" prefWidth="17.0" />
-                     </children>
-                  </VBox>
+                  <ColorPicker fx:id="text_color" prefHeight="29.0" prefWidth="53.0" styleClass="toolbar_sm_button" />
                </children>
                <VBox.margin>
                   <Insets />

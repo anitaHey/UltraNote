@@ -6,10 +6,8 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
+import javafx.geometry.Insets;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -54,15 +52,13 @@ public class Toolbar_TextController {
     @FXML
     ComboBox<String> font_size_combo;
     @FXML
-    VBox text_color;
-    @FXML
-    Pane text_color_pane;
+    ColorPicker text_color;
 
     @FXML
     public void initialize() {
         setInstance(this);
 
-        text_color_pane.setStyle("-fx-background-color:"+property.getFontColor()+";");
+//        text_color_pane.setStyle("-fx-background-color:" + property.getFontColor() + ";");
 
         boldProperty.addListener((observable, oldValue, newValue) -> {
             if (newValue) {
@@ -107,10 +103,10 @@ public class Toolbar_TextController {
                 setBoldPressed();
             } else if (getInstance().currentText != null) {
                 getInstance().currentText.requestFocus();
-                if(getInstance().boldProperty.getValue()){
+                if (getInstance().boldProperty.getValue()) {
                     property.setCurrent(null, FontWeight.NORMAL, null, null, null, -1);
                     getInstance().boldProperty.set(false);
-                }else{
+                } else {
                     property.setCurrent(null, FontWeight.BOLD, null, null, null, -1);
                     getInstance().boldProperty.set(true);
                 }
@@ -129,10 +125,10 @@ public class Toolbar_TextController {
                 setItalicPressed();
             } else if (getInstance().currentText != null) {
                 getInstance().currentText.requestFocus();
-                if(getInstance().italicProperty.getValue()){
+                if (getInstance().italicProperty.getValue()) {
                     property.setCurrent(null, null, FontPosture.REGULAR, null, null, -1);
                     getInstance().italicProperty.set(false);
-                }else{
+                } else {
                     property.setCurrent(null, null, FontPosture.ITALIC, null, null, -1);
                     getInstance().italicProperty.set(true);
                 }
@@ -149,10 +145,10 @@ public class Toolbar_TextController {
                 setUnderlinePressed();
             } else if (getInstance().currentText != null) {
                 getInstance().currentText.requestFocus();
-                if(getInstance().underlineProperty.getValue()){
+                if (getInstance().underlineProperty.getValue()) {
                     property.setCurrent(false, null, null, null, null, -1);
                     getInstance().underlineProperty.set(false);
-                }else{
+                } else {
                     property.setCurrent(true, null, null, null, null, -1);
                     getInstance().underlineProperty.set(true);
                 }
@@ -187,12 +183,13 @@ public class Toolbar_TextController {
             }
         });
 
-        TextColorPicker colorPicker = new TextColorPicker();
-        ContextMenu
-        text_color.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            colorPicker.
-            popUp.show(text_color, event.getScreenX(), event.getScreenY());
-        });
+        /* TODO: Custom color picker.
+        CustomMenuItem item = new CustomMenuItem(new TextColorPicker());
+        item.getStyleClass().add("outer_item");
+        item.getStyleClass().add("menu");
+        text_color.getStyleClass().add("menu");
+        text_color.getItems().add(item);
+        */
     }
 
     public void checkUnderline() {
@@ -206,34 +203,34 @@ public class Toolbar_TextController {
 
             if (a == 0 && a == length - 1) {
                 int index = line.getTextIndex(getInstance().text_hbox.get(0));
-                for(int b = index-1; b>=0;b--){
+                for (int b = index - 1; b >= 0; b--) {
                     TextObj word = line.getIndex(b);
-                    if(!word.isTextUnderline()) break;
+                    if (!word.isTextUnderline()) break;
                     max = Math.max(word.getFontSize(), max);
                     change.add(word);
                 }
-                for(int b = index; b<= line.getHBoxSize()-1;b++){
+                for (int b = index; b <= line.getHBoxSize() - 1; b++) {
                     TextObj word = line.getIndex(b);
-                    if(!word.isTextUnderline()) break;
+                    if (!word.isTextUnderline()) break;
                     max = Math.max(word.getFontSize(), max);
                     change.add(word);
                 }
             } else if (a == 0) {
-                for(int b = line.getHBoxSize()-1; b>=0;b--){
+                for (int b = line.getHBoxSize() - 1; b >= 0; b--) {
                     TextObj word = line.getIndex(b);
-                    if(!word.isTextUnderline()) break;
+                    if (!word.isTextUnderline()) break;
                     max = Math.max(word.getFontSize(), max);
                     change.add(word);
                 }
             } else if (a == length - 1) {
-                for(int b = 0; b<line.getHBoxSize();b++){
+                for (int b = 0; b < line.getHBoxSize(); b++) {
                     TextObj word = line.getIndex(b);
-                    if(!word.isTextUnderline()) break;
+                    if (!word.isTextUnderline()) break;
                     max = Math.max(word.getFontSize(), max);
                     change.add(word);
                 }
             } else {
-                for(int b = 0; b<line.getHBoxSize();b++){
+                for (int b = 0; b < line.getHBoxSize(); b++) {
                     TextObj word = line.getIndex(b);
                     max = Math.max(word.getFontSize(), max);
                     change.add(word);
@@ -241,7 +238,7 @@ public class Toolbar_TextController {
             }
 
             int height = (max < 10) ? 1 : (max / 10);
-            for(TextObj word : change)
+            for (TextObj word : change)
                 word.getUnderlineObj().setUnderlineHeight(height);
             change.clear();
         }
