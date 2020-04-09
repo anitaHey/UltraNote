@@ -17,6 +17,7 @@ public class TextLine extends VBox {
 
         wordHBox.setAlignment(Pos.BASELINE_LEFT);
         wordHBox.setPrefHeight(30);
+
         underlineHBox.setPrefHeight(10);
 
         TextObj first = new TextObj("");

@@ -1,5 +1,6 @@
 package InsertObj;
 
+import Controller.PaperController;
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.scene.Cursor;
@@ -22,7 +23,8 @@ public class Draggable {
     }
 
     public static final class Move implements EventHandler<MouseEvent> {
-        private Pane paper = Paper.getCurentPaper();
+        private PaperController paper_controller = PaperController.getInstance();
+        private Paper paper = paper_controller.getCurentPaper();
         private double lastMouseX = 0, lastMouseY = 0;
         private boolean dragging = false;
 

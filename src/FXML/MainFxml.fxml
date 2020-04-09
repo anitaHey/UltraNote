@@ -6,19 +6,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="990.0" styleClass="font_size" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="font_size" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
    <children>
-      <VBox fx:id="main_vbox" prefHeight="680.0" prefWidth="990.0" styleClass="main_vbox">
+      <VBox fx:id="main_vbox" prefHeight="680.0" styleClass="main_vbox">
          <children>
-            <VBox fx:id="toolbar_vbox" prefWidth="990.0">
+            <VBox fx:id="toolbar_vbox">
                <children>
-                  <Pane prefHeight="30.0" prefWidth="990.0" styleClass="stage_title">
+                  <Pane prefHeight="30.0" styleClass="stage_title">
                      <children>
                         <Label prefHeight="30.0" prefWidth="148.0" styleClass="stage_title_label" text="UltraNote" />
-                        <Button fx:id="exit" layoutX="949.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="41.0" styleClass="stage_exit" text="X" />
+                        <Button fx:id="exit" layoutY="-1.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="41.0" styleClass="stage_exit" text="X" />
                      </children>
                   </Pane>
-                  <HBox prefHeight="37.0" prefWidth="990.0" styleClass="toolbar_button_hbox">
+                  <HBox prefHeight="37.0" styleClass="toolbar_button_hbox">
                      <children>
                         <Button fx:id="toolbar_file" mnemonicParsing="false" prefHeight="44.0" prefWidth="135.0" styleClass="toolbar_button" text="檔案" />
                         <Button fx:id="toolbar_view" mnemonicParsing="false" prefHeight="44.0" prefWidth="101.0" styleClass="toolbar_button" text="檢視" />
@@ -29,21 +29,9 @@
                   </HBox>
                </children>
             </VBox>
-            <ScrollPane fx:id="work_scroll" fitToWidth="true" prefHeight="615.0" prefWidth="990.0">
+            <ScrollPane fx:id="work_scroll" fitToWidth="true">
                <content>
-                  <VBox prefWidth="971.0" styleClass="no_focus">
-                     <children>
-                        <Pane prefHeight="610.0" prefWidth="988.0">
-                           <children>
-                              <Pane fx:id="paper_pane" layoutX="91.0" layoutY="47.0" prefHeight="529.0" prefWidth="809.0" styleClass="work_paper" />
-                           </children>
-                           <styleClass>
-                              <String fx:value="work_area" />
-                              <String fx:value="no_focus" />
-                           </styleClass>
-                        </Pane>
-                     </children>
-                  </VBox>
+                  <VBox fx:id="work_vbox" prefWidth="971.0" styleClass="no_focus" />
                </content>
                <styleClass>
                   <String fx:value="work_scroll" />

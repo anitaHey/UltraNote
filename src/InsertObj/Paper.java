@@ -1,24 +1,97 @@
 package InsertObj;
 
+import Controller.MainController;
+import Controller.PaperController;
+import javafx.geometry.Bounds;
+import javafx.scene.Node;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 
 public class Paper extends Pane {
-    private static Pane current;
-    private static Object object;
+    private PaperController paper_controller = PaperController.getInstance();
+    private MainController main_controller = MainController.getInstance();
+    String background_color = null;
+    WorkArea area = null;
 
-    public static Pane getCurentPaper(){
-        return current;
+    public Paper() {
+        setBackground_color("#fff");
+        paper_controller.setCurentPaper(this);
     }
 
-    public static void setCurentPaper(Pane pane){
-        current = pane;
+    public Paper(double width, double height ) {
+        setBackground_color("#fff");
+        setInfinatePaper(width, height);
+        paper_controller.setCurentPaper(this);
     }
 
-    public static void setFocusObject(Object obj){
-        object = obj;
+    public void setBackground_color(String color) {
+        background_color = color;
+        this.setStyle("-fx-background-color: " + background_color);
     }
 
-    public static Object getFocusObject(){
-        return object;
+    public void setIndivailPaper(String size, int direction) {
+        this.setLayoutX(91);
+        this.setLayoutY(47);
+        double height = 0;
+        double width = 0;
+        switch (size) {
+            case "A4":
+                if (direction == 0) {
+                    height = 29.7;
+                    width = 21;
+                } else {
+                    width = 29.7;
+                    height = 21;
+                }
+                break;
+            case "A3":
+                if (direction == 0) {
+                    height = 42;
+                    width = 29.7;
+                } else {
+                    width = 42;
+                    height = 29.7;
+                }
+                break;
+            case "B4":
+                if (direction == 0) {
+                    height = 36.4;
+                    width = 25.7;
+                } else {
+                    width = 36.4;
+                    height = 25.7;
+                }
+                break;
+
+            default:
+                String[] split = size.split(",");
+                height = Double.parseDouble(split[0]);
+                width = Double.parseDouble(split[1]);
+        }
+
+        this.setPrefHeight(height);
+        this.setPrefWidth(width);
+    }
+
+    public void setInfinatePaper(double width, double height ) {
+        this.setLayoutX(0);
+        this.setLayoutY(0);
+
+        this.setMinHeight(width);
+        this.setMinWidth(height-70);
+        this.setPrefHeight(USE_COMPUTED_SIZE);
+        this.setPrefWidth(USE_COMPUTED_SIZE);
+    }
+
+    public void addNode(Node input){
+        this.getChildren().add(input);
+    }
+
+    public void setWorkArea(WorkArea input){
+        area = input;
+    }
+
+    public WorkArea getWorkArea(){
+        return area;
     }
 }

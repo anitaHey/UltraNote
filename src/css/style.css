@@ -152,3 +152,8 @@
 .color-picker .color-picker-label{
     -fx-text-fill:transparent;
 }
+
+.context-menu {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}

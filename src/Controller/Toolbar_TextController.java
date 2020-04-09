@@ -8,9 +8,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import Object.TextObj;
@@ -18,7 +20,9 @@ import Object.TextLine;
 import Object.TextProperty;
 import Object.TextColorPicker;
 
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Toolbar_TextController {
     private static Toolbar_TextController instance;
@@ -28,8 +32,8 @@ public class Toolbar_TextController {
     TextObj currentText = null;
     int[] font_size = {8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
 
-    Boolean cuurentSizeSet = true;
-    Boolean cuurentFamilySet = true;
+    Boolean currentSizeSet = true;
+    Boolean currentFamilySet = true;
     private BooleanProperty boldProperty = new SimpleBooleanProperty(false);
     private BooleanProperty italicProperty = new SimpleBooleanProperty(false);
     private BooleanProperty underlineProperty = new SimpleBooleanProperty(false);
@@ -57,8 +61,16 @@ public class Toolbar_TextController {
     @FXML
     public void initialize() {
         setInstance(this);
+        String[] fontFanily = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        text_color.setValue(Color.web(property.getFontColor()));
 
-//        text_color_pane.setStyle("-fx-background-color:" + property.getFontColor() + ";");
+        for (String family : fontFanily)
+            text_font_combo.getItems().add(family);
+        text_font_combo.setValue("");
+
+        for (int size : font_size)
+            font_size_combo.getItems().add(String.valueOf(size));
+        font_size_combo.setValue("");
 
         boldProperty.addListener((observable, oldValue, newValue) -> {
             if (newValue) {
@@ -86,10 +98,6 @@ public class Toolbar_TextController {
                 getInstance().text_underline.getStyleClass().remove("toolbar_sm_button_pressed");
             }
         });
-
-        for (int size : font_size)
-            font_size_combo.getItems().add(String.valueOf(size));
-        font_size_combo.setValue("");
 
         text_bold.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             if (getInstance().text_hbox != null) {
@@ -156,8 +164,34 @@ public class Toolbar_TextController {
             }
         });
 
+        text_font_combo.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (!getInstance().currentFamilySet) getInstance().currentFamilySet = true;
+            else {
+                if (newValue.length() != 0 && !oldValue.equals(newValue)) {
+                    try {
+                        if (getInstance().text_hbox != null) {
+                            for (TextObj word : getInstance().text_hbox)
+                                word.setTextFamily(newValue);
+
+                            Platform.runLater(() -> {
+                                getInstance().text_hbox.get(0).requestFocus();
+                            });
+                        } else if (getInstance().currentText != null) {
+                            Platform.runLater(() -> {
+                                getInstance().currentText.requestFocus();
+                                property.setCurrent(null, null, null, newValue, null, -1);
+                            });
+                        }
+                    } catch (Exception e) {
+                        property.setCurrent(null, null, null, property.getFontFamily(), null, -1);
+                        System.out.println(e);
+                    }
+                }
+            }
+        });
+
         font_size_combo.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (!getInstance().cuurentSizeSet) getInstance().cuurentSizeSet = true;
+            if (!getInstance().currentSizeSet) getInstance().currentSizeSet = true;
             else {
                 if (newValue.length() != 0 && !oldValue.equals(newValue)) {
                     try {
@@ -183,6 +217,26 @@ public class Toolbar_TextController {
             }
         });
 
+        text_color.valueProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                if (getInstance().text_hbox != null) {
+                    for (TextObj word : getInstance().text_hbox)
+                        word.setFontColor(toRGBCode(newValue));
+
+                    Platform.runLater(() -> {
+                        getInstance().text_hbox.get(0).requestFocus();
+                    });
+                } else if (getInstance().currentText != null) {
+                    Platform.runLater(() -> {
+                        getInstance().currentText.requestFocus();
+                        property.setCurrent(null, null, null, null, toRGBCode(newValue), -1);
+                    });
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        });
+
         /* TODO: Custom color picker.
         CustomMenuItem item = new CustomMenuItem(new TextColorPicker());
         item.getStyleClass().add("outer_item");
@@ -190,6 +244,13 @@ public class Toolbar_TextController {
         text_color.getStyleClass().add("menu");
         text_color.getItems().add(item);
         */
+    }
+
+    public static String toRGBCode(Color color) {
+        return String.format("#%02X%02X%02X",
+                (int) (color.getRed() * 255),
+                (int) (color.getGreen() * 255),
+                (int) (color.getBlue() * 255));
     }
 
     public void checkUnderline() {
@@ -251,19 +312,25 @@ public class Toolbar_TextController {
         setItalicPressed();
         setUnderlinePressed();
         setFontSize();
+        setFontFamily();
     }
 
     public void setCurrentText(TextObj text) {
         getInstance().currentText = text;
 
         if (!String.valueOf(property.getFontSize()).equals(getInstance().font_size_combo.getValue()))
-            getInstance().cuurentSizeSet = false;
+            getInstance().currentSizeSet = false;
+
+        if (!String.valueOf(property.getFontFamily()).equals(getInstance().text_font_combo.getValue()))
+            getInstance().currentFamilySet = false;
 
         getInstance().font_size_combo.setValue(String.valueOf(property.getFontSize()));
         getInstance().text_font_combo.setValue(property.getFontFamily());
         getInstance().boldProperty.set(property.isBold());
         getInstance().italicProperty.set(property.isItalic());
         getInstance().underlineProperty.set(property.getUnderline());
+        getInstance().text_color.setValue(Color.web(property.getFontColor()));
+        getInstance().text_font_combo.setValue(property.getFontFamily());
     }
 
     public void setBoldPressed() {
@@ -326,11 +393,27 @@ public class Toolbar_TextController {
             getInstance().font_size_combo.setValue(String.valueOf((int) current_size));
     }
 
+    public void setFontFamily() {
+        String current_family = "";
+        if (getInstance().text_hbox != null) {
+            for (TextObj word : getInstance().text_hbox) {
+                String tem_family = word.getFontFamily();
+                if (current_family.equals("")) current_family = tem_family;
+                else if (!current_family.equals(tem_family)) {
+                    current_family = "";
+                    break;
+                }
+            }
+        }
+
+        getInstance().text_font_combo.setValue(current_family);
+    }
+
     public void clearCurentText() {
         getInstance().text_hbox = null;
         getInstance().text_line = null;
         getInstance().currentText = null;
-        getInstance().underlineProperty.set(false);
+        getInstance().boldProperty.set(false);
         getInstance().italicProperty.set(false);
         getInstance().underlineProperty.set(false);
     }

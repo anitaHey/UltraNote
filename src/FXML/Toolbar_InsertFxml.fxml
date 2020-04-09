@@ -20,9 +20,67 @@
             <Label prefHeight="71.0" prefWidth="114.0" styleClass="toolbar_button_label" text="文字" />
          </children>
          <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
          </padding>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
       </VBox>
+      <MenuButton mnemonicParsing="false" prefHeight="87.0" prefWidth="87.0" styleClass="toolbar_sm_button">
+        <items>
+          <MenuItem fx:id="toolbar_insert_phote_file" mnemonicParsing="false">
+               <graphic>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/photo_file.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="從檔案">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+               </graphic>
+            </MenuItem>
+          <MenuItem fx:id="toolbar_insert_phote_graph" mnemonicParsing="false">
+               <graphic>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/photograph.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="從相機">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+               </graphic>
+            </MenuItem>
+        </items>
+         <graphic>
+            <VBox fx:id="toolbar_insert_text1" alignment="CENTER" prefHeight="62.0" prefWidth="60.0" spacing="5.0" styleClass="toolbar_sm_button">
+               <children>
+                  <ImageView fitHeight="49.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pic/photo.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="71.0" prefWidth="114.0" styleClass="toolbar_button_label" text="圖片" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </graphic>
+      </MenuButton>
    </children>
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

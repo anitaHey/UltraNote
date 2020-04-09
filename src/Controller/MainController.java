@@ -2,6 +2,7 @@ package Controller;
 
 import InsertObj.Paper;
 import InsertObj.Text_box;
+import InsertObj.WorkArea;
 import ToolBar.Toolbar;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -9,68 +10,76 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class MainController {
     private static MainController instance;
+    private Stage stage;
 
     @FXML
     Button exit, toolbar_file, toolbar_view, toolbar_insert, toolbar_text, toolbar_draw;
     @FXML
-    VBox main_vbox, toolbar_vbox;
+    VBox main_vbox, toolbar_vbox, work_vbox;
     @FXML
     ScrollPane work_scroll;
-    @FXML
-    Pane paper_pane;
 
     Toolbar toolbar_tool;
     int toolbar = -1;
 
-    public static MainController getInstance(){
-        if(instance == null){
+    public static MainController getInstance() {
+        if (instance == null) {
             instance = new MainController();
         }
         return instance;
     }
 
-    public static void setInstance(MainController newInstance){
+    public static void setInstance(MainController newInstance) {
         instance = newInstance;
     }
 
-    public enum Type{
-        File(1,"../FXML/Toolbar_FileFxml.fxml", new Toolbar_FileController()),
-        View(2,"../FXML/Toolbar_ViewFxml.fxml", new Toolbar_ViewController()),
-        Insert(3,"../FXML/Toolbar_InsertFxml.fxml", new Toolbar_InsertController()),
-        Text(4,"../FXML/Toolbar_TextFxml.fxml", new Toolbar_TextController()),
-        Draw(5,"../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController());
+    public void setStage(Stage stage) {
+        getInstance().stage = stage;
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public enum Type {
+        File(1, "../FXML/Toolbar_FileFxml.fxml", new Toolbar_FileController()),
+        View(2, "../FXML/Toolbar_ViewFxml.fxml", new Toolbar_ViewController()),
+        Insert(3, "../FXML/Toolbar_InsertFxml.fxml", new Toolbar_InsertController()),
+        Text(4, "../FXML/Toolbar_TextFxml.fxml", new Toolbar_TextController()),
+        Draw(5, "../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController());
 
         private final int id;
         private Button btn;
         private final String URL;
         private final Object controller;
 
-        Type(int id, String url, Object controller){
+        Type(int id, String url, Object controller) {
             this.id = id;
             this.URL = url;
             this.controller = controller;
         }
 
-        public void setBtn(Button btn){
+        public void setBtn(Button btn) {
             this.btn = btn;
         }
 
-        public String getURL(){
+        public String getURL() {
             return URL;
         }
 
-        public Object getController(){
+        public Object getController() {
             return controller;
         }
 
-        public int getId(){
+        public int getId() {
             return id;
         }
 
-        public Button getButton(){
+        public Button getButton() {
             return btn;
         }
     }
@@ -101,19 +110,39 @@ public class MainController {
         toolbar_draw.setOnAction(actionEvent -> {
             change_toolbar(Type.Draw, true);
         });
-
-        Paper.setCurentPaper(paper_pane);
     }
 
-    public void change_toolbar(Type type, boolean close){
-        if(toolbar == type.getId()) {
-            if(close){
+    public void setSize(){
+        getStage().widthProperty().addListener((ob, oldValue, newValue)->{
+            main_vbox.setPrefWidth(newValue.doubleValue());
+            exit.setLayoutX(newValue.doubleValue()-41);
+        });
+
+        getStage().heightProperty().addListener((ob, oldValue, newValue)->{
+            main_vbox.setPrefHeight(newValue.doubleValue());
+            work_scroll.setPrefHeight(newValue.doubleValue()-70);
+        });
+    }
+
+    public void add(double width, double height ){
+        WorkArea area = new WorkArea();
+        Paper paper = new Paper(width, height);
+        paper.setWorkArea(area);
+        area.addPaper(paper);
+        work_vbox.getChildren().add(area);
+
+        area.setProperty();
+    }
+
+    public void change_toolbar(Type type, boolean close) {
+        if (toolbar == type.getId()) {
+            if (close) {
                 toolbar = -1;
                 toolbar_vbox.getChildren().remove(2);
                 work_scroll.setPrefHeight(615);
                 type.getButton().getStyleClass().remove("toolbar_button_press");
             }
-        }else if(toolbar == -1){
+        } else if (toolbar == -1) {
             toolbar = type.getId();
             toolbar_tool = new Toolbar(type);
 //            toolbar_tool.change(type);
@@ -134,9 +163,5 @@ public class MainController {
 //            toolbar_tool.change(type);
             type.getButton().getStyleClass().add("toolbar_button_press");
         }
-    }
-
-    public void addText(Text_box input){
-        paper_pane.getChildren().add(input);
     }
 }
