@@ -1,14 +1,11 @@
 package Controller;
 
 import InsertObj.Paper;
-import InsertObj.Text_box;
-import InsertObj.WorkArea;
 import ToolBar.Toolbar;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -110,6 +107,9 @@ public class MainController {
         toolbar_draw.setOnAction(actionEvent -> {
             change_toolbar(Type.Draw, true);
         });
+
+        work_scroll.getStyleClass().add("word_area");
+        work_scroll.getStyleClass().add("no_focus");
     }
 
     public void setSize(){
@@ -120,18 +120,19 @@ public class MainController {
 
         getStage().heightProperty().addListener((ob, oldValue, newValue)->{
             main_vbox.setPrefHeight(newValue.doubleValue());
-            work_scroll.setPrefHeight(newValue.doubleValue()-70);
+            if(toolbar == -1){
+                work_scroll.setPrefHeight(newValue.doubleValue()-70);
+            }else{
+                work_scroll.setPrefHeight(newValue.doubleValue()-185);
+            }
+
         });
     }
 
-    public void add(double width, double height ){
-        WorkArea area = new WorkArea();
+    public void addPaper(double width, double height ){
+        work_scroll.setPrefHeight(height-70);
         Paper paper = new Paper(width, height);
-        paper.setWorkArea(area);
-        area.addPaper(paper);
-        work_vbox.getChildren().add(area);
-
-        area.setProperty();
+        work_vbox.getChildren().add(paper);
     }
 
     public void change_toolbar(Type type, boolean close) {
@@ -139,7 +140,7 @@ public class MainController {
             if (close) {
                 toolbar = -1;
                 toolbar_vbox.getChildren().remove(2);
-                work_scroll.setPrefHeight(615);
+                work_scroll.setPrefHeight(work_scroll.getPrefHeight()+115);
                 type.getButton().getStyleClass().remove("toolbar_button_press");
             }
         } else if (toolbar == -1) {
@@ -147,7 +148,7 @@ public class MainController {
             toolbar_tool = new Toolbar(type);
 //            toolbar_tool.change(type);
             toolbar_vbox.getChildren().add(2, toolbar_tool);
-            work_scroll.setPrefHeight(500);
+            work_scroll.setPrefHeight(work_scroll.getPrefHeight()-115);
             type.getButton().getStyleClass().add("toolbar_button_press");
         } else {
             toolbar_file.getStyleClass().remove("toolbar_button_press");

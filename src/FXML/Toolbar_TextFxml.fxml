@@ -51,6 +51,6 @@
       </VBox>
    </children>
    <stylesheets>
-      <URL value="@../css/style.css" />
+      <URL value="@../css/main_style.css" />
    </stylesheets>
 </fx:root>

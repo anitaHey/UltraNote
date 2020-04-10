@@ -1,12 +1,14 @@
-.font_size{
-    -fx-font-size:25px;
-    -fx-font-family: Consolas;
+.hide{
+    -fx-opacity: 0;
 }
 
-.text_border_focus{
+.show{
+    -fx-opacity: 1;
+}
+.border_focus{
     -fx-border-color: #a39e9e;
-    -fx-border-width: 2;
-    -fx-border-style: segments(5, 10, 10, 10)  line-cap round ;
+    -fx-border-width: 1;
+    -fx-border-style: segments(5, 5, 5, 5)  line-cap round ;
 }
 
 .text_bg_input{

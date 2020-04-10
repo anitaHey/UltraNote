@@ -11,7 +11,6 @@ public class Paper extends Pane {
     private PaperController paper_controller = PaperController.getInstance();
     private MainController main_controller = MainController.getInstance();
     String background_color = null;
-    WorkArea area = null;
 
     public Paper() {
         setBackground_color("#fff");
@@ -77,21 +76,13 @@ public class Paper extends Pane {
         this.setLayoutX(0);
         this.setLayoutY(0);
 
-        this.setMinHeight(width);
-        this.setMinWidth(height-70);
+        this.setMinHeight(height-100);
+        this.setMinWidth(width-60);
         this.setPrefHeight(USE_COMPUTED_SIZE);
         this.setPrefWidth(USE_COMPUTED_SIZE);
     }
 
     public void addNode(Node input){
         this.getChildren().add(input);
-    }
-
-    public void setWorkArea(WorkArea input){
-        area = input;
-    }
-
-    public WorkArea getWorkArea(){
-        return area;
     }
 }

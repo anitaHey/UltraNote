@@ -2,28 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/PaperController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/InsertObj/WorkArea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pic/photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pic/photo_file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pic/photograph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FXML/ResizeBorderFxml.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/InsertObj/Picture.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_DrawController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_DrawController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_TextController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_TextController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_ViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FXML/MainFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/MainFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/TextBoxFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/TextBoxFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_DrawFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_DrawFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_FileFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_FileFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_TextFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_TextFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_ViewFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_ViewFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InsertObj/Draggable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Draggable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InsertObj/Paper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Paper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/Text_box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Text_box.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/WorkArea.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object/TextLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/TextLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object/TextObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/TextObj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object/TextUnderline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/TextUnderline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/main_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/text_box.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/node_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -65,20 +64,20 @@
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Desktop\Project\UltraNote\src\css" />
+      <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="InsertObj" />
       <recent name="" />
       <recent name="ToolBar" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="InsertObj" />
       <recent name="Controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Desktop\Project\UltraNote\src\css" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
     </key>
   </component>
@@ -194,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586260339235</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="20200409 Text color picker.">
+      <created>1586366744240</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1586366744240</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -211,7 +217,8 @@
     <MESSAGE value="20200323 Add underline." />
     <MESSAGE value="20200404 Change textbox." />
     <MESSAGE value="20200407 Set font default." />
-    <option name="LAST_COMMIT_MESSAGE" value="20200407 Set font default." />
+    <MESSAGE value="20200409 Text color picker." />
+    <option name="LAST_COMMIT_MESSAGE" value="20200409 Text color picker." />
   </component>
   <component name="WindowStateProjectService">
     <state x="196" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583489308957">
@@ -240,11 +247,11 @@
     </state>
     <state x="533" y="338" width="428" height="238" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1368.872@0.0.1368.872" timestamp="1583995996709" />
     <state x="748" y="403" width="424" height="244" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1583926507651" />
-    <state x="582" y="218" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586355162413">
+    <state x="582" y="218" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586433744506">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="415" y="183" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1368.872@0.0.1368.872" timestamp="1584499185852" />
-    <state x="582" y="218" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586355162413" />
+    <state x="582" y="218" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586433744506" />
     <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1586260338632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -268,46 +275,50 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="552" y="327" width="266" height="216" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1583304539757" />
-    <state width="1326" height="157" key="GridCell.Tab.0.bottom" timestamp="1586417439668">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="152" key="GridCell.Tab.0.bottom" timestamp="1586510603570">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="157" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1586417439668" />
-    <state width="1876" height="152" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586360872283" />
-    <state width="1326" height="157" key="GridCell.Tab.0.center" timestamp="1586417439667">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1860" height="152" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586510313588" />
+    <state width="1876" height="152" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586510603570" />
+    <state width="1876" height="152" key="GridCell.Tab.0.center" timestamp="1586510603570">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="157" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1586417439667" />
-    <state width="1876" height="152" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586360872283" />
-    <state width="1326" height="157" key="GridCell.Tab.0.left" timestamp="1586417439667">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1860" height="152" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586510313588" />
+    <state width="1876" height="152" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586510603570" />
+    <state width="1876" height="152" key="GridCell.Tab.0.left" timestamp="1586510603570">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="157" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1586417439667" />
-    <state width="1876" height="152" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586360872283" />
-    <state width="1326" height="157" key="GridCell.Tab.0.right" timestamp="1586417439667">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1860" height="152" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586510313587" />
+    <state width="1876" height="152" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586510603570" />
+    <state width="1876" height="152" key="GridCell.Tab.0.right" timestamp="1586510603570">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="157" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1586417439667" />
-    <state width="1876" height="152" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586360872283" />
-    <state width="1860" height="335" key="GridCell.Tab.1.bottom" timestamp="1586257246862">
+    <state width="1860" height="152" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586510313588" />
+    <state width="1876" height="152" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586510603570" />
+    <state width="1876" height="341" key="GridCell.Tab.1.bottom" timestamp="1586508159024">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="281" key="GridCell.Tab.1.bottom/0.0.1368.872@0.0.1368.872" timestamp="1584766000467" />
-    <state width="1860" height="335" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586257246862" />
-    <state width="1860" height="335" key="GridCell.Tab.1.center" timestamp="1586257246862">
+    <state width="1876" height="341" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586508159024" />
+    <state width="1876" height="341" key="GridCell.Tab.1.center" timestamp="1586508159024">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="281" key="GridCell.Tab.1.center/0.0.1368.872@0.0.1368.872" timestamp="1584766000467" />
-    <state width="1860" height="335" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586257246862" />
-    <state width="1860" height="335" key="GridCell.Tab.1.left" timestamp="1586257246862">
+    <state width="1876" height="341" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586508159024" />
+    <state width="1876" height="341" key="GridCell.Tab.1.left" timestamp="1586508159024">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="281" key="GridCell.Tab.1.left/0.0.1368.872@0.0.1368.872" timestamp="1584766000467" />
-    <state width="1860" height="335" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586257246862" />
-    <state width="1860" height="335" key="GridCell.Tab.1.right" timestamp="1586257246862">
+    <state width="1876" height="341" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586508159024" />
+    <state width="1876" height="341" key="GridCell.Tab.1.right" timestamp="1586508159024">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="281" key="GridCell.Tab.1.right/0.0.1368.872@0.0.1368.872" timestamp="1584766000467" />
-    <state width="1860" height="335" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586257246862" />
+    <state width="1876" height="341" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586508159024" />
     <state x="768" y="229" key="RollbackChangesDialog" timestamp="1584358965825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

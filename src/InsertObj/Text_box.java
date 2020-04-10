@@ -13,7 +13,6 @@ import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -21,7 +20,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Text_box extends Pane {
+public class Text_box extends ResizeNode {
+    VBox text_vbox;
     TextLine line;
     private int CURRENT_LINE = 0;
     TextLine hbox_line;
@@ -36,27 +36,22 @@ public class Text_box extends Pane {
     Timer timer;
 
     public Text_box() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/TextBoxFxml.fxml"));
-            loader.setController(this);
-            loader.setRoot(this);
-            loader.load();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        super("text");
+
+        Init();
     }
 
-    @FXML
-    Pane main_text;
-    @FXML
-    VBox text_vbox;
+    public void Init() {
+        text_vbox = new VBox();
+        text_vbox.setPrefWidth(100);
+        text_vbox.setStyle("-fx-padding: 5,15,15,15;");
+        getMain_content().getChildren().add(text_vbox);
 
-    @FXML
-    public void initialize() {
         property.setDefault();
 
         line = new TextLine();
         text_vbox.getChildren().add(line);
+
         setInputFocus(line.getIndex(0));
         setInputListener(line.getIndex(0));
 
@@ -64,17 +59,12 @@ public class Text_box extends Pane {
         Platform.runLater(() -> line.getIndex(0).requestFocus());
         MainController.getInstance().change_toolbar(MainController.Type.Text, false);
 
-        main_text.setOnMouseClicked(e -> {
-            focus_border(true);
+        this.setOnMouseClicked(e -> {
             checkClickLine(e);
             MainController.getInstance().change_toolbar(MainController.Type.Text, false);
         });
 
-        main_text.setOnDragDetected(e -> {
-            focus_border(true);
-        });
-
-        main_text.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> {
+        this.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> {
             if (!isBorder(e)) {
                 for (int a = 0; a < getLineSize(); a++) {
                     TextLine tem = getLine(a);
@@ -87,8 +77,6 @@ public class Text_box extends Pane {
                 }
             }
         });
-
-        new Draggable.Move(main_text);
     }
 
     public TextLine getLine(int index) {
@@ -155,14 +143,6 @@ public class Text_box extends Pane {
             selectTextHbox.getStyleClass().add("text_select");
         }
         controller.setSelectText(select_text_obj, select_text_line);
-    }
-
-    public void focus_border(boolean show) {
-        if (show) {
-            main_text.getStyleClass().add("text_border_focus");
-        } else {
-            main_text.getStyleClass().clear();
-        }
     }
 
     public void setInputFocus(TextObj text) {
@@ -380,7 +360,7 @@ public class Text_box extends Pane {
     }
 
     public boolean isBorder(MouseEvent event) {
-        Bounds dragNodeBounds = main_text.getBoundsInParent();
+        Bounds dragNodeBounds = this.getBoundsInParent();
         Boolean top = (Math.abs(event.getY()) <= 15);
         Boolean bottom = (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= 15);
         Boolean left = (Math.abs(event.getX()) <= 15);

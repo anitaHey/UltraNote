@@ -28,7 +28,7 @@ public class Main extends Application {
         controller.Init();
         controller.setStage(primaryStage);
         controller.setSize();
-        controller.add(screenBounds.getWidth(),screenBounds.getHeight());
+        controller.addPaper(screenBounds.getWidth(),screenBounds.getHeight());
 
         primaryStage.show();
     }

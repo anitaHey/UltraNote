@@ -1,17 +1,22 @@
 package Controller;
 
 import Controller.MainController;
+import InsertObj.Draggable;
+import InsertObj.Paper;
 import InsertObj.Text_box;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.util.List;
 
-public class Toolbar_InsertController{
+public class Toolbar_InsertController {
     private MainController controller = MainController.getInstance();
     private PaperController paper_controller = PaperController.getInstance();
     @FXML
@@ -28,7 +33,7 @@ public class Toolbar_InsertController{
             paper_controller.getCurentPaper().addNode(tem);
         });
 
-        toolbar_insert_phote_file.setOnAction(e->{
+        toolbar_insert_phote_file.setOnAction(e -> {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("選擇圖片");
 
@@ -37,6 +42,12 @@ public class Toolbar_InsertController{
             fileChooser.getExtensionFilters().add(imageFilter);
 
             List<File> photo_list = fileChooser.showOpenMultipleDialog(controller.getStage());
+
+            for(File photo : photo_list){
+                ImageView view = new ImageView(photo.toURI().toString());
+                paper_controller.getCurentPaper().addNode(view);
+                new Draggable.MovePicture(view);
+            }
         });
     }
 }
