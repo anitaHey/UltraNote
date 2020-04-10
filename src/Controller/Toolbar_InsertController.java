@@ -3,6 +3,7 @@ package Controller;
 import Controller.MainController;
 import InsertObj.Draggable;
 import InsertObj.Paper;
+import InsertObj.Picture;
 import InsertObj.Text_box;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
@@ -43,10 +44,11 @@ public class Toolbar_InsertController {
 
             List<File> photo_list = fileChooser.showOpenMultipleDialog(controller.getStage());
 
-            for(File photo : photo_list){
-                ImageView view = new ImageView(photo.toURI().toString());
-                paper_controller.getCurentPaper().addNode(view);
-                new Draggable.MovePicture(view);
+            if(!photo_list.isEmpty()){
+                for(File photo : photo_list){
+                    Picture image = new Picture(photo.toURI().toString());
+                    paper_controller.getCurentPaper().addNode(image);
+                }
             }
         });
     }

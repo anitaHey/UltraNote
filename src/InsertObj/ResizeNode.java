@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -20,11 +19,11 @@ public class ResizeNode extends GridPane {
     private Paper paper = paper_controller.getCurentPaper();
     private double lastMouseX = 0, lastMouseY = 0;
     private boolean dragging = false;
-    private boolean cursor = true;
+    private int cursor = -1;
 
     public ResizeNode(String type) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/ResizeBorderFxml.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/ResizeNodeFxml.fxml"));
             loader.setController(this);
             loader.setRoot(this);
             loader.load();
@@ -44,52 +43,47 @@ public class ResizeNode extends GridPane {
 
     @FXML
     public void initialize() {
-        this.setOnMouseClicked(e -> {
-            focus_border(true);
-        });
-
-        this.setOnDragDetected(e -> {
-            focus_border(true);
-        });
+        focus_border(true);
+        paper_controller.setFocusObject(this);
 
         cir1.setOnMouseMoved(e -> {
             paper.setCursor(Cursor.NW_RESIZE);
-            cursor = false;
+            cursor = 1;
         });
 
         cir2.setOnMouseMoved(e -> {
             paper.setCursor(Cursor.N_RESIZE);
-            cursor = false;
+            cursor = 2;
         });
 
         cir3.setOnMouseMoved(e -> {
             paper.setCursor(Cursor.NE_RESIZE);
-            cursor = false;
+            cursor = 3;
         });
 
         cir4.setOnMouseMoved(e -> {
             paper.setCursor(Cursor.W_RESIZE);
-            cursor = false;
+            cursor = 4;
         });
 
         cir5.setOnMouseMoved(e -> {
             paper.setCursor(Cursor.E_RESIZE);
-            cursor = false;
+            cursor = 5;
         });
 
         cir6.setOnMouseMoved(e -> {
             paper.setCursor(Cursor.SW_RESIZE);
-            cursor = false;
+            cursor = 6;
         });
 
         cir7.setOnMouseMoved(e -> {
             paper.setCursor(Cursor.S_RESIZE);
-            cursor = false;
+            cursor = 7;
         });
 
         cir8.setOnMouseMoved(e -> {
             paper.setCursor(Cursor.SE_RESIZE);
-            cursor = false;
+            cursor = 8;
         });
 
         cir_arr.add(cir1);
@@ -103,7 +97,7 @@ public class ResizeNode extends GridPane {
 
         for (Circle cir : cir_arr)
             cir.setOnMouseExited(e -> {
-                cursor = true;
+                cursor = -1;
             });
 
         setDrag();
@@ -111,18 +105,22 @@ public class ResizeNode extends GridPane {
 
     public void setDrag() {
         this.addEventHandler(MouseEvent.ANY, event -> {
-            if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
+            if (MouseEvent.MOUSE_CLICKED == event.getEventType()) {
+                paper_controller.setFocusObject(this);
+            } else if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
+                paper.setClick(false);
                 if (type.equals("text") && !isBorder(event)) {
                     paper.setCursor(Cursor.TEXT);
-                } else if (cursor) {
+                } else if (cursor == -1) {
                     paper.setCursor(Cursor.MOVE);
                 }
 
             } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
+                paper_controller.setFocusObject(this);
                 if (this.contains(event.getX(), event.getY())) {
                     this.lastMouseX = event.getSceneX();
                     this.lastMouseY = event.getSceneY();
-                    if (!(type.equals("text") && !isBorder(event))) {
+                    if (!(type.equals("text") && !isBorder(event)) && cursor == -1) {
                         paper.setCursor(Cursor.MOVE);
                         this.dragging = true;
                     }
@@ -130,6 +128,7 @@ public class ResizeNode extends GridPane {
                     event.consume();
                 }
             } else if (MouseEvent.MOUSE_DRAGGED == event.getEventType()) {
+                paper_controller.setFocusObject(this);
                 if (this.dragging) {
                     double deltaX = event.getSceneX() - this.lastMouseX;
                     double deltaY = event.getSceneY() - this.lastMouseY;
@@ -152,14 +151,20 @@ public class ResizeNode extends GridPane {
                     this.lastMouseY = event.getSceneY();
 
                     event.consume();
+                }else if(cursor != -1){
+                    //resize
                 }
             } else if (MouseEvent.MOUSE_RELEASED == event.getEventType()) {
+                paper_controller.setFocusObject(this);
                 if (this.dragging) {
                     event.consume();
                     this.dragging = false;
+                }else if(cursor != -1){
+                    //resize
                 }
             } else if (MouseEvent.MOUSE_EXITED == event.getEventType()) {
                 paper.setCursor(Cursor.DEFAULT);
+                paper.setClick(true);
             }
         });
     }
@@ -176,6 +181,7 @@ public class ResizeNode extends GridPane {
 
     public void focus_border(boolean show) {
         if (show) {
+            this.getStyleClass().clear();
             this.getStyleClass().add("border_focus");
 
             for (Circle cir : cir_arr) {
@@ -184,6 +190,7 @@ public class ResizeNode extends GridPane {
             }
         } else {
             this.getStyleClass().clear();
+            this.getStyleClass().add("border_none");
             for (Circle cir : cir_arr) {
                 cir.getStyleClass().clear();
                 cir.getStyleClass().add("hide");

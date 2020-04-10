@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane;
 
 public class Paper extends Pane {
     private PaperController paper_controller = PaperController.getInstance();
-    private MainController main_controller = MainController.getInstance();
+    private boolean isClick = true;
     String background_color = null;
 
     public Paper() {
@@ -21,6 +21,15 @@ public class Paper extends Pane {
         setBackground_color("#fff");
         setInfinatePaper(width, height);
         paper_controller.setCurentPaper(this);
+
+        this.setOnMouseClicked(e -> {
+            if(isClick)
+                paper_controller.setFocusObject(null);
+        });
+    }
+
+    public void setClick(boolean input){
+        isClick = input;
     }
 
     public void setBackground_color(String color) {

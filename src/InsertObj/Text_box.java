@@ -153,7 +153,6 @@ public class Text_box extends ResizeNode {
 
         text.focusedProperty().addListener((observable, wasFocused, focused) -> {
             if (focused) {
-                focus_border(true);
                 text.getStyleClass().add("text_bg_input");
                 text.getStyleClass().remove("text_bg_none");
                 setTextInputAnimation(text);
@@ -163,7 +162,6 @@ public class Text_box extends ResizeNode {
                     setCurrentText = false;
                 }
             } else {
-                focus_border(false);
                 text.getStyleClass().remove("text_bg_input");
                 text.getStyleClass().add("text_bg_none");
                 if (timer != null)
