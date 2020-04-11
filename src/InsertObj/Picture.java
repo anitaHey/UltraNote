@@ -1,9 +1,11 @@
 package InsertObj;
+
 import javafx.scene.image.ImageView;
 
-public class Picture extends ResizeNode{
+public class Picture extends ResizeNode {
     private String picture_path;
-    public Picture(String path){
+
+    public Picture(String path) {
         super("picture");
 
         this.picture_path = path;
@@ -11,8 +13,17 @@ public class Picture extends ResizeNode{
         Init();
     }
 
-    public void Init(){
+    public void Init() {
         ImageView image = new ImageView(picture_path);
+        image.setSmooth(true);
+
+        getMain_content().widthProperty().addListener((obs, oldValue, newValue) -> {
+            image.setFitWidth(newValue.doubleValue());
+        });
+
+        getMain_content().heightProperty().addListener((obs, oldValue, newValue) -> {
+            image.setFitHeight(newValue.doubleValue());
+        });
         getMain_content().getChildren().add(image);
     }
 }

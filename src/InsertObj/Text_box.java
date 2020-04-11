@@ -10,6 +10,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -44,6 +45,7 @@ public class Text_box extends ResizeNode {
     public void Init() {
         text_vbox = new VBox();
         text_vbox.setPrefWidth(100);
+        text_vbox.setAlignment(Pos.TOP_LEFT);
         text_vbox.setStyle("-fx-padding: 5,15,15,15;");
         getMain_content().getChildren().add(text_vbox);
 
