@@ -17,6 +17,9 @@ public class Picture extends ResizeNode {
         ImageView image = new ImageView(picture_path);
         image.setSmooth(true);
 
+        setMinH(image.getImage().getHeight(), false);
+        setMinW(image.getImage().getWidth(), false);
+
         getMain_content().widthProperty().addListener((obs, oldValue, newValue) -> {
             image.setFitWidth(newValue.doubleValue());
         });

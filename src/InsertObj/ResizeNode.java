@@ -17,7 +17,7 @@ public class ResizeNode extends GridPane {
     private String type;
     private PaperController paper_controller = PaperController.getInstance();
     private Paper paper = paper_controller.getCurentPaper();
-    private double lastMouseX = 0, lastMouseY = 0, lastMoveX = 0, lastMoveY = 0;
+    private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0;
     private boolean dragging = false;
     private int cursor = -1;
     private boolean isRelease = true;
@@ -69,6 +69,28 @@ public class ResizeNode extends GridPane {
         setDrag();
     }
 
+    public void setMinW(double w, boolean set) {
+        if (type.equals("text")) {
+            if (set) this.getMain_content().setMinWidth(w);
+            minW = w;
+        } else if (type.equals("picture")) {
+            this.getMain_content().setPrefWidth(w);
+            minW = 0;
+        }
+
+    }
+
+    public void setMinH(double h, boolean set) {
+        if (type.equals("text")) {
+            if (set) this.getMain_content().setMinHeight(h);
+            minH = h;
+        } else if (type.equals("picture")) {
+            this.getMain_content().setPrefHeight(h);
+            minH = 0;
+        }
+
+    }
+
     public void setDrag() {
         this.addEventHandler(MouseEvent.ANY, event -> {
             if (MouseEvent.MOUSE_CLICKED == event.getEventType()) {
@@ -91,8 +113,7 @@ public class ResizeNode extends GridPane {
                 if (this.contains(event.getX(), event.getY())) {
                     this.lastMouseX = event.getSceneX();
                     this.lastMouseY = event.getSceneY();
-                    this.lastMoveX = event.getSceneX();
-                    this.lastMoveY = event.getSceneY();
+
                     if (!(type.equals("text") && !isBorder(event)) && cursor == -1) {
                         paper.setCursor(Cursor.MOVE);
                         this.dragging = true;
@@ -127,49 +148,116 @@ public class ResizeNode extends GridPane {
 
                     event.consume();
                 } else if (cursor != -1) {
-                    double moveX = (event.getSceneX() - this.lastMoveX) * 3;
-                    double moveY = (event.getSceneY() - this.lastMoveY) * 3;
+                    double minWidth = this.getMain_content().getMinWidth();
+                    double minHeight = this.getMain_content().getMinHeight();
 
-                    Bounds pane = this.getMain_content().getBoundsInParent();
-                    final double width = pane.getWidth();
-                    final double height = pane.getHeight();
+                    double width = this.getMain_content().getWidth();
+                    double height = this.getMain_content().getHeight();
+
+                    double prefWidth = this.getMain_content().getPrefWidth();
+                    double prefHeight = this.getMain_content().getPrefHeight();
+
+                    Bounds pane = this.getBoundsInLocal();
+                    double moveMinX = pane.getMinX() - event.getX();
+                    double moveMinY = pane.getMinY() - event.getY();
+                    double moveMaxX = event.getX() - pane.getMaxX();
+                    double moveMaxY = event.getY() - pane.getMaxY();
+
+                    final double initialLayoutX = this.getTranslateX();
+                    final double initialLayoutY = this.getTranslateY();
+
+                    boolean minX = false, maxX = false, minY = false, maxY = false;
+
+                    if (type.equals("text")) {
+                        minX = (minWidth + moveMinX) > minW;
+                        maxX = (minWidth + moveMaxX) > minW;
+                        minY = (minHeight + moveMinY) > minH;
+                        maxY = (minHeight + moveMaxY) > minH;
+                    } else if (type.equals("picture")) {
+                        minX = prefWidth > 0;
+                        maxX = prefWidth > 0;
+                        minY = prefHeight > 0;
+                        maxY = prefHeight > 0;
+                    }
 
                     switch (cursor) {
                         case 0:
-                        case 2:
-                        case 5:
-                        case 7:
                             if (type.equals("text")) {
-                                this.getMain_content().setMinWidth(width + moveX);
-                                this.getMain_content().setMinHeight(height + moveY);
+                                if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
+                                if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
                             } else if (type.equals("picture")) {
-                                this.getMain_content().setPrefWidth(width + moveX);
-                                this.getMain_content().setPrefHeight(height + moveY);
+                                this.getMain_content().setPrefWidth((prefWidth + moveMinX)<0?0:(prefWidth + moveMinX));
+                                this.getMain_content().setPrefHeight((prefHeight + moveMinY)<0?0:(prefHeight + moveMinY));
                             }
 
-                            this.lastMoveX = event.getSceneX();
-                            this.lastMoveY = event.getSceneY();
+                            if (minX) this.setTranslateX(initialLayoutX - moveMinX);
+                            if (minY) this.setTranslateY(initialLayoutY - moveMinY);
                             break;
                         case 1:
-                        case 6:
-                            if (type.equals("text"))
-                                this.getMain_content().setMinHeight(height + moveY);
-                            else if (type.equals("picture"))
-                                this.getMain_content().setPrefHeight(height + moveY);
+                            if (type.equals("text")) {
+                                if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                            } else if (type.equals("picture"))
+                                this.getMain_content().setPrefHeight((prefHeight + moveMinY)<0?0:(prefHeight + moveMinY));
 
-                            this.lastMoveY = event.getSceneY();
+                            if (minY) this.setTranslateY(initialLayoutY - moveMinY);
+                            break;
+                        case 2:
+                            if (type.equals("text")) {
+                                if (maxX) this.getMain_content().setMinWidth(width + moveMaxX);
+
+                                if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                            } else if (type.equals("picture")) {
+                                this.getMain_content().setPrefWidth((width + moveMaxX)<0?0:(width + moveMaxX));
+                                this.getMain_content().setPrefHeight((prefHeight + moveMinY)<0?0:(prefHeight + moveMinY));
+                            }
+
+                            if (minY) this.setTranslateY(initialLayoutY - moveMinY);
                             break;
                         case 3:
+                            if (type.equals("text")) {
+                                if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
+                            } else if (type.equals("picture"))
+                                this.getMain_content().setPrefWidth((prefWidth + moveMinX)<0?0:(prefWidth + moveMinX));
+
+                            if (minX) this.setTranslateX(initialLayoutX - moveMinX);
+                            break;
                         case 4:
                             if (type.equals("text"))
-                                this.getMain_content().setMinWidth(width + moveX);
+                                this.getMain_content().setMinWidth(width + moveMaxX);
                             else if (type.equals("picture"))
-                                this.getMain_content().setPrefWidth(width + moveX);
+                                this.getMain_content().setPrefWidth((width + moveMaxX)<0?0:(width + moveMaxX));
 
-                            this.lastMoveX = event.getSceneX();
+                            break;
+                        case 5:
+                            if (type.equals("text")) {
+                                if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
+
+                                if (maxY) this.getMain_content().setMinHeight(height + moveMaxY);
+                            } else if (type.equals("picture")) {
+                                this.getMain_content().setPrefWidth((prefWidth + moveMinX)<0?0:(prefWidth + moveMinX));
+                                this.getMain_content().setPrefHeight((height + moveMaxY)<0?0:(height + moveMaxY));
+                            }
+
+                            if (minX) this.setTranslateX(initialLayoutX - moveMinX);
+                            break;
+                        case 6:
+                            if (type.equals("text"))
+                                this.getMain_content().setMinHeight(height + moveMaxY);
+                            else if (type.equals("picture"))
+                                this.getMain_content().setPrefHeight((height + moveMaxY)<0?0:(height + moveMaxY));
+
+                            break;
+                        case 7:
+                            if (type.equals("text")) {
+                                this.getMain_content().setMinWidth(width + moveMaxX);
+                                this.getMain_content().setMinHeight(height + moveMaxY);
+                            } else if (type.equals("picture")) {
+                                this.getMain_content().setPrefWidth((width + moveMaxX)<0?0:(width + moveMaxX));
+                                this.getMain_content().setPrefHeight((height + moveMaxY)<0?0:(height + moveMaxY));
+                            }
+
                             break;
                     }
-
                     event.consume();
                 }
             } else if (MouseEvent.MOUSE_RELEASED == event.getEventType()) {

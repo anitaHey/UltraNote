@@ -61,6 +61,9 @@ public class Text_box extends ResizeNode {
         Platform.runLater(() -> line.getIndex(0).requestFocus());
         MainController.getInstance().change_toolbar(MainController.Type.Text, false);
 
+        setMinW(100, true);
+        setMinH(45, true);
+
         this.setOnMouseClicked(e -> {
             checkClickLine(e);
             MainController.getInstance().change_toolbar(MainController.Type.Text, false);
@@ -78,6 +81,14 @@ public class Text_box extends ResizeNode {
                     }
                 }
             }
+        });
+
+        text_vbox.heightProperty().addListener((obs,oldValue,newValue)->{
+            setMinH(newValue.doubleValue(), false);
+        });
+
+        text_vbox.widthProperty().addListener((obs,oldValue,newValue)->{
+            setMinW(newValue.doubleValue(), false);
         });
     }
 
