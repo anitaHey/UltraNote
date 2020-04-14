@@ -1,10 +1,7 @@
 package InsertObj;
 
-import Controller.MainController;
 import Controller.PaperController;
-import javafx.geometry.Bounds;
 import javafx.scene.Node;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 
 public class Paper extends Pane {

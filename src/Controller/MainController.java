@@ -9,12 +9,14 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import javax.tools.Tool;
+
 public class MainController {
     private static MainController instance;
     private Stage stage;
 
     @FXML
-    Button exit, toolbar_file, toolbar_view, toolbar_insert, toolbar_text, toolbar_draw;
+    Button exit, toolbar_file, toolbar_view, toolbar_insert, toolbar_text, toolbar_draw, toolbar_picture;
     @FXML
     VBox main_vbox, toolbar_vbox, work_vbox;
     @FXML
@@ -47,7 +49,8 @@ public class MainController {
         View(2, "../FXML/Toolbar_ViewFxml.fxml", new Toolbar_ViewController()),
         Insert(3, "../FXML/Toolbar_InsertFxml.fxml", new Toolbar_InsertController()),
         Text(4, "../FXML/Toolbar_TextFxml.fxml", new Toolbar_TextController()),
-        Draw(5, "../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController());
+        Picture(5, "../FXML/Toolbar_PictureFxml.fxml", new Toolbar_PictureController()),
+        Draw(6, "../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController());
 
         private final int id;
         private Button btn;
@@ -88,6 +91,7 @@ public class MainController {
         Type.View.setBtn(toolbar_view);
         Type.Insert.setBtn(toolbar_insert);
         Type.Text.setBtn(toolbar_text);
+        Type.Picture.setBtn(toolbar_picture);
         Type.Draw.setBtn(toolbar_draw);
 
         exit.setOnAction(actionEvent -> Platform.exit());
@@ -103,6 +107,9 @@ public class MainController {
         });
         toolbar_text.setOnAction(actionEvent -> {
             change_toolbar(Type.Text, true);
+        });
+        toolbar_picture.setOnAction(actionEvent -> {
+            change_toolbar(Type.Picture, true);
         });
         toolbar_draw.setOnAction(actionEvent -> {
             change_toolbar(Type.Draw, true);
@@ -136,6 +143,7 @@ public class MainController {
     }
 
     public void change_toolbar(Type type, boolean close) {
+        System.out.println(type.getId());
         if (toolbar == type.getId()) {
             if (close) {
                 toolbar = -1;
@@ -147,6 +155,7 @@ public class MainController {
             toolbar = type.getId();
             toolbar_tool = new Toolbar(type);
 //            toolbar_tool.change(type);
+            System.out.println(toolbar_tool);
             toolbar_vbox.getChildren().add(2, toolbar_tool);
             work_scroll.setPrefHeight(work_scroll.getPrefHeight()-115);
             type.getButton().getStyleClass().add("toolbar_button_press");
@@ -156,6 +165,7 @@ public class MainController {
             toolbar_insert.getStyleClass().remove("toolbar_button_press");
             toolbar_text.getStyleClass().remove("toolbar_button_press");
             toolbar_draw.getStyleClass().remove("toolbar_button_press");
+            toolbar_picture.getStyleClass().remove("toolbar_button_press");
 
             toolbar = type.getId();
             toolbar_tool = new Toolbar(type);

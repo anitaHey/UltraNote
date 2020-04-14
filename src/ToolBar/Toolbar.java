@@ -12,7 +12,7 @@ public class Toolbar extends HBox {
             loader.setRoot(this);
             loader.load();
         }catch (Exception e){
-//            System.out.println(e);
+            System.out.println(e);
         }
     }
 

@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controller/Toolbar_PictureController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FXML/Toolbar_PictureFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/ResizeNodeFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/ResizeNodeFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/MainFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/MainFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/Paper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Paper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InsertObj/Picture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Picture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/Text_box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Text_box.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ToolBar/Toolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToolBar/Toolbar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,27 +44,28 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/richtextfx-0.10.4.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/FXML" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Desktop\Project\UltraNote\src\css" />
-      <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="InsertObj" />
       <recent name="" />
       <recent name="ToolBar" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="InsertObj" />
-      <recent name="Controller" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jiaaa\Desktop\Project\UltraNote\src\FXML" />
+      <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Controller" />
+      <recent name="InsertObj" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Desktop\Project\UltraNote\src\css" />
       <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
     </key>
   </component>
@@ -283,28 +287,28 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="552" y="327" width="266" height="216" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1583304539757" />
-    <state width="1876" height="152" key="GridCell.Tab.0.bottom" timestamp="1586704677623">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="157" key="GridCell.Tab.0.bottom" timestamp="1586758574271">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="157" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1586417439668" />
+    <state width="1326" height="157" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1586758574271" />
     <state width="1759" height="152" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586699795495" />
     <state width="1876" height="152" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586704677623" />
-    <state width="1876" height="152" key="GridCell.Tab.0.center" timestamp="1586704677623">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="157" key="GridCell.Tab.0.center" timestamp="1586758574271">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="157" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1586417439667" />
+    <state width="1326" height="157" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1586758574271" />
     <state width="1759" height="152" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586699795495" />
     <state width="1876" height="152" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586704677623" />
-    <state width="1876" height="152" key="GridCell.Tab.0.left" timestamp="1586704677623">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="157" key="GridCell.Tab.0.left" timestamp="1586758574271">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="157" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1586417439667" />
+    <state width="1326" height="157" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1586758574271" />
     <state width="1759" height="152" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586699795494" />
     <state width="1876" height="152" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586704677623" />
-    <state width="1876" height="152" key="GridCell.Tab.0.right" timestamp="1586704677623">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="157" key="GridCell.Tab.0.right" timestamp="1586758574271">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="157" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1586417439667" />
+    <state width="1326" height="157" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1586758574271" />
     <state width="1759" height="152" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586699795495" />
     <state width="1876" height="152" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586704677623" />
     <state width="1759" height="304" key="GridCell.Tab.1.bottom" timestamp="1586685021487">
@@ -345,10 +349,10 @@
     </state>
     <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1585639598926" />
     <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586598944432" />
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1586433451067">
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1586758621247">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1586433451067" />
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1586758621247" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1585810403922" />
     <state x="483" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584434447845">
       <screen x="0" y="0" width="1368" height="872" />
