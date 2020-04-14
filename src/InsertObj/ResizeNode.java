@@ -69,6 +69,10 @@ public class ResizeNode extends GridPane {
         setDrag();
     }
 
+    public String getNodeType(){
+        return type;
+    }
+
     public void setMinW(double w, boolean set) {
         if (type.equals("text")) {
             if (set) this.getMain_content().setMinWidth(w);
@@ -88,7 +92,6 @@ public class ResizeNode extends GridPane {
             this.getMain_content().setPrefHeight(h);
             minH = 0;
         }
-
     }
 
     public void setDrag() {

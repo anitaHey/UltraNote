@@ -143,7 +143,6 @@ public class MainController {
     }
 
     public void change_toolbar(Type type, boolean close) {
-        System.out.println(type.getId());
         if (toolbar == type.getId()) {
             if (close) {
                 toolbar = -1;
@@ -155,7 +154,6 @@ public class MainController {
             toolbar = type.getId();
             toolbar_tool = new Toolbar(type);
 //            toolbar_tool.change(type);
-            System.out.println(toolbar_tool);
             toolbar_vbox.getChildren().add(2, toolbar_tool);
             work_scroll.setPrefHeight(work_scroll.getPrefHeight()-115);
             type.getButton().getStyleClass().add("toolbar_button_press");

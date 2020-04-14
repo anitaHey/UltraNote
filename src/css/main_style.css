@@ -153,7 +153,12 @@
     -fx-text-fill:transparent;
 }
 
-.context-menu {
+.context-menu,
+.menu-item {
     -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.menu_item > .arrow-button {
     -fx-padding: 0;
 }

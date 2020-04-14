@@ -1,12 +1,21 @@
 package InsertObj;
 
+import Controller.MainController;
+import Controller.Toolbar_PictureController;
+import javafx.geometry.Insets;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 public class Picture extends ResizeNode {
+    private static Toolbar_PictureController picture_controller = Toolbar_PictureController.getInstance();
+    ImageView image;
     private String picture_path;
-    private int borderWidth = 1;
+    private double borderWidth = 0;
     private String borderColor = "#000";
     private String borderType = "solid";
+    private boolean[] setBorder = {true, true};
+
     public Picture(String path) {
         super("picture");
 
@@ -16,44 +25,76 @@ public class Picture extends ResizeNode {
     }
 
     public void Init() {
-        ImageView image = new ImageView(picture_path);
+        image = new ImageView(picture_path);
         image.setSmooth(true);
+
         setMinH(image.getImage().getHeight(), false);
         setMinW(image.getImage().getWidth(), false);
 
         getMain_content().widthProperty().addListener((obs, oldValue, newValue) -> {
-            image.setFitWidth(newValue.doubleValue());
+            if(setBorder[0])
+                image.setFitWidth(newValue.doubleValue()-borderWidth*2);
+            setBorder[0] = true;
         });
 
         getMain_content().heightProperty().addListener((obs, oldValue, newValue) -> {
-            image.setFitHeight(newValue.doubleValue());
+            if(setBorder[1])
+                image.setFitHeight(newValue.doubleValue()-borderWidth*2);
+            setBorder[1] = true;
         });
+
         getMain_content().getChildren().add(image);
+
+        picture_controller.setSelectPicture(this);
+        MainController.getInstance().change_toolbar(MainController.Type.Picture, false);
+
+        this.setOnMouseClicked(e -> {
+            picture_controller.setSelectPicture(this);
+            MainController.getInstance().change_toolbar(MainController.Type.Picture, false);
+        });
     }
 
-    public void setBorder(int width, String color, String type){
+    public void setBorder(double width, String color, String type){
         borderWidth = width;
         borderColor = color;
         borderType = type;
 
-        this.setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
+        setBorder[0] = false;
+        setBorder[1] = false;
+        getMain_content().setPrefHeight(image.getFitHeight() + borderWidth*2);
+        getMain_content().setPrefWidth(image.getFitWidth() + borderWidth*2);
+        image.setX(borderWidth);
+        image.setY(borderWidth);
+
+        getMain_content().setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
     }
 
-    public void setBorderWidth(int width){
+    public void setBorderWidth(double width){
         borderWidth = width;
 
-        this.setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
+        setBorder[0] = false;
+        setBorder[1] = false;
+        getMain_content().setPrefHeight(image.getFitHeight() + borderWidth*2);
+        getMain_content().setPrefWidth(image.getFitWidth() + borderWidth*2);
+        image.setX(borderWidth);
+        image.setY(borderWidth);
+
+        getMain_content().setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
     }
 
     public void setBorderColor(String color){
         borderColor = color;
 
-        this.setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
+        getMain_content().setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
     }
 
     public void setBorderType(String type){
         borderType = type;
 
-        this.setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
+        getMain_content().setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
+    }
+
+    public double getBorderWidth(){
+        return borderWidth;
     }
 }
