@@ -31,6 +31,9 @@ public class Toolbar_TextController {
     TextProperty property = TextProperty.getInstance();
     TextObj currentText = null;
     int[] font_size = {8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
+    String last_size = "", last_font = "";
+    Boolean combo_size = true;
+    Boolean combo_font = true;
 
     Boolean currentSizeSet = true;
     Boolean currentFamilySet = true;
@@ -71,6 +74,62 @@ public class Toolbar_TextController {
         for (int size : font_size)
             font_size_combo.getItems().add(String.valueOf(size));
         font_size_combo.setValue("");
+
+        text_font_combo.setCellFactory(lv -> {
+            ListCell<String> cell = new ListCell<>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    setText(item);
+                }
+            };
+
+            cell.addEventFilter(MouseEvent.MOUSE_ENTERED, e-> {
+                if (getInstance().text_hbox != null) {
+                    for (TextObj word : getInstance().text_hbox)
+                        word.setTextFamily(cell.getText(),false);
+                }
+            });
+
+            cell.addEventFilter(MouseEvent.MOUSE_EXITED, e->{
+                if (getInstance().text_hbox != null) {
+                    for (TextObj word : getInstance().text_hbox)
+                        word.setTextFamily(word.getLastFontFamily(), false);
+                }
+            });
+
+            return cell ;
+        });
+
+        font_size_combo.setCellFactory(lv -> {
+            ListCell<String> cell = new ListCell<>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    setText(item);
+                }
+            };
+
+            cell.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
+                if (getInstance().text_hbox != null) {
+                    for (TextObj word : getInstance().text_hbox)
+                        word.setFontSize(Integer.parseInt(cell.getText()), false);
+
+                    checkUnderline();
+                }
+            });
+
+            cell.addEventFilter(MouseEvent.MOUSE_EXITED, e->{
+                if (getInstance().text_hbox != null) {
+                    for (TextObj word : getInstance().text_hbox)
+                        word.setFontSize(word.getLastFontSize(), false);
+
+                    checkUnderline();
+                }
+            });
+
+            return cell ;
+        });
 
         boldProperty.addListener((observable, oldValue, newValue) -> {
             if (newValue) {
@@ -171,7 +230,7 @@ public class Toolbar_TextController {
                     try {
                         if (getInstance().text_hbox != null) {
                             for (TextObj word : getInstance().text_hbox)
-                                word.setTextFamily(newValue);
+                                word.setTextFamily(newValue, true);
 
                             Platform.runLater(() -> {
                                 getInstance().text_hbox.get(0).requestFocus();
@@ -198,7 +257,7 @@ public class Toolbar_TextController {
                         int tem_size = Integer.parseInt(newValue);
                         if (getInstance().text_hbox != null) {
                             for (TextObj word : getInstance().text_hbox)
-                                word.setFontSize(tem_size);
+                                word.setFontSize(tem_size, true);
 
                             checkUnderline();
                             Platform.runLater(() -> {

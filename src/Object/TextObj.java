@@ -16,6 +16,8 @@ public class TextObj extends Label {
     FontPosture fontPosture;
     String fontFamily;
     String fontColor;
+    String lastFontFamily;
+    int lastFontSize;
     int fontSize;
 
     public TextObj(String input) {
@@ -27,19 +29,25 @@ public class TextObj extends Label {
         fontPosture = null;
         fontFamily = "";
         fontSize = -1;
+        lastFontFamily = "";
+        lastFontSize = -1;
 
         bool_under = property.getUnderline();
         fontColor = property.getFontColor();
-        this.setTextFont(property.getFontFamily(), property.getFontWeight(), property.getFontPosture(), property.getFontSize());
+        this.setTextFont(property.getFontFamily(), property.getFontWeight(), property.getFontPosture(), property.getFontSize(), true);
         this.setFontColor(property.getFontColor());
         this.getStyleClass().add("text_bg_input");
     }
 
-    public void setTextFont(String family, FontWeight weight, FontPosture posture, int size) {
+    public void setTextFont(String family, FontWeight weight, FontPosture posture, int size, boolean save) {
         if (weight != null) fontWeight = weight;
         if (posture != null) fontPosture = posture;
-        if (family != null) fontFamily = family;
+        if (family != null){
+            if(save) lastFontFamily = (fontFamily.equals(""))?family:fontFamily;
+            fontFamily = family;
+        }
         if (size != -1) {
+            if(save) lastFontSize = (fontSize!=-1)?fontSize:size;
             fontSize = size;
             if (getUnderlineObj() != null) setUnderProperty();
         }
@@ -47,7 +55,8 @@ public class TextObj extends Label {
         this.setFont(Font.font(fontFamily, fontWeight, fontPosture, fontSize));
     }
 
-    public void setTextFamily(String family) {
+    public void setTextFamily(String family, boolean save) {
+        if(save) lastFontFamily = (fontFamily.equals(""))?family:fontFamily;
         fontFamily = family;
         this.setFont(Font.font(fontFamily, fontWeight, fontPosture, fontSize));
     }
@@ -57,7 +66,8 @@ public class TextObj extends Label {
         this.setFont(Font.font(fontFamily, fontWeight, fontPosture, fontSize));
     }
 
-    public void setFontSize(int size) {
+    public void setFontSize(int size, boolean save) {
+        if(save) lastFontSize = (fontSize!=-1)?fontSize:size;
         fontSize = size;
         this.setFont(Font.font(fontFamily, fontWeight, fontPosture, fontSize));
     }
@@ -130,5 +140,13 @@ public class TextObj extends Label {
             getUnderlineObj().setUnderlineWidth(newVal.intValue());
         });
         setUnderHeight();
+    }
+
+    public String getLastFontFamily(){
+        return lastFontFamily;
+    }
+
+    public int getLastFontSize(){
+        return lastFontSize;
     }
 }

@@ -1,20 +1,14 @@
 package Controller;
 
-import Controller.MainController;
-import InsertObj.Draggable;
-import InsertObj.Paper;
 import InsertObj.Picture;
 import InsertObj.Text_box;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.net.MalformedURLException;
 import java.util.List;
 
 public class Toolbar_InsertController {

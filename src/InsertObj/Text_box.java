@@ -70,7 +70,7 @@ public class Text_box extends ResizeNode {
         });
 
         this.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> {
-            if (!isBorder(e)) {
+            if (!isBorder(e) && !getIsDragging()) {
                 for (int a = 0; a < getLineSize(); a++) {
                     TextLine tem = getLine(a);
                     for (int b = 0; b < tem.getHBoxSize(); b++) {
@@ -160,8 +160,10 @@ public class Text_box extends ResizeNode {
 
     public void setInputFocus(TextObj text) {
         text.setOnMouseClicked(e -> {
-            hbox_line = getLine(CURRENT_LINE);
-            setRequestFocus(text, hbox_line);
+            if(!getIsDragging()){
+                hbox_line = getLine(CURRENT_LINE);
+                setRequestFocus(text, hbox_line);
+            }
         });
 
         text.focusedProperty().addListener((observable, wasFocused, focused) -> {
