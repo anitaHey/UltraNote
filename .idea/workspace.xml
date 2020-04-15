@@ -270,10 +270,10 @@
     </state>
     <state x="415" y="183" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1368.872@0.0.1368.872" timestamp="1584499185852" />
     <state x="582" y="218" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586433744506" />
-    <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1586875247872">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="329" y="30" key="CommitChangelistDialog2" timestamp="1586949568570">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1584765957733" />
+    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1586949568570" />
     <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586875247872" />
     <state x="714" y="233" key="DetectedRootsChooserDialog" timestamp="1585848036297">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -350,10 +350,10 @@
     </state>
     <state x="314" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1584510094917" />
     <state x="440" y="93" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1585903129747" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1586875253389">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="277" y="170" key="Vcs.Push.Dialog.v2" timestamp="1586949576492">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1585639598926" />
+    <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1586949576492" />
     <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586875253389" />
     <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1586922880312">
       <screen x="0" y="0" width="1368" height="872" />
