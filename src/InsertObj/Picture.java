@@ -2,18 +2,18 @@ package InsertObj;
 
 import Controller.MainController;
 import Controller.Toolbar_PictureController;
-import javafx.geometry.Insets;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.WritableImage;
 
 public class Picture extends ResizeNode {
     private static Toolbar_PictureController picture_controller = Toolbar_PictureController.getInstance();
     ImageView image;
+    WritableImage crop_img;
     private String picture_path;
     private double borderWidth = 0;
     private String borderColor = "#000";
-    private String borderType = "solid";
+    private String borderType = "segments(1,1,1,1)  line-cap round";;
+    private int[] borderTypeNum = {1,1};
     private boolean[] setBorder = {true, true};
 
     public Picture(String path) {
@@ -32,14 +32,14 @@ public class Picture extends ResizeNode {
         setMinW(image.getImage().getWidth(), false);
 
         getMain_content().widthProperty().addListener((obs, oldValue, newValue) -> {
-            if(setBorder[0])
-                image.setFitWidth(newValue.doubleValue()-borderWidth*2);
+            if (setBorder[0])
+                image.setFitWidth(newValue.doubleValue() - borderWidth * 2);
             setBorder[0] = true;
         });
 
         getMain_content().heightProperty().addListener((obs, oldValue, newValue) -> {
-            if(setBorder[1])
-                image.setFitHeight(newValue.doubleValue()-borderWidth*2);
+            if (setBorder[1])
+                image.setFitHeight(newValue.doubleValue() - borderWidth * 2);
             setBorder[1] = true;
         });
 
@@ -54,47 +54,59 @@ public class Picture extends ResizeNode {
         });
     }
 
-    public void setBorder(double width, String color, String type){
+    public void setBorder(double width, String color, int num1, int num2) {
+        borderTypeNum[0] = num1;
+        borderTypeNum[1] = num2;
+
         borderWidth = width;
         borderColor = color;
-        borderType = type;
+        borderType = String.format("segments(%d,%d,%d,%d)  line-cap round", num1, num2, num1, num2);
 
         setBorder[0] = false;
         setBorder[1] = false;
-        getMain_content().setPrefHeight(image.getFitHeight() + borderWidth*2);
-        getMain_content().setPrefWidth(image.getFitWidth() + borderWidth*2);
+        getMain_content().setPrefHeight(image.getFitHeight() + borderWidth * 2);
+        getMain_content().setPrefWidth(image.getFitWidth() + borderWidth * 2);
         image.setX(borderWidth);
         image.setY(borderWidth);
 
-        getMain_content().setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
+        getMain_content().setStyle("-fx-border-color: " + borderColor + ";" + "-fx-border-style: " + borderType + ";" + "-fx-border-width: " + borderWidth + ";");
     }
 
-    public void setBorderWidth(double width){
+    public void setBorderWidth(double width) {
         borderWidth = width;
 
         setBorder[0] = false;
         setBorder[1] = false;
-        getMain_content().setPrefHeight(image.getFitHeight() + borderWidth*2);
-        getMain_content().setPrefWidth(image.getFitWidth() + borderWidth*2);
+        getMain_content().setPrefHeight(image.getFitHeight() + borderWidth * 2);
+        getMain_content().setPrefWidth(image.getFitWidth() + borderWidth * 2);
         image.setX(borderWidth);
         image.setY(borderWidth);
 
-        getMain_content().setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
+        getMain_content().setStyle("-fx-border-color: " + borderColor + ";" + "-fx-border-style: " + borderType + ";" + "-fx-border-width: " + borderWidth + ";");
     }
 
-    public void setBorderColor(String color){
+    public void setBorderColor(String color) {
+        if(borderWidth == 0) setBorderWidth(1);
         borderColor = color;
 
-        getMain_content().setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
+        getMain_content().setStyle("-fx-border-color: " + borderColor + ";" + "-fx-border-style: " + borderType + ";" + "-fx-border-width: " + borderWidth + ";");
     }
 
-    public void setBorderType(String type){
-        borderType = type;
+    public void setBorderType(int num1, int num2) {
+        if(borderWidth == 0) setBorderWidth(1);
 
-        getMain_content().setStyle("-fx-border-color: "+ borderColor + ";"+"-fx-border-style: " + borderType + ";"+"-fx-border-width: "+ borderWidth +";");
+        borderTypeNum[0] = num1;
+        borderTypeNum[1] = num2;
+        borderType = String.format("segments(%d,%d,%d,%d)  line-cap round", num1, num2, num1, num2);
+
+        getMain_content().setStyle("-fx-border-color: " + borderColor + ";" + "-fx-border-style: " + borderType + ";" + "-fx-border-width: " + borderWidth + ";");
     }
 
-    public double getBorderWidth(){
+    public double getBorderWidth() {
         return borderWidth;
+    }
+
+    public int[] getBorderTypeNum(){
+        return new int[]{borderTypeNum[0], borderTypeNum[1]};
     }
 }
