@@ -2,8 +2,10 @@ package InsertObj;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
@@ -15,25 +17,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CropImage extends GridPane {
-    private Image pixel;
-    private WritableImage image;
+    private ImageView image;
+    private Rectangle2D rectangle;
     private int axis_x = 0;
     private int axis_y = 0;
     private int crop_width = 0;
     private int crop_height = 0;
+    private boolean isCropping = false;
 
     List<Rectangle> crop_arr = new ArrayList<>();
     List<Cursor> cursor_arr = new ArrayList<>();
 
 
-    public CropImage(Image pixel) {
+    public CropImage(ImageView pixel) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/CropImg.fxml"));
             loader.setController(this);
             loader.setRoot(this);
             loader.load();
 
-            this.pixel = pixel;
+            this.image = image;
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -59,8 +62,10 @@ public class CropImage extends GridPane {
         crop_arr.add(rec70);
         crop_arr.add(rec71);
 
-        setCrop(0, 0, (int) pixel.getWidth(), (int) pixel.getHeight());
-        setStartCrop(true);
+        setCrop(0, 0, (int) image.getFitWidth(), (int) image.getFitHeight());
+        setStartCrop(false);
+
+        crop_pane.getChildren().add(image);
     }
 
     public void setCrop(int x, int y, int width, int height) {
@@ -69,19 +74,24 @@ public class CropImage extends GridPane {
         crop_height = height;
         crop_width = width;
 
-        image = new WritableImage(pixel.getPixelReader(), axis_x, axis_y, crop_width, crop_height);
+        rectangle = new Rectangle2D(axis_x, axis_y, crop_width, crop_height);
+        image.setViewport(rectangle);
+        image.setSmooth(true);
     }
 
     public void setStartCrop(boolean input) {
-        if (input)
+        if (input) {
+            isCropping = true;
             for (Rectangle rec : crop_arr) {
                 rec.getStyleClass().clear();
                 rec.getStyleClass().add("show");
             }
-        else
+        } else {
+            isCropping = false;
             for (Rectangle rec : crop_arr) {
                 rec.getStyleClass().clear();
                 rec.getStyleClass().add("hide");
             }
+        }
     }
 }

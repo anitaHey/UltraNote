@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FXML/CropImg.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/InsertObj/CropImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_PictureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_PictureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_PictureFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_PictureFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/Picture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Picture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/CropImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CropImage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
