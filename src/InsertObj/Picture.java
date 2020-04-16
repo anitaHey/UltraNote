@@ -2,19 +2,22 @@ package InsertObj;
 
 import Controller.MainController;
 import Controller.Toolbar_PictureController;
+import javafx.geometry.Bounds;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 
 public class Picture extends ResizeNode {
     private static Toolbar_PictureController picture_controller = Toolbar_PictureController.getInstance();
-    ImageView image;
-    WritableImage crop_img;
+    private ImageView image;
     private String picture_path;
     private double borderWidth = 0;
     private String borderColor = "#000";
-    private String borderType = "segments(1,1,1,1)  line-cap round";;
-    private int[] borderTypeNum = {1,1};
+    private String borderType = "segments(1,1,1,1)  line-cap round";
+    ;
+    private int[] borderTypeNum = {1, 1};
     private boolean[] setBorder = {true, true};
+    private CropImage crop_img = null;
 
     public Picture(String path) {
         super("picture");
@@ -86,14 +89,14 @@ public class Picture extends ResizeNode {
     }
 
     public void setBorderColor(String color) {
-        if(borderWidth == 0) setBorderWidth(1);
+        if (borderWidth == 0) setBorderWidth(1);
         borderColor = color;
 
         getMain_content().setStyle("-fx-border-color: " + borderColor + ";" + "-fx-border-style: " + borderType + ";" + "-fx-border-width: " + borderWidth + ";");
     }
 
     public void setBorderType(int num1, int num2) {
-        if(borderWidth == 0) setBorderWidth(1);
+        if (borderWidth == 0) setBorderWidth(1);
 
         borderTypeNum[0] = num1;
         borderTypeNum[1] = num2;
@@ -106,7 +109,31 @@ public class Picture extends ResizeNode {
         return borderWidth;
     }
 
-    public int[] getBorderTypeNum(){
+    public int[] getBorderTypeNum() {
         return new int[]{borderTypeNum[0], borderTypeNum[1]};
+    }
+
+    public ImageView getPictureImage() {
+        return image;
+    }
+
+    public void startCrop() {
+        if (crop_img == null) {
+            Bounds pic = getPictureImage().getBoundsInParent();
+
+            crop_img = new CropImage(getPictureImage(), (int) pic.getMinX(), (int) pic.getMinY());
+            getMain_content().getChildren().add(crop_img);
+
+            crop_img.setPictureValue(image.getFitWidth(), image.getFitHeight());
+            crop_img.setLayoutX(borderWidth);
+            crop_img.setLayoutY(borderWidth);
+            crop_img.toFront();
+
+            ColorAdjust blackout = new ColorAdjust();
+            blackout.setBrightness(0.5);
+            image.setEffect(blackout);
+        } else {
+
+        }
     }
 }

@@ -78,7 +78,9 @@ public class Toolbar_PictureController {
         hbox_dot_17_17.setOnMouseExited(e -> dot_restore());
 
         picture_crop.setOnMouseClicked(e -> {
-
+            if (getInstance().selectPicture != null) {
+                getInstance().selectPicture.startCrop();
+            }
         });
     }
 
