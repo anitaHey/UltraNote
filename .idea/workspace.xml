@@ -3,10 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_PictureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_PictureController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FXML/CropImg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/CropImg.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InsertObj/CropImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CropImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/Picture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Picture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pic/crop_cursor0.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/pic/crop_cursor0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pic/crop_cursor1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/pic/crop_cursor1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pic/crop_cursor2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/pic/crop_cursor2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pic/crop_cursor3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/pic/crop_cursor3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pic/crop_cursor4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/pic/crop_cursor4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pic/crop_cursor5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/pic/crop_cursor5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pic/crop_cursor6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/pic/crop_cursor6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pic/crop_cursor7.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/pic/crop_cursor7.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586875248496</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="20200416 Fixed crop img.">
+      <created>1587008743927</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587008743927</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -235,7 +249,8 @@
     <MESSAGE value="20200410 Fix ResizeNode." />
     <MESSAGE value="20200411 Add node resize." />
     <MESSAGE value="20200414 Add picture border." />
-    <option name="LAST_COMMIT_MESSAGE" value="20200414 Add picture border." />
+    <MESSAGE value="20200416 Fixed crop img." />
+    <option name="LAST_COMMIT_MESSAGE" value="20200416 Fixed crop img." />
   </component>
   <component name="WindowStateProjectService">
     <state x="196" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583489308957">
@@ -269,10 +284,10 @@
     </state>
     <state x="415" y="183" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1368.872@0.0.1368.872" timestamp="1584499185852" />
     <state x="582" y="218" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586433744506" />
-    <state x="329" y="30" key="CommitChangelistDialog2" timestamp="1586949568570">
+    <state x="329" y="30" key="CommitChangelistDialog2" timestamp="1587008742773">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1586949568570" />
+    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1587008742773" />
     <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586875247872" />
     <state x="714" y="233" key="DetectedRootsChooserDialog" timestamp="1585848036297">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -292,28 +307,28 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="552" y="327" width="266" height="216" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1583304539757" />
-    <state width="1326" height="95" key="GridCell.Tab.0.bottom" timestamp="1587008416983">
+    <state width="1326" height="95" key="GridCell.Tab.0.bottom" timestamp="1587016078076">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="95" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1587008416983" />
+    <state width="1326" height="95" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1587016078076" />
     <state width="1759" height="101" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586883928264" />
     <state width="1876" height="101" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586884320747" />
-    <state width="1326" height="95" key="GridCell.Tab.0.center" timestamp="1587008416982">
+    <state width="1326" height="95" key="GridCell.Tab.0.center" timestamp="1587016078076">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="95" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1587008416982" />
+    <state width="1326" height="95" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1587016078076" />
     <state width="1759" height="101" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586883928264" />
     <state width="1876" height="101" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586884320747" />
-    <state width="1326" height="95" key="GridCell.Tab.0.left" timestamp="1587008416982">
+    <state width="1326" height="95" key="GridCell.Tab.0.left" timestamp="1587016078076">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="95" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1587008416982" />
+    <state width="1326" height="95" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1587016078076" />
     <state width="1759" height="101" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586883928264" />
     <state width="1876" height="101" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586884320747" />
-    <state width="1326" height="95" key="GridCell.Tab.0.right" timestamp="1587008416983">
+    <state width="1326" height="95" key="GridCell.Tab.0.right" timestamp="1587016078076">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="95" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1587008416983" />
+    <state width="1326" height="95" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1587016078076" />
     <state width="1759" height="101" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1586883928264" />
     <state width="1876" height="101" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586884320747" />
     <state width="1326" height="281" key="GridCell.Tab.1.bottom" timestamp="1586926476942">
@@ -349,15 +364,15 @@
     </state>
     <state x="314" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1584510094917" />
     <state x="440" y="93" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1585903129747" />
-    <state x="277" y="170" key="Vcs.Push.Dialog.v2" timestamp="1586949576492">
+    <state x="277" y="170" key="Vcs.Push.Dialog.v2" timestamp="1587008748707">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1586949576492" />
+    <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1587008748707" />
     <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586875253389" />
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1586922880312">
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1587008806978">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1586922880312" />
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1587008806978" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586862058363" />
     <state x="483" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584434447845">
       <screen x="0" y="0" width="1368" height="872" />

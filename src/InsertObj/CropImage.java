@@ -41,8 +41,35 @@ public class CropImage extends GridPane {
             loader.setRoot(this);
             loader.load();
 
-            this.crop_pic = crop_pic;
+            this.crop_pic = new ImageView(crop_pic.getImage());
             setCrop(x, y, (int) crop_pic.getFitWidth(), (int) crop_pic.getFitHeight());
+            crop_pane.getChildren().add(crop_pic);
+
+            crop_arr.add(rec00);
+            crop_arr.add(rec01);
+            crop_arr.add(rec1);
+            crop_arr.add(rec20);
+            crop_arr.add(rec21);
+            crop_arr.add(rec3);
+            crop_arr.add(rec4);
+            crop_arr.add(rec50);
+            crop_arr.add(rec51);
+            crop_arr.add(rec6);
+            crop_arr.add(rec70);
+            crop_arr.add(rec71);
+
+            setStartCrop(true);
+
+            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor0.png"))));
+            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor1.png"))));
+            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor2.png"))));
+            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor3.png"))));
+            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor4.png"))));
+            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor5.png"))));
+            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor6.png"))));
+            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor7.png"))));
+
+            setDrag();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -55,33 +82,7 @@ public class CropImage extends GridPane {
 
     @FXML
     public void initialize() {
-        crop_arr.add(rec00);
-        crop_arr.add(rec01);
-        crop_arr.add(rec1);
-        crop_arr.add(rec20);
-        crop_arr.add(rec21);
-        crop_arr.add(rec3);
-        crop_arr.add(rec4);
-        crop_arr.add(rec50);
-        crop_arr.add(rec51);
-        crop_arr.add(rec6);
-        crop_arr.add(rec70);
-        crop_arr.add(rec71);
 
-        setStartCrop(true);
-        System.out.println(crop_pic.getFitHeight()+" "+ crop_pic.getFitWidth());
-        crop_pane.getChildren().add(crop_pic);
-
-        cursor_arr.add(new ImageCursor(new Image("../pic/crop_cursor0.png")));
-        cursor_arr.add(new ImageCursor(new Image("../pic/crop_cursor1.png")));
-        cursor_arr.add(new ImageCursor(new Image("../pic/crop_cursor2.png")));
-        cursor_arr.add(new ImageCursor(new Image("../pic/crop_cursor3.png")));
-        cursor_arr.add(new ImageCursor(new Image("../pic/crop_cursor4.png")));
-        cursor_arr.add(new ImageCursor(new Image("../pic/crop_cursor5.png")));
-        cursor_arr.add(new ImageCursor(new Image("../pic/crop_cursor6.png")));
-        cursor_arr.add(new ImageCursor(new Image("../pic/crop_cursor7.png")));
-
-        setDrag();
     }
 
     public Pane getCrop_pane() {
@@ -127,14 +128,14 @@ public class CropImage extends GridPane {
                     cursor = getResize(event);
 
                     if (cursor == -1) {
-                        paper.setCursor(Cursor.MOVE);
+                        this.setCursor(Cursor.MOVE);
                     } else {
-                        paper.setCursor(cursor_arr.get(cursor));
+                        this.setCursor(cursor_arr.get(cursor));
                     }
                 } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
                     if (this.contains(event.getX(), event.getY())) {
                         if (!isBorder(event) && cursor == -1) {
-                            paper.setCursor(Cursor.MOVE);
+                            this.setCursor(Cursor.MOVE);
                         }
 
                         event.consume();
@@ -237,28 +238,6 @@ public class CropImage extends GridPane {
         });
     }
 
-    public int getResize(MouseEvent event) {
-        int output = -1;
-        Bounds dragNodeBounds = this.getBoundsInParent();
-        double h_half = dragNodeBounds.getHeight() / 2;
-        double w_half = dragNodeBounds.getWidth() / 2;
-
-        if (Math.abs(event.getY()) <= 15) {
-            if (Math.abs(event.getX()) <= 15) output = 0;
-            else if (Math.abs(event.getX() - w_half) <= 15) output = 1;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 15) output = 2;
-        } else if (Math.abs(event.getY() - h_half) <= 15) {
-            if (Math.abs(event.getX()) <= 15) output = 3;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 15) output = 4;
-        } else if (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= 15) {
-            if (Math.abs(event.getX()) <= 15) output = 5;
-            else if (Math.abs(event.getX() - w_half) <= 15) output = 6;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 15) output = 7;
-        }
-
-        return output;
-    }
-
     public boolean isBorder(MouseEvent event) {
         Bounds dragNodeBounds = this.getBoundsInParent();
         Boolean top = (Math.abs(event.getY()) <= 15);
@@ -267,5 +246,27 @@ public class CropImage extends GridPane {
         Boolean right = (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 15);
 
         return top || bottom || left || right;
+    }
+
+    public int getResize(MouseEvent event) {
+        int output = -1;
+        Bounds dragNodeBounds = this.getBoundsInParent();
+        double h_half = dragNodeBounds.getHeight() / 2;
+        double w_half = dragNodeBounds.getWidth() / 2;
+
+        if (Math.abs(event.getY()) <= 40) {
+            if (Math.abs(event.getX()) <= 40) output = 0;
+            else if (Math.abs(event.getX() - w_half) <= 40) output = 1;
+            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 40) output = 2;
+        } else if (Math.abs(event.getY() - h_half) <= 40) {
+            if (Math.abs(event.getX()) <= 40) output = 3;
+            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 40) output = 4;
+        } else if (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= 40) {
+            if (Math.abs(event.getX()) <= 40) output = 5;
+            else if (Math.abs(event.getX() - w_half) <= 40) output = 6;
+            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 40) output = 7;
+        }
+
+        return output;
     }
 }

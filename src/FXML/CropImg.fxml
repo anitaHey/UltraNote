@@ -22,64 +22,64 @@
     <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Rectangle fx:id="rec00" arcHeight="5.0" arcWidth="5.0" height="10.0" stroke="BLACK" strokeType="INSIDE" width="50.0" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <Rectangle fx:id="rec00" arcHeight="5.0" arcWidth="5.0" height="5.0" stroke="BLACK" strokeType="INSIDE" width="30.0" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets left="-10.0" top="-10.0" />
+            <Insets left="-5.0" top="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec01" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="10.0" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <Rectangle fx:id="rec01" arcHeight="5.0" arcWidth="5.0" height="30.0" stroke="BLACK" strokeType="INSIDE" width="5.0" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets left="-10.0" top="-10.0" />
+            <Insets left="-5.0" top="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" height="10.0" stroke="BLACK" strokeType="INSIDE" width="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+      <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" height="5.0" stroke="BLACK" strokeType="INSIDE" width="30.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets top="-10.0" />
+            <Insets top="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec20" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="10.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+      <Rectangle fx:id="rec20" arcHeight="5.0" arcWidth="5.0" height="30.0" stroke="BLACK" strokeType="INSIDE" width="5.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets right="-10.0" top="-10.0" />
+            <Insets right="-5.0" top="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec21" arcHeight="5.0" arcWidth="5.0" height="10.0" stroke="BLACK" strokeType="INSIDE" width="50.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+      <Rectangle fx:id="rec21" arcHeight="5.0" arcWidth="5.0" height="5.0" stroke="BLACK" strokeType="INSIDE" width="30.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets right="-10.0" top="-10.0" />
+            <Insets right="-5.0" top="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec6" arcHeight="5.0" arcWidth="5.0" height="10.0" stroke="BLACK" strokeType="INSIDE" width="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+      <Rectangle fx:id="rec6" arcHeight="5.0" arcWidth="5.0" height="5.0" stroke="BLACK" strokeType="INSIDE" width="30.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets bottom="-10.0" />
+            <Insets bottom="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec50" arcHeight="5.0" arcWidth="5.0" height="10.0" stroke="BLACK" strokeType="INSIDE" width="50.0" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+      <Rectangle fx:id="rec50" arcHeight="5.0" arcWidth="5.0" height="5.0" stroke="BLACK" strokeType="INSIDE" width="30.0" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets bottom="-10.0" left="-10.0" />
+            <Insets bottom="-5.0" left="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec51" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="10.0" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+      <Rectangle fx:id="rec51" arcHeight="5.0" arcWidth="5.0" height="30.0" stroke="BLACK" strokeType="INSIDE" width="5.0" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets bottom="-10.0" left="-10.0" />
+            <Insets bottom="-5.0" left="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="10.0" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" height="30.0" stroke="BLACK" strokeType="INSIDE" width="5.0" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
-            <Insets left="-10.0" />
+            <Insets left="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="10.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" height="30.0" stroke="BLACK" strokeType="INSIDE" width="5.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <GridPane.margin>
-            <Insets right="-10.0" />
+            <Insets right="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec70" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="10.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+      <Rectangle fx:id="rec70" arcHeight="5.0" arcWidth="5.0" height="30.0" stroke="BLACK" strokeType="INSIDE" width="5.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets bottom="-10.0" right="-10.0" />
+            <Insets bottom="-5.0" right="-5.0" />
          </GridPane.margin>
       </Rectangle>
-      <Rectangle fx:id="rec71" arcHeight="5.0" arcWidth="5.0" height="10.0" stroke="BLACK" strokeType="INSIDE" width="50.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+      <Rectangle fx:id="rec71" arcHeight="5.0" arcWidth="5.0" height="5.0" stroke="BLACK" strokeType="INSIDE" width="30.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <GridPane.margin>
-            <Insets bottom="-10.0" right="-10.0" />
+            <Insets bottom="-5.0" right="-5.0" />
          </GridPane.margin>
       </Rectangle>
       <Pane fx:id="crop_pane" GridPane.columnIndex="1" GridPane.rowIndex="2" />

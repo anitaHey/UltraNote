@@ -18,7 +18,7 @@ public class ResizeNode extends GridPane {
     private PaperController paper_controller = PaperController.getInstance();
     private Paper paper = paper_controller.getCurentPaper();
     private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0;
-    private boolean dragging = false;
+    private boolean dragging = false, isCrop = false;
     private int cursor = -1;
 
     public ResizeNode(String type) {
@@ -333,5 +333,9 @@ public class ResizeNode extends GridPane {
 
     public boolean getIsDragging(){
         return dragging;
+    }
+
+    public void setIsCropping(boolean input){
+        isCrop = input;
     }
 }
