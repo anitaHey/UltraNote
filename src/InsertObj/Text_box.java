@@ -46,7 +46,7 @@ public class Text_box extends ResizeNode {
         text_vbox = new VBox();
         text_vbox.setPrefWidth(100);
         text_vbox.setAlignment(Pos.TOP_LEFT);
-        text_vbox.setStyle("-fx-padding: 5,15,15,15;");
+        text_vbox.setStyle("-fx-padding: 15,15,15,15;");
         getMain_content().getChildren().add(text_vbox);
 
         property.setDefault();

@@ -1,6 +1,8 @@
 package InsertObj;
 
 import Controller.PaperController;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
@@ -18,7 +20,8 @@ public class ResizeNode extends GridPane {
     private PaperController paper_controller = PaperController.getInstance();
     private Paper paper = paper_controller.getCurentPaper();
     private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0;
-    private boolean dragging = false, isCrop = false;
+    private boolean dragging = false, cropping = false;
+    public BooleanProperty isCrop = new SimpleBooleanProperty(false);
     private int cursor = -1;
 
     public ResizeNode(String type) {
@@ -65,6 +68,9 @@ public class ResizeNode extends GridPane {
         cursor_arr.add(Cursor.S_RESIZE);
         cursor_arr.add(Cursor.SE_RESIZE);
 
+        for(Circle cir: cir_arr)
+            cir.toFront();
+
         setDrag();
     }
 
@@ -100,15 +106,17 @@ public class ResizeNode extends GridPane {
             } else if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
                 paper.setClick(false);
 
-                cursor = getResize(event);
+                cursor = getResize(event, 15);
 
                 if (type.equals("text") && !isBorder(event)) {
                     paper.setCursor(Cursor.TEXT);
-                } else if (cursor == -1) {
+                } else if (!isCrop.getValue() && cursor == -1) {
                     paper.setCursor(Cursor.MOVE);
-                } else {
+                } else if(!isCrop.getValue()) {
                     paper.setCursor(cursor_arr.get(cursor));
                 }
+
+                if(isCrop.getValue()) cropping = true;
 
             } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
                 paper_controller.setFocusObject(this);
@@ -149,7 +157,7 @@ public class ResizeNode extends GridPane {
                     this.lastMouseY = event.getSceneY();
 
                     event.consume();
-                } else if (this.dragging) {
+                } else if (this.dragging && !isCrop.getValue()) {
                     double minWidth = this.getMain_content().getMinWidth();
                     double minHeight = this.getMain_content().getMinHeight();
 
@@ -272,6 +280,8 @@ public class ResizeNode extends GridPane {
                     paper.setCursor(Cursor.DEFAULT);
                     paper.setClick(true);
                 }
+
+//                if(isCrop.getValue()) cropping = false;
             }
         });
     }
@@ -286,23 +296,23 @@ public class ResizeNode extends GridPane {
         return top || bottom || left || right;
     }
 
-    public int getResize(MouseEvent event) {
+    public int getResize(MouseEvent event, int instance) {
         int output = -1;
         Bounds dragNodeBounds = this.getBoundsInParent();
         double h_half = dragNodeBounds.getHeight() / 2;
         double w_half = dragNodeBounds.getWidth() / 2;
 
-        if (Math.abs(event.getY()) <= 15) {
-            if (Math.abs(event.getX()) <= 15) output = 0;
-            else if (Math.abs(event.getX() - w_half) <= 15) output = 1;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 15) output = 2;
-        } else if (Math.abs(event.getY() - h_half) <= 15) {
-            if (Math.abs(event.getX()) <= 15) output = 3;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 15) output = 4;
-        } else if (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= 15) {
-            if (Math.abs(event.getX()) <= 15) output = 5;
-            else if (Math.abs(event.getX() - w_half) <= 15) output = 6;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 15) output = 7;
+        if (Math.abs(event.getY()) <= instance) {
+            if (Math.abs(event.getX()) <= instance) output = 0;
+            else if (Math.abs(event.getX() - w_half) <= instance) output = 1;
+            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= instance) output = 2;
+        } else if (Math.abs(event.getY() - h_half) <= instance) {
+            if (Math.abs(event.getX()) <= instance) output = 3;
+            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= instance) output = 4;
+        } else if (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= instance) {
+            if (Math.abs(event.getX()) <= instance) output = 5;
+            else if (Math.abs(event.getX() - w_half) <= instance) output = 6;
+            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= instance) output = 7;
         }
 
         return output;
@@ -324,6 +334,8 @@ public class ResizeNode extends GridPane {
                 cir.getStyleClass().clear();
                 cir.getStyleClass().add("hide");
             }
+
+            if(isCrop.getValue() && !cropping) setIsCropping(false);
         }
     }
 
@@ -336,6 +348,6 @@ public class ResizeNode extends GridPane {
     }
 
     public void setIsCropping(boolean input){
-        isCrop = input;
+        isCrop.set(input);
     }
 }

@@ -7,6 +7,7 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -18,32 +19,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CropImage extends GridPane {
-    private ImageView crop_pic;
-    private Rectangle2D rectangle;
-    private int axis_x = 0;
-    private int axis_y = 0;
-    private int crop_width = 0;
-    private int crop_height = 0;
-    private boolean isCropping = false;
-    private double image_width = 0, image_height = 0;
-
     private PaperController paper_controller = PaperController.getInstance();
     private Paper paper = paper_controller.getCurentPaper();
-    private int cursor = -1;
 
-    List<Rectangle> crop_arr = new ArrayList<>();
-    List<Cursor> cursor_arr = new ArrayList<>();
+    private ImageView crop_pic;
+    private ImageView background;
+    private Rectangle2D rectangle;
+    private int axis_x = 0, axis_y = 0;
+    private int crop_width = 0, crop_height = 0;
+    private double image_width = 0, image_height = 0;
+    private double last_width = 0, last_height = 0;
 
-    public CropImage(ImageView crop_pic, int x, int y) {
+    private List<Rectangle> crop_arr = new ArrayList<>();
+    private List<Cursor> cursor_arr = new ArrayList<>();
+    private int cursor;
+    private boolean isCropping = false;
+
+    public CropImage(ImageView crop_pic, double border) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/CropImg.fxml"));
             loader.setController(this);
             loader.setRoot(this);
             loader.load();
 
-            this.crop_pic = new ImageView(crop_pic.getImage());
-            setCrop(x, y, (int) crop_pic.getFitWidth(), (int) crop_pic.getFitHeight());
-            crop_pane.getChildren().add(crop_pic);
+            this.background = new ImageView(crop_pic.getImage());
+            this.crop_pic = crop_pic;
+
+            this.setLayoutX(border);
+            this.setLayoutY(border);
+            background.setLayoutX(border);
+            background.setLayoutY(border);
 
             crop_arr.add(rec00);
             crop_arr.add(rec01);
@@ -58,21 +63,52 @@ public class CropImage extends GridPane {
             crop_arr.add(rec70);
             crop_arr.add(rec71);
 
+            cursor_arr.add(setCursor("pic/crop_cursor0.png"));
+            cursor_arr.add(setCursor("pic/crop_cursor1.png"));
+            cursor_arr.add(setCursor("pic/crop_cursor2.png"));
+            cursor_arr.add(setCursor("pic/crop_cursor3.png"));
+            cursor_arr.add(setCursor("pic/crop_cursor4.png"));
+            cursor_arr.add(setCursor("pic/crop_cursor5.png"));
+            cursor_arr.add(setCursor("pic/crop_cursor6.png"));
+            cursor_arr.add(setCursor("pic/crop_cursor7.png"));
+
+            this.crop_pic.setX(0);
+            this.crop_pic.setY(0);
+
+            image_width = this.crop_pic.getFitWidth();
+            image_height = this.crop_pic.getFitHeight();
+
+            setCrop(0,0, image_width, image_height);
+
+            getCrop_pane().getChildren().clear();
+            getCrop_pane().getChildren().add(this.crop_pic);
+
+            for(Rectangle rec : crop_arr)
+                rec.toFront();
+
+            ColorAdjust blackout = new ColorAdjust();
+            blackout.setBrightness(-0.5);
+            background.setEffect(blackout);
+
             setStartCrop(true);
+            setCropDrag();
 
-            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor0.png"))));
-            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor1.png"))));
-            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor2.png"))));
-            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor3.png"))));
-            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor4.png"))));
-            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor5.png"))));
-            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor6.png"))));
-            cursor_arr.add(new ImageCursor(new Image(getClass().getResourceAsStream("../pic/crop_cursor7.png"))));
+            crop_pane.heightProperty().addListener((obs, oldVal, newVal) -> {
+                if(isCropping){
+                    crop_pic.setFitHeight(newVal.doubleValue());
+                }
+            });
 
-            setDrag();
+            crop_pane.widthProperty().addListener((obs, oldVal ,newVal) -> {
+                if(isCropping){
+                    crop_pic.setFitWidth(newVal.doubleValue());
+                }
+            });
+
         } catch (Exception e) {
             System.out.println(e);
         }
+
     }
 
     @FXML
@@ -80,24 +116,147 @@ public class CropImage extends GridPane {
     @FXML
     Pane crop_pane;
 
-    @FXML
-    public void initialize() {
+    public void setInitImg(double width, double height, double border) {
+        System.out.println("123");
+        crop_pic.setX(0);
+        crop_pic.setY(0);
 
+        double scaleH = height/ last_height;
+        double scaleW = width / last_width;
+
+        image_width *= scaleW;
+        image_height *= scaleH;
+        axis_x *= scaleW;
+        axis_y *= scaleH;
+
+        background.setFitWidth(image_width);
+        background.setFitHeight(image_height);
+
+        this.setTranslateX(axis_x);
+        this.setTranslateY(axis_y);
+
+        getCrop_pane().getChildren().clear();
+        getCrop_pane().getChildren().add(crop_pic);
+
+        this.setLayoutX(border);
+        this.setLayoutY(border);
+        background.setLayoutX(border);
+        background.setLayoutY(border);
+
+        setCrop(axis_x, axis_y, width, height);
+
+        setStartCrop(true);
     }
 
     public Pane getCrop_pane() {
         return crop_pane;
     }
 
-    public void setCrop(int x, int y, int width, int height) {
-        axis_x = x;
-        axis_y = y;
-        crop_height = height;
-        crop_width = width;
+    public ImageView getCropBackground(){
+        return background;
+    }
+
+    public double getImage_width() {
+        return image_width;
+    }
+
+    public double getImage_height() {
+        return image_height;
+    }
+
+    public ImageCursor setCursor(String path) {
+        Image tem = new Image(path);
+        ImageCursor cursor = new ImageCursor(tem, tem.getWidth() / 2, tem.getHeight() / 2);
+
+        return cursor;
+    }
+
+    public void setCropDrag() {
+        this.addEventHandler(MouseEvent.ANY, event -> {
+            if (isCropping) {
+                if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
+                    cursor = getResize(event, 40);
+                    if (cursor != -1)
+                        paper.setCursor(cursor_arr.get(cursor));
+                    else
+                        paper.setCursor(Cursor.DEFAULT);
+                } else if (MouseEvent.MOUSE_DRAGGED == event.getEventType() && cursor != -1) {
+                    double prefWidth = this.getCrop_pane().getPrefWidth();
+                    double prefHeight = this.getCrop_pane().getPrefHeight();
+
+                    Bounds pane = this.getBoundsInLocal();
+                    double moveMinX = pane.getMinX() - event.getX();
+                    double moveMinY = pane.getMinY() - event.getY();
+                    double moveMaxX = event.getX() - pane.getMaxX();
+                    double moveMaxY = event.getY() - pane.getMaxY();
+
+                    final double initialLayoutX = this.getTranslateX();
+                    final double initialLayoutY = this.getTranslateY();
+
+                    double minX = (initialLayoutX - moveMinX < 0) ? 0 : (initialLayoutX - moveMinX);
+                    double minW = (initialLayoutX - moveMinX < 0) ? prefWidth : Math.max((prefWidth + moveMinX), 0);
+
+                    double minY = (initialLayoutY - moveMinY < 0) ? 0 : (initialLayoutY - moveMinY);
+                    double minH = (initialLayoutY - moveMinY < 0) ? (prefHeight) : Math.max((prefHeight + moveMinY), 0);
+
+                    double maxW = (this.getBoundsInParent().getMaxX() + moveMaxX > image_width) ? prefWidth : Math.max((this.getCrop_pane().getWidth() + moveMaxX), 0);
+                    double maxH = (this.getBoundsInParent().getMaxY() + moveMaxY > image_height) ? prefHeight : Math.max((this.getCrop_pane().getHeight() + moveMaxY), 0);
+
+                    switch (cursor) {
+                        case 0:
+                            setCrop(minX, minY, minW, minH);
+                            break;
+                        case 1:
+                            setCrop(axis_x, minY, crop_width, minH);
+                            break;
+                        case 2:
+                            setCrop(axis_x, minY, maxW, minH);
+                            break;
+                        case 3:
+                            setCrop(minX, axis_y, minW, crop_height);
+                            break;
+                        case 4:
+                            setCrop(axis_x, axis_y, maxW, crop_height);
+                            break;
+                        case 5:
+                            setCrop(minX, axis_y, minW, maxH);
+                            break;
+                        case 6:
+                            setCrop(axis_x, axis_y, crop_width, maxH);
+                            break;
+                        case 7:
+                            setCrop(axis_x, axis_y, maxW, maxH);
+                            break;
+                    }
+                    event.consume();
+                }
+            }
+        });
+    }
+
+    public void setCrop(double x, double y, double width, double height) {
+        if(width <30) width = 30;
+        if(height < 30) height = 30;
+
+        if(x<0) x=0;
+        else if(x > image_width-30) x= image_width-30;
+
+        if(y<0) y = 0;
+        else if(y > image_height-30) y = image_height-30;
+
+        axis_x = (int) x;
+        axis_y = (int) y;
+        crop_height = (int) height;
+        crop_width = (int) width;
 
         rectangle = new Rectangle2D(axis_x, axis_y, crop_width, crop_height);
         crop_pic.setViewport(rectangle);
         crop_pic.setSmooth(true);
+
+        this.getCrop_pane().setPrefWidth(crop_width);
+        this.getCrop_pane().setPrefHeight(crop_height);
+        this.setTranslateX(axis_x);
+        this.setTranslateY(axis_y);
     }
 
     public void setStartCrop(boolean input) {
@@ -116,155 +275,23 @@ public class CropImage extends GridPane {
         }
     }
 
-    public void setPictureValue(double width, double height){
-        this.image_height = height;
-        this.image_width = width;
-    }
-
-    public void setDrag() {
-        this.addEventHandler(MouseEvent.ANY, event -> {
-            if(isCropping){
-                if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
-                    cursor = getResize(event);
-
-                    if (cursor == -1) {
-                        this.setCursor(Cursor.MOVE);
-                    } else {
-                        this.setCursor(cursor_arr.get(cursor));
-                    }
-                } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
-                    if (this.contains(event.getX(), event.getY())) {
-                        if (!isBorder(event) && cursor == -1) {
-                            this.setCursor(Cursor.MOVE);
-                        }
-
-                        event.consume();
-                    }
-                } else if (MouseEvent.MOUSE_DRAGGED == event.getEventType() && cursor != -1) {
-                    double maxWidth = this.crop_pic.getFitWidth();
-                    double maxHeight = this.crop_pic.getFitHeight();
-
-                    double width = this.getCrop_pane().getWidth();
-                    double height = this.getCrop_pane().getHeight();
-
-                    double prefWidth = this.getCrop_pane().getPrefWidth();
-                    double prefHeight = this.getCrop_pane().getPrefHeight();
-
-                    Bounds pane = this.getBoundsInParent();
-                    double moveMinX = pane.getMinX() - event.getSceneX();
-                    double moveMinY = pane.getMinY() - event.getSceneY();
-                    double moveMaxX = event.getSceneX() - pane.getMaxX();
-                    double moveMaxY = event.getSceneY() - pane.getMaxY();
-
-                    boolean minX = pane.getMinX() >= 0;
-                    boolean minY = pane.getMinY() >= 0;
-                    boolean maxX = pane.getMaxX() <= image_width;
-                    boolean maxY = pane.getMaxY() <= image_height;
-
-                    final double initialLayoutX = this.getTranslateX();
-                    final double initialLayoutY = this.getTranslateY();
-
-                    boolean checkW, checkH;
-
-                    checkW = prefWidth >= 0 && prefWidth <= maxWidth && minX && maxX;
-                    checkH = prefHeight >= 0 && prefHeight <= maxHeight && minY && maxY;
-
-                    switch (cursor) {
-                        case 0:
-                            if (checkW) {
-                                this.getCrop_pane().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
-                                this.setTranslateX(initialLayoutX - moveMinX);
-                            }
-
-                            if (checkH) {
-                                this.getCrop_pane().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
-                                this.setTranslateY(initialLayoutY - moveMinY);
-                            }
-
-                            break;
-                        case 1:
-                            if (checkH) {
-                                this.getCrop_pane().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
-                                this.setTranslateY(initialLayoutY - moveMinY);
-                            }
-
-                            break;
-                        case 2:
-                            if (checkH) {
-                                this.getCrop_pane().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
-                                this.setTranslateY(initialLayoutY - moveMinY);
-                            }
-                            if (checkW)
-                                this.getCrop_pane().setPrefWidth(Math.max((width + moveMaxX), 0));
-
-                            break;
-                        case 3:
-                            if (checkW) {
-                                this.getCrop_pane().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
-                                this.setTranslateX(initialLayoutX - moveMinX);
-                            }
-
-                            break;
-                        case 4:
-                            if (checkW)
-                                this.getCrop_pane().setPrefWidth(Math.max((width + moveMaxX), 0));
-                            break;
-                        case 5:
-                            if (checkW) {
-                                this.getCrop_pane().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
-                                this.setTranslateX(initialLayoutX - moveMinX);
-                            }
-                            if (checkH)
-                                this.getCrop_pane().setPrefHeight(Math.max((height + moveMaxY), 0));
-
-                            break;
-                        case 6:
-                            if (checkH)
-                                this.getCrop_pane().setPrefHeight(Math.max((height + moveMaxY), 0));
-
-                            break;
-                        case 7:
-                            if (checkW)
-                                this.getCrop_pane().setPrefWidth(Math.max((width + moveMaxX), 0));
-
-                            if (checkH)
-                                this.getCrop_pane().setPrefHeight(Math.max((height + moveMaxY), 0));
-
-                            break;
-                    }
-                    event.consume();
-                }
-            }
-        });
-    }
-
-    public boolean isBorder(MouseEvent event) {
-        Bounds dragNodeBounds = this.getBoundsInParent();
-        Boolean top = (Math.abs(event.getY()) <= 15);
-        Boolean bottom = (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= 15);
-        Boolean left = (Math.abs(event.getX()) <= 15);
-        Boolean right = (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 15);
-
-        return top || bottom || left || right;
-    }
-
-    public int getResize(MouseEvent event) {
+    public int getResize(MouseEvent event, int instance) {
         int output = -1;
         Bounds dragNodeBounds = this.getBoundsInParent();
         double h_half = dragNodeBounds.getHeight() / 2;
         double w_half = dragNodeBounds.getWidth() / 2;
 
-        if (Math.abs(event.getY()) <= 40) {
-            if (Math.abs(event.getX()) <= 40) output = 0;
-            else if (Math.abs(event.getX() - w_half) <= 40) output = 1;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 40) output = 2;
-        } else if (Math.abs(event.getY() - h_half) <= 40) {
-            if (Math.abs(event.getX()) <= 40) output = 3;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 40) output = 4;
-        } else if (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= 40) {
-            if (Math.abs(event.getX()) <= 40) output = 5;
-            else if (Math.abs(event.getX() - w_half) <= 40) output = 6;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 40) output = 7;
+        if (Math.abs(event.getY()) <= instance) {
+            if (Math.abs(event.getX()) <= instance) output = 0;
+            else if (Math.abs(event.getX() - w_half) <= instance) output = 1;
+            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= instance) output = 2;
+        } else if (Math.abs(event.getY() - h_half) <= instance) {
+            if (Math.abs(event.getX()) <= instance) output = 3;
+            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= instance) output = 4;
+        } else if (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= instance) {
+            if (Math.abs(event.getX()) <= instance) output = 5;
+            else if (Math.abs(event.getX() - w_half) <= instance) output = 6;
+            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= instance) output = 7;
         }
 
         return output;

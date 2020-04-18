@@ -1,27 +1,38 @@
 package InsertObj;
 
 import Controller.MainController;
+import Controller.PaperController;
 import Controller.Toolbar_PictureController;
+import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Picture extends ResizeNode {
     private static Toolbar_PictureController picture_controller = Toolbar_PictureController.getInstance();
     private ImageView image;
     private String picture_path;
+
+    private CropImage crop_img = null;
     private double borderWidth = 0;
     private String borderColor = "#000";
     private String borderType = "segments(1,1,1,1)  line-cap round";
-    ;
     private int[] borderTypeNum = {1, 1};
     private boolean[] setBorder = {true, true};
-    private CropImage crop_img = null;
 
     public Picture(String path) {
         super("picture");
-
         this.picture_path = path;
 
         Init();
@@ -35,14 +46,18 @@ public class Picture extends ResizeNode {
         setMinW(image.getImage().getWidth(), false);
 
         getMain_content().widthProperty().addListener((obs, oldValue, newValue) -> {
-            if (setBorder[0])
+            if (setBorder[0]) {
                 image.setFitWidth(newValue.doubleValue() - borderWidth * 2);
+            }
+
             setBorder[0] = true;
         });
 
         getMain_content().heightProperty().addListener((obs, oldValue, newValue) -> {
-            if (setBorder[1])
+            if (setBorder[1]) {
                 image.setFitHeight(newValue.doubleValue() - borderWidth * 2);
+            }
+
             setBorder[1] = true;
         });
 
@@ -57,6 +72,13 @@ public class Picture extends ResizeNode {
         });
     }
 
+    public void setMainSize(double width, double height){
+        setBorder[0] = false;
+        setBorder[1] = false;
+        getMain_content().setPrefHeight(height);
+        getMain_content().setPrefWidth(width);
+    }
+
     public void setBorder(double width, String color, int num1, int num2) {
         borderTypeNum[0] = num1;
         borderTypeNum[1] = num2;
@@ -65,10 +87,7 @@ public class Picture extends ResizeNode {
         borderColor = color;
         borderType = String.format("segments(%d,%d,%d,%d)  line-cap round", num1, num2, num1, num2);
 
-        setBorder[0] = false;
-        setBorder[1] = false;
-        getMain_content().setPrefHeight(image.getFitHeight() + borderWidth * 2);
-        getMain_content().setPrefWidth(image.getFitWidth() + borderWidth * 2);
+        setMainSize((image.getFitHeight() + borderWidth * 2), (image.getFitWidth() + borderWidth * 2));
         image.setX(borderWidth);
         image.setY(borderWidth);
 
@@ -78,10 +97,7 @@ public class Picture extends ResizeNode {
     public void setBorderWidth(double width) {
         borderWidth = width;
 
-        setBorder[0] = false;
-        setBorder[1] = false;
-        getMain_content().setPrefHeight(image.getFitHeight() + borderWidth * 2);
-        getMain_content().setPrefWidth(image.getFitWidth() + borderWidth * 2);
+        setMainSize((image.getFitHeight() + borderWidth * 2), (image.getFitWidth() + borderWidth * 2));
         image.setX(borderWidth);
         image.setY(borderWidth);
 
@@ -118,22 +134,18 @@ public class Picture extends ResizeNode {
     }
 
     public void startCrop() {
-        if (crop_img == null) {
-            Bounds pic = getPictureImage().getBoundsInParent();
+        if (crop_img == null)
+            crop_img = new CropImage(getPictureImage(), borderWidth);
+        else
+            crop_img.setInitImg(getPictureImage().getFitWidth(), getPictureImage().getFitHeight(), borderWidth);
 
-            crop_img = new CropImage(getPictureImage(), (int) pic.getMinX(), (int) pic.getMinY());
-            getMain_content().getChildren().add(crop_img);
+        setIsCropping(true);
+        getMain_content().getChildren().clear();
+        getMain_content().getChildren().add(crop_img.getCropBackground());
+        getMain_content().getChildren().add(crop_img);
+        crop_img.toFront();
+        crop_img.getCropBackground().toBack();
 
-            crop_img.setPictureValue(image.getFitWidth(), image.getFitHeight());
-            crop_img.setLayoutX(borderWidth);
-            crop_img.setLayoutY(borderWidth);
-            crop_img.toFront();
-
-            ColorAdjust blackout = new ColorAdjust();
-            blackout.setBrightness(0.5);
-            image.setEffect(blackout);
-        } else {
-
-        }
+        setMainSize(crop_img.getImage_width(), crop_img.getImage_height());
     }
 }
