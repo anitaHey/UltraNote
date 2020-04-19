@@ -125,7 +125,7 @@ public class ResizeNode extends GridPane {
                     this.lastMouseY = event.getSceneY();
 
                     if (!(type.equals("text") && !isBorder(event))) {
-                        if(cursor == -1)
+                        if(cursor == -1 && !isCrop.getValue())
                             paper.setCursor(Cursor.MOVE);
                         this.dragging = true;
                     }
@@ -281,7 +281,7 @@ public class ResizeNode extends GridPane {
                     paper.setClick(true);
                 }
 
-//                if(isCrop.getValue()) cropping = false;
+                if(isCrop.getValue()) cropping = false;
             }
         });
     }

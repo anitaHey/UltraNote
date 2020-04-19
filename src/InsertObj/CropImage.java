@@ -29,6 +29,7 @@ public class CropImage extends GridPane {
     private int crop_width = 0, crop_height = 0;
     private double image_width = 0, image_height = 0;
     private double last_width = 0, last_height = 0;
+    private boolean set = true;
 
     private List<Rectangle> crop_arr = new ArrayList<>();
     private List<Cursor> cursor_arr = new ArrayList<>();
@@ -94,15 +95,13 @@ public class CropImage extends GridPane {
             setCropDrag();
 
             crop_pane.heightProperty().addListener((obs, oldVal, newVal) -> {
-                if(isCropping){
+                if(isCropping)
                     crop_pic.setFitHeight(newVal.doubleValue());
-                }
             });
 
             crop_pane.widthProperty().addListener((obs, oldVal ,newVal) -> {
-                if(isCropping){
+                if(isCropping)
                     crop_pic.setFitWidth(newVal.doubleValue());
-                }
             });
 
         } catch (Exception e) {
@@ -117,10 +116,6 @@ public class CropImage extends GridPane {
     Pane crop_pane;
 
     public void setInitImg(double width, double height, double border) {
-        System.out.println("123");
-        crop_pic.setX(0);
-        crop_pic.setY(0);
-
         double scaleH = height/ last_height;
         double scaleW = width / last_width;
 
@@ -129,21 +124,26 @@ public class CropImage extends GridPane {
         axis_x *= scaleW;
         axis_y *= scaleH;
 
+        crop_width = (int)width;
+        crop_height = (int)height;
+
+//        crop_pic = new ImageView(background.getImage());
+//        crop_pic.setFitWidth(image_width);
+//        crop_pic.setFitHeight(image_height);
+
         background.setFitWidth(image_width);
         background.setFitHeight(image_height);
-
-        this.setTranslateX(axis_x);
-        this.setTranslateY(axis_y);
-
-        getCrop_pane().getChildren().clear();
-        getCrop_pane().getChildren().add(crop_pic);
 
         this.setLayoutX(border);
         this.setLayoutY(border);
         background.setLayoutX(border);
         background.setLayoutY(border);
 
-        setCrop(axis_x, axis_y, width, height);
+        set = false;
+        getCrop_pane().getChildren().clear();
+        setCrop(axis_x, axis_y, crop_width, crop_height);
+        getCrop_pane().getChildren().add(crop_pic);
+        set = true;
 
         setStartCrop(true);
     }
@@ -164,6 +164,14 @@ public class CropImage extends GridPane {
         return image_height;
     }
 
+    public int getAxis_x() {
+        return axis_x;
+    }
+
+    public int getAxis_y() {
+        return axis_y;
+    }
+
     public ImageCursor setCursor(String path) {
         Image tem = new Image(path);
         ImageCursor cursor = new ImageCursor(tem, tem.getWidth() / 2, tem.getHeight() / 2);
@@ -180,6 +188,11 @@ public class CropImage extends GridPane {
                         paper.setCursor(cursor_arr.get(cursor));
                     else
                         paper.setCursor(Cursor.DEFAULT);
+                } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
+                    if (cursor != -1)
+                        paper.setCursor(cursor_arr.get(cursor));
+                    else
+                        paper.setCursor(Cursor.MOVE);
                 } else if (MouseEvent.MOUSE_DRAGGED == event.getEventType() && cursor != -1) {
                     double prefWidth = this.getCrop_pane().getPrefWidth();
                     double prefHeight = this.getCrop_pane().getPrefHeight();
@@ -229,6 +242,8 @@ public class CropImage extends GridPane {
                             break;
                     }
                     event.consume();
+                } else if (MouseEvent.MOUSE_EXITED == event.getEventType()) {
+                    paper.setCursor(Cursor.DEFAULT);
                 }
             }
         });
@@ -248,6 +263,8 @@ public class CropImage extends GridPane {
         axis_y = (int) y;
         crop_height = (int) height;
         crop_width = (int) width;
+        last_height = crop_height;
+        last_width = crop_width;
 
         rectangle = new Rectangle2D(axis_x, axis_y, crop_width, crop_height);
         crop_pic.setViewport(rectangle);

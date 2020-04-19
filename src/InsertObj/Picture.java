@@ -1,23 +1,9 @@
 package InsertObj;
 
 import Controller.MainController;
-import Controller.PaperController;
 import Controller.Toolbar_PictureController;
-import javafx.fxml.FXML;
-import javafx.geometry.Bounds;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Cursor;
-import javafx.scene.ImageCursor;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Picture extends ResizeNode {
     private static Toolbar_PictureController picture_controller = Toolbar_PictureController.getInstance();
@@ -70,6 +56,19 @@ public class Picture extends ResizeNode {
             picture_controller.setSelectPicture(this);
             MainController.getInstance().change_toolbar(MainController.Type.Picture, false);
         });
+
+        isCrop.addListener((obs, oldVal, newVal) -> {
+            if(!newVal){
+                getMain_content().getChildren().clear();
+                getMain_content().getChildren().add(getPictureImage());
+                getPictureImage().setX(borderWidth);
+                getPictureImage().setY(borderWidth);
+
+                setMainSize((getPictureImage().getFitWidth() + borderWidth * 2), (getPictureImage().getFitHeight() + borderWidth * 2));
+                this.setTranslateX(getTranslateX() + crop_img.getAxis_x());
+                this.setTranslateY(getTranslateY() + crop_img.getAxis_y());
+            }
+        });
     }
 
     public void setMainSize(double width, double height){
@@ -87,7 +86,7 @@ public class Picture extends ResizeNode {
         borderColor = color;
         borderType = String.format("segments(%d,%d,%d,%d)  line-cap round", num1, num2, num1, num2);
 
-        setMainSize((image.getFitHeight() + borderWidth * 2), (image.getFitWidth() + borderWidth * 2));
+        setMainSize( (image.getFitWidth() + borderWidth * 2), (image.getFitHeight() + borderWidth * 2));
         image.setX(borderWidth);
         image.setY(borderWidth);
 
@@ -97,7 +96,7 @@ public class Picture extends ResizeNode {
     public void setBorderWidth(double width) {
         borderWidth = width;
 
-        setMainSize((image.getFitHeight() + borderWidth * 2), (image.getFitWidth() + borderWidth * 2));
+        setMainSize( (image.getFitWidth() + borderWidth * 2), (image.getFitHeight() + borderWidth * 2));
         image.setX(borderWidth);
         image.setY(borderWidth);
 
@@ -134,13 +133,13 @@ public class Picture extends ResizeNode {
     }
 
     public void startCrop() {
+        getMain_content().getChildren().clear();
         if (crop_img == null)
             crop_img = new CropImage(getPictureImage(), borderWidth);
         else
             crop_img.setInitImg(getPictureImage().getFitWidth(), getPictureImage().getFitHeight(), borderWidth);
 
         setIsCropping(true);
-        getMain_content().getChildren().clear();
         getMain_content().getChildren().add(crop_img.getCropBackground());
         getMain_content().getChildren().add(crop_img);
         crop_img.toFront();
