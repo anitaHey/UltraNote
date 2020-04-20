@@ -8,10 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -54,7 +51,12 @@ public class Toolbar_InsertController {
                     } catch (FileNotFoundException ex) {
                         ex.printStackTrace();
                     }
-                    Picture image = new Picture(input);
+                    Picture image = null;
+                    try {
+                        image = new Picture(input);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     paper_controller.getCurentPaper().addNode(image);
                 }
             }

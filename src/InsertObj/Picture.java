@@ -5,13 +5,13 @@ import Controller.Toolbar_PictureController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.InputStream;
+import java.io.*;
 
 
 public class Picture extends ResizeNode {
     private static Toolbar_PictureController picture_controller = Toolbar_PictureController.getInstance();
     private ImageView image;
-    private InputStream inputStream;
+    private ByteArrayInputStream inputStream;
 
     private CropImage crop_img = null;
     private double borderWidth = 0;
@@ -21,14 +21,19 @@ public class Picture extends ResizeNode {
     private boolean[] setBorder = {true, true};
 
 
-    public Picture(InputStream inputStream) {
+    public Picture(InputStream inputStream) throws IOException {
         super("picture");
-        this.inputStream = inputStream;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        org.apache.commons.io.IOUtils.copy(inputStream, baos);
+        byte[] bytes = baos.toByteArray();
+
+        this.inputStream = new ByteArrayInputStream(bytes);;
 
         Init();
     }
 
-    public void Init() {
+    public void Init() throws IOException {
+        inputStream.reset();
         Image img = new Image(inputStream);
 
         image = new ImageView(img);
@@ -138,7 +143,7 @@ public class Picture extends ResizeNode {
         return image;
     }
 
-    public InputStream getInputStream() { return inputStream; };
+    public ByteArrayInputStream getInputStream() { return inputStream; };
 
     public void startCrop() {
         getMain_content().getChildren().clear();
@@ -150,9 +155,12 @@ public class Picture extends ResizeNode {
         setIsCropping(true);
         getMain_content().getChildren().add(crop_img.getCropBackground());
         getMain_content().getChildren().add(crop_img);
+
+        this.setTranslateX(Math.max(getTranslateX() - crop_img.getAxis_x(), 0));
+        this.setTranslateY(Math.max(getTranslateY() - crop_img.getAxis_y(), 0));
         crop_img.toFront();
         crop_img.getCropBackground().toBack();
 
-        setMainSize(crop_img.getImage_width(), crop_img.getImage_height());
+        setMainSize(crop_img.getImage_width()+borderWidth*2, crop_img.getImage_height()+borderWidth*2);
     }
 }

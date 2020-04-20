@@ -15,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class CropImage extends GridPane {
     private ImageView crop_pic;
     private ImageView background;
     private Rectangle2D rectangle;
-    private InputStream inputStream;
+    private ByteArrayInputStream inputStream;
     private int axis_x = 0, axis_y = 0;
     private int crop_width = 0, crop_height = 0;
     private double image_width = 0, image_height = 0;
@@ -38,7 +39,7 @@ public class CropImage extends GridPane {
     private int cursor;
     private boolean isCropping = false;
 
-    public CropImage(ImageView crop_pic, InputStream inputStream, double border) {
+    public CropImage(ImageView crop_pic, ByteArrayInputStream inputStream, double border) {
         try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/CropImg.fxml"));
@@ -133,10 +134,11 @@ public class CropImage extends GridPane {
 
         background.setFitWidth(image_width);
         background.setFitHeight(image_height);
-//        System.out.println("-----------------------------");
-//        System.out.println(crop_pic.getImage().getWidth()+" "+crop_pic.getImage().getHeight());
+
+        inputStream.reset();
         Image image = new Image(inputStream, image_width, image_height, false, false);
         crop_pic.setImage(image);
+
         this.setLayoutX(border);
         this.setLayoutY(border);
         background.setLayoutX(border);
