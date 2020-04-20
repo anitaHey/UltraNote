@@ -15,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class CropImage extends GridPane {
     private ImageView crop_pic;
     private ImageView background;
     private Rectangle2D rectangle;
+    private InputStream inputStream;
     private int axis_x = 0, axis_y = 0;
     private int crop_width = 0, crop_height = 0;
     private double image_width = 0, image_height = 0;
@@ -36,8 +38,9 @@ public class CropImage extends GridPane {
     private int cursor;
     private boolean isCropping = false;
 
-    public CropImage(ImageView crop_pic, double border) {
+    public CropImage(ImageView crop_pic, InputStream inputStream, double border) {
         try {
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/CropImg.fxml"));
             loader.setController(this);
             loader.setRoot(this);
@@ -45,6 +48,7 @@ public class CropImage extends GridPane {
 
             this.background = new ImageView(crop_pic.getImage());
             this.crop_pic = crop_pic;
+            this.inputStream = inputStream;
 
             this.setLayoutX(border);
             this.setLayoutY(border);
@@ -127,13 +131,12 @@ public class CropImage extends GridPane {
         crop_width = (int)width;
         crop_height = (int)height;
 
-//        crop_pic = new ImageView(background.getImage());
-//        crop_pic.setFitWidth(image_width);
-//        crop_pic.setFitHeight(image_height);
-
         background.setFitWidth(image_width);
         background.setFitHeight(image_height);
-
+//        System.out.println("-----------------------------");
+//        System.out.println(crop_pic.getImage().getWidth()+" "+crop_pic.getImage().getHeight());
+        Image image = new Image(inputStream, image_width, image_height, false, false);
+        crop_pic.setImage(image);
         this.setLayoutX(border);
         this.setLayoutY(border);
         background.setLayoutX(border);

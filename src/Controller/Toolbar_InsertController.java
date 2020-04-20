@@ -9,6 +9,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public class Toolbar_InsertController {
@@ -40,7 +45,16 @@ public class Toolbar_InsertController {
 
             if(!photo_list.isEmpty()){
                 for(File photo : photo_list){
-                    Picture image = new Picture(photo.toURI().toString());
+//                    File f = new File(Toolbar_InsertController.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+//                    InputStream input = this.getClass().getResourceAsStream(f.toPath().relativize(photo.toPath()).toString());
+//                    System.out.println(f.toPath().relativize(photo.toPath()));
+                    FileInputStream input = null;
+                    try {
+                        input = new FileInputStream(photo);
+                    } catch (FileNotFoundException ex) {
+                        ex.printStackTrace();
+                    }
+                    Picture image = new Picture(input);
                     paper_controller.getCurentPaper().addNode(image);
                 }
             }

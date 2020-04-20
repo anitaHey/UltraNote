@@ -1,12 +1,12 @@
 import Controller.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.awt.*;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -14,8 +14,8 @@ public class Main extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception{
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-        Scene scene = new Scene(new StackPane(), screenBounds.getWidth(), screenBounds.getHeight());
+        Rectangle screen = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+        Scene scene = new Scene(new StackPane(),screen.getWidth(), screen.getHeight());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/MainFxml.fxml"));
         scene.setRoot(loader.load());
 
@@ -28,7 +28,7 @@ public class Main extends Application {
         controller.Init();
         controller.setStage(primaryStage);
         controller.setSize();
-        controller.addPaper(screenBounds.getWidth(),screenBounds.getHeight());
+        controller.addPaper(screen.getWidth(),screen.getHeight());
 
         primaryStage.show();
     }

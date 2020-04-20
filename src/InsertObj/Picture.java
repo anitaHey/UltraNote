@@ -2,13 +2,16 @@ package InsertObj;
 
 import Controller.MainController;
 import Controller.Toolbar_PictureController;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.io.InputStream;
 
 
 public class Picture extends ResizeNode {
     private static Toolbar_PictureController picture_controller = Toolbar_PictureController.getInstance();
     private ImageView image;
-    private String picture_path;
+    private InputStream inputStream;
 
     private CropImage crop_img = null;
     private double borderWidth = 0;
@@ -17,15 +20,18 @@ public class Picture extends ResizeNode {
     private int[] borderTypeNum = {1, 1};
     private boolean[] setBorder = {true, true};
 
-    public Picture(String path) {
+
+    public Picture(InputStream inputStream) {
         super("picture");
-        this.picture_path = path;
+        this.inputStream = inputStream;
 
         Init();
     }
 
     public void Init() {
-        image = new ImageView(picture_path);
+        Image img = new Image(inputStream);
+
+        image = new ImageView(img);
         image.setSmooth(true);
 
         setMinH(image.getImage().getHeight(), false);
@@ -132,10 +138,12 @@ public class Picture extends ResizeNode {
         return image;
     }
 
+    public InputStream getInputStream() { return inputStream; };
+
     public void startCrop() {
         getMain_content().getChildren().clear();
         if (crop_img == null)
-            crop_img = new CropImage(getPictureImage(), borderWidth);
+            crop_img = new CropImage(getPictureImage(), inputStream, borderWidth);
         else
             crop_img.setInitImg(getPictureImage().getFitWidth(), getPictureImage().getFitHeight(), borderWidth);
 
