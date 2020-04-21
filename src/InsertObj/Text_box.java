@@ -70,7 +70,7 @@ public class Text_box extends ResizeNode {
         });
 
         this.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> {
-            if (!isBorder(e) && !getIsDragging()) {
+            if (!isBorder(e) && !getIsDragging() && !getIsRotating()) {
                 for (int a = 0; a < getLineSize(); a++) {
                     TextLine tem = getLine(a);
                     for (int b = 0; b < tem.getHBoxSize(); b++) {

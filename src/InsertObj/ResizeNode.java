@@ -7,22 +7,29 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Cursor;
+import javafx.scene.ImageCursor;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Transform;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResizeNode extends GridPane {
+public class ResizeNode extends VBox {
     private String type;
     private PaperController paper_controller = PaperController.getInstance();
     private Paper paper = paper_controller.getCurentPaper();
-    private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0;
-    private boolean dragging = false, cropping = false;
+    private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0, lastRotateX = 0, lastRotateY = 0;
+    private boolean dragging = false, cropping = false, rotating = false;
     public BooleanProperty isCrop = new SimpleBooleanProperty(false);
     private int cursor = -1;
+    private Cursor rotate_cursor;
+    private Rotate rotate = null;
 
     public ResizeNode(String type) {
         try {
@@ -44,6 +51,12 @@ public class ResizeNode extends GridPane {
     Circle cir1, cir2, cir3, cir4, cir5, cir6, cir7, cir8;
     @FXML
     Pane main_content;
+    @FXML
+    GridPane gridpane;
+    @FXML
+    VBox rotate_vbox;
+    @FXML
+    Pane node_rotate;
 
     @FXML
     public void initialize() {
@@ -68,13 +81,27 @@ public class ResizeNode extends GridPane {
         cursor_arr.add(Cursor.S_RESIZE);
         cursor_arr.add(Cursor.SE_RESIZE);
 
-        for(Circle cir: cir_arr)
+        for (Circle cir : cir_arr)
             cir.toFront();
+
+        Image tem = new Image("pic/rotate_cursor.png");
+        rotate_cursor = new ImageCursor(tem, tem.getWidth() / 2, tem.getHeight() / 2);
+
+        rotate = new Rotate();
+        this.getTransforms().add(rotate);
 
         setDrag();
     }
 
-    public String getNodeType(){
+    public GridPane getGridpane() {
+        return gridpane;
+    }
+
+    public VBox getRotate_vbox() {
+        return rotate_vbox;
+    }
+
+    public String getNodeType() {
         return type;
     }
 
@@ -100,7 +127,7 @@ public class ResizeNode extends GridPane {
     }
 
     public void setDrag() {
-        this.addEventHandler(MouseEvent.ANY, event -> {
+        getGridpane().addEventHandler(MouseEvent.ANY, event -> {
             if (MouseEvent.MOUSE_CLICKED == event.getEventType()) {
                 paper_controller.setFocusObject(this);
             } else if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
@@ -112,20 +139,20 @@ public class ResizeNode extends GridPane {
                     paper.setCursor(Cursor.TEXT);
                 } else if (!isCrop.getValue() && cursor == -1) {
                     paper.setCursor(Cursor.MOVE);
-                } else if(!isCrop.getValue()) {
+                } else if (!isCrop.getValue()) {
                     paper.setCursor(cursor_arr.get(cursor));
                 }
 
-                if(isCrop.getValue()) cropping = true;
+                if (isCrop.getValue()) cropping = true;
 
             } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
                 paper_controller.setFocusObject(this);
-                if (this.contains(event.getX(), event.getY())) {
+                if (getGridpane().contains(event.getX(), event.getY())) {
                     this.lastMouseX = event.getSceneX();
                     this.lastMouseY = event.getSceneY();
 
                     if (!(type.equals("text") && !isBorder(event))) {
-                        if(cursor == -1 && !isCrop.getValue())
+                        if (cursor == -1 && !isCrop.getValue())
                             paper.setCursor(Cursor.MOVE);
                         this.dragging = true;
                     }
@@ -196,8 +223,8 @@ public class ResizeNode extends GridPane {
                                 if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
                                 if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
                             } else if (type.equals("picture")) {
-                                this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX),0));
-                                this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY),0));
+                                this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
+                                this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
                             }
 
                             if (minX) this.setTranslateX(initialLayoutX - moveMinX);
@@ -207,7 +234,7 @@ public class ResizeNode extends GridPane {
                             if (type.equals("text")) {
                                 if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
                             } else if (type.equals("picture"))
-                                this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY),0));
+                                this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
 
                             if (minY) this.setTranslateY(initialLayoutY - moveMinY);
                             break;
@@ -217,8 +244,8 @@ public class ResizeNode extends GridPane {
 
                                 if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
                             } else if (type.equals("picture")) {
-                                this.getMain_content().setPrefWidth(Math.max((width + moveMaxX),0));
-                                this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY),0));
+                                this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
+                                this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
                             }
 
                             if (minY) this.setTranslateY(initialLayoutY - moveMinY);
@@ -227,7 +254,7 @@ public class ResizeNode extends GridPane {
                             if (type.equals("text")) {
                                 if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
                             } else if (type.equals("picture"))
-                                this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX),0));
+                                this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
 
                             if (minX) this.setTranslateX(initialLayoutX - moveMinX);
                             break;
@@ -235,7 +262,7 @@ public class ResizeNode extends GridPane {
                             if (type.equals("text"))
                                 this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
                             else if (type.equals("picture"))
-                                this.getMain_content().setPrefWidth(Math.max((width + moveMaxX),0));
+                                this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
                             break;
                         case 5:
                             if (type.equals("text")) {
@@ -251,15 +278,15 @@ public class ResizeNode extends GridPane {
                             break;
                         case 6:
                             if (type.equals("text"))
-                                this.getMain_content().setMinHeight(Math.max((height + moveMaxY),minH));
+                                this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
                             else if (type.equals("picture"))
-                                this.getMain_content().setPrefHeight(Math.max((height + moveMaxY),0));
+                                this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
 
                             break;
                         case 7:
                             if (type.equals("text")) {
-                                this.getMain_content().setMinWidth(Math.max((width + moveMaxX),minW));
-                                this.getMain_content().setMinHeight(Math.max((height + moveMaxY),minH));
+                                this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
+                                this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
                             } else if (type.equals("picture")) {
                                 this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
                                 this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
@@ -276,18 +303,73 @@ public class ResizeNode extends GridPane {
                     dragging = false;
                 }
             } else if (MouseEvent.MOUSE_EXITED == event.getEventType()) {
-                if (!dragging) {
+                if (!dragging && !rotating) {
                     paper.setCursor(Cursor.DEFAULT);
                     paper.setClick(true);
                 }
 
-                if(isCrop.getValue()) cropping = false;
+                if (isCrop.getValue()) cropping = false;
             }
+        });
+
+        node_rotate.addEventHandler(MouseEvent.ANY, event -> {
+            if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
+                paper.setCursor(rotate_cursor);
+            } else if(MouseEvent.MOUSE_CLICKED == event.getEventType()){
+                paper_controller.setFocusObject(this);
+            } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
+                paper_controller.setFocusObject(this);
+                rotating = true;
+                this.lastRotateX = event.getSceneX();
+                this.lastRotateY = event.getSceneY();
+
+                rotate.setPivotX(this.getWidth()/2);
+                rotate.setPivotY(this.getHeight()/2);
+            } else if (MouseEvent.MOUSE_DRAGGED == event.getEventType()) {
+                paper_controller.setFocusObject(this);
+                if (rotating) {
+                    Transform localToScene = getLocalToSceneTransform();
+
+                    double px = rotate.getPivotX() + localToScene.getTx();
+                    double py = rotate.getPivotY() + localToScene.getTy();
+
+                    double th1 = clockAngle(lastRotateX, lastRotateY, px, py);
+                    double th2 = clockAngle(event.getSceneX(), event.getSceneY(), px, py);
+
+                    double angle = rotate.getAngle();
+                    angle += th2 - th1;
+
+                    rotate.setAngle(angle);
+
+                    this.lastRotateX = event.getSceneX();
+                    this.lastRotateY = event.getSceneY();
+                }
+            } else if (MouseEvent.MOUSE_RELEASED == event.getEventType()) {
+                if(rotating){
+                    event.consume();
+                    rotating = false;
+                }
+            } else if (MouseEvent.MOUSE_EXITED == event.getEventType()) {
+                if (!rotating)
+                    paper.setCursor(Cursor.DEFAULT);
+            }
+
         });
     }
 
+    public double clockAngle(double x, double y, double px, double py) {
+        double dx = x - px;
+        double dy = y - py;
+
+        double angle = Math.abs(Math.toDegrees(Math.atan2(dy, dx)));
+
+        if (dy < 0) { angle = 360 - angle; }
+
+        return angle;
+    }
+
     public boolean isBorder(MouseEvent event) {
-        Bounds dragNodeBounds = this.getBoundsInParent();
+        Bounds dragNodeBounds = getGridpane().getBoundsInParent();
         Boolean top = (Math.abs(event.getY()) <= 15);
         Boolean bottom = (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= 15);
         Boolean left = (Math.abs(event.getX()) <= 15);
@@ -298,7 +380,7 @@ public class ResizeNode extends GridPane {
 
     public int getResize(MouseEvent event, int instance) {
         int output = -1;
-        Bounds dragNodeBounds = this.getBoundsInParent();
+        Bounds dragNodeBounds = getGridpane().getBoundsInParent();
         double h_half = dragNodeBounds.getHeight() / 2;
         double w_half = dragNodeBounds.getWidth() / 2;
 
@@ -320,22 +402,29 @@ public class ResizeNode extends GridPane {
 
     public void focus_border(boolean show) {
         if (show) {
-            this.getStyleClass().clear();
-            this.getStyleClass().add("border_focus");
+            getGridpane().getStyleClass().clear();
+            getGridpane().getStyleClass().add("border_focus");
+
+            getRotate_vbox().getStyleClass().clear();
+            getRotate_vbox().getStyleClass().add("show");
 
             for (Circle cir : cir_arr) {
                 cir.getStyleClass().clear();
                 cir.getStyleClass().add("show");
             }
         } else {
-            this.getStyleClass().clear();
-            this.getStyleClass().add("border_none");
+            getGridpane().getStyleClass().clear();
+            getGridpane().getStyleClass().add("border_none");
+
+            getRotate_vbox().getStyleClass().clear();
+            getRotate_vbox().getStyleClass().add("hide");
+
             for (Circle cir : cir_arr) {
                 cir.getStyleClass().clear();
                 cir.getStyleClass().add("hide");
             }
 
-            if(isCrop.getValue() && !cropping) setIsCropping(false);
+            if (isCrop.getValue() && !cropping) setIsCropping(false);
         }
     }
 
@@ -343,11 +432,15 @@ public class ResizeNode extends GridPane {
         return main_content;
     }
 
-    public boolean getIsDragging(){
+    public boolean getIsDragging() {
         return dragging;
     }
 
-    public void setIsCropping(boolean input){
+    public boolean getIsRotating() {
+        return rotating;
+    }
+
+    public void setIsCropping(boolean input) {
         isCrop.set(input);
     }
 }

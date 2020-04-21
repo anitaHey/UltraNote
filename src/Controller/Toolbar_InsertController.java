@@ -42,9 +42,6 @@ public class Toolbar_InsertController {
 
             if(!photo_list.isEmpty()){
                 for(File photo : photo_list){
-//                    File f = new File(Toolbar_InsertController.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-//                    InputStream input = this.getClass().getResourceAsStream(f.toPath().relativize(photo.toPath()).toString());
-//                    System.out.println(f.toPath().relativize(photo.toPath()));
                     FileInputStream input = null;
                     try {
                         input = new FileInputStream(photo);
