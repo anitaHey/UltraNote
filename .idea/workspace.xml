@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/ResizeNodeFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/ResizeNodeFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/Text_box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Text_box.java" afterDir="false" />
-    </list>
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -235,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587398985782</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="20200421 Node rotate.">
+      <created>1587458594401</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1587458594401</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -260,7 +261,8 @@
     <MESSAGE value="20200416 Fixed crop img." />
     <MESSAGE value="20200418 Fix image crop." />
     <MESSAGE value="20200421 Fix picture crop." />
-    <option name="LAST_COMMIT_MESSAGE" value="20200421 Fix picture crop." />
+    <MESSAGE value="20200421 Node rotate." />
+    <option name="LAST_COMMIT_MESSAGE" value="20200421 Node rotate." />
   </component>
   <component name="WindowStateProjectService">
     <state x="196" y="110" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583489308957">
@@ -294,11 +296,11 @@
     </state>
     <state x="415" y="183" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1368.872@0.0.1368.872" timestamp="1584499185852" />
     <state x="582" y="218" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1586433744506" />
-    <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1587398984689">
+    <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1587458593813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1587008742773" />
-    <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587398984689" />
+    <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587458593813" />
     <state x="714" y="233" key="DetectedRootsChooserDialog" timestamp="1587397491746">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -317,30 +319,30 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="552" y="327" width="266" height="216" key="Github.ShareDialog/0.0.1368.872@0.0.1368.872" timestamp="1583304539757" />
-    <state width="1876" height="119" key="GridCell.Tab.0.bottom" timestamp="1587458507317">
+    <state width="1876" height="119" key="GridCell.Tab.0.bottom" timestamp="1587458609349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="149" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1587369400927" />
     <state width="1759" height="119" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1587456602161" />
-    <state width="1876" height="119" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587458507317" />
-    <state width="1876" height="119" key="GridCell.Tab.0.center" timestamp="1587458507316">
+    <state width="1876" height="119" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587458609349" />
+    <state width="1876" height="119" key="GridCell.Tab.0.center" timestamp="1587458609349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="149" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1587369400926" />
     <state width="1759" height="119" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1587456602161" />
-    <state width="1876" height="119" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587458507316" />
-    <state width="1876" height="119" key="GridCell.Tab.0.left" timestamp="1587458507316">
+    <state width="1876" height="119" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587458609349" />
+    <state width="1876" height="119" key="GridCell.Tab.0.left" timestamp="1587458609349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="149" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1587369400926" />
     <state width="1759" height="119" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1587456602161" />
-    <state width="1876" height="119" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587458507316" />
-    <state width="1876" height="119" key="GridCell.Tab.0.right" timestamp="1587458507316">
+    <state width="1876" height="119" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587458609349" />
+    <state width="1876" height="119" key="GridCell.Tab.0.right" timestamp="1587458609349">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="149" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1587369400926" />
     <state width="1759" height="119" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1587456602161" />
-    <state width="1876" height="119" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587458507316" />
+    <state width="1876" height="119" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587458609349" />
     <state width="1759" height="230" key="GridCell.Tab.1.bottom" timestamp="1587211089011">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -374,16 +376,16 @@
     </state>
     <state x="314" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1587366985130" />
     <state x="440" y="93" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587397494920" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1587398988664">
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1587458599688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1587008748707" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587398988664" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1587211344917">
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587458599688" />
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1588168384146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1587008806978" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1587211344917" />
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1588168384146" />
     <state x="483" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584434447845">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
