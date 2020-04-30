@@ -26,9 +26,11 @@ public class Toolbar_PictureController {
     }
 
     @FXML
-    MenuItem picture_border05, picture_border1, picture_border15, picture_border2, picture_border3, picture_border5, picture_border0, picture_dot_0, picture_dot_1_10, picture_dot_5_10, picture_dot_10_10, picture_dot_17_17;
+    MenuItem picture_border05, picture_border1, picture_border15, picture_border2, picture_border3, picture_border5, picture_border0, picture_dot_0, picture_dot_1_10, picture_dot_5_10, picture_dot_10_10, picture_dot_17_17
+            , picture_rotate_left, picture_rotate_right, picture_rotate_vir, picture_rotate_hor;
     @FXML
-    HBox hbox_border05, hbox_border1, hbox_border15, hbox_border2, hbox_border3, hbox_border5, hbox_border0, hbox_dot_0, hbox_dot_1_10, hbox_dot_5_10, hbox_dot_10_10, hbox_dot_17_17;
+    HBox hbox_border05, hbox_border1, hbox_border15, hbox_border2, hbox_border3, hbox_border5, hbox_border0, hbox_dot_0, hbox_dot_1_10, hbox_dot_5_10, hbox_dot_10_10, hbox_dot_17_17
+            , hbox_rotate_left, hbox_rotate_right, hbox_rotate_vir, hbox_rotate_hor;
     @FXML
     VBox picture_crop;
 

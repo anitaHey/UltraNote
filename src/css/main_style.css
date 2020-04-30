@@ -162,3 +162,7 @@
 .menu_item > .arrow-button {
     -fx-padding: 0;
 }
+
+.menu_item > .arrow-button > .arrow {
+    -fx-padding: 0;
+}
