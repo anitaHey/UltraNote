@@ -76,7 +76,7 @@ public class Text_box extends ResizeNode {
                     for (int b = 0; b < tem.getHBoxSize(); b++) {
                         Node sm_tem = tem.getIndex(b);
 
-                        Bounds bound_tem = sm_tem.localToParent(tem.getBoundsInParent());
+                        Bounds bound_tem = sm_tem.localToParent(tem.localToParent(getGridpane().getBoundsInLocal()));
                         if (bound_tem.contains(e.getX(), e.getY())) addTextSelect(a, b);
                     }
                 }
