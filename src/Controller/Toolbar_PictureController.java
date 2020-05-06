@@ -85,13 +85,13 @@ public class Toolbar_PictureController {
 
         picture_rotate_left.setOnAction(e-> picture_rotate(-90, true));
         picture_rotate_right.setOnAction(e-> picture_rotate(90, true));
-        picture_rotate_vir.setOnAction(e-> picture_scale(1, -1, true));
-        picture_rotate_hor.setOnAction(e-> picture_scale(-1, 1, true));
+        picture_rotate_vir.setOnAction(e-> picture_scale(true, false, true));
+        picture_rotate_hor.setOnAction(e-> picture_scale(false, true, true));
 
         hbox_rotate_left.setOnMouseEntered(e-> picture_rotate(-90, false));
         hbox_rotate_right.setOnMouseEntered(e-> picture_rotate(90, false));
-        hbox_rotate_vir.setOnMouseEntered(e-> picture_scale(1, -1, false));
-        hbox_rotate_hor.setOnMouseEntered(e-> picture_scale(-1, 1, false));
+        hbox_rotate_vir.setOnMouseEntered(e-> picture_scale(true, false, false));
+        hbox_rotate_hor.setOnMouseEntered(e-> picture_scale(false, true, false));
 
         hbox_rotate_left.setOnMouseExited(e -> rotate_restore());
         hbox_rotate_right.setOnMouseExited(e -> rotate_restore());
@@ -146,7 +146,7 @@ public class Toolbar_PictureController {
                 getInstance().last_degree = getInstance().selectPicture.getNodeRotate().getAngle();
             }
 
-            getInstance().selectPicture.setNodeRotate(degree);
+            getInstance().selectPicture.setNodeRotate(getInstance().last_degree + degree);
         }
     }
 
@@ -155,7 +155,7 @@ public class Toolbar_PictureController {
             getInstance().selectPicture.setPicScale(getInstance().last_scale[0], getInstance().last_scale[1]);
     }
 
-    public void picture_scale(int scaleX, int scaleY, boolean change) {
+    public void picture_scale(boolean scaleX, boolean scaleY, boolean change) {
         if (getInstance().selectPicture != null) {
             if (change) {
                 getInstance().last_scale = getInstance().selectPicture.getPicScale();

@@ -144,6 +144,17 @@ public class Picture extends ResizeNode {
         return new int[]{picScale[0], picScale[1]};
     }
 
+    public void setPicScale(boolean changeX, boolean changeY) {
+        int scaleX = (changeX)? -picScale[0]:picScale[0];
+        int scaleY = (changeY)? -picScale[1]:picScale[1];
+
+        picScale[0] = scaleX;
+        picScale[1] = scaleY;
+
+        this.setScaleX(scaleX);
+        this.setScaleY(scaleY);
+    }
+
     public void setPicScale(int scaleX, int scaleY) {
         picScale[0] = scaleX;
         picScale[1] = scaleY;

@@ -324,7 +324,7 @@
             </VBox>
          </graphic>
          <items>
-            <MenuItem fx:id="picture_roate_right" mnemonicParsing="false">
+            <MenuItem fx:id="picture_rotate_right" mnemonicParsing="false">
                <graphic>
                   <HBox fx:id="hbox_rotate_right">
                      <children>

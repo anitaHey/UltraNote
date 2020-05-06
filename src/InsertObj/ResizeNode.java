@@ -129,9 +129,10 @@ public class ResizeNode extends VBox {
     }
 
     public void setNodeRotate(double degree){
-        double angle = rotate.getAngle();
+        rotate.setPivotX(this.getWidth()/2);
+        rotate.setPivotY(this.getHeight()/2);
 
-        rotate.setAngle(angle + degree);
+        rotate.setAngle(degree);
     }
 
     public void setDrag() {
