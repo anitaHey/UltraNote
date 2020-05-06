@@ -12,6 +12,8 @@ public class Toolbar_PictureController {
     private static Toolbar_PictureController instance;
     private Picture selectPicture = null;
     private double last_width = 0;
+    private double last_degree = 0;
+    private int[] last_scale = {1, 1};
     private int[] last_dot = {1, 1};
 
     public static Toolbar_PictureController getInstance() {
@@ -26,11 +28,13 @@ public class Toolbar_PictureController {
     }
 
     @FXML
-    MenuItem picture_border05, picture_border1, picture_border15, picture_border2, picture_border3, picture_border5, picture_border0, picture_dot_0, picture_dot_1_10, picture_dot_5_10, picture_dot_10_10, picture_dot_17_17
+    MenuItem picture_border05, picture_border1, picture_border15, picture_border2, picture_border3, picture_border5
+            , picture_border0, picture_dot_0, picture_dot_1_10, picture_dot_5_10, picture_dot_10_10, picture_dot_17_17
             , picture_rotate_left, picture_rotate_right, picture_rotate_vir, picture_rotate_hor;
     @FXML
-    HBox hbox_border05, hbox_border1, hbox_border15, hbox_border2, hbox_border3, hbox_border5, hbox_border0, hbox_dot_0, hbox_dot_1_10, hbox_dot_5_10, hbox_dot_10_10, hbox_dot_17_17
-            , hbox_rotate_left, hbox_rotate_right, hbox_rotate_vir, hbox_rotate_hor;
+    HBox hbox_border05, hbox_border1, hbox_border15, hbox_border2, hbox_border3, hbox_border5, hbox_border0, hbox_dot_0
+            , hbox_dot_1_10, hbox_dot_5_10, hbox_dot_10_10, hbox_dot_17_17, hbox_rotate_left, hbox_rotate_right
+            , hbox_rotate_vir, hbox_rotate_hor;
     @FXML
     VBox picture_crop;
 
@@ -79,6 +83,21 @@ public class Toolbar_PictureController {
         hbox_dot_10_10.setOnMouseExited(e -> dot_restore());
         hbox_dot_17_17.setOnMouseExited(e -> dot_restore());
 
+        picture_rotate_left.setOnAction(e-> picture_rotate(-90, true));
+        picture_rotate_right.setOnAction(e-> picture_rotate(90, true));
+        picture_rotate_vir.setOnAction(e-> picture_scale(1, -1, true));
+        picture_rotate_hor.setOnAction(e-> picture_scale(-1, 1, true));
+
+        hbox_rotate_left.setOnMouseEntered(e-> picture_rotate(-90, false));
+        hbox_rotate_right.setOnMouseEntered(e-> picture_rotate(90, false));
+        hbox_rotate_vir.setOnMouseEntered(e-> picture_scale(1, -1, false));
+        hbox_rotate_hor.setOnMouseEntered(e-> picture_scale(-1, 1, false));
+
+        hbox_rotate_left.setOnMouseExited(e -> rotate_restore());
+        hbox_rotate_right.setOnMouseExited(e -> rotate_restore());
+        hbox_rotate_vir.setOnMouseExited(e -> scale_restore());
+        hbox_rotate_hor.setOnMouseExited(e -> scale_restore());
+
         picture_crop.setOnMouseClicked(e -> {
             if (getInstance().selectPicture != null) {
                 getInstance().selectPicture.startCrop();
@@ -113,6 +132,36 @@ public class Toolbar_PictureController {
             }
 
             getInstance().selectPicture.setBorderType(num1, num2);
+        }
+    }
+
+    public void rotate_restore() {
+        if (getInstance().selectPicture != null)
+            getInstance().selectPicture.setNodeRotate(getInstance().last_degree);
+    }
+
+    public void picture_rotate(int degree, boolean change){
+        if (getInstance().selectPicture != null) {
+            if (change) {
+                getInstance().last_degree = getInstance().selectPicture.getNodeRotate().getAngle();
+            }
+
+            getInstance().selectPicture.setNodeRotate(degree);
+        }
+    }
+
+    public void scale_restore() {
+        if (getInstance().selectPicture != null)
+            getInstance().selectPicture.setPicScale(getInstance().last_scale[0], getInstance().last_scale[1]);
+    }
+
+    public void picture_scale(int scaleX, int scaleY, boolean change) {
+        if (getInstance().selectPicture != null) {
+            if (change) {
+                getInstance().last_scale = getInstance().selectPicture.getPicScale();
+            }
+
+            getInstance().selectPicture.setPicScale(scaleX, scaleY);
         }
     }
 

@@ -101,6 +101,8 @@ public class ResizeNode extends VBox {
         return rotate_vbox;
     }
 
+    public Rotate getNodeRotate() { return rotate; }
+
     public String getNodeType() {
         return type;
     }
@@ -124,6 +126,12 @@ public class ResizeNode extends VBox {
             this.getMain_content().setPrefHeight(h);
             minH = 0;
         }
+    }
+
+    public void setNodeRotate(double degree){
+        double angle = rotate.getAngle();
+
+        rotate.setAngle(angle + degree);
     }
 
     public void setDrag() {

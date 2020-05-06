@@ -19,7 +19,7 @@ public class Picture extends ResizeNode {
     private String borderType = "segments(1,1,1,1)  line-cap round";
     private int[] borderTypeNum = {1, 1};
     private boolean[] setBorder = {true, true};
-
+    public int[] picScale = {1, 1};
 
     public Picture(InputStream inputStream) throws IOException {
         super("picture");
@@ -27,12 +27,13 @@ public class Picture extends ResizeNode {
         org.apache.commons.io.IOUtils.copy(inputStream, baos);
         byte[] bytes = baos.toByteArray();
 
-        this.inputStream = new ByteArrayInputStream(bytes);;
+        this.inputStream = new ByteArrayInputStream(bytes);
+        ;
 
         Init();
     }
 
-    public void Init() throws IOException {
+    public void Init() {
         inputStream.reset();
         Image img = new Image(inputStream);
 
@@ -69,7 +70,7 @@ public class Picture extends ResizeNode {
         });
 
         isCrop.addListener((obs, oldVal, newVal) -> {
-            if(!newVal){
+            if (!newVal) {
                 getMain_content().getChildren().clear();
                 getMain_content().getChildren().add(getPictureImage());
                 getPictureImage().setX(borderWidth);
@@ -82,7 +83,7 @@ public class Picture extends ResizeNode {
         });
     }
 
-    public void setMainSize(double width, double height){
+    public void setMainSize(double width, double height) {
         setBorder[0] = false;
         setBorder[1] = false;
         getMain_content().setPrefHeight(height);
@@ -97,7 +98,7 @@ public class Picture extends ResizeNode {
         borderColor = color;
         borderType = String.format("segments(%d,%d,%d,%d)  line-cap round", num1, num2, num1, num2);
 
-        setMainSize( (image.getFitWidth() + borderWidth * 2), (image.getFitHeight() + borderWidth * 2));
+        setMainSize((image.getFitWidth() + borderWidth * 2), (image.getFitHeight() + borderWidth * 2));
         image.setX(borderWidth);
         image.setY(borderWidth);
 
@@ -107,7 +108,7 @@ public class Picture extends ResizeNode {
     public void setBorderWidth(double width) {
         borderWidth = width;
 
-        setMainSize( (image.getFitWidth() + borderWidth * 2), (image.getFitHeight() + borderWidth * 2));
+        setMainSize((image.getFitWidth() + borderWidth * 2), (image.getFitHeight() + borderWidth * 2));
         image.setX(borderWidth);
         image.setY(borderWidth);
 
@@ -139,11 +140,27 @@ public class Picture extends ResizeNode {
         return new int[]{borderTypeNum[0], borderTypeNum[1]};
     }
 
+    public int[] getPicScale() {
+        return new int[]{picScale[0], picScale[1]};
+    }
+
+    public void setPicScale(int scaleX, int scaleY) {
+        picScale[0] = scaleX;
+        picScale[1] = scaleY;
+
+        this.setScaleX(scaleX);
+        this.setScaleY(scaleY);
+    }
+
     public ImageView getPictureImage() {
         return image;
     }
 
-    public ByteArrayInputStream getInputStream() { return inputStream; };
+    public ByteArrayInputStream getInputStream() {
+        return inputStream;
+    }
+
+    ;
 
     public void startCrop() {
         getMain_content().getChildren().clear();
@@ -161,6 +178,6 @@ public class Picture extends ResizeNode {
         crop_img.toFront();
         crop_img.getCropBackground().toBack();
 
-        setMainSize(crop_img.getImage_width()+borderWidth*2, crop_img.getImage_height()+borderWidth*2);
+        setMainSize(crop_img.getImage_width() + borderWidth * 2, crop_img.getImage_height() + borderWidth * 2);
     }
 }
