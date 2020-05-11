@@ -176,7 +176,7 @@ public class Picture extends ResizeNode {
     public void startCrop() {
         getMain_content().getChildren().clear();
         if (crop_img == null)
-            crop_img = new CropImage(getPictureImage(), inputStream, borderWidth);
+            crop_img = new CropImage(getPictureImage(), inputStream, borderWidth, getPictureImage().getFitWidth(), getPictureImage().getFitHeight());
         else
             crop_img.setInitImg(getPictureImage().getFitWidth(), getPictureImage().getFitHeight(), borderWidth);
 

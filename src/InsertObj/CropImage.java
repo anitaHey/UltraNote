@@ -16,7 +16,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,9 +38,8 @@ public class CropImage extends GridPane {
     private int cursor;
     private boolean isCropping = false;
 
-    public CropImage(ImageView crop_pic, ByteArrayInputStream inputStream, double border) {
+    public CropImage(ImageView crop_pic, ByteArrayInputStream inputStream, double border, double width, double height) {
         try {
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/CropImg.fxml"));
             loader.setController(this);
             loader.setRoot(this);
@@ -81,8 +79,15 @@ public class CropImage extends GridPane {
             this.crop_pic.setX(0);
             this.crop_pic.setY(0);
 
-            image_width = this.crop_pic.getFitWidth();
-            image_height = this.crop_pic.getFitHeight();
+            image_width = width;
+            image_height = height;
+
+            inputStream.reset();
+            Image image = new Image(inputStream, image_width, image_height, false, false);
+            this.crop_pic.setImage(image);
+
+            this.background.setFitHeight(image_height);
+            this.background.setFitWidth(image_width);
 
             setCrop(0,0, image_width, image_height);
 
