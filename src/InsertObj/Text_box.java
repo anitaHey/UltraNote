@@ -7,14 +7,10 @@ import Object.TextObj;
 import Object.TextUnderline;
 import Object.TextProperty;
 import javafx.application.Platform;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
+import javafx.scene.input.*;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -26,9 +22,10 @@ public class Text_box extends ResizeNode {
     TextLine line;
     private int CURRENT_LINE = 0;
     TextLine hbox_line;
-    boolean pass = true;
+    boolean[] pass = {true, true, true};
     boolean setCurrentText = false;
     int[] select_text = {-1, -1};
+    InputMethodEvent last_input_method = null;
     ArrayList<TextObj> select_text_obj = new ArrayList<>();
     ArrayList<TextLine> select_text_line = new ArrayList<>();
 
@@ -190,7 +187,13 @@ public class Text_box extends ResizeNode {
 
     public void setInputListener(TextObj word_pane) {
         word_pane.addEventFilter(KeyEvent.ANY, e -> {
-            input(e, word_pane);
+            input(e, null, word_pane);
+        });
+
+        word_pane.addEventFilter(InputMethodEvent.INPUT_METHOD_TEXT_CHANGED, e -> {
+            if(e.getComposed().size()>0){
+                input(null, e, word_pane);
+            }
         });
     }
 
@@ -213,134 +216,165 @@ public class Text_box extends ResizeNode {
         }
     }
 
-    public synchronized void input(KeyEvent e, TextObj word_pane) {
+    public synchronized void input(KeyEvent e, InputMethodEvent input_e, TextObj word_pane) {
         hbox_line = getLine(CURRENT_LINE);
         int num = hbox_line.getTextIndex(word_pane);
         int length = hbox_line.getHBoxSize();
         if (num == -1) num = 0;
 
-        if (e.getEventType().toString().equals("KEY_PRESSED")) {
-            switch (e.getCode()) {
-                case ENTER:
-                    pass = false;
-                    line = new TextLine();
+        if(e != null) {
+            if (e.getEventType().toString().equals("KEY_PRESSED")) {
+                pass[0] = false;
+                switch (e.getCode()) {
+                    case ENTER:
+                        line = new TextLine();
 
-                    if (num != length - 1) {
-                        for (int a = length - 1; a > num; a--) {
-                            TextObj old_node = hbox_line.getIndex(a);
-                            line.addWord(old_node, old_node.getUnderlineObj(), 1);
-                        }
-                    }
-
-                    CURRENT_LINE++;
-                    text_vbox.getChildren().add(CURRENT_LINE, line);
-
-                    setInputFocus(line.getIndex(0));
-                    setInputListener(line.getIndex(0));
-                    line.getIndex(0).requestFocus();
-                    break;
-                case BACK_SPACE:
-                    pass = false;
-                    if (num > 0) {
-                        int lastword = num - 1;
-                        setCurrentText = true;
-                        Platform.runLater(() -> hbox_line.getIndex(lastword).requestFocus());
-
-                        hbox_line.removeIndex(num);
-                    } else {
-                        if (CURRENT_LINE != 0) {
-                            TextLine last_line = getLine(CURRENT_LINE - 1);
-
-                            for (int a = 1; a < length; a++) {
-                                TextObj old_node = hbox_line.getIndex(1);
-                                last_line.addWord(old_node, old_node.getUnderlineObj(), -1);
+                        if (num != length - 1) {
+                            for (int a = length - 1; a > num; a--) {
+                                TextObj old_node = hbox_line.getIndex(a);
+                                line.addWord(old_node, old_node.getUnderlineObj(), 1);
                             }
+                        }
 
-                            text_vbox.getChildren().remove(CURRENT_LINE);
+                        CURRENT_LINE++;
+                        text_vbox.getChildren().add(CURRENT_LINE, line);
+
+                        setInputFocus(line.getIndex(0));
+                        setInputListener(line.getIndex(0));
+                        line.getIndex(0).requestFocus();
+                        break;
+                    case BACK_SPACE:
+                        if (num > 0) {
+                            int lastword = num - 1;
+                            setCurrentText = true;
+                            Platform.runLater(() -> hbox_line.getIndex(lastword).requestFocus());
+
+                            hbox_line.removeIndex(num);
+                        } else {
+                            if (CURRENT_LINE != 0) {
+                                TextLine last_line = getLine(CURRENT_LINE - 1);
+
+                                for (int a = 1; a < length; a++) {
+                                    TextObj old_node = hbox_line.getIndex(1);
+                                    last_line.addWord(old_node, old_node.getUnderlineObj(), -1);
+                                }
+
+                                text_vbox.getChildren().remove(CURRENT_LINE);
+                                CURRENT_LINE--;
+                                setCurrentText = true;
+                                last_line.getIndex(last_line.getHBoxSize() - 1).requestFocus();
+                            }
+                        }
+                        break;
+                    case DELETE:
+                        if (num < length - 1) {
+                            hbox_line.removeIndex(num + 1);
+                        } else {
+                            if (CURRENT_LINE != text_vbox.getChildren().size() - 1) {
+                                TextLine last_line = getLine(CURRENT_LINE + 1);
+                                int last_length = last_line.getHBoxSize();
+                                for (int a = 1; a < last_length; a++) {
+                                    TextObj old_node = last_line.getIndex(1);
+                                    hbox_line.addWord(old_node, old_node.getUnderlineObj(), -1);
+                                }
+                                setCurrentText = true;
+                                text_vbox.getChildren().remove(CURRENT_LINE + 1);
+                                hbox_line.getIndex(length - 1).requestFocus();
+                            }
+                        }
+                        break;
+                    case RIGHT:
+                        if (num < length - 1) {
+                            setCurrentText = true;
+                            hbox_line.getIndex(num + 1).requestFocus();
+                        } else {
+                            if (CURRENT_LINE != text_vbox.getChildren().size() - 1) {
+                                CURRENT_LINE++;
+                                hbox_line = getLine(CURRENT_LINE);
+                                setCurrentText = true;
+                                hbox_line.getIndex(0).requestFocus();
+                            }
+                        }
+                        break;
+                    case LEFT:
+                        if (num > 0) {
+                            setCurrentText = true;
+                            hbox_line.getIndex(num - 1).requestFocus();
+                        } else {
+                            if (CURRENT_LINE != 0) {
+                                CURRENT_LINE--;
+                                hbox_line = getLine(CURRENT_LINE);
+                                setCurrentText = true;
+                                hbox_line.getIndex(hbox_line.getHBoxSize() - 1).requestFocus();
+                            }
+                        }
+                        break;
+                    case UP:
+                        if (CURRENT_LINE > 0) {
                             CURRENT_LINE--;
+                            hbox_line = getLine(CURRENT_LINE);
                             setCurrentText = true;
-                            last_line.getIndex(last_line.getHBoxSize() - 1).requestFocus();
+                            if (num >= hbox_line.getHBoxSize())
+                                hbox_line.getIndex(hbox_line.getHBoxSize() - 1).requestFocus();
+                            else
+                                hbox_line.getIndex(num).requestFocus();
                         }
-                    }
-                    break;
-                case DELETE:
-                    pass = false;
-                    if (num < length - 1) {
-                        hbox_line.removeIndex(num + 1);
-                    } else {
-                        if (CURRENT_LINE != text_vbox.getChildren().size() - 1) {
-                            TextLine last_line = getLine(CURRENT_LINE + 1);
-                            int last_length = last_line.getHBoxSize();
-                            for (int a = 1; a < last_length; a++) {
-                                TextObj old_node = last_line.getIndex(1);
-                                hbox_line.addWord(old_node, old_node.getUnderlineObj(), -1);
-                            }
-                            setCurrentText = true;
-                            text_vbox.getChildren().remove(CURRENT_LINE + 1);
-                            hbox_line.getIndex(length - 1).requestFocus();
-                        }
-                    }
-                    break;
-                case RIGHT:
-                    if (num < length - 1) {
-                        setCurrentText = true;
-                        hbox_line.getIndex(num + 1).requestFocus();
-                    } else {
-                        if (CURRENT_LINE != text_vbox.getChildren().size() - 1) {
+                        break;
+                    case DOWN:
+                        if (CURRENT_LINE < getLineSize() - 1) {
                             CURRENT_LINE++;
                             hbox_line = getLine(CURRENT_LINE);
                             setCurrentText = true;
-                            hbox_line.getIndex(0).requestFocus();
+                            if (num >= hbox_line.getHBoxSize())
+                                hbox_line.getIndex(hbox_line.getHBoxSize() - 1).requestFocus();
+                            else
+                                hbox_line.getIndex(num).requestFocus();
                         }
-                    }
-                    break;
-                case LEFT:
-                    if (num > 0) {
-                        setCurrentText = true;
-                        hbox_line.getIndex(num - 1).requestFocus();
-                    } else {
-                        if (CURRENT_LINE != 0) {
-                            CURRENT_LINE--;
-                            hbox_line = getLine(CURRENT_LINE);
-                            setCurrentText = true;
-                            hbox_line.getIndex(hbox_line.getHBoxSize() - 1).requestFocus();
-                        }
-                    }
-                    break;
-                case UP:
-                    if (CURRENT_LINE > 0) {
-                        CURRENT_LINE--;
-                        hbox_line = getLine(CURRENT_LINE);
-                        setCurrentText = true;
-                        if (num >= hbox_line.getHBoxSize())
-                            hbox_line.getIndex(hbox_line.getHBoxSize() - 1).requestFocus();
-                        else
-                            hbox_line.getIndex(num).requestFocus();
-                    }
-                    break;
-                case DOWN:
-                    if (CURRENT_LINE < getLineSize() - 1) {
-                        CURRENT_LINE++;
-                        hbox_line = getLine(CURRENT_LINE);
-                        setCurrentText = true;
-                        if (num >= hbox_line.getHBoxSize())
-                            hbox_line.getIndex(hbox_line.getHBoxSize() - 1).requestFocus();
-                        else
-                            hbox_line.getIndex(num).requestFocus();
-                    }
-                    break;
-            }
-        } else if (e.getEventType().toString().equals("KEY_TYPED") && pass) {
-            TextObj input = new TextObj(e.getCharacter());
-            TextUnderline under = new TextUnderline();
-            input.setUnderlineObj(under);
+                        break;
+                    default:
+                        pass[0] = true;
+                }
+            } else if (e.getEventType().toString().equals("KEY_TYPED") && pass[0]) {
+                TextObj input = new TextObj(e.getCharacter());
+                TextUnderline under = new TextUnderline();
+                input.setUnderlineObj(under);
 
-            if (num != length) num += 1;
-            hbox_line.addWord(input, input.getUnderlineObj(), num);
-            setInputFocus(input);
-            setInputListener(input);
+                if (num != length) num += 1;
+                hbox_line.addWord(input, input.getUnderlineObj(), num);
+                setInputFocus(input);
+                setInputListener(input);
+            } else {
+                pass[0] = true;
+            }
         } else {
-            pass = true;
+            if(input_e.getComposed().get(0).getHighlight() == InputMethodHighlight.UNSELECTED_CONVERTED){
+                pass[2] = true;
+                pass[1] = false;
+            } else {
+                pass[1] = true;
+            }
+
+            if(pass[1]  && pass[2]){
+                pass[1] = false;
+                pass[2] = false;
+                TextObj input = new TextObj("");
+                TextUnderline under = new TextUnderline();
+                input.setUnderlineObj(under);
+
+                if (num != length) num += 1;
+                hbox_line.addWord(input, input.getUnderlineObj(), num);
+                setInputFocus(input);
+                setInputListener(input);
+
+                Platform.runLater(()->{
+                    input.setText(input_e.getComposed().get(0).getText());
+                });
+            } else {
+//                System.out.println(word_pane);
+                word_pane.setText(input_e.getComposed().get(0).getText());
+            }
+
+
         }
     }
 
