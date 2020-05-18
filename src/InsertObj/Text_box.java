@@ -7,6 +7,9 @@ import Object.TextObj;
 import Object.TextUnderline;
 import Object.TextProperty;
 import javafx.application.Platform;
+import javafx.event.Event;
+import javafx.event.EventDispatchChain;
+import javafx.event.EventTarget;
 import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -366,15 +369,11 @@ public class Text_box extends ResizeNode {
                 setInputFocus(input);
                 setInputListener(input);
 
-                Platform.runLater(()->{
-                    input.setText(input_e.getComposed().get(0).getText());
-                });
+                last_input_method = input_e.copyFor(input, input);
+                Event.fireEvent(last_input_method.getTarget(), last_input_method);
             } else {
-//                System.out.println(word_pane);
                 word_pane.setText(input_e.getComposed().get(0).getText());
             }
-
-
         }
     }
 
