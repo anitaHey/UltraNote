@@ -10,6 +10,7 @@ import javafx.scene.text.FontWeight;
 public class TextObj extends Label {
     TextProperty property = TextProperty.getInstance();
 
+    InputMethodRequestsObject inputRequest;
     TextUnderline underline;
     boolean bool_under;
     FontWeight fontWeight;
@@ -19,7 +20,6 @@ public class TextObj extends Label {
     String lastFontFamily;
     int lastFontSize;
     int fontSize;
-    int input_size = 0;
 
     public TextObj(String input) {
         super(input);
@@ -38,10 +38,18 @@ public class TextObj extends Label {
         this.setTextFont(property.getFontFamily(), property.getFontWeight(), property.getFontPosture(), property.getFontSize(), true);
         this.setFontColor(property.getFontColor());
         this.getStyleClass().add("text_bg_input");
+        this.setMinWidth(USE_COMPUTED_SIZE);
 
-        this.setInputMethodRequests(new InputMethodRequestsObject());
+        this.inputRequest = new InputMethodRequestsObject();
+        this.setInputMethodRequests(this.inputRequest);
         this.setOnInputMethodTextChanged(e -> {
-            System.out.println(e);
+//            System.out.println(e);
+        });
+
+        this.layoutBoundsProperty().addListener((obs, oldValue, newValue)->{
+            System.out.println(newValue.getMinX()+" "+newValue.getMaxY()+5);
+            this.inputRequest.setPosition_x(newValue.getMinX());
+            this.inputRequest.setPosition_y(newValue.getMaxY()+5);
         });
     }
 
