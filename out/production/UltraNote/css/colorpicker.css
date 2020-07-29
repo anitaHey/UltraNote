@@ -1,0 +1,26 @@
+.context-menu{
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-width:1 1 1 1;
+    -fx-border-color:#9fa5ab;
+}
+.menu{
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.outer_item:focused{
+     -fx-background-color: transparent;
+}
+
+.text_label{
+    -fx-text-fill: #515557;
+    -fx-background-color: #EAEAEA;
+    -fx-border-width:1 0 1 0;
+    -fx-border-color:#c9c9c9;
+}
+
+.font_size{
+    -fx-font-size:14px;
+    -fx-font-family: Microsoft JhengHei;
+}

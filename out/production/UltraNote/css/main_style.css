@@ -1,0 +1,168 @@
+.no_focus:focused{
+    -fx-background-color: transparent;
+}
+
+.font_size{
+    -fx-font-size:14px;
+    -fx-font-family: Microsoft JhengHei;
+}
+
+.stage_title{
+    -fx-background-color: #74828F;
+}
+
+.main_vbox{
+    -fx-background-color:#EAEAEA;
+}
+
+.stage_title_label{
+    -fx-text-fill:#EAEAEA;
+    -fx-padding:0px 10px;
+}
+
+.stage_exit{
+    -fx-text-fill:#EAEAEA;
+    -fx-background-color: TRANSPARENT;
+}
+
+.stage_exit:hover{
+    -fx-background-color: #3f464d;
+}
+
+.toolbar_button_hbox{
+    -fx-background-color: #74828F;
+}
+
+.toolbar_button{
+    -fx-background-color: #74828F;
+    -fx-text-fill:#EAEAEA;
+    -fx-pref-height:37px;
+    -fx-pref-width:150px;
+    -fx-border-width:0;
+}
+
+.toolbar_button:hover{
+    -fx-background-color: #3f464d;
+}
+
+.toolbar_button_press{
+    -fx-background-color: #c2cad1;
+    -fx-text-fill:#74828F;
+}
+
+.toolbar_button_press:hover{
+    -fx-background-color: #5a646e;
+    -fx-text-fill:#EAEAEA;
+}
+
+.toolbar_tool_hbox{
+    -fx-background-color: #c2cad1;
+}
+
+.toolbar_sm_button{
+    -fx-background-color: transparent;
+}
+
+.toolbar_sm_button_pressed{
+    -fx-background-color: #a1a8ad;
+}
+
+.toolbar_sm_button_pressed:hover{
+    -fx-border-color: #717578;
+}
+
+.toolbar_sm_button:hover{
+    -fx-background-color: #a1a8ad;
+}
+
+.toolbar_sm_button:pressed{
+    -fx-background-color: #7f858a;
+}
+
+.toolbar_button_label{
+    -fx-alignment:CENTER;
+}
+
+.toolbar_combobox .list-view {
+    -fx-background-color:#edf3f7;
+    -fx-border-width:0 1 1 1;
+    -fx-border-color:#7e919e;
+}
+
+.toolbar_combobox .list-cell{
+    -fx-background-color:#edf3f7;
+    -fx-text-fill: black;
+}
+
+.toolbar_combobox .list-cell:hover{
+     -fx-background-color: #99aebd;
+ }
+
+.toolbar_combobox .scroll-bar:vertical {
+    -fx-background-color:  #edf3f7;
+}
+
+.toolbar_combobox .scroll-bar:vertical .track{
+    -fx-background-color:  #edf3f7;
+}
+
+.toolbar_combobox .scroll-bar:vertical .thumb{
+    -fx-background-color: #99aebd;
+}
+
+.combo-box-base{
+    -fx-background-color:#edf3f7;
+}
+
+.toolbar_combobox .text-input{
+    -fx-background-color:#edf3f7;
+    -fx-border-width:1 0 1 1;
+    -fx-border-color:#7e919e;
+}
+
+.toolbar_combobox .arrow-button{
+    -fx-background-color:#edf3f7;
+    -fx-border-width:1 1 1 0;
+    -fx-border-color:#7e919e;
+}
+
+.toolbar_combobox .arrow{
+    -fx-background-color: #7e919e;
+}
+
+.work_area{
+    -fx-background-color:#EAEAEA;
+}
+
+.work_paper{
+    -fx-background-color:#fff;
+}
+
+.work_scroll{
+    -fx-border-width:0px;
+}
+
+.color-picker{
+    -fx-background-color: #c2cad1;
+}
+.color-picker .color-picker-label .picker-color {
+    -fx-alignment : bottom-center;
+}
+
+.color-picker .color-picker-label{
+    -fx-text-fill:transparent;
+}
+
+.context-menu,
+.menu-item {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.menu_item > .arrow-button {
+    -fx-padding: 0;
+}
+
+.menu_item > .arrow-button > .arrow {
+    -fx-padding: 0;
+}

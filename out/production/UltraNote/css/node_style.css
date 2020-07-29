@@ -1,0 +1,31 @@
+.hide{
+    -fx-opacity: 0;
+}
+
+.show{
+    -fx-opacity: 1;
+}
+
+.border_focus{
+    -fx-border-color: #a39e9e;
+    -fx-border-width: 1;
+    -fx-border-style: segments(5, 5, 5, 5)  line-cap round ;
+}
+
+.border_none{
+    -fx-border-color: transparent;
+}
+
+.text_bg_input{
+    -fx-border-color: #a39e9e;
+    -fx-border-width: 0 1 0 0;
+}
+
+.text_bg_none{
+     -fx-border-color: transparent;
+     -fx-border-width: 0 1 0 0;
+ }
+
+.text_select{
+    -fx-background-color: #a39e9e;
+}

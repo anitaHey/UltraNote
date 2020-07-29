@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="font_size" stylesheets="@../css/main_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+   <children>
+      <VBox fx:id="main_vbox" prefHeight="680.0" styleClass="main_vbox">
+         <children>
+            <VBox fx:id="toolbar_vbox">
+               <children>
+                  <Pane prefHeight="30.0" styleClass="stage_title">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="148.0" styleClass="stage_title_label" text="UltraNote" />
+                        <Button fx:id="exit" layoutY="-1.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="41.0" styleClass="stage_exit" text="X" />
+                     </children>
+                  </Pane>
+                  <HBox prefHeight="37.0" styleClass="toolbar_button_hbox">
+                     <children>
+                        <Button fx:id="toolbar_file" mnemonicParsing="false" prefHeight="44.0" prefWidth="135.0" styleClass="toolbar_button" text="檔案" />
+                        <Button fx:id="toolbar_view" mnemonicParsing="false" prefHeight="44.0" prefWidth="101.0" styleClass="toolbar_button" text="檢視" />
+                        <Button fx:id="toolbar_insert" mnemonicParsing="false" prefHeight="44.0" prefWidth="101.0" styleClass="toolbar_button" text="插入" />
+                        <Button fx:id="toolbar_text" mnemonicParsing="false" prefHeight="45.0" prefWidth="101.0" styleClass="toolbar_button" text="文字" />
+                        <Button fx:id="toolbar_picture" mnemonicParsing="false" prefHeight="44.0" prefWidth="101.0" styleClass="toolbar_button" text="圖片" />
+                        <Button fx:id="toolbar_draw" mnemonicParsing="false" prefHeight="44.0" prefWidth="101.0" styleClass="toolbar_button" text="繪畫" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <ScrollPane fx:id="work_scroll" fitToWidth="true">
+               <content>
+                  <VBox fx:id="work_vbox" prefWidth="971.0" styleClass="no_focus" />
+               </content>
+               <styleClass>
+                  <String fx:value="work_scroll" />
+                  <String fx:value="no_focus" />
+               </styleClass>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

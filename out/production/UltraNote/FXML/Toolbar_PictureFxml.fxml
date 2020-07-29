@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root alignment="BOTTOM_LEFT" prefHeight="115.0" prefWidth="990.0" spacing="15.0" stylesheets="@../css/main_style.css" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+   <styleClass>
+      <String fx:value="toolbar_tool_hbox" />
+      <String fx:value="font_size" />
+   </styleClass>
+   <children>
+      <MenuButton fx:id="picture_border" mnemonicParsing="false" prefHeight="78.0" prefWidth="96.0" styleClass="toolbar_sm_button">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="107.0" prefWidth="105.0">
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pic/border.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="圖片邊框" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+         </graphic>
+         <items>
+            <MenuItem fx:id="picture_border0" mnemonicParsing="false">
+               <graphic>
+                  <HBox fx:id="hbox_border0">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/close.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="無外框">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin></Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false">
+               <graphic>
+                  <MenuButton alignment="CENTER" contentDisplay="CENTER" graphicTextGap="3.0" mnemonicParsing="false" popupSide="RIGHT" style="-fx-background-color: transparent;" styleClass="menu_item">
+                     <graphic>
+                        <HBox>
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pic/width.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="粗細">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </HBox>
+                     </graphic>
+                     <items>
+                        <MenuItem fx:id="picture_border05" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_border05" alignment="CENTER">
+                                 <children>
+                                    <Label prefWidth="40.0" text="0.5 pt" />
+                                    <Line endX="80.0" strokeWidth="0.5">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Line>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="picture_border1" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_border1" alignment="CENTER">
+                                 <children>
+                                    <Label prefWidth="40.0" text="1 pt" />
+                                    <Line endX="80.0">
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Line>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="picture_border15" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_border15" alignment="CENTER">
+                                 <children>
+                                    <Label prefWidth="40.0" text="1.5 pt" />
+                                    <Line endX="80.0" strokeWidth="1.5">
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Line>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="picture_border2" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_border2" alignment="CENTER">
+                                 <children>
+                                    <Label prefWidth="40.0" text="2 pt" />
+                                    <Line endX="80.0" strokeWidth="2.0">
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Line>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="picture_border3" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_border3" alignment="CENTER">
+                                 <children>
+                                    <Label prefWidth="40.0" text="3 pt" />
+                                    <Line endX="80.0" strokeWidth="3.0">
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Line>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="picture_border5" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_border5" alignment="CENTER">
+                                 <children>
+                                    <Label prefWidth="40.0" text="5 pt" />
+                                    <Line endX="80.0" strokeWidth="5.0">
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Line>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding>
+                  </MenuButton>
+               </graphic>
+            </MenuItem>
+            <MenuItem mnemonicParsing="false">
+               <graphic>
+                  <MenuButton mnemonicParsing="false" popupSide="RIGHT" style="-fx-background-color: transparent;" styleClass="menu_item">
+                    <items>
+                        <MenuItem fx:id="picture_dot_0" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_dot_0">
+                                 <children>
+                                    <Line endX="90.0" strokeMiterLimit="0.0" strokeWidth="3.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="picture_dot_1_10" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_dot_1_10">
+                                 <children>
+                                    <Line endX="90.0" strokeMiterLimit="0.0" strokeWidth="3.0" style="-fx-stroke-dash-array: 1 10;" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="picture_dot_5_10" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_dot_5_10" alignment="CENTER">
+                                 <children>
+                                    <Line endX="90.0" strokeMiterLimit="0.0" strokeWidth="3.0" style="-fx-stroke-dash-array: 5 10;" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                      <MenuItem fx:id="picture_dot_10_10" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_dot_10_10">
+                                 <children>
+                                    <Line endX="90.0" strokeMiterLimit="0.0" strokeWidth="3.0" style="-fx-stroke-dash-array: 10;" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem fx:id="picture_dot_17_17" mnemonicParsing="false">
+                           <graphic>
+                              <HBox fx:id="hbox_dot_17_17">
+                                 <children>
+                                    <Line endX="90.0" strokeMiterLimit="0.0" strokeWidth="3.0" style="-fx-stroke-dash-array: 17;" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                        </MenuItem>
+                    </items>
+                     <graphic>
+                        <HBox>
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pic/dottedline.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="虛線">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </HBox>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding>
+                  </MenuButton>
+               </graphic>
+            </MenuItem>
+         </items>
+      </MenuButton>
+      <VBox fx:id="picture_crop" alignment="CENTER" styleClass="toolbar_sm_button">
+         <children>
+            <ImageView fitHeight="57.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pic/crop.png" />
+               </image>
+            </ImageView>
+            <Label text="圖片裁切">
+               <padding>
+                  <Insets top="7.0" />
+               </padding>
+            </Label>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </VBox>
+      <MenuButton fx:id="picture_rotate" mnemonicParsing="false" prefHeight="78.0" prefWidth="96.0" styleClass="toolbar_sm_button">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="107.0" prefWidth="105.0">
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pic/pic_rotate.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="圖片旋轉" textAlignment="CENTER">
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </graphic>
+         <items>
+            <MenuItem fx:id="picture_rotate_right" mnemonicParsing="false">
+               <graphic>
+                  <HBox fx:id="hbox_rotate_right">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/rotate_right.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="向右旋轉90度">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </MenuItem>
+            <MenuItem fx:id="picture_rotate_left" mnemonicParsing="false">
+               <graphic>
+                  <HBox fx:id="hbox_rotate_left">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/rotate_left.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="向左旋轉90度">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </MenuItem>
+            <MenuItem fx:id="picture_rotate_vir" mnemonicParsing="false">
+               <graphic>
+                  <HBox fx:id="hbox_rotate_vir">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/rotate_vir.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="垂直翻轉">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </MenuItem>
+            <MenuItem fx:id="picture_rotate_hor" mnemonicParsing="false">
+               <graphic>
+                  <HBox fx:id="hbox_rotate_hor">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/rotate_hor.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="水平翻轉">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </MenuItem>
+         </items>
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin>
+      </MenuButton>
+   </children>
+</fx:root>
