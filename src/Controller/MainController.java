@@ -4,12 +4,15 @@ import InsertObj.Paper;
 import ToolBar.Toolbar;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import javax.tools.Tool;
+import java.io.IOException;
 
 public class MainController {
     private static MainController instance;
@@ -22,7 +25,6 @@ public class MainController {
     @FXML
     ScrollPane work_scroll;
 
-    Toolbar toolbar_tool;
     int toolbar = -1;
 
     public static MainController getInstance() {
@@ -56,11 +58,18 @@ public class MainController {
         private Button btn;
         private final String URL;
         private final Object controller;
+        private HBox toolbarUI;
 
         Type(int id, String url, Object controller) {
             this.id = id;
             this.URL = url;
             this.controller = controller;
+
+            try {
+                toolbarUI = FXMLLoader.load(getClass().getResource(URL));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
 
         public void setBtn(Button btn) {
@@ -69,6 +78,10 @@ public class MainController {
 
         public String getURL() {
             return URL;
+        }
+
+        public HBox getToolbarUI() {
+            return toolbarUI;
         }
 
         public Object getController() {
@@ -95,7 +108,7 @@ public class MainController {
         Type.Draw.setBtn(toolbar_draw);
 
         exit.setOnAction(actionEvent -> Platform.exit());
-//        toolbar_tool = new Toolbar();
+
         toolbar_file.setOnAction(actionEvent -> {
             change_toolbar(Type.File, true);
         });
@@ -119,25 +132,25 @@ public class MainController {
         work_scroll.getStyleClass().add("no_focus");
     }
 
-    public void setSize(){
-        getStage().widthProperty().addListener((ob, oldValue, newValue)->{
+    public void setSize() {
+        getStage().widthProperty().addListener((ob, oldValue, newValue) -> {
             main_vbox.setPrefWidth(newValue.doubleValue());
-            exit.setLayoutX(newValue.doubleValue()-41);
+            exit.setLayoutX(newValue.doubleValue() - 41);
         });
 
-        getStage().heightProperty().addListener((ob, oldValue, newValue)->{
+        getStage().heightProperty().addListener((ob, oldValue, newValue) -> {
             main_vbox.setPrefHeight(newValue.doubleValue());
-            if(toolbar == -1){
-                work_scroll.setPrefHeight(newValue.doubleValue()-70);
-            }else{
-                work_scroll.setPrefHeight(newValue.doubleValue()-185);
+            if (toolbar == -1) {
+                work_scroll.setPrefHeight(newValue.doubleValue() - 70);
+            } else {
+                work_scroll.setPrefHeight(newValue.doubleValue() - 185);
             }
 
         });
     }
 
-    public void addPaper(double width, double height ){
-        work_scroll.setPrefHeight(height-70);
+    public void addPaper(double width, double height) {
+        work_scroll.setPrefHeight(height - 70);
         Paper paper = new Paper(width, height);
         work_vbox.getChildren().add(paper);
     }
@@ -147,15 +160,14 @@ public class MainController {
             if (close) {
                 toolbar = -1;
                 toolbar_vbox.getChildren().remove(2);
-                work_scroll.setPrefHeight(work_scroll.getPrefHeight()+115);
+                work_scroll.setPrefHeight(work_scroll.getPrefHeight() + 115);
                 type.getButton().getStyleClass().remove("toolbar_button_press");
             }
         } else if (toolbar == -1) {
             toolbar = type.getId();
-            toolbar_tool = new Toolbar(type);
-//            toolbar_tool.change(type);
-            toolbar_vbox.getChildren().add(2, toolbar_tool);
-            work_scroll.setPrefHeight(work_scroll.getPrefHeight()-115);
+            toolbar_vbox.getChildren().add(2, type.getToolbarUI());
+
+            work_scroll.setPrefHeight(work_scroll.getPrefHeight() - 115);
             type.getButton().getStyleClass().add("toolbar_button_press");
         } else {
             toolbar_file.getStyleClass().remove("toolbar_button_press");
@@ -166,10 +178,8 @@ public class MainController {
             toolbar_picture.getStyleClass().remove("toolbar_button_press");
 
             toolbar = type.getId();
-            toolbar_tool = new Toolbar(type);
             toolbar_vbox.getChildren().remove(2);
-            toolbar_vbox.getChildren().add(2, toolbar_tool);
-//            toolbar_tool.change(type);
+            toolbar_vbox.getChildren().add(2, type.getToolbarUI());
             type.getButton().getStyleClass().add("toolbar_button_press");
         }
     }

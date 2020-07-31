@@ -7,15 +7,25 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
-
 import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
 public class Toolbar_InsertController {
     private MainController controller = MainController.getInstance();
     private PaperController paper_controller = PaperController.getInstance();
+    private static Toolbar_InsertController instance;
+
+    public static Toolbar_InsertController getInstance() {
+        if (instance == null) {
+            instance = new Toolbar_InsertController();
+        }
+        return instance;
+    }
+
+    public static void setInstance(Toolbar_InsertController newInstance) {
+        instance = newInstance;
+    }
+
     @FXML
     VBox toolbar_insert_text;
     @FXML
@@ -23,6 +33,8 @@ public class Toolbar_InsertController {
 
     @FXML
     public void initialize() {
+        setInstance(this);
+
         toolbar_insert_text.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             Text_box tem = new Text_box();
             tem.getStyleClass().add("text_border_focus");

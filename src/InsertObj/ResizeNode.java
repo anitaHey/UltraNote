@@ -4,23 +4,21 @@ import Controller.PaperController;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Transform;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ResizeNode extends VBox {
+public class ResizeNode extends BasicNode {
     private String type;
     private PaperController paper_controller = PaperController.getInstance();
     private Paper paper = paper_controller.getCurentPaper();
@@ -29,60 +27,46 @@ public class ResizeNode extends VBox {
     public BooleanProperty isCrop = new SimpleBooleanProperty(false);
     private int cursor = -1;
     private Cursor rotate_cursor;
-    private Rotate rotate = null;
+    private Rotate rotate;
+
+    private VBox rotate_vbox;
+    private Pane node_rotate;
+
 
     public ResizeNode(String type) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/ResizeNodeFxml.fxml"));
-            loader.setController(this);
-            loader.setRoot(this);
-            loader.load();
+        super(type);
+        this.type = type;
 
-            this.type = type;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        super.allInit();
     }
 
-    List<Circle> cir_arr = new ArrayList<>();
-    List<Cursor> cursor_arr = new ArrayList<>();
-
     @FXML
-    Circle cir1, cir2, cir3, cir4, cir5, cir6, cir7, cir8;
-    @FXML
-    Pane main_content;
-    @FXML
-    GridPane gridpane;
-    @FXML
-    VBox rotate_vbox;
-    @FXML
-    Pane node_rotate;
+    VBox out_vbox;
 
     @FXML
     public void initialize() {
-        focus_border(true);
-        paper_controller.setFocusObject(this);
+        rotate_vbox = new VBox();
+        rotate_vbox.setPrefWidth(20);
+        rotate_vbox.setPrefHeight(50);
+        node_rotate = new Pane();
 
-        cir_arr.add(cir1);
-        cir_arr.add(cir2);
-        cir_arr.add(cir3);
-        cir_arr.add(cir4);
-        cir_arr.add(cir5);
-        cir_arr.add(cir6);
-        cir_arr.add(cir7);
-        cir_arr.add(cir8);
+        Image img = new Image(getClass().getResource("../pic/rotate.png").toString());
+        ImageView imgView = new ImageView();
+        imgView.setImage(img);
+        imgView.setFitWidth(25);
+        imgView.setFitHeight(25);
+        node_rotate.getChildren().add(imgView);
 
-        cursor_arr.add(Cursor.NW_RESIZE);
-        cursor_arr.add(Cursor.N_RESIZE);
-        cursor_arr.add(Cursor.NE_RESIZE);
-        cursor_arr.add(Cursor.W_RESIZE);
-        cursor_arr.add(Cursor.E_RESIZE);
-        cursor_arr.add(Cursor.SW_RESIZE);
-        cursor_arr.add(Cursor.S_RESIZE);
-        cursor_arr.add(Cursor.SE_RESIZE);
+        Line line = new Line();
+        line.setStartX(0);
+        line.setStartY(0);
+        line.setEndX(0);
+        line.setEndY(20);
 
-        for (Circle cir : cir_arr)
-            cir.toFront();
+        rotate_vbox.setAlignment(Pos.CENTER);
+        rotate_vbox.getChildren().add(node_rotate);
+        rotate_vbox.getChildren().add(line);
+        out_vbox.getChildren().add(0,rotate_vbox);
 
         Image tem = new Image("pic/rotate_cursor.png");
         rotate_cursor = new ImageCursor(tem, tem.getWidth() / 2, tem.getHeight() / 2);
@@ -90,11 +74,7 @@ public class ResizeNode extends VBox {
         rotate = new Rotate();
         this.getTransforms().add(rotate);
 
-        setDrag();
-    }
-
-    public GridPane getGridpane() {
-        return gridpane;
+        this.setDrag();
     }
 
     public VBox getRotate_vbox() {
@@ -103,10 +83,15 @@ public class ResizeNode extends VBox {
 
     public Rotate getNodeRotate() { return rotate; }
 
-    public String getNodeType() {
-        return type;
+    public boolean getIsRotating() {
+        return rotating;
     }
 
+    public void setIsCropping(boolean input) {
+        isCrop.set(input);
+    }
+
+    @Override
     public void setMinW(double w, boolean set) {
         if (type.equals("text")) {
             if (set) this.getMain_content().setMinWidth(w);
@@ -118,6 +103,7 @@ public class ResizeNode extends VBox {
 
     }
 
+    @Override
     public void setMinH(double h, boolean set) {
         if (type.equals("text")) {
             if (set) this.getMain_content().setMinHeight(h);
@@ -135,6 +121,7 @@ public class ResizeNode extends VBox {
         rotate.setAngle(degree);
     }
 
+    @Override
     public void setDrag() {
         getGridpane().addEventHandler(MouseEvent.ANY, event -> {
             if (MouseEvent.MOUSE_CLICKED == event.getEventType()) {
@@ -334,6 +321,7 @@ public class ResizeNode extends VBox {
 
                 rotate.setPivotX(this.getWidth()/2);
                 rotate.setPivotY(this.getHeight()/2);
+
             } else if (MouseEvent.MOUSE_DRAGGED == event.getEventType()) {
                 paper_controller.setFocusObject(this);
                 if (rotating) {
@@ -377,38 +365,7 @@ public class ResizeNode extends VBox {
         return angle;
     }
 
-    public boolean isBorder(MouseEvent event) {
-        Bounds dragNodeBounds = getGridpane().getBoundsInParent();
-        Boolean top = (Math.abs(event.getY()) <= 15);
-        Boolean bottom = (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= 15);
-        Boolean left = (Math.abs(event.getX()) <= 15);
-        Boolean right = (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= 15);
-
-        return top || bottom || left || right;
-    }
-
-    public int getResize(MouseEvent event, int instance) {
-        int output = -1;
-        Bounds dragNodeBounds = getGridpane().getBoundsInParent();
-        double h_half = dragNodeBounds.getHeight() / 2;
-        double w_half = dragNodeBounds.getWidth() / 2;
-
-        if (Math.abs(event.getY()) <= instance) {
-            if (Math.abs(event.getX()) <= instance) output = 0;
-            else if (Math.abs(event.getX() - w_half) <= instance) output = 1;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= instance) output = 2;
-        } else if (Math.abs(event.getY() - h_half) <= instance) {
-            if (Math.abs(event.getX()) <= instance) output = 3;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= instance) output = 4;
-        } else if (Math.abs(event.getY() - dragNodeBounds.getHeight()) <= instance) {
-            if (Math.abs(event.getX()) <= instance) output = 5;
-            else if (Math.abs(event.getX() - w_half) <= instance) output = 6;
-            else if (Math.abs(event.getX() - dragNodeBounds.getWidth()) <= instance) output = 7;
-        }
-
-        return output;
-    }
-
+    @Override
     public void focus_border(boolean show) {
         if (show) {
             getGridpane().getStyleClass().clear();
@@ -435,21 +392,5 @@ public class ResizeNode extends VBox {
 
             if (isCrop.getValue() && !cropping) setIsCropping(false);
         }
-    }
-
-    public Pane getMain_content() {
-        return main_content;
-    }
-
-    public boolean getIsDragging() {
-        return dragging;
-    }
-
-    public boolean getIsRotating() {
-        return rotating;
-    }
-
-    public void setIsCropping(boolean input) {
-        isCrop.set(input);
     }
 }

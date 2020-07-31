@@ -1,16 +1,23 @@
 package Controller;
 
-import InsertObj.Text_box;
 import javafx.fxml.FXML;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 
 public class Toolbar_FileController {
-    private MainController controller = MainController.getInstance();
-    @FXML
-    VBox toolbar_insert_text;
+    private static Toolbar_FileController instance;
+
+    public static Toolbar_FileController getInstance() {
+        if (instance == null) {
+            instance = new Toolbar_FileController();
+        }
+        return instance;
+    }
+
+    public static void setInstance(Toolbar_FileController newInstance) {
+        instance = newInstance;
+    }
 
     @FXML
     public void initialize() {
+        setInstance(this);
     }
 }

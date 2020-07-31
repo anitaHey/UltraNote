@@ -1,13 +1,12 @@
 package Controller;
 
+import InsertObj.BasicNode;
 import InsertObj.Paper;
-import InsertObj.ResizeNode;
-import javafx.scene.layout.Pane;
 
 public class PaperController {
     private static PaperController instance;
-    private  Paper current;
-    private  ResizeNode object;
+    private Paper current;
+    private BasicNode object;
 
     public static PaperController getInstance() {
         if (instance == null) {
@@ -32,7 +31,7 @@ public class PaperController {
         getInstance().current = pane;
     }
 
-    public void setFocusObject(ResizeNode obj){
+    public void setFocusObject(BasicNode obj){
         if(getInstance().getFocusObject() != null)
             getInstance().getFocusObject().focus_border(false);
         getInstance().object = obj;
@@ -40,8 +39,7 @@ public class PaperController {
         if(obj != null)
             obj.focus_border(true);
     }
-
-    public ResizeNode getFocusObject(){
+    public BasicNode getFocusObject(){
         return getInstance().object;
     }
 }

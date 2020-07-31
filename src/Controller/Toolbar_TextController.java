@@ -84,21 +84,21 @@ public class Toolbar_TextController {
                 }
             };
 
-            cell.addEventFilter(MouseEvent.MOUSE_ENTERED, e-> {
+            cell.addEventFilter(MouseEvent.MOUSE_ENTERED, e -> {
                 if (getInstance().text_hbox != null) {
                     for (TextObj word : getInstance().text_hbox)
-                        word.setTextFamily(cell.getText(),false);
+                        word.setTextFamily(cell.getText(), false);
                 }
             });
 
-            cell.addEventFilter(MouseEvent.MOUSE_EXITED, e->{
+            cell.addEventFilter(MouseEvent.MOUSE_EXITED, e -> {
                 if (getInstance().text_hbox != null) {
                     for (TextObj word : getInstance().text_hbox)
                         word.setTextFamily(word.getLastFontFamily(), false);
                 }
             });
 
-            return cell ;
+            return cell;
         });
 
         font_size_combo.setCellFactory(lv -> {
@@ -110,7 +110,7 @@ public class Toolbar_TextController {
                 }
             };
 
-            cell.addEventFilter(MouseEvent.MOUSE_ENTERED, e->{
+            cell.addEventFilter(MouseEvent.MOUSE_ENTERED, e -> {
                 if (getInstance().text_hbox != null) {
                     for (TextObj word : getInstance().text_hbox)
                         word.setFontSize(Integer.parseInt(cell.getText()), false);
@@ -119,7 +119,7 @@ public class Toolbar_TextController {
                 }
             });
 
-            cell.addEventFilter(MouseEvent.MOUSE_EXITED, e->{
+            cell.addEventFilter(MouseEvent.MOUSE_EXITED, e -> {
                 if (getInstance().text_hbox != null) {
                     for (TextObj word : getInstance().text_hbox)
                         word.setFontSize(word.getLastFontSize(), false);
@@ -128,7 +128,7 @@ public class Toolbar_TextController {
                 }
             });
 
-            return cell ;
+            return cell;
         });
 
         boldProperty.addListener((observable, oldValue, newValue) -> {
