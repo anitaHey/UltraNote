@@ -78,6 +78,9 @@ public class BasicNode extends VBox {
 
         for (Circle cir : cir_arr)
             cir.toFront();
+
+        this.setLayoutX(5);
+        this.setLayoutY(5);
     }
 
     public GridPane getGridpane() {
@@ -107,7 +110,6 @@ public class BasicNode extends VBox {
     }
 
     public void setDrag() {
-        System.out.println("123");
         getGridpane().addEventHandler(MouseEvent.ANY, mouseDragHandler);
     }
 

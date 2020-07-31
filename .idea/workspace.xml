@@ -2,38 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FXML/BasicNodeFxml.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FXML/DrawPenFxml.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/InsertObj/DrawPen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/PaperController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/PaperController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController$Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_DrawController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_DrawController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_DrawController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_DrawController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_DrawFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_DrawFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_InsertController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_InsertController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_PictureController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_PictureController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_ViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_ViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_FileFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_FileFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_InsertFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_InsertFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_PictureFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_PictureFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_TextFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_TextFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_ViewFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_ViewFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Paper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Paper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/ResizeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/ResizeNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Text_box$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Text_box$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Text_box$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Text_box$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Text_box.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Text_box.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Object/TextObj.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Object/TextObj.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/ToolBar/Toolbar.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PaperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaperController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_DrawController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_DrawController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_PictureController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_PictureController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_TextController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_TextController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_ViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_DrawFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_DrawFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_FileFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_FileFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_PictureFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_PictureFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_TextFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_TextFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_ViewFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_ViewFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InsertObj/Paper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Paper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ToolBar/Toolbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ToolBar/Toolbar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ToolBar/Toolbar.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589772332378</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="20200731 Add BasicNode and fix draw pen.">
+      <created>1596187278418</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1596187278418</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -340,7 +336,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20200314 Move and text select." />
     <MESSAGE value="20200314 Change toolbar." />
     <MESSAGE value="20200316 Add italic text." />
     <MESSAGE value="20200317 Add underline text." />
@@ -365,7 +360,8 @@
     <MESSAGE value="20200512 Add Chinese typing." />
     <MESSAGE value="20200517" />
     <MESSAGE value="20200517 Add draw pen." />
-    <option name="LAST_COMMIT_MESSAGE" value="20200517 Add draw pen." />
+    <MESSAGE value="20200731 Add BasicNode and fix draw pen." />
+    <option name="LAST_COMMIT_MESSAGE" value="20200731 Add BasicNode and fix draw pen." />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1589276302246">
@@ -376,49 +372,49 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="704" y="373" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1595998946863" />
-    <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1589772331645">
+    <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1596187276865">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1589178441242" />
-    <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1589772331645" />
+    <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596187276865" />
     <state x="-1267" y="221" key="FileChooserDialogImpl" timestamp="1595869274676">
       <screen x="-1920" y="9" width="1920" height="1040" />
     </state>
     <state x="-1267" y="221" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1595869274676" />
     <state x="653" y="212" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1595423771720" />
-    <state width="1860" height="271" key="GridCell.Tab.0.bottom" timestamp="1596187196399">
+    <state width="1860" height="197" key="GridCell.Tab.0.bottom" timestamp="1596217480773">
       <screen x="-1920" y="9" width="1920" height="1040" />
     </state>
     <state width="1326" height="161" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1589181507697" />
-    <state width="1860" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1596187196399" />
-    <state width="1876" height="150" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596185061094" />
-    <state width="1860" height="271" key="GridCell.Tab.0.center" timestamp="1596187196399">
+    <state width="1860" height="197" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1596217480773" />
+    <state width="1876" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596213256688" />
+    <state width="1860" height="197" key="GridCell.Tab.0.center" timestamp="1596217480772">
       <screen x="-1920" y="9" width="1920" height="1040" />
     </state>
     <state width="1326" height="161" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1589181507696" />
-    <state width="1860" height="271" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1596187196399" />
-    <state width="1876" height="150" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596185061094" />
-    <state width="1860" height="271" key="GridCell.Tab.0.left" timestamp="1596187196399">
+    <state width="1860" height="197" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1596217480772" />
+    <state width="1876" height="271" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596213256688" />
+    <state width="1860" height="197" key="GridCell.Tab.0.left" timestamp="1596217480772">
       <screen x="-1920" y="9" width="1920" height="1040" />
     </state>
     <state width="1326" height="161" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1589181507696" />
-    <state width="1860" height="271" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1596187196399" />
-    <state width="1876" height="150" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596185061094" />
-    <state width="1860" height="271" key="GridCell.Tab.0.right" timestamp="1596187196399">
+    <state width="1860" height="197" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1596217480772" />
+    <state width="1876" height="271" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596213256688" />
+    <state width="1860" height="197" key="GridCell.Tab.0.right" timestamp="1596217480772">
       <screen x="-1920" y="9" width="1920" height="1040" />
     </state>
     <state width="1326" height="161" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1589181507697" />
-    <state width="1860" height="271" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1596187196399" />
-    <state width="1876" height="150" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596185061094" />
+    <state width="1860" height="197" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1596217480772" />
+    <state width="1876" height="271" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596213256688" />
     <state x="440" y="93" key="SettingsEditor" timestamp="1595423310994">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="93" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1595423310994" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1589772347991">
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1596187310741">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1589178453595" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1589772347991" />
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596187310741" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1596102624653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

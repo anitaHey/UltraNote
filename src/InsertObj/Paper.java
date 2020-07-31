@@ -91,6 +91,9 @@ public class Paper extends Pane {
     public void addNode(Node input){
         this.getChildren().add(input);
     }
+    public void removeNode(Node input){
+        this.getChildren().remove(input);
+    }
 
     public Object[] getAllNode(){
         return this.getChildren().toArray();

@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root prefHeight="115.0" prefWidth="990.0" spacing="15.0" stylesheets="@../css/main_style.css" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<javafx.scene.layout.HBox prefHeight="115.0" prefWidth="990.0" spacing="15.0" stylesheets="@../css/main_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Toolbar_FileController">
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
    </padding>
@@ -16,4 +16,4 @@
       <String fx:value="toolbar_tool_hbox" />
       <String fx:value="font_size" />
    </styleClass>
-</fx:root>
+</javafx.scene.layout.HBox>

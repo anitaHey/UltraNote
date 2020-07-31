@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root prefHeight="115.0" prefWidth="990.0" spacing="5.0" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<javafx.scene.layout.HBox prefHeight="115.0" prefWidth="990.0" spacing="5.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Toolbar_TextController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
@@ -53,4 +53,4 @@
    <stylesheets>
       <URL value="@../css/main_style.css" />
    </stylesheets>
-</fx:root>
+</javafx.scene.layout.HBox>

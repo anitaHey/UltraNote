@@ -4,6 +4,7 @@ import InsertObj.BasicNode;
 import InsertObj.DrawPen;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -21,6 +22,7 @@ public class Toolbar_DrawController {
     private DrawPen current_pen = null;
     Path path;
     BasicNode root;
+    Group drawing;
 
     public static Toolbar_DrawController getInstance() {
         if (instance == null) {
@@ -77,14 +79,11 @@ public class Toolbar_DrawController {
         @Override
         public void handle(MouseEvent mouseEvent) {
             if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
-                root = new BasicNode("draw");
-                root.cancelDrag();
                 paper_controller.setFocusObject(null);
-
+                drawing = new Group();
                 path = new Path();
-                paper_controller.getCurentPaper().addNode(root);
-
-                root.getMain_content().getChildren().add(path);
+                paper_controller.getCurentPaper().addNode(drawing);
+                drawing.getChildren().add(path);
                 path.setStrokeWidth(current_pen.getPenWidth());
                 path.setStroke(Color.web(current_pen.getPenColor()));
                 path.getElements()
@@ -93,7 +92,21 @@ public class Toolbar_DrawController {
                 path.getElements()
                         .add(new LineTo(mouseEvent.getX(), mouseEvent.getY()));
             } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
+                System.out.println(drawing.getBoundsInParent().getMinX()+ " "+ drawing.getBoundsInParent().getMinY());
+                root = new BasicNode("draw");
+                root.cancelDrag();
+                root.setTranslateX(drawing.getBoundsInParent().getMinX());
+                root.setTranslateY(drawing.getBoundsInParent().getMinY());
+                root.setMinH(drawing.getBoundsInParent().getHeight(), true);
+                root.setMinW(drawing.getBoundsInParent().getWidth(), true);
+                drawing.setLayoutX(-drawing.getBoundsInParent().getMinX());
+                drawing.setLayoutY(-drawing.getBoundsInParent().getMinY());
+                root.getMain_content().getChildren().add(drawing);
+                System.out.println(root.getBoundsInParent().getMinX()+ " "+ root.getBoundsInParent().getMinY());
 
+                paper_controller.getCurentPaper().removeNode(drawing);
+                paper_controller.getCurentPaper().addNode(root);
+//                System.out.println(root.getBoundsInParent().getMinX()+ " "+ root.getBoundsInParent().getMinY());
             }
         }
     };
