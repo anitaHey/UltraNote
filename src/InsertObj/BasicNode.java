@@ -122,9 +122,12 @@ public class BasicNode extends VBox {
             paper_controller.setFocusObject(this);
         } else if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
             paper.setClick(false);
-
             cursor = getResize(event, 15);
-
+            if(cursor == -1){
+                paper.setCursor(Cursor.MOVE);
+            } else {
+                paper.setCursor(cursor_arr.get(cursor));
+            }
         } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
             paper_controller.setFocusObject(this);
             if (getGridpane().contains(event.getX(), event.getY())) {

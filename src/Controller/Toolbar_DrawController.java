@@ -92,21 +92,18 @@ public class Toolbar_DrawController {
                 path.getElements()
                         .add(new LineTo(mouseEvent.getX(), mouseEvent.getY()));
             } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
-                System.out.println(drawing.getBoundsInParent().getMinX()+ " "+ drawing.getBoundsInParent().getMinY());
                 root = new BasicNode("draw");
                 root.cancelDrag();
-                root.setTranslateX(drawing.getBoundsInParent().getMinX());
-                root.setTranslateY(drawing.getBoundsInParent().getMinY());
+                root.setTranslateX(drawing.getBoundsInParent().getMinX()-16);
+                root.setTranslateY(drawing.getBoundsInParent().getMinY()-16);
                 root.setMinH(drawing.getBoundsInParent().getHeight(), true);
                 root.setMinW(drawing.getBoundsInParent().getWidth(), true);
                 drawing.setLayoutX(-drawing.getBoundsInParent().getMinX());
                 drawing.setLayoutY(-drawing.getBoundsInParent().getMinY());
                 root.getMain_content().getChildren().add(drawing);
-                System.out.println(root.getBoundsInParent().getMinX()+ " "+ root.getBoundsInParent().getMinY());
 
                 paper_controller.getCurentPaper().removeNode(drawing);
                 paper_controller.getCurentPaper().addNode(root);
-//                System.out.println(root.getBoundsInParent().getMinX()+ " "+ root.getBoundsInParent().getMinY());
             }
         }
     };
