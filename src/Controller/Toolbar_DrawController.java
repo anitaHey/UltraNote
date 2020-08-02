@@ -4,15 +4,18 @@ import InsertObj.BasicNode;
 import InsertObj.DrawPen;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Toolbar_DrawController {
@@ -46,12 +49,11 @@ public class Toolbar_DrawController {
         DrawPen init = new DrawPen("#000", 1);
         create_pen.add(init);
         pen_hbox.getChildren().addAll(create_pen);
-        System.out.println(create_pen);
 
         init.addEventHandler(MouseEvent.MOUSE_CLICKED, penHandler);
 
         cancel_pen.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            if (current_pen != null) current_pen.getStyleClass().remove("toolbar_sm_button_pressed");
+            if (current_pen != null) current_pen.getStyleClass().remove("draw_pen_split_btn_pressed");
             current_pen = null;
             paper_controller.getCurentPaper().removeEventHandler(MouseEvent.ANY, paperDrawHandler);
 
@@ -64,10 +66,10 @@ public class Toolbar_DrawController {
     EventHandler<MouseEvent> penHandler = new EventHandler<MouseEvent>() {
         @Override
         public void handle(MouseEvent mouseEvent) {
-            if (current_pen != null) current_pen.getStyleClass().remove("toolbar_sm_button_pressed");
+            if (current_pen != null) current_pen.getStyleClass().remove("draw_pen_split_btn_pressed");
             paper_controller.getCurentPaper().addEventHandler(MouseEvent.ANY, paperDrawHandler);
             current_pen = ((DrawPen) mouseEvent.getSource());
-            current_pen.getStyleClass().add("toolbar_sm_button_pressed");
+            current_pen.getStyleClass().add("draw_pen_split_btn_pressed");
 
             for (Object node : paper_controller.getCurentPaper().getAllNode()) {
                 ((BasicNode) node).cancelDrag();
@@ -94,8 +96,8 @@ public class Toolbar_DrawController {
             } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
                 root = new BasicNode("draw");
                 root.cancelDrag();
-                root.setTranslateX(drawing.getBoundsInParent().getMinX()-16);
-                root.setTranslateY(drawing.getBoundsInParent().getMinY()-16);
+                root.setTranslateX(drawing.getBoundsInParent().getMinX() - 16);
+                root.setTranslateY(drawing.getBoundsInParent().getMinY() - 16);
                 root.setMinH(drawing.getBoundsInParent().getHeight(), true);
                 root.setMinW(drawing.getBoundsInParent().getWidth(), true);
                 drawing.setLayoutX(-drawing.getBoundsInParent().getMinX());

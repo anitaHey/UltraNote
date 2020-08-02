@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
@@ -8,13 +10,87 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root alignment="CENTER" prefHeight="34.0" prefWidth="21.0" spacing="1.0" styleClass="toolbar_sm_button" type="VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <SVGPath fx:id="pen_color1" content="M10 10 H 25 V 30 H 10  L 10 10" />
-      <SVGPath content="M 10 10 L 25 10 L 20 20 L 15 20" />
-      <SVGPath fx:id="pen_color2" content="M 10 10 C 12 20,13 20,15 10 z" />
-   </children>
-   <padding>
-      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-   </padding>
+<?import javafx.scene.paint.Color?>
+<fx:root mnemonicParsing="false" styleClass="draw_pen_split_btn" stylesheets="@../css/main_style.css" type="SplitMenuButton" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <graphic>
+      <VBox alignment="CENTER" spacing="1.0">
+         <children>
+            <SVGPath fx:id="pen_color1" content="M10 10 H 25 V 30 H 10  L 10 10" />
+            <SVGPath content="M 10 10 L 25 10 L 20 20 L 15 20" />
+            <SVGPath fx:id="pen_color2" content="M 10 10 C 12 20,13 20,15 10 z" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </graphic>
+   <items>
+      <CustomMenuItem hideOnClick="false" mnemonicParsing="false">
+         <content>
+            <VBox style="-fx-background-color: #e1e6e8;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <Label text="粗細" />
+                        <TextField fx:id="width_text" alignment="CENTER" prefHeight="25.0" prefWidth="40.0" text="1" />
+                        <Slider fx:id="width_slider" blockIncrement="1.0" max="20.0" min="1.0" value="1.0" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox spacing="20.0">
+                     <children>
+                        <Label text="顏色" />
+                        <ColorPicker fx:id="draw_color" prefHeight="29.0" prefWidth="182.0">
+                           <value>
+                              <Color blue="0.0" green="0.0" red="0.0" />
+                           </value>
+                        </ColorPicker>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox fx:id="delete_pen" alignment="CENTER_LEFT" spacing="20.0" styleClass="toolbar_sm_button">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/delete.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="刪除畫筆">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="font_size" />
+                  <String fx:value="split_btn_label" />
+               </styleClass>
+            </VBox>
+         </content>
+      </CustomMenuItem>
+   </items>
 </fx:root>

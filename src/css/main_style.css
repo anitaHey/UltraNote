@@ -145,6 +145,7 @@
 .color-picker{
     -fx-background-color: #c2cad1;
 }
+
 .color-picker .color-picker-label .picker-color {
     -fx-alignment : bottom-center;
 }
@@ -165,4 +166,37 @@
 
 .menu_item > .arrow-button > .arrow {
     -fx-padding: 0;
+}
+
+.draw_pen_split_btn{
+    -fx-background-color: #c2cad1;
+}
+
+.draw_pen_split_btn .label {
+    -fx-background-color: transparent;
+}
+
+.draw_pen_split_btn .label:hover, .draw_pen_split_btn .arrow-button:hover {
+    -fx-background-color: #a1a8ad;
+    -fx-border:0;
+}
+
+.draw_pen_split_btn .arrow-button {
+    -fx-border-width: 0 0 0 1;
+    -fx-border-color: #96a4b0;
+    -fx-background-color: transparent;
+}
+
+.draw_pen_split_btn_pressed > .label{
+    -fx-background-color: #a1a8ad;
+}
+
+.draw_pen_split_btn_pressed > .label:hover{
+    -fx-border-color: #717578;
+}
+
+.split_btn_label .label, .split_btn_label .label,
+.split_btn_label:hover .label, .split_btn_label:focused .label {
+    -fx-text-fill: #000;
+    -fx-background-color: transparent;
 }

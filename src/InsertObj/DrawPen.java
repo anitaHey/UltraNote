@@ -1,12 +1,19 @@
 package InsertObj;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Slider;
+import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 
-public class DrawPen extends VBox {
+public class DrawPen extends SplitMenuButton {
     private String penColor = "#000";
     private double penWidth = 1;
 
@@ -27,12 +34,40 @@ public class DrawPen extends VBox {
 
     @FXML
     SVGPath pen_color1, pen_color2;
+    @FXML
+    Slider width_slider;
+    @FXML
+    ColorPicker draw_color;
+    @FXML
+    HBox delete_pen;
+    @FXML
+    TextField width_text;
 
-    public String getPenColor(){
+    @FXML
+    public void initialize() {
+        width_slider.valueProperty().addListener((ov, old_val, new_val) -> {
+            setPenWidth(new_val.doubleValue());
+            width_text.setText(String.format("%d", new_val.intValue()));
+        });
+
+        width_text.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                int num = Integer.parseInt(newValue);
+                width_slider.setValue(num);
+            } catch (Exception e){
+            }
+        });
+
+        draw_color.valueProperty().addListener((observable, oldValue, newValue) -> {
+            setPenColor(toRGBCode(newValue));
+        });
+    }
+
+    public String getPenColor() {
         return penColor;
     }
 
-    public double getPenWidth(){
+    public double getPenWidth() {
         return penWidth;
     }
 
@@ -44,5 +79,12 @@ public class DrawPen extends VBox {
 
     public void setPenWidth(double newWidth) {
         penWidth = newWidth;
+    }
+
+    public static String toRGBCode(Color color) {
+        return String.format("#%02X%02X%02X",
+                (int) (color.getRed() * 255),
+                (int) (color.getGreen() * 255),
+                (int) (color.getBlue() * 255));
     }
 }
