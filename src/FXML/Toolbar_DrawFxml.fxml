@@ -29,9 +29,9 @@
                 <Label text="選取物件" />
             </children>
         </VBox>
-        <VBox alignment="CENTER" prefHeight="92.0" prefWidth="222.0" spacing="5.0">
+        <VBox alignment="CENTER" maxWidth="-Infinity" prefHeight="90.0" prefWidth="360.0" spacing="5.0">
             <children>
-                <HBox fx:id="pen_hbox" prefHeight="85.0" prefWidth="222.0" spacing="10.0" style="-fx-background-color: rgba(255,255,255,0.3);">
+                <HBox fx:id="pen_hbox" maxWidth="-Infinity" prefHeight="85.0" prefWidth="360.0" spacing="10.0" style="-fx-background-color: rgba(255,255,255,0.3);">
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
@@ -56,7 +56,7 @@
             </VBox>
          </graphic>
          <items>
-            <MenuItem fx:id="toolbar_insert_phote_file" mnemonicParsing="false">
+            <MenuItem fx:id="add_pen_normal" mnemonicParsing="false">
                <graphic>
                   <HBox>
                      <children>
@@ -72,7 +72,7 @@
                   </HBox>
                </graphic>
             </MenuItem>
-            <MenuItem fx:id="toolbar_insert_phote_graph" mnemonicParsing="false">
+            <MenuItem fx:id="add_pen_light" mnemonicParsing="false">
                <graphic>
                   <HBox>
                      <children>

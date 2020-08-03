@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -42,6 +43,8 @@ public class Toolbar_DrawController {
     VBox cancel_pen;
     @FXML
     HBox pen_hbox;
+    @FXML
+    MenuItem add_pen_normal, add_pen_light;
 
     @FXML
     public void initialize() {
@@ -60,6 +63,13 @@ public class Toolbar_DrawController {
             for (Object node : paper_controller.getCurentPaper().getAllNode()) {
                 ((BasicNode) node).setDrag();
             }
+        });
+
+        add_pen_normal.setOnAction(event -> {
+            DrawPen tem = new DrawPen("#000", 1);
+            create_pen.add(tem);
+            tem.addEventHandler(MouseEvent.MOUSE_CLICKED, penHandler);
+            pen_hbox.getChildren().add(tem);
         });
     }
 
