@@ -14,18 +14,18 @@ public class Paper extends Pane {
         paper_controller.setCurentPaper(this);
     }
 
-    public Paper(double width, double height ) {
+    public Paper(double width, double height) {
         setBackground_color("#fff");
         setInfinatePaper(width, height);
         paper_controller.setCurentPaper(this);
 
         this.setOnMouseClicked(e -> {
-            if(isClick)
+            if (isClick)
                 paper_controller.setFocusObject(null);
         });
     }
 
-    public void setClick(boolean input){
+    public void setClick(boolean input) {
         isClick = input;
     }
 
@@ -78,24 +78,25 @@ public class Paper extends Pane {
         this.setPrefWidth(width);
     }
 
-    public void setInfinatePaper(double width, double height ) {
+    public void setInfinatePaper(double width, double height) {
         this.setLayoutX(0);
         this.setLayoutY(0);
 
-        this.setMinHeight(height-100);
-        this.setMinWidth(width-60);
+        this.setMinHeight(height - 100);
+        this.setMinWidth(width - 60);
         this.setPrefHeight(USE_COMPUTED_SIZE);
         this.setPrefWidth(USE_COMPUTED_SIZE);
     }
 
-    public void addNode(Node input){
+    public void addNode(Node input) {
         this.getChildren().add(input);
     }
-    public void removeNode(Node input){
+
+    public void removeNode(Node input) {
         this.getChildren().remove(input);
     }
 
-    public Object[] getAllNode(){
+    public Object[] getAllNode() {
         return this.getChildren().toArray();
     }
 }

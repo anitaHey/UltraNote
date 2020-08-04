@@ -66,7 +66,7 @@ public class ResizeNode extends BasicNode {
         rotate_vbox.setAlignment(Pos.CENTER);
         rotate_vbox.getChildren().add(node_rotate);
         rotate_vbox.getChildren().add(line);
-        out_vbox.getChildren().add(0,rotate_vbox);
+        out_vbox.getChildren().add(0, rotate_vbox);
 
         Image tem = new Image("pic/rotate_cursor.png");
         rotate_cursor = new ImageCursor(tem, tem.getWidth() / 2, tem.getHeight() / 2);
@@ -81,7 +81,9 @@ public class ResizeNode extends BasicNode {
         return rotate_vbox;
     }
 
-    public Rotate getNodeRotate() { return rotate; }
+    public Rotate getNodeRotate() {
+        return rotate;
+    }
 
     public boolean getIsRotating() {
         return rotating;
@@ -114,9 +116,9 @@ public class ResizeNode extends BasicNode {
         }
     }
 
-    public void setNodeRotate(double degree){
-        rotate.setPivotX(this.getWidth()/2);
-        rotate.setPivotY(this.getHeight()/2);
+    public void setNodeRotate(double degree) {
+        rotate.setPivotX(this.getWidth() / 2);
+        rotate.setPivotY(this.getHeight() / 2);
 
         rotate.setAngle(degree);
     }
@@ -311,7 +313,7 @@ public class ResizeNode extends BasicNode {
         node_rotate.addEventHandler(MouseEvent.ANY, event -> {
             if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
                 paper.setCursor(rotate_cursor);
-            } else if(MouseEvent.MOUSE_CLICKED == event.getEventType()){
+            } else if (MouseEvent.MOUSE_CLICKED == event.getEventType()) {
                 paper_controller.setFocusObject(this);
             } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
                 paper_controller.setFocusObject(this);
@@ -319,8 +321,8 @@ public class ResizeNode extends BasicNode {
                 this.lastRotateX = event.getSceneX();
                 this.lastRotateY = event.getSceneY();
 
-                rotate.setPivotX(this.getWidth()/2);
-                rotate.setPivotY(this.getHeight()/2);
+                rotate.setPivotX(this.getWidth() / 2);
+                rotate.setPivotY(this.getHeight() / 2);
 
             } else if (MouseEvent.MOUSE_DRAGGED == event.getEventType()) {
                 paper_controller.setFocusObject(this);
@@ -342,7 +344,7 @@ public class ResizeNode extends BasicNode {
                     this.lastRotateY = event.getSceneY();
                 }
             } else if (MouseEvent.MOUSE_RELEASED == event.getEventType()) {
-                if(rotating){
+                if (rotating) {
                     event.consume();
                     rotating = false;
                 }
@@ -360,7 +362,9 @@ public class ResizeNode extends BasicNode {
 
         double angle = Math.abs(Math.toDegrees(Math.atan2(dy, dx)));
 
-        if (dy < 0) { angle = 360 - angle; }
+        if (dy < 0) {
+            angle = 360 - angle;
+        }
 
         return angle;
     }

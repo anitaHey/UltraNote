@@ -54,7 +54,7 @@ public class DrawPen extends SplitMenuButton {
             try {
                 int num = Integer.parseInt(newValue);
                 width_slider.setValue(num);
-            } catch (Exception e){
+            } catch (Exception e) {
             }
         });
 

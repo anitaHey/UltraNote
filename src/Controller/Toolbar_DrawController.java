@@ -3,22 +3,19 @@ package Controller;
 import InsertObj.BasicNode;
 import InsertObj.DrawLine;
 import InsertObj.DrawPen;
-import InsertObj.Paper;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
-import javafx.scene.Group;
 import javafx.scene.ImageCursor;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
-import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 
@@ -70,20 +67,26 @@ public class Toolbar_DrawController {
         draw_eraser.addEventHandler(MouseEvent.MOUSE_CLICKED, eraserHandler);
 
         cancel_pen.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            if (current_pen != null) current_pen.getStyleClass().remove("draw_pen_split_btn_pressed");
-            current_pen = null;
+            if (current_pen != null) {
+                current_pen.getStyleClass().remove("draw_pen_split_btn_pressed");
+                paper_controller.getCurentPaper().removeEventHandler(MouseEvent.ANY, paperDrawHandler);
+                current_pen = null;
+            }
 
             if (use_eraser) {
                 draw_eraser.getStyleClass().remove("draw_pen_split_btn_pressed");
                 for (DrawLine line : all_line) line.setErase(false);
                 use_eraser = false;
+
                 paper_controller.getCurentPaper().setCursor(Cursor.DEFAULT);
+                paper_controller.getCurentPaper().removeEventHandler(MouseEvent.ANY, startEraseHandler);
             }
 
-            paper_controller.getCurentPaper().removeEventHandler(MouseEvent.ANY, paperDrawHandler);
-
             for (Object node : paper_controller.getCurentPaper().getAllNode()) {
-                ((BasicNode) node).setDrag();
+                try {
+                    ((BasicNode) node).setDrag();
+                } catch (Exception e) {
+                }
             }
         });
 
@@ -111,15 +114,18 @@ public class Toolbar_DrawController {
 //        });
     }
 
-    EventHandler<MouseEvent> penHandler = new EventHandler<MouseEvent>() {
+    EventHandler<MouseEvent> penHandler = new EventHandler<>() {
         @Override
         public void handle(MouseEvent mouseEvent) {
+            paper_controller.setFocusObject(null);
+
             if (current_pen != null) current_pen.getStyleClass().remove("draw_pen_split_btn_pressed");
             if (use_eraser) {
                 draw_eraser.getStyleClass().remove("draw_pen_split_btn_pressed");
                 for (DrawLine line : all_line) line.setErase(false);
                 use_eraser = false;
                 paper_controller.getCurentPaper().setCursor(Cursor.DEFAULT);
+                paper_controller.getCurentPaper().removeEventHandler(MouseEvent.ANY, startEraseHandler);
             }
 
             paper_controller.getCurentPaper().addEventHandler(MouseEvent.ANY, paperDrawHandler);
@@ -127,7 +133,10 @@ public class Toolbar_DrawController {
             current_pen.getStyleClass().add("draw_pen_split_btn_pressed");
 
             for (Object node : paper_controller.getCurentPaper().getAllNode()) {
-                ((BasicNode) node).cancelDrag();
+                try {
+                    ((BasicNode) node).cancelDrag();
+                } catch (Exception e) {
+                }
             }
         }
     };
@@ -135,6 +144,8 @@ public class Toolbar_DrawController {
     EventHandler<MouseEvent> eraserHandler = new EventHandler<>() {
         @Override
         public void handle(MouseEvent mouseEvent) {
+            paper_controller.setFocusObject(null);
+
             if (current_pen != null) current_pen.getStyleClass().remove("draw_pen_split_btn_pressed");
             current_pen = null;
             paper_controller.getCurentPaper().removeEventHandler(MouseEvent.ANY, paperDrawHandler);
@@ -151,21 +162,27 @@ public class Toolbar_DrawController {
     };
 
     EventHandler<MouseEvent> startEraseHandler = mouseEvent -> {
-        if(mouseEvent.getEventType() == MouseEvent.DRAG_DETECTED){
-            paper_controller.getCurentPaper().startFullDrag();
-            for (DrawLine line : all_line) {
-                line.setErase(true);
-            }
-        } else if(mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED){
-            for (DrawLine line : all_line) {
-                line.setErase(false);
+        if (paper_controller.getFocusObject() != null && !paper_controller.getFocusObject().getNodeType().equals("draw")) {
+            unsetPen();
+        } else {
+            if (mouseEvent.getEventType() == MouseEvent.DRAG_DETECTED) {
+                paper_controller.getCurentPaper().startFullDrag();
+                for (DrawLine line : all_line) {
+                    line.setErase(true);
+                }
+            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
+                for (DrawLine line : all_line) {
+                    line.setErase(false);
+                }
             }
         }
+
     };
 
-    EventHandler<MouseEvent> paperDrawHandler = new EventHandler<>() {
-        @Override
-        public void handle(MouseEvent mouseEvent) {
+    EventHandler<MouseEvent> paperDrawHandler = mouseEvent -> {
+        if (paper_controller.getFocusObject() != null && !paper_controller.getFocusObject().getNodeType().equals("draw")) {
+            unsetPen();
+        } else {
             if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
                 paper_controller.setFocusObject(null);
 
@@ -191,8 +208,15 @@ public class Toolbar_DrawController {
         pen_pane.getChildren().remove(input);
     }
 
-    public void deleteDrawLine(DrawLine input){
+    public void deleteDrawLine(DrawLine input) {
         all_line.remove(input);
         paper_controller.getCurentPaper().removeNode(input);
+    }
+
+    public void unsetPen() {
+        MouseEvent mouseEvent = new MouseEvent(MouseEvent.MOUSE_CLICKED,
+                1, 2, 3, 4, MouseButton.PRIMARY, 1,
+                true, true, true, true, true, true, true, true, true, true, null);
+        cancel_pen.fireEvent(mouseEvent);
     }
 }

@@ -145,8 +145,8 @@ public class Picture extends ResizeNode {
     }
 
     public void setPicScale(boolean changeX, boolean changeY) {
-        int scaleX = (changeX)? -picScale[0]:picScale[0];
-        int scaleY = (changeY)? -picScale[1]:picScale[1];
+        int scaleX = (changeX) ? -picScale[0] : picScale[0];
+        int scaleY = (changeY) ? -picScale[1] : picScale[1];
 
         picScale[0] = scaleX;
         picScale[1] = scaleY;

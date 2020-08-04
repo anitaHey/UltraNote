@@ -123,7 +123,7 @@ public class BasicNode extends VBox {
         } else if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
             paper.setClick(false);
             cursor = getResize(event, 15);
-            if(cursor == -1){
+            if (cursor == -1) {
                 paper.setCursor(Cursor.MOVE);
             } else {
                 paper.setCursor(cursor_arr.get(cursor));

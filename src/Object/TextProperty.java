@@ -28,7 +28,7 @@ public class TextProperty {
         setDefault();
     }
 
-    public void setDefault(){
+    public void setDefault() {
         getInstance().underline = false;
         getInstance().fontWeight = FontWeight.NORMAL;
         getInstance().fontPosture = FontPosture.REGULAR;

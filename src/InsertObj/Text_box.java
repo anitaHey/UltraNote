@@ -83,11 +83,11 @@ public class Text_box extends ResizeNode {
             }
         });
 
-        text_vbox.heightProperty().addListener((obs,oldValue,newValue)->{
+        text_vbox.heightProperty().addListener((obs, oldValue, newValue) -> {
             setMinH(newValue.doubleValue(), false);
         });
 
-        text_vbox.widthProperty().addListener((obs,oldValue,newValue)->{
+        text_vbox.widthProperty().addListener((obs, oldValue, newValue) -> {
             setMinW(newValue.doubleValue(), false);
         });
     }
@@ -160,7 +160,7 @@ public class Text_box extends ResizeNode {
 
     public void setInputFocus(TextObj text) {
         text.setOnMouseClicked(e -> {
-            if(!getIsDragging()){
+            if (!getIsDragging()) {
                 hbox_line = getLine(CURRENT_LINE);
                 setRequestFocus(text, hbox_line);
             }
@@ -194,7 +194,7 @@ public class Text_box extends ResizeNode {
         });
 
         word_pane.addEventFilter(InputMethodEvent.INPUT_METHOD_TEXT_CHANGED, e -> {
-            if(e.getComposed().size()>0){
+            if (e.getComposed().size() > 0) {
                 input(null, e, word_pane);
             }
         });
@@ -225,7 +225,7 @@ public class Text_box extends ResizeNode {
         int length = hbox_line.getHBoxSize();
         if (num == -1) num = 0;
 
-        if(e != null) {
+        if (e != null) {
             if (e.getEventType().toString().equals("KEY_PRESSED")) {
                 pass[0] = false;
                 switch (e.getCode()) {
@@ -350,14 +350,14 @@ public class Text_box extends ResizeNode {
                 pass[0] = true;
             }
         } else {
-            if(input_e.getComposed().get(0).getHighlight() == InputMethodHighlight.UNSELECTED_CONVERTED){
+            if (input_e.getComposed().get(0).getHighlight() == InputMethodHighlight.UNSELECTED_CONVERTED) {
                 pass[2] = true;
                 pass[1] = false;
             } else {
                 pass[1] = true;
             }
 
-            if(pass[1]  && pass[2]){
+            if (pass[1] && pass[2]) {
                 pass[1] = false;
                 pass[2] = false;
                 TextObj input = new TextObj("");

@@ -7,6 +7,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+
 import java.io.*;
 import java.util.List;
 
@@ -52,8 +53,8 @@ public class Toolbar_InsertController {
 
             List<File> photo_list = fileChooser.showOpenMultipleDialog(controller.getStage());
 
-            if(!photo_list.isEmpty()){
-                for(File photo : photo_list){
+            if (!photo_list.isEmpty()) {
+                for (File photo : photo_list) {
                     FileInputStream input = null;
                     try {
                         input = new FileInputStream(photo);

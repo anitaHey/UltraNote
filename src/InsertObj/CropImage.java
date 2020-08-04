@@ -89,12 +89,12 @@ public class CropImage extends GridPane {
             this.background.setFitHeight(image_height);
             this.background.setFitWidth(image_width);
 
-            setCrop(0,0, image_width, image_height);
+            setCrop(0, 0, image_width, image_height);
 
             getCrop_pane().getChildren().clear();
             getCrop_pane().getChildren().add(this.crop_pic);
 
-            for(Rectangle rec : crop_arr)
+            for (Rectangle rec : crop_arr)
                 rec.toFront();
 
             ColorAdjust blackout = new ColorAdjust();
@@ -105,12 +105,12 @@ public class CropImage extends GridPane {
             setCropDrag();
 
             crop_pane.heightProperty().addListener((obs, oldVal, newVal) -> {
-                if(isCropping)
+                if (isCropping)
                     crop_pic.setFitHeight(newVal.doubleValue());
             });
 
-            crop_pane.widthProperty().addListener((obs, oldVal ,newVal) -> {
-                if(isCropping)
+            crop_pane.widthProperty().addListener((obs, oldVal, newVal) -> {
+                if (isCropping)
                     crop_pic.setFitWidth(newVal.doubleValue());
             });
 
@@ -126,7 +126,7 @@ public class CropImage extends GridPane {
     Pane crop_pane;
 
     public void setInitImg(double width, double height, double border) {
-        double scaleH = height/ last_height;
+        double scaleH = height / last_height;
         double scaleW = width / last_width;
 
         image_width *= scaleW;
@@ -134,8 +134,8 @@ public class CropImage extends GridPane {
         axis_x *= scaleW;
         axis_y *= scaleH;
 
-        crop_width = (int)width;
-        crop_height = (int)height;
+        crop_width = (int) width;
+        crop_height = (int) height;
 
         background.setFitWidth(image_width);
         background.setFitHeight(image_height);
@@ -162,7 +162,7 @@ public class CropImage extends GridPane {
         return crop_pane;
     }
 
-    public ImageView getCropBackground(){
+    public ImageView getCropBackground() {
         return background;
     }
 
@@ -260,14 +260,14 @@ public class CropImage extends GridPane {
     }
 
     public void setCrop(double x, double y, double width, double height) {
-        if(width <30) width = 30;
-        if(height < 30) height = 30;
+        if (width < 30) width = 30;
+        if (height < 30) height = 30;
 
-        if(x<0) x=0;
-        else if(x > image_width-30) x= image_width-30;
+        if (x < 0) x = 0;
+        else if (x > image_width - 30) x = image_width - 30;
 
-        if(y<0) y = 0;
-        else if(y > image_height-30) y = image_height-30;
+        if (y < 0) y = 0;
+        else if (y > image_height - 30) y = image_height - 30;
 
         axis_x = (int) x;
         axis_y = (int) y;

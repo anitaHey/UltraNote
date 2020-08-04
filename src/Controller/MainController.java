@@ -10,9 +10,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import javax.tools.Tool;
-import java.io.IOException;
-
 public class MainController {
     private static MainController instance;
     private Stage stage;

@@ -46,10 +46,9 @@ public class TextObj extends Label {
 //            System.out.println(e);
         });
 
-        this.layoutBoundsProperty().addListener((obs, oldValue, newValue)->{
-            System.out.println(newValue.getMinX()+" "+newValue.getMaxY()+5);
+        this.layoutBoundsProperty().addListener((obs, oldValue, newValue) -> {
             this.inputRequest.setPosition_x(newValue.getMinX());
-            this.inputRequest.setPosition_y(newValue.getMaxY()+5);
+            this.inputRequest.setPosition_y(newValue.getMaxY() + 5);
         });
     }
 

@@ -19,27 +19,28 @@ public class PaperController {
         instance = newInstance;
     }
 
-    public PaperController(){
+    public PaperController() {
         setInstance(this);
     }
 
-    public Paper getCurentPaper(){
+    public Paper getCurentPaper() {
         return getInstance().current;
     }
 
-    public void setCurentPaper(Paper pane){
+    public void setCurentPaper(Paper pane) {
         getInstance().current = pane;
     }
 
-    public void setFocusObject(BasicNode obj){
-        if(getInstance().getFocusObject() != null)
+    public void setFocusObject(BasicNode obj) {
+        if (getInstance().getFocusObject() != null)
             getInstance().getFocusObject().focus_border(false);
         getInstance().object = obj;
 
-        if(obj != null)
+        if (obj != null)
             obj.focus_border(true);
     }
-    public BasicNode getFocusObject(){
+
+    public BasicNode getFocusObject() {
         return getInstance().object;
     }
 }
