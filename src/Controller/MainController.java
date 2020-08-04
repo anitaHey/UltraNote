@@ -16,6 +16,7 @@ import java.io.IOException;
 public class MainController {
     private static MainController instance;
     private Stage stage;
+    private int toolbar_height = 138;
 
     @FXML
     Button exit, toolbar_file, toolbar_view, toolbar_insert, toolbar_text, toolbar_draw, toolbar_picture;
@@ -142,7 +143,7 @@ public class MainController {
             if (toolbar == -1) {
                 work_scroll.setPrefHeight(newValue.doubleValue() - 70);
             } else {
-                work_scroll.setPrefHeight(newValue.doubleValue() - 185);
+                work_scroll.setPrefHeight(newValue.doubleValue() - (toolbar_height + 70));
             }
 
         });
@@ -159,14 +160,14 @@ public class MainController {
             if (close) {
                 toolbar = -1;
                 toolbar_vbox.getChildren().remove(2);
-                work_scroll.setPrefHeight(work_scroll.getPrefHeight() + 115);
+                work_scroll.setPrefHeight(work_scroll.getPrefHeight() + toolbar_height);
                 type.getButton().getStyleClass().remove("toolbar_button_press");
             }
         } else if (toolbar == -1) {
             toolbar = type.getId();
             toolbar_vbox.getChildren().add(2, type.getToolbarUI());
 
-            work_scroll.setPrefHeight(work_scroll.getPrefHeight() - 115);
+            work_scroll.setPrefHeight(work_scroll.getPrefHeight() - toolbar_height);
             type.getButton().getStyleClass().add("toolbar_button_press");
         } else {
             toolbar_file.getStyleClass().remove("toolbar_button_press");

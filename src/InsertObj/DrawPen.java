@@ -1,19 +1,19 @@
 package InsertObj;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import Controller.Toolbar_DrawController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Slider;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 
 public class DrawPen extends SplitMenuButton {
+    Toolbar_DrawController draw_controll = Toolbar_DrawController.getInstance();
     private String penColor = "#000";
     private double penWidth = 1;
 
@@ -60,6 +60,10 @@ public class DrawPen extends SplitMenuButton {
 
         draw_color.valueProperty().addListener((observable, oldValue, newValue) -> {
             setPenColor(toRGBCode(newValue));
+        });
+
+        delete_pen.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            draw_controll.deleteDrawPen(this);
         });
     }
 

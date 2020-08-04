@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<javafx.scene.layout.HBox prefHeight="115.0" prefWidth="990.0" spacing="15.0" stylesheets="@../css/main_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Toolbar_DrawController">
+<javafx.scene.layout.HBox prefHeight="138.0" prefWidth="990.0" spacing="15.0" stylesheets="@../css/main_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Toolbar_DrawController">
     <padding>
         <Insets bottom="5.0" left="30.0" right="30.0" top="20.0" />
     </padding>
@@ -19,7 +20,7 @@
         <String fx:value="font_size" />
     </styleClass>
     <children>
-        <VBox fx:id="cancel_pen" alignment="CENTER" prefHeight="83.0" prefWidth="67.0" spacing="10.0" styleClass="toolbar_sm_button">
+        <VBox fx:id="cancel_pen" alignment="CENTER" spacing="10.0" styleClass="toolbar_sm_button">
             <children>
                 <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -28,14 +29,124 @@
                 </ImageView>
                 <Label text="選取物件" />
             </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
         </VBox>
-        <VBox alignment="CENTER" prefHeight="92.0" prefWidth="222.0" spacing="5.0">
+        <VBox alignment="CENTER" maxWidth="-Infinity" prefHeight="113.0" prefWidth="473.0" spacing="5.0">
             <children>
-                <HBox fx:id="pen_hbox" prefHeight="85.0" prefWidth="222.0" spacing="10.0" style="-fx-background-color: rgba(255,255,255,0.3);">
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                    </padding>
-                </HBox>
+            <ScrollPane fitToWidth="true" prefHeight="80.0" prefWidth="470.0" style="-fx-background: #dce1e6;">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <content>
+                  <FlowPane fx:id="pen_pane" alignment="CENTER_LEFT" hgap="10.0" prefWrapLength="470.0" vgap="10.0">
+                     <children>
+                        <SplitMenuButton fx:id="draw_eraser" mnemonicParsing="false" styleClass="draw_pen_split_btn" stylesheets="@../css/main_style.css">
+                           <graphic>
+                              <VBox alignment="CENTER" spacing="1.0">
+                                 <children>
+                                    <SVGPath fx:id="pen_color1" content="M10 10 H 32 V 38 H 10  L 10 10" fill="#5491bf" />
+                                    <SVGPath content="M10 10 H 30 V 21 H 10  L 10 10" fill="#f5ecec" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </graphic>
+                           <items>
+                              <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
+                                 <content>
+                                    <VBox style="-fx-background-color: #e1e6e8;">
+                                       <children>
+                                          <RadioButton mnemonicParsing="false" selected="true">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="eraser" />
+                                             </toggleGroup>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="10.0" />
+                                             </VBox.margin>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <graphic>
+                                                <HBox>
+                                                   <children>
+                                                      <ImageView fitHeight="27.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../pic/graph.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label text="筆劃橡皮擦">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                </HBox>
+                                             </graphic>
+                                          </RadioButton>
+                                          <RadioButton disable="true" mnemonicParsing="false" toggleGroup="$eraser">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="5.0" />
+                                             </VBox.margin>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                             <graphic>
+                                                <HBox>
+                                                   <children>
+                                                      <ImageView fitHeight="34.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../pic/eraser.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label text="普通橡皮擦">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="10.0" />
+                                                   </padding>
+                                                </HBox>
+                                             </graphic>
+                                          </RadioButton>
+                                          <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                             <children>
+                                                <TextField fx:id="earser_width_text" disable="true" prefHeight="29.0" prefWidth="48.0" text="1" />
+                                                <Slider fx:id="earser_width_slide" blockIncrement="1.0" disable="true" max="20.0" min="1.0" value="1.0" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" top="10.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="font_size" />
+                                          <String fx:value="split_btn_label" />
+                                       </styleClass>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </CustomMenuItem>
+                           </items>
+                        </SplitMenuButton>
+                     </children></FlowPane>
+               </content>
+            </ScrollPane>
                 <Label prefHeight="26.0" prefWidth="56.0" text="繪圖工具" />
             </children>
         </VBox>
@@ -56,7 +167,7 @@
             </VBox>
          </graphic>
          <items>
-            <MenuItem fx:id="toolbar_insert_phote_file" mnemonicParsing="false">
+            <MenuItem fx:id="add_pen_normal" mnemonicParsing="false">
                <graphic>
                   <HBox>
                      <children>
@@ -72,7 +183,7 @@
                   </HBox>
                </graphic>
             </MenuItem>
-            <MenuItem fx:id="toolbar_insert_phote_graph" mnemonicParsing="false">
+            <MenuItem fx:id="add_pen_light" mnemonicParsing="false">
                <graphic>
                   <HBox>
                      <children>
@@ -89,6 +200,9 @@
                </graphic>
             </MenuItem>
          </items>
+         <HBox.margin>
+            <Insets top="10.0" />
+         </HBox.margin>
       </MenuButton>
     </children>
 </javafx.scene.layout.HBox>
