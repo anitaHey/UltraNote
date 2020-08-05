@@ -1,5 +1,6 @@
 package InsertObj;
 
+import Controller.MainController;
 import Object.CodeBlockArea;
 import javafx.scene.shape.Circle;
 import org.fxmisc.flowless.VirtualizedScrollPane;
@@ -18,6 +19,8 @@ public class CodeBlock extends BasicNode {
         this.setMinH(150, false);
         this.setMinW(500, false);
 
+        MainController.getInstance().change_toolbar(MainController.Type.Code, false);
+
         getMain_content().heightProperty().addListener((obs, oldValue, newValue) -> {
             codeArea.setAreaPrefHeight(newValue.doubleValue());
         });
@@ -27,6 +30,10 @@ public class CodeBlock extends BasicNode {
         });
 
         this.getStylesheets().add("css/JavaKeyword.css");
+
+        this.setOnMouseClicked(e -> {
+            MainController.getInstance().change_toolbar(MainController.Type.Code, false);
+        });
     }
 
     @Override

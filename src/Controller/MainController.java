@@ -16,7 +16,7 @@ public class MainController {
     private int toolbar_height = 138;
 
     @FXML
-    Button exit, toolbar_file, toolbar_view, toolbar_insert, toolbar_text, toolbar_draw, toolbar_picture;
+    Button exit, toolbar_file, toolbar_view, toolbar_insert, toolbar_text, toolbar_draw, toolbar_picture, toolbar_code;
     @FXML
     VBox main_vbox, toolbar_vbox, work_vbox;
     @FXML
@@ -49,7 +49,8 @@ public class MainController {
         Insert(3, "../FXML/Toolbar_InsertFxml.fxml", new Toolbar_InsertController()),
         Text(4, "../FXML/Toolbar_TextFxml.fxml", new Toolbar_TextController()),
         Picture(5, "../FXML/Toolbar_PictureFxml.fxml", new Toolbar_PictureController()),
-        Draw(6, "../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController());
+        Draw(6, "../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController()),
+        Code(7, "../FXML/Toolbar_CodeFxml.fxml", new Toolbar_CodeController());
 
         private final int id;
         private Button btn;
@@ -103,6 +104,7 @@ public class MainController {
         Type.Text.setBtn(toolbar_text);
         Type.Picture.setBtn(toolbar_picture);
         Type.Draw.setBtn(toolbar_draw);
+        Type.Code.setBtn(toolbar_code);
 
         exit.setOnAction(actionEvent -> Platform.exit());
 
@@ -123,6 +125,9 @@ public class MainController {
         });
         toolbar_draw.setOnAction(actionEvent -> {
             change_toolbar(Type.Draw, true);
+        });
+        toolbar_code.setOnAction(actionEvent -> {
+            change_toolbar(Type.Code, true);
         });
 
         work_scroll.getStyleClass().add("word_area");
@@ -173,6 +178,7 @@ public class MainController {
             toolbar_text.getStyleClass().remove("toolbar_button_press");
             toolbar_draw.getStyleClass().remove("toolbar_button_press");
             toolbar_picture.getStyleClass().remove("toolbar_button_press");
+            toolbar_code.getStyleClass().remove("toolbar_button_press");
 
             toolbar = type.getId();
             toolbar_vbox.getChildren().remove(2);

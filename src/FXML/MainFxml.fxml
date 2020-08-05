@@ -26,6 +26,7 @@
                         <Button fx:id="toolbar_text" mnemonicParsing="false" prefHeight="45.0" prefWidth="101.0" styleClass="toolbar_button" text="文字" />
                         <Button fx:id="toolbar_picture" mnemonicParsing="false" prefHeight="44.0" prefWidth="101.0" styleClass="toolbar_button" text="圖片" />
                         <Button fx:id="toolbar_draw" mnemonicParsing="false" prefHeight="44.0" prefWidth="101.0" styleClass="toolbar_button" text="繪畫" />
+                        <Button fx:id="toolbar_code" mnemonicParsing="false" prefHeight="44.0" prefWidth="135.0" styleClass="toolbar_button" text="程式" />
                      </children>
                   </HBox>
                </children>
