@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<javafx.scene.layout.HBox prefHeight="138.0" prefWidth="990.0" spacing="15.0" stylesheets="@../css/main_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Toolbar_InsertController">
+<javafx.scene.layout.HBox prefHeight="138.0" prefWidth="990.0" spacing="5.0" stylesheets="@../css/main_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Toolbar_InsertController">
    <children>
       <VBox fx:id="toolbar_insert_text" alignment="CENTER" prefHeight="62.0" prefWidth="60.0" spacing="5.0" styleClass="toolbar_sm_button">
          <children>
@@ -23,7 +23,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
          </padding>
          <HBox.margin>
-            <Insets />
+            <Insets right="10.0" />
          </HBox.margin>
       </VBox>
       <MenuButton mnemonicParsing="false" prefHeight="87.0" prefWidth="87.0" styleClass="toolbar_sm_button">
@@ -87,6 +87,19 @@
             </VBox>
          </graphic>
       </MenuButton>
+      <VBox fx:id="toolbar_insert_code" alignment="CENTER" prefHeight="87.0" prefWidth="66.0" spacing="5.0" styleClass="toolbar_sm_button">
+         <children>
+            <ImageView fitHeight="49.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pic/coding.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="71.0" prefWidth="114.0" styleClass="toolbar_button_label" text="程式區域" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+         </padding>
+      </VBox>
    </children>
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

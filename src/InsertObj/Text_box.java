@@ -8,8 +8,6 @@ import Object.TextUnderline;
 import Object.TextProperty;
 import javafx.application.Platform;
 import javafx.event.Event;
-import javafx.event.EventDispatchChain;
-import javafx.event.EventTarget;
 import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -43,6 +41,8 @@ public class Text_box extends ResizeNode {
     }
 
     public void Init() {
+        setHasMin(true);
+
         text_vbox = new VBox();
         text_vbox.setPrefWidth(100);
         text_vbox.setAlignment(Pos.TOP_LEFT);

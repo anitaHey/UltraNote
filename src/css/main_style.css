@@ -251,3 +251,8 @@
     -fx-background-insets : 2.0, 0.0, 0.0;
     -fx-background-radius : 2.0em;
 }
+
+.code_block_style{
+    -fx-border-color: #dadada;
+    -fx-border-width: 2;
+}

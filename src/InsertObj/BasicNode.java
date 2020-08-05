@@ -17,6 +17,7 @@ import java.util.List;
 
 public class BasicNode extends VBox {
     private String type;
+    private boolean hasMin;
     private PaperController paper_controller = PaperController.getInstance();
     private Paper paper = paper_controller.getCurentPaper();
     private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0;
@@ -99,14 +100,32 @@ public class BasicNode extends VBox {
         return type;
     }
 
+    public boolean getHasMin() {
+        return hasMin;
+    }
+
+    public void setHasMin(boolean input){
+        hasMin = input;
+    }
+
     public void setMinW(double w, boolean set) {
-        if (set) this.getMain_content().setMinWidth(w);
-        minW = w;
+        if (getHasMin()) {
+            if (set) this.getMain_content().setMinWidth(w);
+            minW = w;
+        } else {
+            this.getMain_content().setPrefWidth(w);
+            minW = 0;
+        }
     }
 
     public void setMinH(double h, boolean set) {
-        if (set) this.getMain_content().setMinHeight(h);
-        minH = h;
+        if (getHasMin()) {
+            if (set) this.getMain_content().setMinHeight(h);
+            minH = h;
+        } else {
+            this.getMain_content().setPrefHeight(h);
+            minH = 0;
+        }
     }
 
     public void setDrag() {
@@ -122,7 +141,9 @@ public class BasicNode extends VBox {
             paper_controller.setFocusObject(this);
         } else if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
             paper.setClick(false);
+
             cursor = getResize(event, 15);
+
             if (cursor == -1) {
                 paper.setCursor(Cursor.MOVE);
             } else {
@@ -134,11 +155,9 @@ public class BasicNode extends VBox {
                 this.lastMouseX = event.getSceneX();
                 this.lastMouseY = event.getSceneY();
 
-                if (!(type.equals("text") && !isBorder(event))) {
-                    if (cursor == -1)
-                        paper.setCursor(Cursor.MOVE);
-                    this.dragging = true;
-                }
+                if (cursor == -1)
+                    paper.setCursor(Cursor.MOVE);
+                this.dragging = true;
 
                 event.consume();
             }
@@ -174,6 +193,9 @@ public class BasicNode extends VBox {
                 double width = this.getMain_content().getWidth();
                 double height = this.getMain_content().getHeight();
 
+                double prefWidth = this.getMain_content().getPrefWidth();
+                double prefHeight = this.getMain_content().getPrefHeight();
+
                 Bounds pane = this.getBoundsInLocal();
                 double moveMinX = pane.getMinX() - event.getX();
                 double moveMinY = pane.getMinY() - event.getY();
@@ -185,53 +207,92 @@ public class BasicNode extends VBox {
 
                 boolean minX = false, maxX = false, minY = false, maxY = false;
 
-                minX = (minWidth + moveMinX) > minW;
-                maxX = (minWidth + moveMaxX) > minW;
-                minY = (minHeight + moveMinY) > minH;
-                maxY = (minHeight + moveMaxY) > minH;
+                if (getHasMin()) {
+                    minX = (minWidth + moveMinX) > minW;
+                    maxX = (minWidth + moveMaxX) > minW;
+                    minY = (minHeight + moveMinY) > minH;
+                    maxY = (minHeight + moveMaxY) > minH;
+                } else {
+                    minX = prefWidth > 0;
+                    maxX = prefWidth > 0;
+                    minY = prefHeight > 0;
+                    maxY = prefHeight > 0;
+                }
 
                 switch (cursor) {
                     case 0:
-                        if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
-                        if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                        if (getHasMin()) {
+                            if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
+                            if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                        } else {
+                            this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
+                            this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
+                        }
 
                         if (minX) this.setTranslateX(initialLayoutX - moveMinX);
                         if (minY) this.setTranslateY(initialLayoutY - moveMinY);
                         break;
                     case 1:
-                        if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                        if (getHasMin()) {
+                            if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                        } else
+                            this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
 
                         if (minY) this.setTranslateY(initialLayoutY - moveMinY);
                         break;
                     case 2:
-                        if (maxX) this.getMain_content().setMinWidth(width + moveMaxX);
+                        if (getHasMin()) {
+                            if (maxX) this.getMain_content().setMinWidth(width + moveMaxX);
 
-                        if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                            if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                        } else {
+                            this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
+                            this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
+                        }
 
                         if (minY) this.setTranslateY(initialLayoutY - moveMinY);
                         break;
                     case 3:
-
-                        if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
+                        if (getHasMin()) {
+                            if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
+                        } else
+                            this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
 
                         if (minX) this.setTranslateX(initialLayoutX - moveMinX);
                         break;
                     case 4:
-                        this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
+                        if (getHasMin())
+                            this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
+                        else
+                            this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
                         break;
                     case 5:
-                        if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
+                        if (getHasMin()) {
+                            if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
 
-                        if (maxY) this.getMain_content().setMinHeight(height + moveMaxY);
+                            if (maxY) this.getMain_content().setMinHeight(height + moveMaxY);
+                        } else {
+                            this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
+                            this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
+                        }
 
                         if (minX) this.setTranslateX(initialLayoutX - moveMinX);
                         break;
                     case 6:
-                        this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
+                        if (getHasMin())
+                            this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
+                        else
+                            this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
+
                         break;
                     case 7:
-                        this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
-                        this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
+                        if (getHasMin()) {
+                            this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
+                            this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
+                        } else {
+                            this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
+                            this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
+                        }
 
                         break;
                 }

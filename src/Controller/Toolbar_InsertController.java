@@ -1,5 +1,6 @@
 package Controller;
 
+import InsertObj.CodeBlock;
 import InsertObj.Picture;
 import InsertObj.Text_box;
 import javafx.fxml.FXML;
@@ -28,7 +29,7 @@ public class Toolbar_InsertController {
     }
 
     @FXML
-    VBox toolbar_insert_text;
+    VBox toolbar_insert_text, toolbar_insert_code;
     @FXML
     MenuItem toolbar_insert_phote_file, toolbar_insert_phote_graph;
 
@@ -70,6 +71,12 @@ public class Toolbar_InsertController {
                     paper_controller.getCurentPaper().addNode(image);
                 }
             }
+        });
+
+        toolbar_insert_code.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            CodeBlock codeBlock = new CodeBlock();
+            codeBlock.requestFocus();
+            paper_controller.getCurentPaper().addNode(codeBlock);
         });
     }
 }

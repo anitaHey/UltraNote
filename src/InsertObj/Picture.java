@@ -28,7 +28,7 @@ public class Picture extends ResizeNode {
         byte[] bytes = baos.toByteArray();
 
         this.inputStream = new ByteArrayInputStream(bytes);
-        ;
+        setHasMin(false);
 
         Init();
     }

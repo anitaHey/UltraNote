@@ -16,6 +16,7 @@ public class DrawLine extends BasicNode {
     public DrawLine() {
         super("draw");
 
+        setHasMin(true);
         this.cancelDrag();
         group = new Group();
         path = new Path();

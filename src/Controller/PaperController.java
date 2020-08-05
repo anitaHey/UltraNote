@@ -36,8 +36,9 @@ public class PaperController {
             getInstance().getFocusObject().focus_border(false);
         getInstance().object = obj;
 
-        if (obj != null)
+        if (obj != null){
             obj.focus_border(true);
+        }
     }
 
     public BasicNode getFocusObject() {

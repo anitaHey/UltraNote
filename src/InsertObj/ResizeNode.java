@@ -93,29 +93,6 @@ public class ResizeNode extends BasicNode {
         isCrop.set(input);
     }
 
-    @Override
-    public void setMinW(double w, boolean set) {
-        if (type.equals("text")) {
-            if (set) this.getMain_content().setMinWidth(w);
-            minW = w;
-        } else if (type.equals("picture")) {
-            this.getMain_content().setPrefWidth(w);
-            minW = 0;
-        }
-
-    }
-
-    @Override
-    public void setMinH(double h, boolean set) {
-        if (type.equals("text")) {
-            if (set) this.getMain_content().setMinHeight(h);
-            minH = h;
-        } else if (type.equals("picture")) {
-            this.getMain_content().setPrefHeight(h);
-            minH = 0;
-        }
-    }
-
     public void setNodeRotate(double degree) {
         rotate.setPivotX(this.getWidth() / 2);
         rotate.setPivotY(this.getHeight() / 2);
@@ -203,12 +180,12 @@ public class ResizeNode extends BasicNode {
 
                     boolean minX = false, maxX = false, minY = false, maxY = false;
 
-                    if (type.equals("text")) {
+                    if (getHasMin()) {
                         minX = (minWidth + moveMinX) > minW;
                         maxX = (minWidth + moveMaxX) > minW;
                         minY = (minHeight + moveMinY) > minH;
                         maxY = (minHeight + moveMaxY) > minH;
-                    } else if (type.equals("picture")) {
+                    } else {
                         minX = prefWidth > 0;
                         maxX = prefWidth > 0;
                         minY = prefHeight > 0;
@@ -217,10 +194,10 @@ public class ResizeNode extends BasicNode {
 
                     switch (cursor) {
                         case 0:
-                            if (type.equals("text")) {
+                            if (getHasMin()) {
                                 if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
                                 if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
-                            } else if (type.equals("picture")) {
+                            } else {
                                 this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
                                 this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
                             }
@@ -229,19 +206,19 @@ public class ResizeNode extends BasicNode {
                             if (minY) this.setTranslateY(initialLayoutY - moveMinY);
                             break;
                         case 1:
-                            if (type.equals("text")) {
+                            if (getHasMin()) {
                                 if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
-                            } else if (type.equals("picture"))
+                            } else
                                 this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
 
                             if (minY) this.setTranslateY(initialLayoutY - moveMinY);
                             break;
                         case 2:
-                            if (type.equals("text")) {
+                            if (getHasMin()) {
                                 if (maxX) this.getMain_content().setMinWidth(width + moveMaxX);
 
                                 if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
-                            } else if (type.equals("picture")) {
+                            } else {
                                 this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
                                 this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
                             }
@@ -249,25 +226,25 @@ public class ResizeNode extends BasicNode {
                             if (minY) this.setTranslateY(initialLayoutY - moveMinY);
                             break;
                         case 3:
-                            if (type.equals("text")) {
+                            if (getHasMin()) {
                                 if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
-                            } else if (type.equals("picture"))
+                            } else
                                 this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
 
                             if (minX) this.setTranslateX(initialLayoutX - moveMinX);
                             break;
                         case 4:
-                            if (type.equals("text"))
+                            if (getHasMin())
                                 this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
-                            else if (type.equals("picture"))
+                            else
                                 this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
                             break;
                         case 5:
-                            if (type.equals("text")) {
+                            if (getHasMin()) {
                                 if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
 
                                 if (maxY) this.getMain_content().setMinHeight(height + moveMaxY);
-                            } else if (type.equals("picture")) {
+                            } else {
                                 this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
                                 this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
                             }
@@ -275,17 +252,17 @@ public class ResizeNode extends BasicNode {
                             if (minX) this.setTranslateX(initialLayoutX - moveMinX);
                             break;
                         case 6:
-                            if (type.equals("text"))
+                            if (getHasMin())
                                 this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
-                            else if (type.equals("picture"))
+                            else
                                 this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
 
                             break;
                         case 7:
-                            if (type.equals("text")) {
+                            if (getHasMin()) {
                                 this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
                                 this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
-                            } else if (type.equals("picture")) {
+                            } else {
                                 this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
                                 this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
                             }

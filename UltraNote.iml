@@ -22,5 +22,6 @@
         <jarDirectory url="file://$APPLICATION_HOME_DIR$/jbr/bin/commons-io-2.6" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="richtextfx-fat-0.10.5" level="project" />
   </component>
 </module>

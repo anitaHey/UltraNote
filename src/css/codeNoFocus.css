@@ -1,0 +1,3 @@
+.paragraph-box:has-caret {
+    -fx-background-color: transparent;
+}
