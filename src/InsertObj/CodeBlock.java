@@ -1,12 +1,21 @@
 package InsertObj;
 
 import Controller.MainController;
+import Controller.PaperController;
+import Controller.Toolbar_CodeController;
 import Object.CodeBlockArea;
+import Object.CodeResultBlock;
 import javafx.scene.shape.Circle;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 
 public class CodeBlock extends BasicNode {
+    private Toolbar_CodeController codeC_controller = Toolbar_CodeController.getInstance();
+    private PaperController paper_controller = PaperController.getInstance();
+
     private CodeBlockArea codeArea;
+    private CodeResultBlock resultBlock;
+    private String className;
+    private boolean isShowResult;
 
     public CodeBlock() {
         super("code");
@@ -15,8 +24,10 @@ public class CodeBlock extends BasicNode {
         codeArea = new CodeBlockArea();
         codeArea.getStyleClass().add("code_block_style");
 
+        resultBlock = new CodeResultBlock();
+
         this.getMain_content().getChildren().add(new VirtualizedScrollPane<>(codeArea));
-        this.setMinH(150, false);
+        this.setMinH(155, false);
         this.setMinW(500, false);
 
         MainController.getInstance().change_toolbar(MainController.Type.Code, false);
@@ -33,6 +44,9 @@ public class CodeBlock extends BasicNode {
 
         this.setOnMouseClicked(e -> {
             MainController.getInstance().change_toolbar(MainController.Type.Code, false);
+            codeC_controller.setNoSet(true);
+            codeC_controller.setShowResult(isShowResult);
+            codeC_controller.setNoSet(false);
         });
     }
 
@@ -56,6 +70,41 @@ public class CodeBlock extends BasicNode {
                 cir.getStyleClass().add("hide");
             }
             this.getStylesheets().add("css/codeNoFocus.css");
+        }
+    }
+
+    public CodeBlockArea getCodeArea() {
+        return codeArea;
+    }
+
+    public String getCodeString(){
+        return getCodeArea().getText();
+    }
+
+    public void setClassName(String input){
+        className = input;
+        getResultBlock().setClassName(input);
+    }
+
+    public String getClassName(){
+        return className;
+    }
+
+    public CodeResultBlock getResultBlock(){
+        return resultBlock;
+    }
+
+    public boolean getShowResult(){
+        return isShowResult;
+    }
+
+    public void setShowResult(boolean input){
+        isShowResult = input;
+
+        if(input) {
+            paper_controller.getCurentPaper().addNode(getResultBlock());
+        } else {
+            paper_controller.getCurentPaper().removeNode(getResultBlock());
         }
     }
 }

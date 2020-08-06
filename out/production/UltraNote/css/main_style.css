@@ -1,3 +1,8 @@
+.root {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
 .no_focus:focused{
     -fx-background-color: transparent;
 }
@@ -226,8 +231,8 @@
 
 }
 
- .scroll-bar .increment-arrow,
- .scroll-bar .decrement-arrow{
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
     -fx-shape : " ";
     -fx-padding :0.15em 0.0;
 }
@@ -255,4 +260,23 @@
 .code_block_style{
     -fx-border-color: #dadada;
     -fx-border-width: 2;
+}
+
+.code_result_area{
+    -fx-background-color: transparent;
+}
+
+.code_result_area .content{
+    -fx-background-color: rgba(220, 222, 227, 0.7);
+}
+
+.code_result {
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 2;
+}
+
+.code_result .label{
+    -fx-text-fill: #696969;
+    -fx-background-color: #e0e0e0;
+    -fx-text-alignment: center;
 }

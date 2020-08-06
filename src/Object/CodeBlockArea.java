@@ -21,8 +21,7 @@ public class CodeBlockArea extends CodeArea {
                 .subscribe(ignore -> this.setStyleSpans(0, CodeUtils.computeHighlighting(this.getText())));
 
         final Pattern whiteSpace = Pattern.compile("^\\s+");
-        this.addEventHandler(KeyEvent.KEY_PRESSED, KE ->
-        {
+        this.addEventHandler(KeyEvent.KEY_PRESSED, KE -> {
             if (KE.getCode() == KeyCode.ENTER) {
                 int caretPosition = this.getCaretPosition();
                 int currentParagraph = this.getCurrentParagraph();

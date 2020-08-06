@@ -36,5 +36,21 @@
             <Insets bottom="10.0" />
          </HBox.margin>
         </VBox>
+      <TextArea fx:id="code_result_text" editable="false" prefHeight="103.0" prefWidth="467.0" promptText="Running result will show here." styleClass="code_result_area" wrapText="true">
+         <HBox.margin>
+            <Insets bottom="10.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+         </padding>
+      </TextArea>
+      <VBox alignment="TOP_CENTER">
+         <children>
+            <CheckBox fx:id="check_ans" mnemonicParsing="false" prefHeight="19.0" prefWidth="111.0" text="獨立顯示答案" />
+         </children>
+      </VBox>
     </children>
 </javafx.scene.layout.HBox>
