@@ -29,7 +29,7 @@ public class Toolbar_InsertController {
     }
 
     @FXML
-    VBox toolbar_insert_text, toolbar_insert_code;
+    VBox toolbar_insert_text, toolbar_insert_code, toolbar_insert_list;
     @FXML
     MenuItem toolbar_insert_phote_file, toolbar_insert_phote_graph;
 
@@ -77,6 +77,10 @@ public class Toolbar_InsertController {
             CodeBlock codeBlock = new CodeBlock();
             codeBlock.requestFocus();
             paper_controller.getCurentPaper().addNode(codeBlock);
+        });
+
+        toolbar_insert_list.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+
         });
     }
 }

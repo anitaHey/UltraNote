@@ -44,24 +44,26 @@ public class MainController {
     }
 
     public enum Type {
-        File(1, "../FXML/Toolbar_FileFxml.fxml", new Toolbar_FileController()),
-        View(2, "../FXML/Toolbar_ViewFxml.fxml", new Toolbar_ViewController()),
-        Insert(3, "../FXML/Toolbar_InsertFxml.fxml", new Toolbar_InsertController()),
-        Text(4, "../FXML/Toolbar_TextFxml.fxml", new Toolbar_TextController()),
-        Picture(5, "../FXML/Toolbar_PictureFxml.fxml", new Toolbar_PictureController()),
-        Draw(6, "../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController()),
-        Code(7, "../FXML/Toolbar_CodeFxml.fxml", new Toolbar_CodeController());
+        File(1, "../FXML/Toolbar_FileFxml.fxml", new Toolbar_FileController(), true),
+        View(2, "../FXML/Toolbar_ViewFxml.fxml", new Toolbar_ViewController(), true),
+        Insert(3, "../FXML/Toolbar_InsertFxml.fxml", new Toolbar_InsertController(), true),
+        Text(4, "../FXML/Toolbar_TextFxml.fxml", new Toolbar_TextController(), true),
+        Picture(5, "../FXML/Toolbar_PictureFxml.fxml", new Toolbar_PictureController(), false),
+        Draw(6, "../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController(), true),
+        Code(7, "../FXML/Toolbar_CodeFxml.fxml", new Toolbar_CodeController(),false);
 
         private final int id;
         private Button btn;
         private final String URL;
         private final Object controller;
         private HBox toolbarUI;
+        private boolean default_show;
 
-        Type(int id, String url, Object controller) {
+        Type(int id, String url, Object controller, boolean default_show) {
             this.id = id;
             this.URL = url;
             this.controller = controller;
+            this.default_show = default_show;
 
             try {
                 toolbarUI = FXMLLoader.load(getClass().getResource(URL));
@@ -72,6 +74,8 @@ public class MainController {
 
         public void setBtn(Button btn) {
             this.btn = btn;
+            this.btn.managedProperty().bind(this.btn.visibleProperty());
+//            if(!default_show) this.setVisible(false);
         }
 
         public String getURL() {
@@ -92,6 +96,10 @@ public class MainController {
 
         public Button getButton() {
             return btn;
+        }
+
+        public void setVisible(boolean input) {
+            getButton().setVisible(input);
         }
     }
 

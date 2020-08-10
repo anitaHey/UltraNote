@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/InsertObj/CheckList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Object/CheckListBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object/CodeResultBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/CodeResultBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,7 +378,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596734994999</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="20200810 Fix some bugs.">
+      <created>1597051591421</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1597051591421</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -394,7 +405,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20200410 Fix ResizeNode." />
     <MESSAGE value="20200411 Add node resize." />
     <MESSAGE value="20200414 Add picture border." />
     <MESSAGE value="20200416 Fixed crop img." />
@@ -419,7 +429,8 @@
     <MESSAGE value="20200806 Add code block." />
     <MESSAGE value="20200806 Add code toolbar" />
     <MESSAGE value="20200807 Add code block for code compile." />
-    <option name="LAST_COMMIT_MESSAGE" value="20200807 Add code block for code compile." />
+    <MESSAGE value="20200810 Fix some bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="20200810 Fix some bugs." />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1596704568378">
@@ -430,11 +441,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="704" y="373" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1595998946863" />
-    <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1596734994146">
+    <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1597051590468">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1589178441242" />
-    <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596734994146" />
+    <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597051590468" />
     <state x="653" y="212" key="FileChooserDialogImpl" timestamp="1596644314887">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -472,11 +483,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="93" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596606204557" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1596735011637">
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1597051599421">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1589178453595" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596735011637" />
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597051599421" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1597045518251">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
