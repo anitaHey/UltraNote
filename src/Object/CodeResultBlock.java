@@ -24,7 +24,8 @@ public class CodeResultBlock extends BasicNode {
         vbox.getChildren().add(className);
         vbox.getChildren().add(area);
         vbox.getStyleClass().add("code_result");
-        this.getMain_content().getChildren().add(new ScrollPane(vbox));
+
+        this.getMain_content().getChildren().add(vbox);
 
         this.setMinH(200, false);
         this.setMinW(200, false);
