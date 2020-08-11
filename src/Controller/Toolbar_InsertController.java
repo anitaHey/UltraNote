@@ -1,5 +1,6 @@
 package Controller;
 
+import InsertObj.CheckList;
 import InsertObj.CodeBlock;
 import InsertObj.Picture;
 import InsertObj.Text_box;
@@ -80,7 +81,9 @@ public class Toolbar_InsertController {
         });
 
         toolbar_insert_list.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-
+            CheckList checkList = new CheckList();
+            checkList.requestFocus();
+            paper_controller.getCurentPaper().addNode(checkList);
         });
     }
 }
