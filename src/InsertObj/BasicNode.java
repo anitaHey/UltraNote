@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -23,6 +24,8 @@ public class BasicNode extends VBox {
     private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0;
     private boolean dragging = false, cropping = false, rotating = false;
     private int cursor = -1;
+    private Node parent;
+
 
     public BasicNode(String type) {
         try {
@@ -116,6 +119,14 @@ public class BasicNode extends VBox {
             this.getMain_content().setPrefWidth(w);
             minW = 0;
         }
+    }
+
+    public void setNodeParent(Node node) {
+        parent = node;
+    }
+
+    public Node getNodeParent() {
+        return parent;
     }
 
     public void setMinH(double h, boolean set) {

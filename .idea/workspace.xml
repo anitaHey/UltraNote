@@ -3,12 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController$Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/PaperController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/PaperController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_InsertController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_InsertController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_InsertFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_InsertFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/css/main_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/css/main_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PaperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaperController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FXML/CheckListBlockFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/CheckListBlockFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/CheckList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CheckList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Object/CheckListBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/CheckListBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/main_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/main_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -393,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597079189581</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="20200812 Add checklist drop detect.">
+      <created>1597164667805</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1597164667805</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -413,7 +424,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20200414 Add picture border." />
     <MESSAGE value="20200416 Fixed crop img." />
     <MESSAGE value="20200418 Fix image crop." />
     <MESSAGE value="20200421 Fix picture crop." />
@@ -438,7 +448,8 @@
     <MESSAGE value="20200807 Add code block for code compile." />
     <MESSAGE value="20200810 Fix some bugs." />
     <MESSAGE value="20200811 Add checkList" />
-    <option name="LAST_COMMIT_MESSAGE" value="20200811 Add checkList" />
+    <MESSAGE value="20200812 Add checklist drop detect." />
+    <option name="LAST_COMMIT_MESSAGE" value="20200812 Add checklist drop detect." />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1596704568378">
@@ -449,11 +460,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="704" y="373" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1595998946863" />
-    <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1597079188994">
+    <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1597164666722">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1589178441242" />
-    <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597079188994" />
+    <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597164666722" />
     <state x="653" y="212" key="FileChooserDialogImpl" timestamp="1596644314887">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -463,57 +473,43 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="773" y="414" key="Github.CreateGistDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596648719423" />
-    <state width="1876" height="102" key="GridCell.Tab.0.bottom" timestamp="1597164528183">
+    <state width="1876" height="104" key="GridCell.Tab.0.bottom" timestamp="1599576370421">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1326" height="161" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1589181507697" />
-    <state width="1860" height="102" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1597164484347" />
-    <state width="1876" height="102" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597164528183" />
-    <state width="1876" height="102" key="GridCell.Tab.0.center" timestamp="1597164528183">
+    <state width="1876" height="104" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599567473164" />
+    <state width="1876" height="104" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599576370421" />
+    <state width="1876" height="104" key="GridCell.Tab.0.center" timestamp="1599576370420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1326" height="161" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1589181507696" />
-    <state width="1860" height="102" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1597164484347" />
-    <state width="1876" height="102" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597164528183" />
-    <state width="1876" height="102" key="GridCell.Tab.0.left" timestamp="1597164528183">
+    <state width="1876" height="104" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599567473163" />
+    <state width="1876" height="104" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599576370420" />
+    <state width="1876" height="104" key="GridCell.Tab.0.left" timestamp="1599576370420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1326" height="161" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1589181507696" />
-    <state width="1860" height="102" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1597164484346" />
-    <state width="1876" height="102" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597164528183" />
-    <state width="1876" height="102" key="GridCell.Tab.0.right" timestamp="1597164528183">
+    <state width="1876" height="104" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599567473163" />
+    <state width="1876" height="104" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599576370420" />
+    <state width="1876" height="104" key="GridCell.Tab.0.right" timestamp="1599576370421">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1326" height="161" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1589181507697" />
-    <state width="1860" height="102" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1597164484347" />
-    <state width="1876" height="102" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597164528183" />
+    <state width="1876" height="104" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599567473163" />
+    <state width="1876" height="104" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599576370421" />
     <state x="440" y="93" key="SettingsEditor" timestamp="1596606204557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="93" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596606204557" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1597079198960">
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1597164673347">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1589178453595" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597079198960" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1597135074972">
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597164673347" />
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1599453886768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1589173129262" />
     <state x="-1398" y="320" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1595918043033" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597135074972" />
-    <state x="395" y="228" key="git4idea.merge.GitPullDialog" timestamp="1589178447258">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state x="395" y="228" key="git4idea.merge.GitPullDialog/0.0.1368.872@0.0.1368.872" timestamp="1589178447258" />
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599453886768" />
     <state x="336" y="128" key="new project wizard" timestamp="1596636769946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="336" y="128" key="new project wizard/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596636769946" />
-    <state x="348" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1589176844934">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state x="348" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1589176844934" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UltraNote$Main.ic" NAME="Main Coverage Results" MODIFIED="1586693958468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

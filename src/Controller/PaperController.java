@@ -5,12 +5,13 @@ import InsertObj.Paper;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 public class PaperController {
     private static PaperController instance;
     private Paper current;
     private BasicNode object;
-    private Pane drop_node;
+    private VBox drop_node;
 
     public static PaperController getInstance() {
         if (instance == null) {
@@ -36,31 +37,38 @@ public class PaperController {
     }
 
     public void setFocusObject(BasicNode obj) {
-        if (getInstance().getFocusObject() != null){
+        if (getInstance().getFocusObject() != null) {
             getInstance().getFocusObject().focus_border(false);
             getInstance().getFocusObject().removeEventFilter(MouseEvent.ANY, eventHandler);
         }
         getInstance().object = obj;
 
-        if (obj != null){
+        if (obj != null) {
             obj.focus_border(true);
-            getInstance().getFocusObject().addEventFilter(MouseEvent.ANY, eventHandler);
+            if (getInstance().getFocusObject().getNodeParent() == null)
+                getInstance().getFocusObject().addEventFilter(MouseEvent.ANY, eventHandler);
+            else
+                getInstance().getFocusObject().getNodeParent().setMouseTransparent(true);
+
         }
     }
+
     //TODO: BUG here.
     EventHandler<MouseEvent> eventHandler = mouseEvent -> {
-        if(getInstance().getFocusObject() != null){
-            if(mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED){
+        if (getInstance().getFocusObject() != null) {
+            if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
                 getInstance().getFocusObject().setMouseTransparent(true);
-            } else if(mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED){
-                if(getDropNode() != null){
+            } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
+                if (getDropNode() != null) {
                     getDropNode().getChildren().add(getInstance().getFocusObject());
+                    getInstance().getFocusObject().setNodeParent(getDropNode());
                     getInstance().getFocusObject().setTranslateX(0);
                     getInstance().getFocusObject().setTranslateY(0);
                     getInstance().getFocusObject().toFront();
                 }
+
                 getInstance().getFocusObject().setMouseTransparent(false);
-            } else if(mouseEvent.getEventType() == MouseEvent.DRAG_DETECTED){
+            } else if (mouseEvent.getEventType() == MouseEvent.DRAG_DETECTED) {
                 getInstance().getFocusObject().startFullDrag();
             }
         }
@@ -70,11 +78,11 @@ public class PaperController {
         return getInstance().object;
     }
 
-    public void setDropNode(Pane obj) {
+    public void setDropNode(VBox obj) {
         drop_node = obj;
     }
 
-    public Pane getDropNode() {
+    public VBox getDropNode() {
         return drop_node;
     }
 }

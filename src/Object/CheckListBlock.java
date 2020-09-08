@@ -7,6 +7,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 public class CheckListBlock extends HBox {
     private PaperController paper_controller = PaperController.getInstance();
@@ -28,7 +29,7 @@ public class CheckListBlock extends HBox {
     @FXML
     CheckBox check;
     @FXML
-    Pane pane;
+    VBox pane;
 
     @FXML
     public void initialize() {

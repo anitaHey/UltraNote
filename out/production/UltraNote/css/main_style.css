@@ -196,7 +196,7 @@
     -fx-background-color: #a1a8ad;
 }
 
-.draw_pen_split_btn_pressed > .label:hover{
+.draw_pen_split_btn_pressed > .label:hover {
     -fx-border-color: #717578;
 }
 
@@ -207,7 +207,7 @@
 }
 
 .scroll-bar:horizontal .track,
-.scroll-bar:vertical .track{
+.scroll-bar:vertical .track {
     -fx-background-color :transparent;
     -fx-border-color :transparent;
     -fx-background-radius : 0.0em;
@@ -238,7 +238,7 @@
 }
 
  .scroll-bar:vertical .increment-arrow,
- .scroll-bar:vertical .decrement-arrow{
+ .scroll-bar:vertical .decrement-arrow {
     -fx-shape : " ";
     -fx-padding :0.0 0.15em;
 }
@@ -257,16 +257,16 @@
     -fx-background-radius : 2.0em;
 }
 
-.code_block_style{
+.code_block_style {
     -fx-border-color: #dadada;
     -fx-border-width: 2;
 }
 
-.code_result_area{
+.code_result_area {
     -fx-background-color: transparent;
 }
 
-.code_result_area .content{
+.code_result_area .content {
     -fx-background-color: rgba(220, 222, 227, 0.7);
 }
 
@@ -275,8 +275,13 @@
     -fx-border-width: 2;
 }
 
-.code_result .label{
+.code_result .label {
     -fx-text-fill: #696969;
     -fx-background-color: #e0e0e0;
     -fx-text-alignment: center;
+}
+
+.drag_detect {
+    -fx-border-color: #a39e9e;
+    -fx-border-width: 1;
 }

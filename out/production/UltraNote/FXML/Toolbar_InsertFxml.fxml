@@ -100,6 +100,22 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
          </padding>
       </VBox>
+      <VBox fx:id="toolbar_insert_list" alignment="CENTER" prefHeight="87.0" prefWidth="66.0" spacing="5.0" styleClass="toolbar_sm_button">
+         <children>
+            <ImageView fitHeight="49.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pic/check_list.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="71.0" prefWidth="114.0" styleClass="toolbar_button_label" text="勾選清單" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+         </padding>
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+      </VBox>
    </children>
    <padding>
       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
