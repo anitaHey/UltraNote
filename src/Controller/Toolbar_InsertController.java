@@ -1,9 +1,6 @@
 package Controller;
 
-import InsertObj.CheckList;
-import InsertObj.CodeBlock;
-import InsertObj.Picture;
-import InsertObj.Text_box;
+import InsertObj.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
@@ -30,7 +27,7 @@ public class Toolbar_InsertController {
     }
 
     @FXML
-    VBox toolbar_insert_text, toolbar_insert_code, toolbar_insert_list;
+    VBox toolbar_insert_text, toolbar_insert_code, toolbar_insert_list, toolbar_insert_vbox, toolbar_insert_hbox;
     @FXML
     MenuItem toolbar_insert_phote_file, toolbar_insert_phote_graph;
 
@@ -84,6 +81,12 @@ public class Toolbar_InsertController {
             CheckList checkList = new CheckList();
             checkList.requestFocus();
             paper_controller.getCurentPaper().addNode(checkList);
+        });
+
+        toolbar_insert_vbox.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Layout_VBox layout_vbox = new Layout_VBox();
+            layout_vbox.requestFocus();
+            paper_controller.getCurentPaper().addNode(layout_vbox);
         });
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -72,7 +73,7 @@
             </MenuItem>
         </items>
          <graphic>
-            <VBox fx:id="toolbar_insert_text1" alignment="CENTER" prefHeight="62.0" prefWidth="60.0" spacing="5.0" styleClass="toolbar_sm_button">
+            <VBox fx:id="toolbar_insert_text1" alignment="CENTER" prefHeight="62.0" prefWidth="60.0" spacing="8.0" styleClass="toolbar_sm_button">
                <children>
                   <ImageView fitHeight="49.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -115,6 +116,43 @@
          <HBox.margin>
             <Insets left="10.0" />
          </HBox.margin>
+      </VBox>
+      <Line endY="85.0" stroke="#949494">
+         <HBox.margin>
+            <Insets left="15.0" right="15.0" />
+         </HBox.margin>
+      </Line>
+      <VBox fx:id="toolbar_insert_vbox" alignment="CENTER" prefHeight="101.0" prefWidth="70.0" spacing="5.0" styleClass="toolbar_sm_button">
+         <children>
+            <ImageView fitHeight="49.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pic/VBox.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="32.0" prefWidth="70.0" styleClass="toolbar_button_label" text="垂直排版" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+         </padding>
+         <HBox.margin>
+            <Insets right="10.0" />
+         </HBox.margin>
+      </VBox>
+      <VBox fx:id="toolbar_insert_hbox" alignment="CENTER" prefHeight="101.0" prefWidth="70.0" spacing="10.0" styleClass="toolbar_sm_button">
+         <children>
+            <ImageView fitHeight="51.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pic/HBox.png" />
+               </image>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </ImageView>
+            <Label prefHeight="32.0" prefWidth="70.0" styleClass="toolbar_button_label" text="水平排版" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
+         </padding>
       </VBox>
    </children>
    <padding>

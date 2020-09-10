@@ -9,7 +9,7 @@ import javafx.scene.shape.Circle;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 
 public class CodeBlock extends BasicNode {
-    private Toolbar_CodeController codeC_controller = Toolbar_CodeController.getInstance();
+    private Toolbar_CodeController code_controller = Toolbar_CodeController.getInstance();
     private PaperController paper_controller = PaperController.getInstance();
 
     private CodeBlockArea codeArea;
@@ -44,9 +44,9 @@ public class CodeBlock extends BasicNode {
 
         this.setOnMouseClicked(e -> {
             MainController.getInstance().change_toolbar(MainController.Type.Code, false);
-            codeC_controller.setNoSet(true);
-            codeC_controller.setShowResult(isShowResult);
-            codeC_controller.setNoSet(false);
+            code_controller.setNoSet(true);
+            code_controller.setShowResult(isShowResult);
+            code_controller.setNoSet(false);
         });
     }
 

@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/InsertObj/Layout_VBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController$Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/PaperController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/PaperController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_InsertController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_InsertController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_InsertFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/FXML/Toolbar_InsertFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/css/main_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/css/main_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PaperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaperController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/CheckListBlockFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/CheckListBlockFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/CodeBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CodeBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Object/CheckListBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/CheckListBlock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -404,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597164667805</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="20200908 Fix CheckListBlock">
+      <created>1599577827290</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1599577827290</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -424,7 +431,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20200416 Fixed crop img." />
     <MESSAGE value="20200418 Fix image crop." />
     <MESSAGE value="20200421 Fix picture crop." />
     <MESSAGE value="20200421 Node rotate." />
@@ -449,7 +455,8 @@
     <MESSAGE value="20200810 Fix some bugs." />
     <MESSAGE value="20200811 Add checkList" />
     <MESSAGE value="20200812 Add checklist drop detect." />
-    <option name="LAST_COMMIT_MESSAGE" value="20200812 Add checklist drop detect." />
+    <MESSAGE value="20200908 Fix CheckListBlock" />
+    <option name="LAST_COMMIT_MESSAGE" value="20200908 Fix CheckListBlock" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1596704568378">
@@ -460,56 +467,56 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="704" y="373" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1595998946863" />
-    <state x="462" y="36" key="CommitChangelistDialog2" timestamp="1597164666722">
+    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1599577826318">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="462" y="36" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597164666722" />
-    <state x="653" y="212" key="FileChooserDialogImpl" timestamp="1596644314887">
+    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599577826318" />
+    <state x="653" y="212" key="FileChooserDialogImpl" timestamp="1599637086128">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1267" y="221" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1595869274676" />
-    <state x="653" y="212" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596644314887" />
+    <state x="653" y="212" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599637086128" />
     <state x="773" y="414" key="Github.CreateGistDialog" timestamp="1596648719423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="773" y="414" key="Github.CreateGistDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596648719423" />
-    <state width="1876" height="104" key="GridCell.Tab.0.bottom" timestamp="1599576370421">
+    <state width="1876" height="284" key="GridCell.Tab.0.bottom" timestamp="1599741418406">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="104" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599567473164" />
-    <state width="1876" height="104" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599576370421" />
-    <state width="1876" height="104" key="GridCell.Tab.0.center" timestamp="1599576370420">
+    <state width="1565" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599735590230" />
+    <state width="1876" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599741418406" />
+    <state width="1876" height="284" key="GridCell.Tab.0.center" timestamp="1599741418406">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="104" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599567473163" />
-    <state width="1876" height="104" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599576370420" />
-    <state width="1876" height="104" key="GridCell.Tab.0.left" timestamp="1599576370420">
+    <state width="1565" height="284" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599735590230" />
+    <state width="1876" height="284" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599741418406" />
+    <state width="1876" height="284" key="GridCell.Tab.0.left" timestamp="1599741418405">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="104" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599567473163" />
-    <state width="1876" height="104" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599576370420" />
-    <state width="1876" height="104" key="GridCell.Tab.0.right" timestamp="1599576370421">
+    <state width="1565" height="284" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599735590229" />
+    <state width="1876" height="284" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599741418405" />
+    <state width="1876" height="284" key="GridCell.Tab.0.right" timestamp="1599741418406">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="104" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599567473163" />
-    <state width="1876" height="104" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599576370421" />
+    <state width="1565" height="284" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1599735590230" />
+    <state width="1876" height="284" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599741418406" />
     <state x="440" y="93" key="SettingsEditor" timestamp="1596606204557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="93" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596606204557" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1597164673347">
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1599577830824">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1597164673347" />
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599577830824" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1599453886768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1398" y="320" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1595918043033" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599453886768" />
-    <state x="336" y="128" key="new project wizard" timestamp="1596636769946">
+    <state x="336" y="128" key="new project wizard" timestamp="1599637087772">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="336" y="128" key="new project wizard/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596636769946" />
+    <state x="336" y="128" key="new project wizard/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599637087772" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UltraNote$Main.ic" NAME="Main Coverage Results" MODIFIED="1586693958468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

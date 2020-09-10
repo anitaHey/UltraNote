@@ -1,6 +1,7 @@
 package Object;
 
 import Controller.PaperController;
+import InsertObj.BasicNode;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
@@ -35,7 +36,7 @@ public class CheckListBlock extends HBox {
     public void initialize() {
         pane.toFront();
         pane.addEventFilter(MouseDragEvent.MOUSE_DRAG_ENTERED,  event -> {
-            paper_controller.setDropNode(pane);
+            paper_controller.setDropNode((BasicNode)this.getParent());
             pane.getStyleClass().add("drag_detect");
         });
 

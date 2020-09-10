@@ -22,9 +22,10 @@ public class BasicNode extends VBox {
     private PaperController paper_controller = PaperController.getInstance();
     private Paper paper = paper_controller.getCurentPaper();
     private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0;
-    private boolean dragging = false, cropping = false, rotating = false;
+    private boolean dragging = false, isParent = false;
     private int cursor = -1;
-    private Node parent;
+    private BasicNode parent;
+    private Pane insert_part;
 
 
     public BasicNode(String type) {
@@ -107,8 +108,16 @@ public class BasicNode extends VBox {
         return hasMin;
     }
 
-    public void setHasMin(boolean input){
+    public void setHasMin(boolean input) {
         hasMin = input;
+    }
+
+    public void setInsert_part(Pane node) {
+        insert_part = node;
+    }
+
+    public Pane getInsert_part() {
+        return insert_part;
     }
 
     public void setMinW(double w, boolean set) {
@@ -121,11 +130,19 @@ public class BasicNode extends VBox {
         }
     }
 
-    public void setNodeParent(Node node) {
+    public void setIsParent(boolean input) {
+        isParent = input;
+    }
+
+    public boolean getIsParent() {
+        return isParent;
+    }
+
+    public void setNodeParent(BasicNode node) {
         parent = node;
     }
 
-    public Node getNodeParent() {
+    public BasicNode getNodeParent() {
         return parent;
     }
 
@@ -148,179 +165,182 @@ public class BasicNode extends VBox {
     }
 
     EventHandler<MouseEvent> mouseDragHandler = event -> {
-        if (MouseEvent.MOUSE_CLICKED == event.getEventType()) {
-            paper_controller.setFocusObject(this);
-        } else if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
-            paper.setClick(false);
+        if (!getIsParent()) {
+            if (MouseEvent.MOUSE_CLICKED == event.getEventType()) {
+                paper_controller.setFocusObject(this);
+            } else if (MouseEvent.MOUSE_MOVED == event.getEventType()) {
+                paper.setClick(false);
 
-            cursor = getResize(event, 15);
+                cursor = getResize(event, 15);
 
-            if (cursor == -1) {
-                paper.setCursor(Cursor.MOVE);
-            } else {
-                paper.setCursor(cursor_arr.get(cursor));
-            }
-        } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
-            paper_controller.setFocusObject(this);
-            if (getGridpane().contains(event.getX(), event.getY())) {
-                this.lastMouseX = event.getSceneX();
-                this.lastMouseY = event.getSceneY();
-
-                if (cursor == -1)
+                if (cursor == -1) {
                     paper.setCursor(Cursor.MOVE);
-                this.dragging = true;
-
-                event.consume();
-            }
-        } else if (MouseEvent.MOUSE_DRAGGED == event.getEventType()) {
-            paper_controller.setFocusObject(this);
-            if (this.dragging && cursor == -1) {
-                double deltaX = event.getSceneX() - this.lastMouseX;
-                double deltaY = event.getSceneY() - this.lastMouseY;
-
-                final double initialTranslateX = this.getTranslateX();
-                final double initialTranslateY = this.getTranslateY();
-
-                Bounds dragNodeBounds = this.getBoundsInParent();
-
-                if (dragNodeBounds.getMinX() < 0) deltaX = 1;
-                else if (dragNodeBounds.getMaxX() > paper.getWidth()) deltaX = -1;
-
-                if (dragNodeBounds.getMinY() < 0) deltaY = 1;
-                else if (dragNodeBounds.getMaxY() > paper.getHeight()) deltaY = -1;
-
-
-                this.setTranslateX(initialTranslateX + deltaX);
-                this.setTranslateY(initialTranslateY + deltaY);
-
-                this.lastMouseX = event.getSceneX();
-                this.lastMouseY = event.getSceneY();
-
-                event.consume();
-            } else if (this.dragging) {
-                double minWidth = this.getMain_content().getMinWidth();
-                double minHeight = this.getMain_content().getMinHeight();
-
-                double width = this.getMain_content().getWidth();
-                double height = this.getMain_content().getHeight();
-
-                double prefWidth = this.getMain_content().getPrefWidth();
-                double prefHeight = this.getMain_content().getPrefHeight();
-
-                Bounds pane = this.getBoundsInLocal();
-                double moveMinX = pane.getMinX() - event.getX();
-                double moveMinY = pane.getMinY() - event.getY();
-                double moveMaxX = event.getX() - pane.getMaxX();
-                double moveMaxY = event.getY() - pane.getMaxY();
-
-                final double initialLayoutX = this.getTranslateX();
-                final double initialLayoutY = this.getTranslateY();
-
-                boolean minX = false, maxX = false, minY = false, maxY = false;
-
-                if (getHasMin()) {
-                    minX = (minWidth + moveMinX) > minW;
-                    maxX = (minWidth + moveMaxX) > minW;
-                    minY = (minHeight + moveMinY) > minH;
-                    maxY = (minHeight + moveMaxY) > minH;
                 } else {
-                    minX = prefWidth > 0;
-                    maxX = prefWidth > 0;
-                    minY = prefHeight > 0;
-                    maxY = prefHeight > 0;
+                    paper.setCursor(cursor_arr.get(cursor));
                 }
+            } else if (MouseEvent.MOUSE_PRESSED == event.getEventType()) {
+                paper_controller.setFocusObject(this);
+                if (getGridpane().contains(event.getX(), event.getY())) {
+                    this.lastMouseX = event.getSceneX();
+                    this.lastMouseY = event.getSceneY();
 
-                switch (cursor) {
-                    case 0:
-                        if (getHasMin()) {
-                            if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
-                            if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
-                        } else {
-                            this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
-                            this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
-                        }
+                    if (cursor == -1)
+                        paper.setCursor(Cursor.MOVE);
+                    this.dragging = true;
 
-                        if (minX) this.setTranslateX(initialLayoutX - moveMinX);
-                        if (minY) this.setTranslateY(initialLayoutY - moveMinY);
-                        break;
-                    case 1:
-                        if (getHasMin()) {
-                            if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
-                        } else
-                            this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
-
-                        if (minY) this.setTranslateY(initialLayoutY - moveMinY);
-                        break;
-                    case 2:
-                        if (getHasMin()) {
-                            if (maxX) this.getMain_content().setMinWidth(width + moveMaxX);
-
-                            if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
-                        } else {
-                            this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
-                            this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
-                        }
-
-                        if (minY) this.setTranslateY(initialLayoutY - moveMinY);
-                        break;
-                    case 3:
-                        if (getHasMin()) {
-                            if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
-                        } else
-                            this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
-
-                        if (minX) this.setTranslateX(initialLayoutX - moveMinX);
-                        break;
-                    case 4:
-                        if (getHasMin())
-                            this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
-                        else
-                            this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
-                        break;
-                    case 5:
-                        if (getHasMin()) {
-                            if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
-
-                            if (maxY) this.getMain_content().setMinHeight(height + moveMaxY);
-                        } else {
-                            this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
-                            this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
-                        }
-
-                        if (minX) this.setTranslateX(initialLayoutX - moveMinX);
-                        break;
-                    case 6:
-                        if (getHasMin())
-                            this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
-                        else
-                            this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
-
-                        break;
-                    case 7:
-                        if (getHasMin()) {
-                            this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
-                            this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
-                        } else {
-                            this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
-                            this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
-                        }
-
-                        break;
+                    event.consume();
                 }
-                event.consume();
-            }
-        } else if (MouseEvent.MOUSE_RELEASED == event.getEventType()) {
-            paper_controller.setFocusObject(this);
-            if (dragging) {
-                event.consume();
-                dragging = false;
-            }
-        } else if (MouseEvent.MOUSE_EXITED == event.getEventType()) {
-            if (!dragging) {
-                paper.setCursor(Cursor.DEFAULT);
-                paper.setClick(true);
+            } else if (MouseEvent.MOUSE_DRAGGED == event.getEventType()) {
+                paper_controller.setFocusObject(this);
+                if (this.dragging && cursor == -1) {
+                    double deltaX = event.getSceneX() - this.lastMouseX;
+                    double deltaY = event.getSceneY() - this.lastMouseY;
+
+                    final double initialTranslateX = this.getTranslateX();
+                    final double initialTranslateY = this.getTranslateY();
+
+                    Bounds dragNodeBounds = this.getBoundsInParent();
+
+                    if (dragNodeBounds.getMinX() < 0) deltaX = 1;
+                    else if (dragNodeBounds.getMaxX() > paper.getWidth()) deltaX = -1;
+
+                    if (dragNodeBounds.getMinY() < 0) deltaY = 1;
+                    else if (dragNodeBounds.getMaxY() > paper.getHeight()) deltaY = -1;
+
+
+                    this.setTranslateX(initialTranslateX + deltaX);
+                    this.setTranslateY(initialTranslateY + deltaY);
+
+                    this.lastMouseX = event.getSceneX();
+                    this.lastMouseY = event.getSceneY();
+
+                    event.consume();
+                } else if (this.dragging) {
+                    double minWidth = this.getMain_content().getMinWidth();
+                    double minHeight = this.getMain_content().getMinHeight();
+
+                    double width = this.getMain_content().getWidth();
+                    double height = this.getMain_content().getHeight();
+
+                    double prefWidth = this.getMain_content().getPrefWidth();
+                    double prefHeight = this.getMain_content().getPrefHeight();
+
+                    Bounds pane = this.getBoundsInLocal();
+                    double moveMinX = pane.getMinX() - event.getX();
+                    double moveMinY = pane.getMinY() - event.getY();
+                    double moveMaxX = event.getX() - pane.getMaxX();
+                    double moveMaxY = event.getY() - pane.getMaxY();
+
+                    final double initialLayoutX = this.getTranslateX();
+                    final double initialLayoutY = this.getTranslateY();
+
+                    boolean minX = false, maxX = false, minY = false, maxY = false;
+
+                    if (getHasMin()) {
+                        minX = (minWidth + moveMinX) > minW;
+                        maxX = (minWidth + moveMaxX) > minW;
+                        minY = (minHeight + moveMinY) > minH;
+                        maxY = (minHeight + moveMaxY) > minH;
+                    } else {
+                        minX = prefWidth > 0;
+                        maxX = prefWidth > 0;
+                        minY = prefHeight > 0;
+                        maxY = prefHeight > 0;
+                    }
+
+                    switch (cursor) {
+                        case 0:
+                            if (getHasMin()) {
+                                if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
+                                if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                            } else {
+                                this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
+                                this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
+                            }
+
+                            if (minX) this.setTranslateX(initialLayoutX - moveMinX);
+                            if (minY) this.setTranslateY(initialLayoutY - moveMinY);
+                            break;
+                        case 1:
+                            if (getHasMin()) {
+                                if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                            } else
+                                this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
+
+                            if (minY) this.setTranslateY(initialLayoutY - moveMinY);
+                            break;
+                        case 2:
+                            if (getHasMin()) {
+                                if (maxX) this.getMain_content().setMinWidth(width + moveMaxX);
+
+                                if (minY) this.getMain_content().setMinHeight(minHeight + moveMinY);
+                            } else {
+                                this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
+                                this.getMain_content().setPrefHeight(Math.max((prefHeight + moveMinY), 0));
+                            }
+
+                            if (minY) this.setTranslateY(initialLayoutY - moveMinY);
+                            break;
+                        case 3:
+                            if (getHasMin()) {
+                                if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
+                            } else
+                                this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
+
+                            if (minX) this.setTranslateX(initialLayoutX - moveMinX);
+                            break;
+                        case 4:
+                            if (getHasMin())
+                                this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
+                            else
+                                this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
+                            break;
+                        case 5:
+                            if (getHasMin()) {
+                                if (minX) this.getMain_content().setMinWidth(minWidth + moveMinX);
+
+                                if (maxY) this.getMain_content().setMinHeight(height + moveMaxY);
+                            } else {
+                                this.getMain_content().setPrefWidth(Math.max((prefWidth + moveMinX), 0));
+                                this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
+                            }
+
+                            if (minX) this.setTranslateX(initialLayoutX - moveMinX);
+                            break;
+                        case 6:
+                            if (getHasMin())
+                                this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
+                            else
+                                this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
+
+                            break;
+                        case 7:
+                            if (getHasMin()) {
+                                this.getMain_content().setMinWidth(Math.max((width + moveMaxX), minW));
+                                this.getMain_content().setMinHeight(Math.max((height + moveMaxY), minH));
+                            } else {
+                                this.getMain_content().setPrefWidth(Math.max((width + moveMaxX), 0));
+                                this.getMain_content().setPrefHeight(Math.max((height + moveMaxY), 0));
+                            }
+
+                            break;
+                    }
+                    event.consume();
+                }
+            } else if (MouseEvent.MOUSE_RELEASED == event.getEventType()) {
+                paper_controller.setFocusObject(this);
+                if (dragging) {
+                    event.consume();
+                    dragging = false;
+                }
+            } else if (MouseEvent.MOUSE_EXITED == event.getEventType()) {
+                if (!dragging) {
+                    paper.setCursor(Cursor.DEFAULT);
+                    paper.setClick(true);
+                }
             }
         }
+
     };
 
     public boolean isBorder(MouseEvent event) {

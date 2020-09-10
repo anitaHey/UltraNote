@@ -11,7 +11,7 @@ public class PaperController {
     private static PaperController instance;
     private Paper current;
     private BasicNode object;
-    private VBox drop_node;
+    private BasicNode drop_node;
 
     public static PaperController getInstance() {
         if (instance == null) {
@@ -40,6 +40,8 @@ public class PaperController {
         if (getInstance().getFocusObject() != null) {
             getInstance().getFocusObject().focus_border(false);
             getInstance().getFocusObject().removeEventFilter(MouseEvent.ANY, eventHandler);
+            if (getInstance().getFocusObject().getNodeParent() != null)
+                getInstance().getFocusObject().getNodeParent().setIsParent(false);
         }
         getInstance().object = obj;
 
@@ -48,8 +50,7 @@ public class PaperController {
             if (getInstance().getFocusObject().getNodeParent() == null)
                 getInstance().getFocusObject().addEventFilter(MouseEvent.ANY, eventHandler);
             else
-                getInstance().getFocusObject().getNodeParent().setMouseTransparent(true);
-
+                getInstance().getFocusObject().getNodeParent().setIsParent(true);
         }
     }
 
@@ -60,11 +61,13 @@ public class PaperController {
                 getInstance().getFocusObject().setMouseTransparent(true);
             } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
                 if (getDropNode() != null) {
-                    getDropNode().getChildren().add(getInstance().getFocusObject());
+                    getDropNode().getInsert_part().getChildren().add(getInstance().getFocusObject());
                     getInstance().getFocusObject().setNodeParent(getDropNode());
                     getInstance().getFocusObject().setTranslateX(0);
                     getInstance().getFocusObject().setTranslateY(0);
                     getInstance().getFocusObject().toFront();
+
+                    getDropNode().setIsParent(true);
                 }
 
                 getInstance().getFocusObject().setMouseTransparent(false);
@@ -78,11 +81,11 @@ public class PaperController {
         return getInstance().object;
     }
 
-    public void setDropNode(VBox obj) {
+    public void setDropNode(BasicNode obj) {
         drop_node = obj;
     }
 
-    public VBox getDropNode() {
+    public BasicNode getDropNode() {
         return drop_node;
     }
 }
