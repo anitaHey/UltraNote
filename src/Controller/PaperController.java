@@ -54,7 +54,7 @@ public class PaperController {
         }
     }
 
-    //TODO: BUG here.
+    //TODO: BUUUUUUUUUUUUUUUUUUUUUUUUUG here. RRRRRRRRRRRRRRRRRR
     EventHandler<MouseEvent> eventHandler = mouseEvent -> {
         if (getInstance().getFocusObject() != null) {
             if (mouseEvent.getEventType() == MouseEvent.MOUSE_PRESSED) {
@@ -66,7 +66,6 @@ public class PaperController {
                     getInstance().getFocusObject().setTranslateX(0);
                     getInstance().getFocusObject().setTranslateY(0);
                     getInstance().getFocusObject().toFront();
-
                     getDropNode().setIsParent(true);
                 }
 

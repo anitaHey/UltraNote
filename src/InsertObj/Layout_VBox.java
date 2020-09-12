@@ -26,17 +26,6 @@ public class Layout_VBox extends BasicNode {
             vbox.setPrefWidth(newValue.doubleValue());
         });
 
-        vbox.toFront();
-        vbox.addEventFilter(MouseDragEvent.MOUSE_DRAG_ENTERED, event -> {
-            paper_controller.setDropNode(this);
-            vbox.getStyleClass().add("drag_detect");
-        });
-
-        vbox.addEventFilter(MouseDragEvent.MOUSE_DRAG_EXITED,  event -> {
-            paper_controller.setDropNode(null);
-            vbox.getStyleClass().remove("drag_detect");
-        });
-
         setInsert_part(vbox);
     }
 }

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -114,6 +115,18 @@ public class BasicNode extends VBox {
 
     public void setInsert_part(Pane node) {
         insert_part = node;
+        insert_part.toFront();
+        insert_part.addEventFilter(MouseDragEvent.MOUSE_DRAG_ENTERED, event -> {
+            paper_controller.setDropNode(this);
+            addInsertBorder(getInsert_part(), true);
+        });
+
+        insert_part.addEventFilter(MouseDragEvent.MOUSE_DRAG_EXITED,  event -> {
+            System.out.println("111");
+            paper_controller.setDropNode(null);
+            addInsertBorder(getInsert_part(), false);
+            getInsert_part().getStyleClass().remove("drag_detect");
+        });
     }
 
     public Pane getInsert_part() {
@@ -140,6 +153,16 @@ public class BasicNode extends VBox {
 
     public void setNodeParent(BasicNode node) {
         parent = node;
+
+        if(node != null){
+            this.addEventFilter(MouseEvent.MOUSE_DRAGGED, event -> {
+                addInsertBorder(getNodeParent().getInsert_part(), true);
+            });
+
+            this.addEventFilter(MouseEvent.MOUSE_RELEASED, event -> {
+                addInsertBorder(getNodeParent().getInsert_part(), false);
+            });
+        }
     }
 
     public BasicNode getNodeParent() {
@@ -393,5 +416,12 @@ public class BasicNode extends VBox {
                 cir.getStyleClass().add("hide");
             }
         }
+    }
+
+    public void addInsertBorder(Pane pane, boolean add) {
+        if(add)
+            if(!pane.getStyleClass().contains("drag_detect"))
+                pane.getStyleClass().add("drag_detect");
+        else pane.getStyleClass().remove("drag_detect");
     }
 }
