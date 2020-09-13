@@ -62,6 +62,8 @@ public class PaperController {
             } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
                 if (getDropNode() != null) {
                     getDropNode().getInsert_part().getChildren().add(getInstance().getFocusObject());
+                    getCurentPaper().getChildren().remove(getInstance().getFocusObject());
+
                     getInstance().getFocusObject().setNodeParent(getDropNode());
                     getInstance().getFocusObject().setTranslateX(0);
                     getInstance().getFocusObject().setTranslateY(0);

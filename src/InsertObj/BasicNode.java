@@ -1,6 +1,9 @@
 package InsertObj;
 
 import Controller.PaperController;
+import javafx.beans.InvalidationListener;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -121,8 +124,7 @@ public class BasicNode extends VBox {
             addInsertBorder(getInsert_part(), true);
         });
 
-        insert_part.addEventFilter(MouseDragEvent.MOUSE_DRAG_EXITED,  event -> {
-            System.out.println("111");
+        insert_part.addEventFilter(MouseDragEvent.MOUSE_DRAG_EXITED, event -> {
             paper_controller.setDropNode(null);
             addInsertBorder(getInsert_part(), false);
             getInsert_part().getStyleClass().remove("drag_detect");
@@ -154,16 +156,41 @@ public class BasicNode extends VBox {
     public void setNodeParent(BasicNode node) {
         parent = node;
 
-        if(node != null){
-            this.addEventFilter(MouseEvent.MOUSE_DRAGGED, event -> {
-                addInsertBorder(getNodeParent().getInsert_part(), true);
-            });
-
-            this.addEventFilter(MouseEvent.MOUSE_RELEASED, event -> {
-                addInsertBorder(getNodeParent().getInsert_part(), false);
-            });
+        if (node != null) {
+            this.addEventFilter(MouseEvent.ANY, hasParentEvent);
+            this.boundsInParentProperty().addListener(listener);
+        } else {
+            this.removeEventFilter(MouseEvent.ANY, hasParentEvent);
         }
     }
+    ChangeListener<Bounds> listener = (observable, oldValue, newValue) -> boundsChange(newValue);
+
+    private void boundsChange(Bounds newValue){
+        if (newValue.getMinX() < 0 || newValue.getMinY() < 0 ||
+                newValue.getMaxX() > getNodeParent().getInsert_part().getBoundsInLocal().getWidth() ||
+                newValue.getMaxY() > getNodeParent().getInsert_part().getBoundsInLocal().getHeight()){
+            getNodeParent().getInsert_part().getChildren().remove(this);
+            paper_controller.getCurentPaper().getChildren().add(this);
+            System.out.println(getNodeParent().getBoundsInParent().getMinX()+" "+newValue.getMinX());
+            System.out.println(getNodeParent().getBoundsInParent().getMinY()+" "+newValue.getMinY());
+            this.setTranslateX(getNodeParent().getBoundsInParent().getMinX());
+            this.setTranslateY(getNodeParent().getBoundsInParent().getMinY());
+            if(getNodeParent().getInsert_part().getChildren().size() == 0) getNodeParent().setIsParent(false);
+
+            this.requestFocus();
+            paper_controller.setFocusObject(this);
+            setNodeParent(null);
+
+            this.boundsInParentProperty().removeListener(listener);
+        }
+    }
+
+    EventHandler<MouseEvent> hasParentEvent = mouseEvent -> {
+        if(mouseEvent.getEventType() == MouseEvent.MOUSE_DRAGGED)
+            addInsertBorder(getNodeParent().getInsert_part(), true);
+        else if(mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED)
+            addInsertBorder(getNodeParent().getInsert_part(), false);
+    };
 
     public BasicNode getNodeParent() {
         return parent;
@@ -419,9 +446,9 @@ public class BasicNode extends VBox {
     }
 
     public void addInsertBorder(Pane pane, boolean add) {
-        if(add)
-            if(!pane.getStyleClass().contains("drag_detect"))
+        if (add)
+            if (!pane.getStyleClass().contains("drag_detect"))
                 pane.getStyleClass().add("drag_detect");
-        else pane.getStyleClass().remove("drag_detect");
+            else pane.getStyleClass().remove("drag_detect");
     }
 }
