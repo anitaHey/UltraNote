@@ -26,7 +26,7 @@ public class BasicNode extends VBox {
     private PaperController paper_controller = PaperController.getInstance();
     private Paper paper = paper_controller.getCurentPaper();
     private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0;
-    private boolean dragging = false, isParent = false;
+    private boolean dragging = false, isParent = false, lock = false;
     private int cursor = -1;
     private BasicNode parent;
     private Pane insert_part;
@@ -166,22 +166,40 @@ public class BasicNode extends VBox {
     ChangeListener<Bounds> listener = (observable, oldValue, newValue) -> boundsChange(newValue);
 
     private void boundsChange(Bounds newValue){
-        if (newValue.getMinX() < 0 || newValue.getMinY() < 0 ||
+        if ((newValue.getMinX() < 0 || newValue.getMinY() < 0 ||
                 newValue.getMaxX() > getNodeParent().getInsert_part().getBoundsInLocal().getWidth() ||
-                newValue.getMaxY() > getNodeParent().getInsert_part().getBoundsInLocal().getHeight()){
+                newValue.getMaxY() > getNodeParent().getInsert_part().getBoundsInLocal().getHeight()) && !lock){
+//            System.out.println(newValue.getMinX() +" " +newValue.getMinY());
+//            System.out.println(newValue.getMaxX() +" " +getNodeParent().getInsert_part().getBoundsInLocal().getWidth());
+//            System.out.println(newValue.getMaxY() +" " +getNodeParent().getInsert_part().getBoundsInLocal().getHeight());
+            lock = true;
             getNodeParent().getInsert_part().getChildren().remove(this);
-            paper_controller.getCurentPaper().getChildren().add(this);
-            System.out.println(getNodeParent().getBoundsInParent().getMinX()+" "+newValue.getMinX());
-            System.out.println(getNodeParent().getBoundsInParent().getMinY()+" "+newValue.getMinY());
-            this.setTranslateX(getNodeParent().getBoundsInParent().getMinX());
-            this.setTranslateY(getNodeParent().getBoundsInParent().getMinY());
-            if(getNodeParent().getInsert_part().getChildren().size() == 0) getNodeParent().setIsParent(false);
+            if(!paper_controller.getCurentPaper().getChildren().contains(this))
+                paper_controller.getCurentPaper().getChildren().add(this);
+//            System.out.println(getNodeParent().getBoundsInParent().getMinX()+" "+newValue.getMinX()+10);
+//            System.out.println(getNodeParent().getBoundsInParent().getMinY()+" "+newValue.getMinY()+10);
 
+            int add_X = 0;
+            int add_Y = 0;
+            if(newValue.getMinX() < 0) add_X = -11;
+            else add_X = 11;
+
+            if(newValue.getMinY() < 0) add_Y = -11;
+            else add_Y = 11;
+
+            System.out.println(newValue.getMinX()+add_X);
+            System.out.println(newValue.getMinY()+add_Y);
+            System.out.println();
+
+            this.setTranslateX(getNodeParent().getBoundsInParent().getMinX()+newValue.getMinX()+add_X);
+            this.setTranslateY(getNodeParent().getBoundsInParent().getMinY()+newValue.getMinY()+add_Y);
+
+            if(getNodeParent().getInsert_part().getChildren().size() == 0) getNodeParent().setIsParent(false);
             this.requestFocus();
             paper_controller.setFocusObject(this);
-            setNodeParent(null);
-
             this.boundsInParentProperty().removeListener(listener);
+            setNodeParent(null);
+            lock = false;
         }
     }
 
