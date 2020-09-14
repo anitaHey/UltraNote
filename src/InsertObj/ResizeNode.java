@@ -277,6 +277,8 @@ public class ResizeNode extends BasicNode {
                     event.consume();
                     dragging = false;
                 }
+
+                System.out.println("node:  "+this.getTranslateX()+" "+this.getTranslateY());
             } else if (MouseEvent.MOUSE_EXITED == event.getEventType()) {
                 if (!dragging && !rotating) {
                     paper.setCursor(Cursor.DEFAULT);
