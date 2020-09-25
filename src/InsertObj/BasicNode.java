@@ -169,39 +169,22 @@ public class BasicNode extends VBox {
         if ((newValue.getMinX() < 0 || newValue.getMinY() < 0 ||
                 newValue.getMaxX() > getNodeParent().getInsert_part().getBoundsInLocal().getWidth() ||
                 newValue.getMaxY() > getNodeParent().getInsert_part().getBoundsInLocal().getHeight()) && !lock){
-//            System.out.println(newValue.getMinX() +" " +newValue.getMinY());
-//            System.out.println(newValue.getMaxX() +" " +getNodeParent().getInsert_part().getBoundsInLocal().getWidth());
-//            System.out.println(newValue.getMaxY() +" " +getNodeParent().getInsert_part().getBoundsInLocal().getHeight());
+
             lock = true;
             getNodeParent().getInsert_part().getChildren().remove(this);
             if(!paper_controller.getCurentPaper().getChildren().contains(this))
                 paper_controller.getCurentPaper().getChildren().add(this);
 
             double change_X, change_Y;
-            if(newValue.getMinX() < 0){
-                System.out.println("11");
-                change_X = getNodeParent().getBoundsInParent().getMinX();
-            }
-            else if(newValue.getMaxX() > getNodeParent().getInsert_part().getBoundsInLocal().getWidth()){
-                System.out.println("12");
-                change_X = getNodeParent().getBoundsInParent().getMaxX();
-            }
-            else change_X = getNodeParent().getBoundsInParent().getMinX()+ newValue.getMinX();
+            if(newValue.getMinX() < 0) change_X = getNodeParent().getBoundsInParent().getMinX();
+            else change_X = getNodeParent().getBoundsInParent().getMinX()+newValue.getMinX();
 
-            if(newValue.getMinY() < 0){
-                System.out.println("21");
-                change_Y = getNodeParent().getBoundsInParent().getMinY();
-            }
-            else if(newValue.getMaxY() > getNodeParent().getInsert_part().getBoundsInLocal().getHeight()) {
-                System.out.println("22");
-                change_Y = getNodeParent().getBoundsInParent().getMaxY() - this.getBoundsInLocal().getHeight();
-            }
-            else change_Y = getNodeParent().getBoundsInParent().getMinY()+ newValue.getMinY() + this.getBoundsInLocal().getHeight();
+            if(newValue.getMinY() < 0) change_Y = getNodeParent().getBoundsInParent().getMinY();
+            else change_Y = getNodeParent().getBoundsInParent().getMinY() + newValue.getMinY();
 
             //TODO: setTranslateY BUGGGGGGGGGGGGGGG
-            System.out.println(getNodeParent().getBoundsInParent().getMinX() + " "+getNodeParent().getBoundsInParent().getMinY());
-            System.out.println(newValue.getMinX() + " "+newValue.getMinY());
-            System.out.println(change_X + " "+change_Y);
+            System.out.println(getNodeParent().getBoundsInParent().getMinX()+" " +getNodeParent().getBoundsInParent().getMinY());
+//            System.out.println(change_X + " "+change_Y);
             this.setTranslateX(change_X);
             this.setTranslateY(change_Y);
 
