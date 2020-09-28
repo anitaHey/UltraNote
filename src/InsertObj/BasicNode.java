@@ -14,6 +14,7 @@ import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
@@ -26,7 +27,8 @@ public class BasicNode extends VBox {
     private PaperController paper_controller = PaperController.getInstance();
     private Paper paper = paper_controller.getCurentPaper();
     private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0;
-    private boolean dragging = false, isParent = false, lock = false;
+    private boolean dragging = false, lock = false;
+    public boolean isParent = false;
     private int cursor = -1;
     private BasicNode parent;
     private Pane insert_part;
@@ -169,7 +171,6 @@ public class BasicNode extends VBox {
         if ((newValue.getMinX() < 0 || newValue.getMinY() < 0 ||
                 newValue.getMaxX() > getNodeParent().getInsert_part().getBoundsInLocal().getWidth() ||
                 newValue.getMaxY() > getNodeParent().getInsert_part().getBoundsInLocal().getHeight()) && !lock){
-
             lock = true;
             getNodeParent().getInsert_part().getChildren().remove(this);
             if(!paper_controller.getCurentPaper().getChildren().contains(this))
@@ -182,16 +183,15 @@ public class BasicNode extends VBox {
             if(newValue.getMinY() < 0) change_Y = getNodeParent().getBoundsInParent().getMinY();
             else change_Y = getNodeParent().getBoundsInParent().getMinY() + newValue.getMinY();
 
+            this.boundsInParentProperty().removeListener(listener);
+
             //TODO: setTranslateY BUGGGGGGGGGGGGGGG
-            System.out.println(getNodeParent().getBoundsInParent().getMinX()+" " +getNodeParent().getBoundsInParent().getMinY());
-//            System.out.println(change_X + " "+change_Y);
             this.setTranslateX(change_X);
             this.setTranslateY(change_Y);
 
             if(getNodeParent().getInsert_part().getChildren().size() == 0) getNodeParent().setIsParent(false);
             this.requestFocus();
             paper_controller.setFocusObject(this);
-            this.boundsInParentProperty().removeListener(listener);
             setNodeParent(null);
             lock = false;
         }

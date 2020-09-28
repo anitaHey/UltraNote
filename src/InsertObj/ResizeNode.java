@@ -75,6 +75,10 @@ public class ResizeNode extends BasicNode {
         this.getTransforms().add(rotate);
 
         this.setDrag();
+
+        this.boundsInParentProperty().addListener((obs, oldValue, newValue) -> {
+            System.out.println(newValue.getMinY());
+        });
     }
 
     public VBox getRotate_vbox() {
