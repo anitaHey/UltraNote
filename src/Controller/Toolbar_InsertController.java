@@ -88,5 +88,11 @@ public class Toolbar_InsertController {
             layout_vbox.requestFocus();
             paper_controller.getCurentPaper().addNode(layout_vbox);
         });
+
+        toolbar_insert_hbox.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Layout_HBox layout_hbox = new Layout_HBox();
+            layout_hbox.requestFocus();
+            paper_controller.getCurentPaper().addNode(layout_hbox);
+        });
     }
 }

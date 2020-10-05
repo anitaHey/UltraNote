@@ -285,3 +285,13 @@
     -fx-border-color: #a39e9e;
     -fx-border-width: 1;
 }
+
+.login_btn{
+    -fx-background-color: transparent;
+    -fx-border-color: #EAEAEA;
+    -fx-border-width: 1;
+}
+
+.login_btn:hover {
+    -fx-background-color: #3f464d;
+}

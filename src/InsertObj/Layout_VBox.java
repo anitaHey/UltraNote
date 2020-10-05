@@ -2,12 +2,11 @@ package InsertObj;
 
 import Controller.PaperController;
 import javafx.geometry.Insets;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 public class Layout_VBox extends BasicNode {
-    private PaperController paper_controller = PaperController.getInstance();
+//    private PaperController paper_controller = PaperController.getInstance();
 
     public Layout_VBox() {
         super("vbox");

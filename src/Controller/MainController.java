@@ -2,12 +2,17 @@ package Controller;
 
 import InsertObj.Paper;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainController {
@@ -16,7 +21,7 @@ public class MainController {
     private int toolbar_height = 138;
 
     @FXML
-    Button exit, toolbar_file, toolbar_view, toolbar_insert, toolbar_text, toolbar_draw, toolbar_picture, toolbar_code;
+    Button exit, toolbar_file, toolbar_view, toolbar_insert, toolbar_text, toolbar_draw, toolbar_picture, toolbar_code, login;
     @FXML
     VBox main_vbox, toolbar_vbox, work_vbox;
     @FXML
@@ -140,6 +145,10 @@ public class MainController {
 
         work_scroll.getStyleClass().add("word_area");
         work_scroll.getStyleClass().add("no_focus");
+
+        login.setOnAction(actionEvent -> {
+            showLogin(actionEvent);
+        });
     }
 
     public void setSize() {
@@ -193,5 +202,17 @@ public class MainController {
             toolbar_vbox.getChildren().add(2, type.getToolbarUI());
             type.getButton().getStyleClass().add("toolbar_button_press");
         }
+    }
+
+    private void showLogin(ActionEvent event) {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                YourClassController.class.getResource("YourClass.fxml"));
+        stage.setScene(new Scene(root));
+        stage.setTitle("My modal window");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)event.getSource()).getScene().getWindow() );
+        stage.show();
     }
 }
