@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/InsertObj/Layout_HBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FXML/LoginFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/PaperController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/PaperController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/MainFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/MainFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/Layout_VBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Layout_VBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/main_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/main_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -503,9 +497,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1601315492488" />
-    <state x="653" y="212" key="FileChooserDialogImpl" timestamp="1599637086128">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="465" y="178" key="FileChooserDialogImpl" timestamp="1601973147929">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
+    <state x="465" y="178" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1601973147929" />
     <state x="-1267" y="221" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1595869274676" />
     <state x="653" y="212" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599637086128" />
     <state x="773" y="414" key="Github.CreateGistDialog" timestamp="1596648719423">
@@ -536,6 +531,10 @@
     <state width="1326" height="211" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1600997866598" />
     <state width="1565" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778183" />
     <state width="1876" height="259" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1601913360328" />
+    <state x="335" y="134" key="NewModule_or_Project.wizard" timestamp="1601973156336">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="335" y="134" key="NewModule_or_Project.wizard/0.0.1368.872@0.0.1368.872" timestamp="1601973156336" />
     <state x="440" y="93" key="SettingsEditor" timestamp="1596606204557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

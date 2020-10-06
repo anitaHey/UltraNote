@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="445.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.LoginFxml">
+   <children>
+      <Label layoutX="137.0" layoutY="31.0" text="登入" />
+      <HBox alignment="CENTER" layoutX="41.0" layoutY="105.0" spacing="20.0">
+         <children>
+            <Label text="帳號">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField prefHeight="35.0" prefWidth="190.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="40.0" layoutY="189.0" spacing="20.0">
+         <children>
+            <Label text="密碼">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <PasswordField prefHeight="36.0" prefWidth="190.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
