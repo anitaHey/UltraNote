@@ -205,14 +205,14 @@ public class MainController {
     }
 
     private void showLogin(ActionEvent event) {
-        Stage stage = new Stage();
-        Parent root = FXMLLoader.load(
-                YourClassController.class.getResource("YourClass.fxml"));
-        stage.setScene(new Scene(root));
-        stage.setTitle("My modal window");
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(
-                ((Node)event.getSource()).getScene().getWindow() );
-        stage.show();
+//        Stage stage = new Stage();
+//        Parent root = FXMLLoader.load(
+//                YourClassController.class.getResource("YourClass.fxml"));
+//        stage.setScene(new Scene(root));
+//        stage.setTitle("My modal window");
+//        stage.initModality(Modality.WINDOW_MODAL);
+//        stage.initOwner(
+//                ((Node)event.getSource()).getScene().getWindow() );
+//        stage.show();
     }
 }
