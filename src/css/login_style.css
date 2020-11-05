@@ -3,6 +3,11 @@
     src: url('font/RussoOne-Regular.ttf');
 }
 
+.font-size {
+    -fx-font-size:14px;
+    -fx-font-family: Microsoft JhengHei;
+}
+
 .main_color {
     -fx-background-color: #74828F;
 }
@@ -43,6 +48,7 @@
 
 .window_border{
     -fx-border-color: #74828F;
+    -fx-background-color: #EAEAEA;
 }
 
 .login_btn:hover {
