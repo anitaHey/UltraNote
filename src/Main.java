@@ -13,9 +13,9 @@ public class Main extends Application {
         launch(args);
     }
 
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Rectangle screen = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-        Scene scene = new Scene(new StackPane(),screen.getWidth(), screen.getHeight());
+        Scene scene = new Scene(new StackPane(), screen.getWidth(), screen.getHeight());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FXML/MainFxml.fxml"));
         scene.setRoot(loader.load());
 
@@ -28,7 +28,7 @@ public class Main extends Application {
         controller.Init();
         controller.setStage(primaryStage);
         controller.setSize();
-        controller.addPaper(screen.getWidth(),screen.getHeight());
+        controller.addPaper(screen.getWidth(), screen.getHeight());
 
         primaryStage.show();
     }

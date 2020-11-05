@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Russo One';
+    src: url('font/RussoOne-Regular.ttf');
+}
+
+.main_color {
+    -fx-background-color: #74828F;
+}
+
+.title_word {
+    -fx-font-family: 'Russo One';
+    -fx-font-size: 50px;
+    -fx-text-fill: #EAEAEA;
+}
+
+.subtitle_word {
+    -fx-font-family: 'Russo One';
+    -fx-font-size: 40px;
+}
+
+.subtitle_small_word {
+    -fx-font-size: 20px;
+    -fx-text-fill: #a39e9e;
+}
+
+.text_field {
+    -fx-text-box-border: transparent;
+    -fx-background-color: -fx-text-box-border, -fx-background;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
+}
+
+.login {
+    -fx-background-color: #74828F;
+    -fx-border-color: transparent;
+    -fx-text-fill: #EAEAEA;
+}
+
+.close_btn{
+    -fx-background-color:transparent;
+    -fx-text-fill: #74828F;
+}
+
+.window_border{
+    -fx-border-color: #74828F;
+}
+
+.login_btn:hover {
+    -fx-background-color: #424a52;
+}

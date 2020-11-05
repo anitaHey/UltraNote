@@ -286,12 +286,12 @@
     -fx-border-width: 1;
 }
 
-.login_btn{
-    -fx-background-color: transparent;
+.login_btn {
     -fx-border-color: #EAEAEA;
-    -fx-border-width: 1;
+    -fx-background-color: transparent;
+    -fx-text-fill: #EAEAEA;
 }
 
 .login_btn:hover {
-    -fx-background-color: #3f464d;
+    -fx-background-color: #424a52;
 }

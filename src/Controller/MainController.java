@@ -11,9 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+import java.io.IOException;
 
 public class MainController {
     private static MainController instance;
@@ -55,7 +59,7 @@ public class MainController {
         Text(4, "../FXML/Toolbar_TextFxml.fxml", new Toolbar_TextController(), true),
         Picture(5, "../FXML/Toolbar_PictureFxml.fxml", new Toolbar_PictureController(), false),
         Draw(6, "../FXML/Toolbar_DrawFxml.fxml", new Toolbar_DrawController(), true),
-        Code(7, "../FXML/Toolbar_CodeFxml.fxml", new Toolbar_CodeController(),false);
+        Code(7, "../FXML/Toolbar_CodeFxml.fxml", new Toolbar_CodeController(), false);
 
         private final int id;
         private Button btn;
@@ -147,7 +151,11 @@ public class MainController {
         work_scroll.getStyleClass().add("no_focus");
 
         login.setOnAction(actionEvent -> {
-            showLogin(actionEvent);
+            try {
+                showLogin(actionEvent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 
@@ -204,15 +212,17 @@ public class MainController {
         }
     }
 
-    private void showLogin(ActionEvent event) {
-//        Stage stage = new Stage();
-//        Parent root = FXMLLoader.load(
-//                YourClassController.class.getResource("YourClass.fxml"));
-//        stage.setScene(new Scene(root));
-//        stage.setTitle("My modal window");
-//        stage.initModality(Modality.WINDOW_MODAL);
-//        stage.initOwner(
-//                ((Node)event.getSource()).getScene().getWindow() );
-//        stage.show();
+    private void showLogin(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+
+        Scene scene = new Scene(new StackPane(), 965, 600);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/LoginFxml.fxml"));
+        scene.setRoot(loader.load());
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node) event.getSource()).getScene().getWindow());
+        stage.show();
     }
 }
