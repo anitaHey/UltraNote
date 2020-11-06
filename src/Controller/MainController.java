@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -216,7 +215,7 @@ public class MainController {
         Stage stage = new Stage();
 
         Scene scene = new Scene(new StackPane(), 965, 600);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/LoginFxml.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/UserFxml.fxml"));
         scene.setRoot(loader.load());
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);

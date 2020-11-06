@@ -2,8 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/login_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/login_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UltraNote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UltraNote.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController$Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/PaperController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_DrawController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_DrawController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_FileController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_InsertController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_PictureController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_TextController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_TextController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_TextController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_ViewController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/CropImage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Paper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Picture.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/ResizeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Text_box$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Text_box$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/Text_box.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Object/InputMethodRequestsObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Object/TextColorPicker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Object/TextLine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Object/TextObj.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Object/TextProperty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Object/TextUnderline.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database/Database/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Database/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database/UltraNote/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/UltraNote/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/LoginFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/UserFxml.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +70,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/FXML" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="jdk.selected.PYTHON_MODULE" value="Python 3.8" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Python/Python38-32/Lib/site-packages/django" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -451,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602577384048</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="20201106 Add Django">
+      <created>1604624195545</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1604624195545</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -471,7 +511,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20200511 Fix picture crop bug." />
     <MESSAGE value="20200512 Add Chinese typing." />
     <MESSAGE value="20200517" />
     <MESSAGE value="20200517 Add draw pen." />
@@ -496,27 +535,32 @@
     <MESSAGE value="20200929 Fix bug" />
     <MESSAGE value="20201006 Add loginfxml" />
     <MESSAGE value="20201006 fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="20201006 fix" />
+    <MESSAGE value="20201106 Add Django" />
+    <option name="LAST_COMMIT_MESSAGE" value="20201106 Add Django" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="277" y="95" key="#Inspections" timestamp="1604624550052">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="277" y="95" key="#Inspections/0.0.1368.872@0.0.1368.872" timestamp="1604624550052" />
     <state x="545" y="191" key="#com.intellij.ide.util.MemberChooser" timestamp="1603181426972">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="545" y="191" key="#com.intellij.ide.util.MemberChooser/0.0.1368.872@0.0.1368.872" timestamp="1603181426972" />
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596704568378" />
-    <state x="704" y="373" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595998946863">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="704" y="373" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1595998946863" />
-    <state x="329" y="30" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1602577382934">
+    <state x="415" y="105" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1604646983501">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1602577382934" />
+    <state x="415" y="105" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1368.872@0.0.1368.872" timestamp="1604646983501" />
+    <state x="329" y="30" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1604647396206">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1604647396206" />
     <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1601315492488" />
-    <state x="465" y="178" key="FileChooserDialogImpl" timestamp="1601973147929">
+    <state x="465" y="178" key="FileChooserDialogImpl" timestamp="1604647320891">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="465" y="178" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1601973147929" />
+    <state x="465" y="178" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1604647320891" />
     <state x="653" y="212" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599637086128" />
     <state x="773" y="414" key="Github.CreateGistDialog" timestamp="1596648719423">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -546,33 +590,33 @@
     <state width="1326" height="211" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1604623083747" />
     <state width="1565" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778183" />
     <state width="1876" height="178" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1604589014426" />
-    <state x="335" y="134" key="NewModule_or_Project.wizard" timestamp="1601973156336">
+    <state x="335" y="134" width="779" height="602" key="NewModule_or_Project.wizard" timestamp="1604625563296">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="335" y="134" key="NewModule_or_Project.wizard/0.0.1368.872@0.0.1368.872" timestamp="1601973156336" />
-    <state x="314" y="24" key="SettingsEditor" timestamp="1604623626074">
+    <state x="335" y="134" width="779" height="602" key="NewModule_or_Project.wizard/0.0.1368.872@0.0.1368.872" timestamp="1604625563296" />
+    <state x="208" y="24" key="SettingsEditor" timestamp="1604647322844">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="314" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1604623626074" />
+    <state x="208" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1604647322844" />
     <state x="440" y="93" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596606204557" />
-    <state x="277" y="170" key="Vcs.Push.Dialog.v2" timestamp="1602577389529">
+    <state x="277" y="170" key="Vcs.Push.Dialog.v2" timestamp="1604624201033">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1602577389529" />
+    <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604624201033" />
     <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1601315497923" />
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1604624150479">
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1604647222667">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1604624150479" />
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1604647222667" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1601735508162" />
     <state x="395" y="228" key="git4idea.merge.GitPullDialog" timestamp="1600992664680">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="395" y="228" key="git4idea.merge.GitPullDialog/0.0.1368.872@0.0.1368.872" timestamp="1600992664680" />
-    <state x="64" y="68" key="new project wizard" timestamp="1604623612466">
+    <state x="64" y="68" key="new project wizard" timestamp="1604624578622">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="64" y="68" key="new project wizard/0.0.1368.872@0.0.1368.872" timestamp="1604623612466" />
+    <state x="64" y="68" key="new project wizard/0.0.1368.872@0.0.1368.872" timestamp="1604624578622" />
     <state x="336" y="128" key="new project wizard/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599637087772" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
