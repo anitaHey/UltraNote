@@ -22,4 +22,8 @@ public class Response {
     public Response(String rawJson) {
         this(NetworkUtils.getGson().fromJson(rawJson, JsonObject.class));
     }
+
+    public Map<String, Object> getContent() {
+        return content;
+    }
 }
