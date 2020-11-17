@@ -28,8 +28,9 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="richtextfx-fat-0.10.5" level="project" />
-    <orderEntry type="library" name="Python 3.7 interpreter library" level="application" />
     <orderEntry type="library" name="okhttp-4.9.0" level="project" />
     <orderEntry type="library" name="gson-2.8.6" level="project" />
+    <orderEntry type="library" name="Python 3.7 interpreter library" level="application" />
+    <orderEntry type="library" name="okio-2.9.0" level="project" />
   </component>
 </module>

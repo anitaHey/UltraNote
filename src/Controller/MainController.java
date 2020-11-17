@@ -20,6 +20,7 @@ import java.io.IOException;
 
 public class MainController {
     private static MainController instance;
+    public static Stage loginStage;
     private Stage stage;
     private int toolbar_height = 138;
 
@@ -212,16 +213,16 @@ public class MainController {
     }
 
     private void showLogin(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
+        loginStage = new Stage();
 
         Scene scene = new Scene(new StackPane(), 965, 600);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/UserFxml.fxml"));
         scene.setRoot(loader.load());
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(
+        loginStage.setScene(scene);
+        loginStage.initStyle(StageStyle.UNDECORATED);
+        loginStage.initModality(Modality.WINDOW_MODAL);
+        loginStage.initOwner(
                 ((Node) event.getSource()).getScene().getWindow());
-        stage.show();
+        loginStage.show();
     }
 }

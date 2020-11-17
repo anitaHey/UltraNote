@@ -24,7 +24,7 @@ public class NetworkUtils {
 
     public static String post(String uri, String json) {
         String url = String.format("%s/%s", "http://127.0.0.1:8080", uri);
-        RequestBody body = RequestBody.create(JSON, json);
+        RequestBody body = RequestBody.create(json, JSON);
         Request request = new Request.Builder().url(url).post(body).build();
 
         try (Response response = CLIENT.newCall(request).execute()) {

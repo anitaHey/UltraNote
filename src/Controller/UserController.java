@@ -33,7 +33,9 @@ public class UserController {
     public void initialize() {
         setInstance(this);
 
-        exit.setOnAction(actionEvent -> Platform.exit());
+        exit.setOnAction(actionEvent -> {
+            MainController.loginStage.close();
+        });
         login_btn.setOnAction(actionEvent -> {
             String email = email_text.getText();
             String password = password_text.getText();

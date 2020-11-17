@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_8_6.xml" afterDir="false" />
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20201106">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/okio_2_9_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UltraNote.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UltraNote.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController$Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/communication/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/communication/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/user/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/utility/NetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/utility/NetworkUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +27,7 @@
         <option value="FxmlFile" />
         <option value="Python Script" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -44,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="jdk.selected.PYTHON_MODULE" value="Python 3.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/libs/gson-2.8.6.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/libs/okio-2.9.0.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -127,13 +132,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583287093195</updated>
-    </task>
-    <task id="LOCAL-00003" summary="20200314 Move and text select.">
-      <created>1584192329422</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1584192329422</updated>
     </task>
     <task id="LOCAL-00004" summary="20200314 Change toolbar.">
       <created>1584200419573</created>
@@ -471,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605024544080</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="20201112 Add usercontroller">
+      <created>1605150505104</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1605150505105</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -491,7 +496,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20200731 Add BasicNode and fix draw pen." />
     <MESSAGE value="20200801 Fix drawing." />
     <MESSAGE value="20200802 Fix drawing" />
     <MESSAGE value="20200803 Add change pen." />
@@ -516,7 +520,8 @@
     <MESSAGE value="20201106" />
     <MESSAGE value="20201110" />
     <MESSAGE value="20201110 Add API" />
-    <option name="LAST_COMMIT_MESSAGE" value="20201110 Add API" />
+    <MESSAGE value="20201112 Add usercontroller" />
+    <option name="LAST_COMMIT_MESSAGE" value="20201112 Add usercontroller" />
   </component>
   <component name="WindowStateProjectService">
     <state x="277" y="95" key="#Inspections" timestamp="1604624550052">
@@ -527,73 +532,76 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="545" y="191" key="#com.intellij.ide.util.MemberChooser/0.0.1368.872@0.0.1368.872" timestamp="1603181426972" />
-    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596704568378" />
-    <state x="582" y="125" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1604659179794">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="415" y="105" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1605144773053">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="415" y="105" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1368.872@0.0.1368.872" timestamp="1604646983501" />
+    <state x="415" y="105" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1368.872@0.0.1368.872" timestamp="1605144773053" />
     <state x="582" y="125" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1604659179794" />
-    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1605024543285">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="329" y="30" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1605150503479">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1604647852672" />
+    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1605150503479" />
     <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605024543285" />
-    <state x="643" y="341" key="FileChooserDialogImpl" timestamp="1605081891809">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="483" y="165" key="DetectedRootsChooserDialog" timestamp="1605601107270">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="465" y="178" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1604647320891" />
+    <state x="483" y="165" key="DetectedRootsChooserDialog/0.0.1368.872@0.0.1368.872" timestamp="1605601107270" />
+    <state x="465" y="178" key="FileChooserDialogImpl" timestamp="1605601746383">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="465" y="178" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1605601746383" />
     <state x="643" y="341" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605081891809" />
-    <state x="773" y="414" key="Github.CreateGistDialog" timestamp="1596648719423">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="551" y="347" width="372" height="205" key="Github.CreateGistDialog" timestamp="1605146173405">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="773" y="414" key="Github.CreateGistDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1596648719423" />
-    <state width="1876" height="178" key="GridCell.Tab.0.bottom" timestamp="1604754894118">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="551" y="347" width="372" height="205" key="Github.CreateGistDialog/0.0.1368.872@0.0.1368.872" timestamp="1605146173405" />
+    <state width="1326" height="211" key="GridCell.Tab.0.bottom" timestamp="1605605914253">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="211" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1604623083747" />
+    <state width="1326" height="211" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1605605914253" />
     <state width="1565" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778183" />
     <state width="1876" height="178" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1604754894118" />
-    <state width="1876" height="178" key="GridCell.Tab.0.center" timestamp="1604754894118">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="211" key="GridCell.Tab.0.center" timestamp="1605605914253">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="211" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1604623083746" />
+    <state width="1326" height="211" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1605605914253" />
     <state width="1565" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778182" />
     <state width="1876" height="178" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1604754894118" />
-    <state width="1876" height="178" key="GridCell.Tab.0.left" timestamp="1604754894118">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="211" key="GridCell.Tab.0.left" timestamp="1605605914253">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="211" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1604623083746" />
+    <state width="1326" height="211" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1605605914253" />
     <state width="1565" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778182" />
     <state width="1876" height="178" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1604754894118" />
-    <state width="1876" height="178" key="GridCell.Tab.0.right" timestamp="1604754894118">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1326" height="211" key="GridCell.Tab.0.right" timestamp="1605605914253">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1326" height="211" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1604623083747" />
+    <state width="1326" height="211" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1605605914253" />
     <state width="1565" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778183" />
     <state width="1876" height="178" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1604754894118" />
     <state x="335" y="134" width="779" height="602" key="NewModule_or_Project.wizard" timestamp="1604625563296">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="335" y="134" width="779" height="602" key="NewModule_or_Project.wizard/0.0.1368.872@0.0.1368.872" timestamp="1604625563296" />
-    <state x="332" y="138" key="SettingsEditor" timestamp="1605081894383">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="208" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1604647322844" />
-    <state x="332" y="138" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605081894383" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1605024551287">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1604624201033" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605024551287" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1604758134378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1604647222667" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1604758134378" />
-    <state x="395" y="228" key="git4idea.merge.GitPullDialog" timestamp="1600992664680">
+    <state x="208" y="24" key="SettingsEditor" timestamp="1605601749507">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="395" y="228" key="git4idea.merge.GitPullDialog/0.0.1368.872@0.0.1368.872" timestamp="1600992664680" />
+    <state x="208" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1605601749507" />
+    <state x="332" y="138" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605081894383" />
+    <state x="277" y="170" key="Vcs.Push.Dialog.v2" timestamp="1605150509955">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1605150509955" />
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605024551287" />
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1605599945647">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1605599945647" />
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1604758134378" />
+    <state x="395" y="228" key="git4idea.merge.GitPullDialog" timestamp="1605600261605">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="395" y="228" key="git4idea.merge.GitPullDialog/0.0.1368.872@0.0.1368.872" timestamp="1605600261605" />
     <state x="64" y="68" key="new project wizard" timestamp="1604624578622">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
