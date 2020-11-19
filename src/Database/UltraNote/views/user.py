@@ -1,9 +1,9 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.db import IntegrityError
 from django.core.exceptions import ObjectDoesNotExist
 
-from Database.UltraNote.models import User
-from Database.UltraNote.status_code import StatusCode
+from UltraNote.models import User
+from UltraNote.status_code import StatusCode
 import json
 
 def get(request, id):

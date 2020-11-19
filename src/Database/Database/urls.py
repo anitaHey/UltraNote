@@ -17,12 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
 
-from Database.UltraNote.views import user
-
+from UltraNote.views import user
 urlpatterns = [
-    path('admin/', admin.site.urls),
-
-    url(r'^user/login$', user.login),
-    url(r'^user/register$', user.register),
-    url(r'^user/(?P<username>[\w.@+-]+)$', user.get),
+    url(r'^admin/', admin.site.urls),
+    # url(r'^user/login$', user.login),
+    # url(r'^user/register$', user.register),
+    # url(r'^user/(?P<username>[\w.@+-]+)$', user.get),
 ]
