@@ -2,7 +2,6 @@ package Controller;
 
 import API.communication.Response;
 import API.user.User;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -36,16 +35,16 @@ public class UserController {
         exit.setOnAction(actionEvent -> {
             MainController.loginStage.close();
         });
+
         login_btn.setOnAction(actionEvent -> {
             String email = email_text.getText();
             String password = password_text.getText();
 
             try {
                 Response login = User.login(email, password);
-                System.out.println(login.getContent().toString());
-
+//                System.out.println(login.getContent().toString());
             } catch (Exception e){
-                System.out.println(e);
+                e.printStackTrace();
             }
         });
 

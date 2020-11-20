@@ -20,7 +20,7 @@ from django.conf.urls import include, url
 from UltraNote.views import user
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^user/login$', user.login),
-    # url(r'^user/register$', user.register),
-    # url(r'^user/(?P<username>[\w.@+-]+)$', user.get),
+    url(r'^user/login$', user.login),
+    url(r'^user/register$', user.register),
+    url(r'^user/(?P<username>[\w.@+-]+)$', user.get),
 ]

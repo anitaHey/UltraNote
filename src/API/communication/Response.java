@@ -11,6 +11,7 @@ public class Response {
     private Map<String, Object> content;
 
     public Response(JsonObject json) {
+        System.out.println(json.get("request").toString());
         status = Status.values()[json.get("StatusCode").getAsInt()];
 
         if(status == Status.SUCCESS) {
