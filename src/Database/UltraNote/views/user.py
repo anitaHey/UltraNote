@@ -47,12 +47,19 @@ def login(request):
     response_data = {"statusCode": StatusCode.SUCCESS}
 
     try:
-        req_content = json.loads(request.boby.decode("utf-8"))
+        req_content = json.loads(request.body.decode("utf-8"))
 
         email = req_content["email"]
         password = req_content["password"]
 
-        user = User.object.get(email=email, password=password)
+        user = User.objects.get(email=email, password=password)
+        response_data["content"] = {
+            "id": user.id,
+            "email": user.email,
+            "name": user.name,
+            "gender": user.gender
+        }
+
     except KeyError:
         response_data["statusCode"] = StatusCode.INSUFFICIENT_ARGS
     except ObjectDoesNotExist:

@@ -51,6 +51,16 @@
     -fx-background-color: #EAEAEA;
 }
 
-.login_btn:hover {
+.login:hover {
     -fx-background-color: #424a52;
+}
+
+.sign {
+    -fx-background-color: transparent;
+    -fx-font-size: 16px;
+    -fx-underline: true;
+}
+
+.sign:hover {
+    -fx-text-fill: #a39e9e;
 }

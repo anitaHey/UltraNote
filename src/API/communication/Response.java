@@ -11,9 +11,7 @@ public class Response {
     private Map<String, Object> content;
 
     public Response(JsonObject json) {
-        System.out.println(json.get("request").toString());
-        status = Status.values()[json.get("StatusCode").getAsInt()];
-
+        status = Status.values()[json.get("statusCode").getAsInt()];
         if(status == Status.SUCCESS) {
             JsonObject rawContentJson = json.getAsJsonObject("content");
             content = NetworkUtils.getGson().fromJson(rawContentJson, HashMap.class);
@@ -26,5 +24,9 @@ public class Response {
 
     public Map<String, Object> getContent() {
         return content;
+    }
+
+    public boolean success() {
+        return status == Status.SUCCESS;
     }
 }

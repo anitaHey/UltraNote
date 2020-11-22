@@ -42,7 +42,10 @@ public class UserController {
 
             try {
                 Response login = User.login(email, password);
-//                System.out.println(login.getContent().toString());
+
+                if(login.success()) {
+
+                }
             } catch (Exception e){
                 e.printStackTrace();
             }
