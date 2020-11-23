@@ -26,6 +26,10 @@ public class Response {
         return content;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
     public boolean success() {
         return status == Status.SUCCESS;
     }

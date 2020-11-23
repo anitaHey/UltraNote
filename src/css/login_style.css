@@ -64,3 +64,7 @@
 .sign:hover {
     -fx-text-fill: #a39e9e;
 }
+
+.error_word {
+    -fx-text-fill: #ca3e47;
+}

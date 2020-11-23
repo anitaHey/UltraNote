@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20201106">
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/communication/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/communication/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/utility/NetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/utility/NetworkUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/UltraNote/views/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/UltraNote/views/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FXML/UserFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/UserFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/login_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/login_style.css" afterDir="false" />
@@ -47,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="jdk.selected.PYTHON_MODULE" value="Python 3.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/libs/kotlin-stdlib-1.4.20.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/FXML" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -130,13 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583287093195</updated>
-    </task>
-    <task id="LOCAL-00006" summary="20200317 Add underline text.">
-      <created>1584434467767</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1584434467767</updated>
     </task>
     <task id="LOCAL-00007" summary="20200321 Add font size.">
       <created>1584765958746</created>
@@ -474,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605757916933</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="20201122 Fix database">
+      <created>1606052670160</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1606052670160</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -494,7 +492,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20200803 Add change pen." />
     <MESSAGE value="20200804 Add pen creating." />
     <MESSAGE value="20200804 Add eraser for drawing." />
     <MESSAGE value="20200805 Fix some bugs and format code." />
@@ -519,7 +516,8 @@
     <MESSAGE value="20201112 Add usercontroller" />
     <MESSAGE value="20201117 Fix UserController" />
     <MESSAGE value="20201119 Fix database" />
-    <option name="LAST_COMMIT_MESSAGE" value="20201119 Fix database" />
+    <MESSAGE value="20201122 Fix database" />
+    <option name="LAST_COMMIT_MESSAGE" value="20201122 Fix database" />
   </component>
   <component name="WindowStateProjectService">
     <state x="277" y="95" key="#Inspections" timestamp="1604624550052">
@@ -535,11 +533,11 @@
     </state>
     <state x="415" y="105" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1368.872@0.0.1368.872" timestamp="1605144773053" />
     <state x="582" y="125" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1604659179794" />
-    <state x="329" y="30" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1605757915915">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1606052668429">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1605757915915" />
-    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605024543285" />
+    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606052668429" />
     <state x="483" y="165" key="DetectedRootsChooserDialog" timestamp="1605601107270">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
@@ -553,30 +551,30 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="551" y="347" width="372" height="205" key="Github.CreateGistDialog/0.0.1368.872@0.0.1368.872" timestamp="1605146173405" />
-    <state width="1876" height="257" key="GridCell.Tab.0.bottom" timestamp="1606052564120">
+    <state width="1876" height="257" key="GridCell.Tab.0.bottom" timestamp="1606055248367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="201" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1605836818877" />
     <state width="1565" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778183" />
-    <state width="1876" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606052564120" />
-    <state width="1876" height="257" key="GridCell.Tab.0.center" timestamp="1606052564119">
+    <state width="1876" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606055248367" />
+    <state width="1876" height="257" key="GridCell.Tab.0.center" timestamp="1606055248366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="201" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1605836818876" />
     <state width="1565" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778182" />
-    <state width="1876" height="257" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606052564119" />
-    <state width="1876" height="257" key="GridCell.Tab.0.left" timestamp="1606052564119">
+    <state width="1876" height="257" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606055248366" />
+    <state width="1876" height="257" key="GridCell.Tab.0.left" timestamp="1606055248366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="201" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1605836818876" />
     <state width="1565" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778182" />
-    <state width="1876" height="257" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606052564119" />
-    <state width="1876" height="257" key="GridCell.Tab.0.right" timestamp="1606052564119">
+    <state width="1876" height="257" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606055248366" />
+    <state width="1876" height="257" key="GridCell.Tab.0.right" timestamp="1606055248366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1326" height="201" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1605836818876" />
     <state width="1565" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778183" />
-    <state width="1876" height="257" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606052564119" />
+    <state width="1876" height="257" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606055248366" />
     <state width="1326" height="281" key="GridCell.Tab.1.bottom" timestamp="1605836310782">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
@@ -602,11 +600,11 @@
     </state>
     <state x="208" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1605832691174" />
     <state x="332" y="138" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605081894383" />
-    <state x="277" y="170" key="Vcs.Push.Dialog.v2" timestamp="1605605991056">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1606052675651">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1605605991056" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605024551287" />
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606052675651" />
     <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1605748641420">
       <screen x="0" y="0" width="1368" height="872" />
     </state>

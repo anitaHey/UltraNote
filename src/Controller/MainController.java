@@ -216,7 +216,7 @@ public class MainController {
         loginStage = new Stage();
 
         Scene scene = new Scene(new StackPane(), 965, 600);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/UserFxml.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/UserLogInFxml.fxml"));
         scene.setRoot(loader.load());
         loginStage.setScene(scene);
         loginStage.initStyle(StageStyle.UNDECORATED);
