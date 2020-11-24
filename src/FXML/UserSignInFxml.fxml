@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="965.0" stylesheets="@../css/login_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="965.0" stylesheets="@../css/login_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserLoginController">
    <children>
       <Pane prefHeight="600.0" prefWidth="473.0" styleClass="main_color">
          <children>
@@ -15,16 +17,40 @@
          </children></Pane>
       <Label layoutX="518.0" layoutY="48.0" prefHeight="48.0" prefWidth="460.0" styleClass="subtitle_word" text="Welcome" />
       <Label layoutX="521.0" layoutY="102.0" styleClass="subtitle_small_word" text="Register Now" />
-      <Button fx:id="login_btn" layoutX="803.0" layoutY="513.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="90.0" styleClass="login" text="Login" />
+      <Button fx:id="login_btn" layoutX="826.0" layoutY="531.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="90.0" styleClass="login" text="Login" />
       <Button fx:id="exit" layoutX="927.0" layoutY="14.0" mnemonicParsing="false" styleClass="close_btn" text="X" />
-      <Button fx:id="sign_btn" layoutX="737.0" layoutY="523.0" mnemonicParsing="false" styleClass="sign" text="Back" />
-      <VBox layoutX="518.0" layoutY="164.0" prefHeight="332.0" prefWidth="384.0" spacing="10.0">
-         <children>
-            <TextField fx:id="email_text" prefHeight="48.0" prefWidth="355.0" promptText="Email" styleClass="text_field" />
-            <PasswordField fx:id="password_text" prefHeight="48.0" prefWidth="355.0" promptText="Password" styleClass="text_field" />
-            <Label fx:id="error_word" prefHeight="38.0" prefWidth="355.0" styleClass="error_word" />
-         </children>
-      </VBox>
+      <Button fx:id="sign_btn" layoutX="765.0" layoutY="541.0" mnemonicParsing="false" styleClass="sign" text="Back" />
+      <ScrollPane fitToWidth="true" layoutX="511.0" layoutY="152.0" prefHeight="360.0" prefWidth="405.0" styleClass="scroll_pane">
+         <content>
+            <VBox maxWidth="400.0" prefHeight="341.0" prefWidth="370.0" spacing="10.0" styleClass="vbox">
+               <children>
+                  <Label text="Email" />
+                  <TextField fx:id="email_text" prefHeight="48.0" prefWidth="268.0" styleClass="text_field" />
+                  <Label text="Password" />
+                  <PasswordField fx:id="password_text" prefHeight="48.0" prefWidth="355.0" styleClass="text_field" />
+                  <Label text="Password Again" />
+                  <PasswordField fx:id="password_text1" prefHeight="48.0" prefWidth="355.0" styleClass="text_field" />
+                  <Label text="Username" />
+                  <PasswordField fx:id="password_text11" prefHeight="48.0" prefWidth="355.0" styleClass="text_field" />
+                  <Label text="Gender" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Male">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$gender" />
+                        <RadioButton mnemonicParsing="false" text="Other" toggleGroup="$gender" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="40.0" top="10.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
    </children>
    <styleClass>
       <String fx:value="window_border" />

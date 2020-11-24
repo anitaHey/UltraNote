@@ -4,13 +4,11 @@ import API.communication.Response;
 import API.communication.Status;
 import API.user.User;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 
-public class UserController {
-    private static UserController instance;
+public class UserSigninController {
+    private static UserSigninController instance;
 
     @FXML
     TextField email_text;
@@ -21,14 +19,14 @@ public class UserController {
     @FXML
     Label error_word;
 
-    public static UserController getInstance() {
+    public static UserSigninController getInstance() {
         if (instance == null) {
-            instance = new UserController();
+            instance = new UserSigninController();
         }
         return instance;
     }
 
-    public static void setInstance(UserController newInstance) {
+    public static void setInstance(UserSigninController newInstance) {
         instance = newInstance;
     }
 
@@ -60,7 +58,5 @@ public class UserController {
                 e.printStackTrace();
             }
         });
-
     }
-
 }
