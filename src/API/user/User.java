@@ -14,4 +14,16 @@ public class User {
 
         return new Response(NetworkUtils.post(url, json.toString()));
     }
+
+    public static Response register(String email, String password, String name, int gender) {
+        String url = "user/register";
+
+        JsonObject json = new JsonObject();
+        json.addProperty("email", email);
+        json.addProperty("password", password);
+        json.addProperty("name", name);
+        json.addProperty("gender", gender);
+
+        return new Response(NetworkUtils.post(url, json.toString()));
+    }
 }

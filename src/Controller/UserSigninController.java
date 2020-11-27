@@ -7,17 +7,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class UserSigninController {
     private static UserSigninController instance;
+    private Map<String, Integer> gender_str = new HashMap<>();
 
     @FXML
-    TextField email_text;
+    TextField email_text, name_text;
     @FXML
-    PasswordField password_text;
+    PasswordField password_text, password__check;
     @FXML
-    Button login_btn, exit, sign_btn;
+    Button register_btn, exit, back_btn;
     @FXML
     Label error_word;
+    @FXML
+    ToggleGroup gender_group;
 
     public static UserSigninController getInstance() {
         if (instance == null) {
@@ -34,21 +40,27 @@ public class UserSigninController {
     public void initialize() {
         setInstance(this);
 
+        gender_str.put("Male", 0);
+        gender_str.put("Female", 1);
+        gender_str.put("Other", 2);
+
         exit.setOnAction(actionEvent -> {
             MainController.loginStage.close();
         });
 
-        login_btn.setOnAction(actionEvent -> {
+        register_btn.setOnAction(actionEvent -> {
             String email = email_text.getText();
             String password = password_text.getText();
+            String name = name_text.getText();
+            int gender = gender_str.get(((RadioButton)gender_group.getSelectedToggle()).getText());
 
             try {
-                Response login = User.login(email, password);
+                Response register = User.register(email, password, name, gender);
 
-                if(login.success()) {
+                if(register.success()) {
                     error_word.setText("");
                 } else {
-                    if(login.getStatus() == Status.VALIDATION_ERR){
+                    if(register.getStatus() == Status.VALIDATION_ERR){
                         error_word.setText("Wrong email or wrong password.");
                     } else {
                         error_word.setText("Connect error. Please try again.");

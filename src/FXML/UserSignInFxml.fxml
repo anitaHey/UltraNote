@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="965.0" stylesheets="@../css/login_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserLoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="965.0" stylesheets="@../css/login_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserSigninController">
    <children>
       <Pane prefHeight="600.0" prefWidth="473.0" styleClass="main_color">
          <children>
@@ -17,9 +17,9 @@
          </children></Pane>
       <Label layoutX="518.0" layoutY="48.0" prefHeight="48.0" prefWidth="460.0" styleClass="subtitle_word" text="Welcome" />
       <Label layoutX="521.0" layoutY="102.0" styleClass="subtitle_small_word" text="Register Now" />
-      <Button fx:id="login_btn" layoutX="826.0" layoutY="531.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="90.0" styleClass="login" text="Login" />
+      <Button fx:id="register_btn" layoutX="826.0" layoutY="531.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="90.0" styleClass="login" text="Register" />
       <Button fx:id="exit" layoutX="927.0" layoutY="14.0" mnemonicParsing="false" styleClass="close_btn" text="X" />
-      <Button fx:id="sign_btn" layoutX="765.0" layoutY="541.0" mnemonicParsing="false" styleClass="sign" text="Back" />
+      <Button fx:id="back_btn" layoutX="765.0" layoutY="541.0" mnemonicParsing="false" styleClass="sign" text="Back" />
       <ScrollPane fitToWidth="true" layoutX="511.0" layoutY="152.0" prefHeight="360.0" prefWidth="405.0" styleClass="scroll_pane">
          <content>
             <VBox maxWidth="400.0" prefHeight="341.0" prefWidth="370.0" spacing="10.0" styleClass="vbox">
@@ -29,19 +29,19 @@
                   <Label text="Password" />
                   <PasswordField fx:id="password_text" prefHeight="48.0" prefWidth="355.0" styleClass="text_field" />
                   <Label text="Password Again" />
-                  <PasswordField fx:id="password_text1" prefHeight="48.0" prefWidth="355.0" styleClass="text_field" />
+                  <PasswordField fx:id="password__check" prefHeight="48.0" prefWidth="355.0" styleClass="text_field" />
                   <Label text="Username" />
-                  <PasswordField fx:id="password_text11" prefHeight="48.0" prefWidth="355.0" styleClass="text_field" />
+                  <TextField fx:id="name_text" prefHeight="48.0" prefWidth="268.0" styleClass="text_field" />
                   <Label text="Gender" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
                      <children>
                         <RadioButton mnemonicParsing="false" text="Male">
                            <toggleGroup>
-                              <ToggleGroup fx:id="gender" />
+                              <ToggleGroup fx:id="gender_group" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$gender" />
-                        <RadioButton mnemonicParsing="false" text="Other" toggleGroup="$gender" />
+                        <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$gender_group" />
+                        <RadioButton mnemonicParsing="false" text="Other" toggleGroup="$gender_group" />
                      </children>
                   </HBox>
                </children>

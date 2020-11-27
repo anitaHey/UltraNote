@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/UserSigninController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/css/main_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/css/main_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/UserLogInFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/UserLogInFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserSigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserSigninController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FXML/UserSignInFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/UserSignInFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/login_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/login_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/main_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/main_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -564,30 +559,30 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="551" y="347" width="372" height="205" key="Github.CreateGistDialog/0.0.1368.872@0.0.1368.872" timestamp="1605146173405" />
-    <state width="663" height="173" key="GridCell.Tab.0.bottom" timestamp="1606211203109">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="208" key="GridCell.Tab.0.bottom" timestamp="1606486563985">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="663" height="173" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1606211203109" />
     <state width="1565" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778183" />
-    <state width="1876" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606055248367" />
-    <state width="663" height="173" key="GridCell.Tab.0.center" timestamp="1606211203108">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="208" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606486563985" />
+    <state width="1876" height="208" key="GridCell.Tab.0.center" timestamp="1606486563985">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="663" height="173" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1606211203108" />
     <state width="1565" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778182" />
-    <state width="1876" height="257" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606055248366" />
-    <state width="663" height="173" key="GridCell.Tab.0.left" timestamp="1606211203108">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="208" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606486563985" />
+    <state width="1876" height="208" key="GridCell.Tab.0.left" timestamp="1606486563985">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="663" height="173" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1606211203108" />
     <state width="1565" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778182" />
-    <state width="1876" height="257" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606055248366" />
-    <state width="663" height="173" key="GridCell.Tab.0.right" timestamp="1606211203109">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="208" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606486563985" />
+    <state width="1876" height="208" key="GridCell.Tab.0.right" timestamp="1606486563985">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="663" height="173" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1606211203109" />
     <state width="1565" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778183" />
-    <state width="1876" height="257" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606055248366" />
+    <state width="1876" height="208" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606486563985" />
     <state width="1326" height="281" key="GridCell.Tab.1.bottom" timestamp="1605836310782">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
