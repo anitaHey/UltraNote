@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
@@ -24,7 +25,25 @@
          <content>
             <VBox maxWidth="400.0" prefHeight="341.0" prefWidth="370.0" spacing="10.0" styleClass="vbox">
                <children>
-                  <Label text="Email" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label text="Email" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
+                           <children>
+                              <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pic/exclamation-mark.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Wrong format" textFill="#e15d5d">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
                   <TextField fx:id="email_text" prefHeight="48.0" prefWidth="268.0" styleClass="text_field" />
                   <Label text="Password" />
                   <PasswordField fx:id="password_text" prefHeight="48.0" prefWidth="355.0" styleClass="text_field" />

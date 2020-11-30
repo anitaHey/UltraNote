@@ -30,7 +30,7 @@ def register(request):
         name = req_content["name"]
         gender = req_content["gender"]
 
-        User.object.create(
+        User.objects.create(
             email = email,
             password = password,
             name = name,

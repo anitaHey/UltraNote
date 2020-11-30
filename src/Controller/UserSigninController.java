@@ -9,10 +9,12 @@ import javafx.scene.layout.VBox;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class UserSigninController {
     private static UserSigninController instance;
     private Map<String, Integer> gender_str = new HashMap<>();
+    Pattern email_format = Pattern.compile("\\d+@\\d+.\\d+");
 
     @FXML
     TextField email_text, name_text;
@@ -49,26 +51,33 @@ public class UserSigninController {
         });
 
         register_btn.setOnAction(actionEvent -> {
-            String email = email_text.getText();
-            String password = password_text.getText();
-            String name = name_text.getText();
-            int gender = gender_str.get(((RadioButton)gender_group.getSelectedToggle()).getText());
+            if(checkData()){
+                String email = email_text.getText();
+                String password = password_text.getText();
+                String name = name_text.getText();
+                int gender = gender_str.get(((RadioButton)gender_group.getSelectedToggle()).getText());
 
-            try {
-                Response register = User.register(email, password, name, gender);
+                try {
+                    Response register = User.register(email, password, name, gender);
 
-                if(register.success()) {
-                    error_word.setText("");
-                } else {
-                    if(register.getStatus() == Status.VALIDATION_ERR){
-                        error_word.setText("Wrong email or wrong password.");
+                    if(register.success()) {
+                        error_word.setText("");
                     } else {
-                        error_word.setText("Connect error. Please try again.");
+                        if(register.getStatus() == Status.VALIDATION_ERR){
+                            error_word.setText("Wrong email or wrong password.");
+                        } else {
+                            error_word.setText("Connect error. Please try again.");
+                        }
                     }
+                } catch (Exception e){
+                    e.printStackTrace();
                 }
-            } catch (Exception e){
-                e.printStackTrace();
             }
         });
+    }
+
+    public boolean checkData(){
+
+        return true;
     }
 }
