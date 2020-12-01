@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20201127">
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/utility/NetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/utility/NetworkUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserSigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserSigninController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/UltraNote/views/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/UltraNote/views/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FXML/UserSignInFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/UserSignInFxml.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,13 +126,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583287093195</updated>
-    </task>
-    <task id="LOCAL-00009" summary="20200404 Change textbox.">
-      <created>1586002711250</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1586002711250</updated>
     </task>
     <task id="LOCAL-00010" summary="20200407 Set font default.">
       <created>1586260339235</created>
@@ -473,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606491451965</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="20201130 Add register">
+      <created>1606751067801</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1606751067801</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -493,7 +490,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20200805 Fix some bugs and format code." />
     <MESSAGE value="20200806 Add code block." />
     <MESSAGE value="20200806 Add code toolbar" />
     <MESSAGE value="20200807 Add code block for code compile." />
@@ -518,7 +514,8 @@
     <MESSAGE value="20201122 Fix database" />
     <MESSAGE value="20201123 Fix Login" />
     <MESSAGE value="20201127" />
-    <option name="LAST_COMMIT_MESSAGE" value="20201127" />
+    <MESSAGE value="20201130 Add register" />
+    <option name="LAST_COMMIT_MESSAGE" value="20201130 Add register" />
   </component>
   <component name="WindowStateProjectService">
     <state x="277" y="95" key="#Inspections" timestamp="1604624550052">
@@ -542,11 +539,11 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="415" y="183" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1368.872@0.0.1368.872" timestamp="1606203456418" />
-    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1606715648615">
+    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1606751067078">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1605757915915" />
-    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606715648615" />
+    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606751067078" />
     <state x="483" y="165" key="DetectedRootsChooserDialog" timestamp="1605601107270">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
@@ -609,11 +606,11 @@
     </state>
     <state x="208" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1605832691174" />
     <state x="332" y="138" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605081894383" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1606491454607">
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1606829270243">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1605605991056" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606491454607" />
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606829270243" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1606714842634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

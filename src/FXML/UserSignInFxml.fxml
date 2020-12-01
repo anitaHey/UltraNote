@@ -28,7 +28,7 @@
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                      <children>
                         <Label text="Email" />
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
+                        <HBox fx:id="email_error" alignment="CENTER_LEFT" prefHeight="100.0" spacing="8.0" visible="false">
                            <children>
                               <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -45,13 +45,85 @@
                      </children>
                   </HBox>
                   <TextField fx:id="email_text" prefHeight="48.0" prefWidth="268.0" styleClass="text_field" />
-                  <Label text="Password" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label text="Password" />
+                        <HBox fx:id="password_blank_error" alignment="CENTER_LEFT" prefHeight="100.0" spacing="8.0" visible="false">
+                           <children>
+                              <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pic/exclamation-mark.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Blank error" textFill="#e15d5d">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
                   <PasswordField fx:id="password_text" prefHeight="48.0" prefWidth="355.0" styleClass="text_field" />
-                  <Label text="Password Again" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label text="Password Again" />
+                        <HBox fx:id="password_error" alignment="CENTER_LEFT" prefHeight="100.0" spacing="8.0" visible="false">
+                           <children>
+                              <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pic/exclamation-mark.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Different password" textFill="#e15d5d">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
                   <PasswordField fx:id="password__check" prefHeight="48.0" prefWidth="355.0" styleClass="text_field" />
-                  <Label text="Username" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label text="Username" />
+                        <HBox fx:id="username_error" alignment="CENTER_LEFT" prefHeight="100.0" spacing="8.0" visible="false">
+                           <children>
+                              <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pic/exclamation-mark.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Blank error" textFill="#e15d5d">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
                   <TextField fx:id="name_text" prefHeight="48.0" prefWidth="268.0" styleClass="text_field" />
-                  <Label text="Gender" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <Label text="Gender" />
+                        <HBox fx:id="gender_error" alignment="CENTER_LEFT" prefHeight="100.0" spacing="8.0" visible="false">
+                           <children>
+                              <ImageView fitHeight="16.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pic/exclamation-mark.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="Blank error" textFill="#e15d5d">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
                      <children>
                         <RadioButton mnemonicParsing="false" text="Male">

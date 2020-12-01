@@ -5,6 +5,7 @@ import API.communication.Status;
 import API.user.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.HashMap;
@@ -26,6 +27,8 @@ public class UserSigninController {
     Label error_word;
     @FXML
     ToggleGroup gender_group;
+    @FXML
+    HBox email_error, password_error, password_blank_error, username_error, gender_error;
 
     public static UserSigninController getInstance() {
         if (instance == null) {
