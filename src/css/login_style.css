@@ -46,6 +46,11 @@
     -fx-text-fill: #74828F;
 }
 
+.close_light_btn {
+    -fx-background-color:transparent;
+    -fx-text-fill: #EAEAEA;
+}
+
 .window_border{
     -fx-border-color: #74828F;
     -fx-background-color: #EAEAEA;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="185.0" prefWidth="308.0" styleClass="window_border" stylesheets="@../css/login_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.SignMessageFxml">
+   <children>
+      <Pane prefHeight="35.0" prefWidth="324.0" styleClass="main_color">
+         <children>
+            <Button layoutX="297.0" layoutY="3.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="19.0" styleClass="close_light_btn" text="X" />
+            <Label layoutX="7.0" layoutY="10.0" styleClass="close_light_btn" text="UltraNote" />
+         </children>
+      </Pane>
+      <Label layoutX="25.0" layoutY="69.0" prefHeight="42.0" prefWidth="268.0" />
+      <Button layoutX="257.0" layoutY="148.0" mnemonicParsing="false" styleClass="login" text="Button" />
+   </children>
+</AnchorPane>

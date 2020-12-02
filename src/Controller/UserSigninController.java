@@ -66,11 +66,7 @@ public class UserSigninController {
                     if(register.success()) {
                         error_word.setText("");
                     } else {
-                        if(register.getStatus() == Status.VALIDATION_ERR){
-                            error_word.setText("Wrong email or wrong password.");
-                        } else {
-                            error_word.setText("Connect error. Please try again.");
-                        }
+
                     }
                 } catch (Exception e){
                     e.printStackTrace();
@@ -80,7 +76,39 @@ public class UserSigninController {
     }
 
     public boolean checkData(){
+        boolean check = true;
 
-        return true;
+        email_error.setVisible(false);
+        password_error.setVisible(false);
+        password_blank_error.setVisible(false);
+        username_error.setVisible(false);
+        gender_error.setVisible(false);
+
+        if(!email_format.matcher(email_text.getText()).matches()) {
+            check = false;
+            email_error.setVisible(true);
+        }
+
+        if(password_text.getText().trim().length() == 0) {
+            check = false;
+            password_error.setVisible(true);
+        }
+
+        if(password__check.getText().trim().length() == 0 || !password__check.getText().equals(password_text.getText())) {
+            check = false;
+            password_blank_error.setVisible(true);
+        }
+
+        if(name_text.getText().trim().length() == 0) {
+            check = false;
+            username_error.setVisible(true);
+        }
+
+        if(gender_group.getSelectedToggle() == null) {
+            check = false;
+            gender_error.setVisible(true);
+        }
+
+        return check;
     }
 }
