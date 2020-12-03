@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/MessageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/SignMessageFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/MessageFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserSigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserSigninController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,13 +125,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583287093195</updated>
-    </task>
-    <task id="LOCAL-00012" summary="20200410 Add ResizeNode.">
-      <created>1586523557992</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1586523557992</updated>
     </task>
     <task id="LOCAL-00013" summary="20200410 Fix ResizeNode.">
       <created>1586536834174</created>
@@ -470,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606924498813</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="20201202 Add MessageController">
+      <created>1606926287790</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1606926287790</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -490,7 +489,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20200807 Add code block for code compile." />
     <MESSAGE value="20200810 Fix some bugs." />
     <MESSAGE value="20200811 Add checkList" />
     <MESSAGE value="20200812 Add checklist drop detect." />
@@ -515,7 +513,8 @@
     <MESSAGE value="20201130 Add register" />
     <MESSAGE value="20201201 Fix UI" />
     <MESSAGE value="20201202 Fix UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="20201202 Fix UI" />
+    <MESSAGE value="20201202 Add MessageController" />
+    <option name="LAST_COMMIT_MESSAGE" value="20201202 Add MessageController" />
   </component>
   <component name="WindowStateProjectService">
     <state x="277" y="95" key="#Inspections" timestamp="1604624550052">
@@ -539,11 +538,11 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="415" y="183" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1368.872@0.0.1368.872" timestamp="1606203456418" />
-    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1606924498281">
+    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1606926287224">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1605757915915" />
-    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606924498281" />
+    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606926287224" />
     <state x="483" y="165" key="DetectedRootsChooserDialog" timestamp="1605601107270">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
@@ -606,11 +605,11 @@
     </state>
     <state x="208" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1605832691174" />
     <state x="332" y="138" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605081894383" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1606924505548">
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1606926295704">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1605605991056" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606924505548" />
+    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606926295704" />
     <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1606714842634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

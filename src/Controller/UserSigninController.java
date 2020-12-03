@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +16,7 @@ import java.util.regex.Pattern;
 public class UserSigninController {
     private static UserSigninController instance;
     private Map<String, Integer> gender_str = new HashMap<>();
+    public static Stage MessageStage;
     Pattern email_format = Pattern.compile("\\d+@\\d+.\\d+");
 
     @FXML
