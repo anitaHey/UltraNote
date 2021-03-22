@@ -1,20 +1,16 @@
 package InsertObj;
 
 import Controller.PaperController;
-import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
@@ -25,7 +21,7 @@ public class BasicNode extends VBox {
     private String type;
     private boolean hasMin;
     private PaperController paper_controller = PaperController.getInstance();
-    private Paper paper = paper_controller.getCurentPaper();
+    private Paper paper = paper_controller.getCurrentPaper();
     private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0;
     private boolean dragging = false, lock = false;
     public boolean isParent = false;
@@ -173,8 +169,8 @@ public class BasicNode extends VBox {
                 newValue.getMaxY() > getNodeParent().getInsert_part().getBoundsInLocal().getHeight()) && !lock){
             lock = true;
             getNodeParent().getInsert_part().getChildren().remove(this);
-            if(!paper_controller.getCurentPaper().getChildren().contains(this))
-                paper_controller.getCurentPaper().getChildren().add(this);
+            if(!paper_controller.getCurrentPaper().getChildren().contains(this))
+                paper_controller.getCurrentPaper().getChildren().add(this);
 
             double change_X, change_Y;
             if(newValue.getMinX() < 0) change_X = getNodeParent().getBoundsInParent().getMinX();

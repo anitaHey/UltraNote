@@ -18,7 +18,7 @@ public class MessageController {
 
     @FXML
     public void initialize() {
-
+        message.setText(getMessage_str());
     }
 
     public String getMessage_str() {

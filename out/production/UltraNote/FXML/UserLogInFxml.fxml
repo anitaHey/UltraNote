@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="965.0" stylesheets="@../css/login_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserLoginController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="473.0" styleClass="main_color">
+         <children>
+            <Label layoutX="112.0" layoutY="169.0" styleClass="title_word" text="UltraNote" />
+         </children></Pane>
+      <Label layoutX="520.0" layoutY="86.0" styleClass="subtitle_word" text="Welcome Back" />
+      <Label layoutX="523.0" layoutY="140.0" styleClass="subtitle_small_word" text="sign in to be continued" />
+      <TextField fx:id="email_text" layoutX="538.0" layoutY="217.0" prefHeight="48.0" prefWidth="355.0" promptText="Email" styleClass="text_field" />
+      <PasswordField fx:id="password_text" layoutX="538.0" layoutY="318.0" prefHeight="48.0" prefWidth="355.0" promptText="Password" styleClass="text_field" />
+      <Button fx:id="login_btn" layoutX="803.0" layoutY="444.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="90.0" styleClass="login" text="Login" />
+      <Button fx:id="exit" layoutX="927.0" layoutY="14.0" mnemonicParsing="false" styleClass="close_btn" text="X" />
+      <Button fx:id="sign_btn" layoutX="679.0" layoutY="455.0" mnemonicParsing="false" styleClass="sign" text="No Account? " />
+      <Label fx:id="error_word" layoutX="538.0" layoutY="366.0" prefHeight="38.0" prefWidth="355.0" styleClass="error_word" />
+   </children>
+   <styleClass>
+      <String fx:value="window_border" />
+      <String fx:value="font-size" />
+   </styleClass>
+</Pane>

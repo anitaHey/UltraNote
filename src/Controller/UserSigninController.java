@@ -4,10 +4,16 @@ import API.communication.Response;
 import API.communication.Status;
 import API.user.User;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +22,7 @@ import java.util.regex.Pattern;
 public class UserSigninController {
     private static UserSigninController instance;
     private Map<String, Integer> gender_str = new HashMap<>();
-    public static Stage MessageStage;
+    public static Stage messageStage;
     Pattern email_format = Pattern.compile("\\d+@\\d+.\\d+");
 
     @FXML
@@ -64,12 +70,24 @@ public class UserSigninController {
 
                 try {
                     Response register = User.register(email, password, name, gender);
-
+                    MessageController controller;
                     if(register.success()) {
-                        error_word.setText("");
+                        controller = new MessageController("Success! Please login again.");
                     } else {
-
+                        controller = new MessageController("Something error. Please try again.");
                     }
+
+                    Scene scene = new Scene(new StackPane(), 965, 600);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/MessageFxml.fxml"));
+                    scene.setRoot(loader.load());
+                    loader.setController(controller);
+                    messageStage = new Stage();
+                    messageStage.setScene(scene);
+                    messageStage.initStyle(StageStyle.UNDECORATED);
+                    messageStage.initModality(Modality.WINDOW_MODAL);
+                    messageStage.initOwner(
+                            ((Node) actionEvent.getSource()).getScene().getWindow());
+                    messageStage.show();
                 } catch (Exception e){
                     e.printStackTrace();
                 }

@@ -21,7 +21,7 @@ import java.util.List;
 
 public class CropImage extends GridPane {
     private PaperController paper_controller = PaperController.getInstance();
-    private Paper paper = paper_controller.getCurentPaper();
+    private Paper paper = paper_controller.getCurrentPaper();
 
     private ImageView crop_pic;
     private ImageView background;

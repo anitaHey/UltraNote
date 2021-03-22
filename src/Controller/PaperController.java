@@ -4,9 +4,6 @@ import InsertObj.BasicNode;
 import InsertObj.Paper;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
 
 public class PaperController {
     private static PaperController instance;
@@ -29,11 +26,11 @@ public class PaperController {
         setInstance(this);
     }
 
-    public Paper getCurentPaper() {
+    public Paper getCurrentPaper() {
         return getInstance().current;
     }
 
-    public void setCurentPaper(Paper pane) {
+    public void setCurrentPaper(Paper pane) {
         getInstance().current = pane;
     }
 
@@ -63,7 +60,7 @@ public class PaperController {
             } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
                 if (getDropNode() != null) {
                     getDropNode().getInsert_part().getChildren().add(getInstance().getFocusObject());
-                    getCurentPaper().getChildren().remove(getInstance().getFocusObject());
+                    getCurrentPaper().getChildren().remove(getInstance().getFocusObject());
 
                     getInstance().getFocusObject().setNodeParent(getDropNode());
                     getInstance().getFocusObject().setTranslateX(0);

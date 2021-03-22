@@ -11,13 +11,13 @@ public class Paper extends Pane {
 
     public Paper() {
         setBackground_color("#fff");
-        paper_controller.setCurentPaper(this);
+        paper_controller.setCurrentPaper(this);
     }
 
     public Paper(double width, double height) {
         setBackground_color("#fff");
         setInfinatePaper(width, height);
-        paper_controller.setCurentPaper(this);
+        paper_controller.setCurrentPaper(this);
 
         this.setOnMouseClicked(e -> {
             if (isClick)

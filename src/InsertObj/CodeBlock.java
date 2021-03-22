@@ -102,9 +102,9 @@ public class CodeBlock extends BasicNode {
         isShowResult = input;
 
         if(input) {
-            paper_controller.getCurentPaper().addNode(getResultBlock());
+            paper_controller.getCurrentPaper().addNode(getResultBlock());
         } else {
-            paper_controller.getCurentPaper().removeNode(getResultBlock());
+            paper_controller.getCurrentPaper().removeNode(getResultBlock());
         }
     }
 }

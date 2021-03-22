@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root fx:id="out_vbox" alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/node_style.css" type="VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane fx:id="gridpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-insets: 10,0,0,0;">
+         <children>
+            <Circle fx:id="cir1" fill="WHITE" radius="5.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets left="-5.0" top="-5.0" />
+               </GridPane.margin>
+            </Circle>
+            <Circle fx:id="cir2" fill="WHITE" radius="5.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="-5.0" />
+               </GridPane.margin>
+            </Circle>
+            <Circle fx:id="cir3" fill="WHITE" radius="5.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets right="-5.0" top="-5.0" />
+               </GridPane.margin>
+            </Circle>
+            <Circle fx:id="cir4" fill="WHITE" radius="5.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets left="-5.0" />
+               </GridPane.margin>
+            </Circle>
+            <Circle fx:id="cir5" fill="WHITE" radius="5.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="-5.0" />
+               </GridPane.margin>
+            </Circle>
+            <Circle fx:id="cir6" fill="WHITE" radius="5.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="-5.0" left="-5.0" />
+               </GridPane.margin>
+            </Circle>
+            <Circle fx:id="cir8" fill="WHITE" radius="5.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="-5.0" right="-5.0" />
+               </GridPane.margin>
+            </Circle>
+            <Circle fx:id="cir7" fill="WHITE" radius="5.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="-5.0" />
+               </GridPane.margin>
+            </Circle>
+            <Pane fx:id="main_content" minHeight="0.0" minWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Pane>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</fx:root>

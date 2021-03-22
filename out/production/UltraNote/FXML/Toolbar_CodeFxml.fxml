@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<javafx.scene.layout.HBox prefHeight="138.0" prefWidth="990.0" spacing="15.0" stylesheets="@../css/main_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Toolbar_CodeController">
+    <padding>
+        <Insets bottom="5.0" left="30.0" right="30.0" top="20.0" />
+    </padding>
+    <styleClass>
+        <String fx:value="toolbar_tool_hbox" />
+        <String fx:value="font_size" />
+    </styleClass>
+    <children>
+        <VBox fx:id="compile" alignment="CENTER" prefHeight="113.0" prefWidth="78.0" spacing="10.0" styleClass="toolbar_sm_button">
+            <children>
+                <ImageView fitHeight="46.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../pic/compile.png" />
+                    </image>
+                </ImageView>
+                <Label text="執行程式" />
+            </children>
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+         </padding>
+         <HBox.margin>
+            <Insets bottom="10.0" />
+         </HBox.margin>
+        </VBox>
+      <TextArea fx:id="code_result_text" editable="false" prefHeight="103.0" prefWidth="467.0" promptText="Running result will show here." styleClass="code_result_area" wrapText="true">
+         <HBox.margin>
+            <Insets bottom="10.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+         </padding>
+      </TextArea>
+      <VBox alignment="TOP_CENTER">
+         <children>
+            <CheckBox fx:id="check_ans" mnemonicParsing="false" prefHeight="19.0" prefWidth="111.0" text="獨立顯示答案" />
+         </children>
+      </VBox>
+    </children>
+</javafx.scene.layout.HBox>

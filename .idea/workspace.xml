@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/FXML/ResizeNodeFxmlOld.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PaperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaperController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_DrawController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_DrawController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserSigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserSigninController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/CheckListBlockFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/CheckListBlockFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/ResizeNodeFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/ResizeNodeFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/CodeBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CodeBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/CropImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CropImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/Paper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Paper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Object/CheckListBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/CheckListBlock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="jdk.selected.PYTHON_MODULE" value="Python 3.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/FXML" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -51,22 +64,22 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Desktop\Project\UltraNote\src\css" />
+      <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="InsertObj" />
       <recent name="" />
       <recent name="ToolBar" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jiaaa\Desktop\Project\UltraNote\src\css" />
-      <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
-      <recent name="C:\Users\jiaaa\Desktop\Project\UltraNote\src\FXML" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Controller" />
       <recent name="InsertObj" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Desktop\Project\UltraNote\src\css" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jiaaa\Desktop\Project\UltraNote\src\FXML" />
+      <recent name="C:\Users\jiaaa\Desktop\Project\UltraNote\src\css" />
       <recent name="D:\Desktop\Project\UltraNote\src\FXML" />
     </key>
   </component>
@@ -517,113 +530,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="20201202 Add MessageController" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="277" y="95" key="#Inspections" timestamp="1604624550052">
+    <state width="1129" height="184" key="GridCell.Tab.0.bottom" timestamp="1616383409802">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="277" y="95" key="#Inspections/0.0.1368.872@0.0.1368.872" timestamp="1604624550052" />
-    <state x="426" y="239" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606203188794">
+    <state width="1129" height="184" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1616383409802" />
+    <state width="1129" height="184" key="GridCell.Tab.0.center" timestamp="1616383409802">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="426" y="239" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1368.872@0.0.1368.872" timestamp="1606203188794" />
-    <state x="545" y="191" key="#com.intellij.ide.util.MemberChooser" timestamp="1603181426972">
+    <state width="1129" height="184" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1616383409802" />
+    <state width="1129" height="184" key="GridCell.Tab.0.left" timestamp="1616383409802">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="545" y="191" key="#com.intellij.ide.util.MemberChooser/0.0.1368.872@0.0.1368.872" timestamp="1603181426972" />
-    <state x="415" y="105" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1605144773053">
+    <state width="1129" height="184" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1616383409802" />
+    <state width="1129" height="184" key="GridCell.Tab.0.right" timestamp="1616383409802">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="415" y="105" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1368.872@0.0.1368.872" timestamp="1605144773053" />
-    <state x="582" y="125" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1604659179794" />
-    <state x="415" y="183" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606203456418">
+    <state width="1129" height="184" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1616383409802" />
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1616376341162">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="415" y="183" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1368.872@0.0.1368.872" timestamp="1606203456418" />
-    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2" timestamp="1606926287224">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="329" y="30" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1605757915915" />
-    <state x="462" y="36" width="1178" height="936" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606926287224" />
-    <state x="483" y="165" key="DetectedRootsChooserDialog" timestamp="1605601107270">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state x="483" y="165" key="DetectedRootsChooserDialog/0.0.1368.872@0.0.1368.872" timestamp="1605601107270" />
-    <state x="465" y="178" key="FileChooserDialogImpl" timestamp="1605832685689">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state x="465" y="178" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1605832685689" />
-    <state x="643" y="341" key="FileChooserDialogImpl/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605081891809" />
-    <state x="551" y="347" width="372" height="205" key="Github.CreateGistDialog" timestamp="1605146173405">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state x="551" y="347" width="372" height="205" key="Github.CreateGistDialog/0.0.1368.872@0.0.1368.872" timestamp="1605146173405" />
-    <state width="1876" height="274" key="GridCell.Tab.0.bottom" timestamp="1606898817673">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="663" height="173" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1606211203109" />
-    <state width="1565" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778183" />
-    <state width="1876" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606898817673" />
-    <state width="1876" height="274" key="GridCell.Tab.0.center" timestamp="1606898817673">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="663" height="173" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1606211203108" />
-    <state width="1565" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778182" />
-    <state width="1876" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606898817673" />
-    <state width="1876" height="274" key="GridCell.Tab.0.left" timestamp="1606898817673">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="663" height="173" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1606211203108" />
-    <state width="1565" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778182" />
-    <state width="1876" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606898817673" />
-    <state width="1876" height="274" key="GridCell.Tab.0.right" timestamp="1606898817673">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="663" height="173" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1606211203109" />
-    <state width="1565" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@-1920.9.1920.1040" timestamp="1601286778183" />
-    <state width="1876" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606898817673" />
-    <state width="1326" height="281" key="GridCell.Tab.1.bottom" timestamp="1605836310782">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state width="1326" height="281" key="GridCell.Tab.1.bottom/0.0.1368.872@0.0.1368.872" timestamp="1605836310782" />
-    <state width="1326" height="281" key="GridCell.Tab.1.center" timestamp="1605836310782">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state width="1326" height="281" key="GridCell.Tab.1.center/0.0.1368.872@0.0.1368.872" timestamp="1605836310782" />
-    <state width="1326" height="281" key="GridCell.Tab.1.left" timestamp="1605836310782">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state width="1326" height="281" key="GridCell.Tab.1.left/0.0.1368.872@0.0.1368.872" timestamp="1605836310782" />
-    <state width="1326" height="281" key="GridCell.Tab.1.right" timestamp="1605836310782">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state width="1326" height="281" key="GridCell.Tab.1.right/0.0.1368.872@0.0.1368.872" timestamp="1605836310782" />
-    <state x="335" y="134" width="779" height="602" key="NewModule_or_Project.wizard" timestamp="1604625563296">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state x="335" y="134" width="779" height="602" key="NewModule_or_Project.wizard/0.0.1368.872@0.0.1368.872" timestamp="1604625563296" />
-    <state x="208" y="24" key="SettingsEditor" timestamp="1605832691174">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state x="208" y="24" key="SettingsEditor/0.0.1368.872@0.0.1368.872" timestamp="1605832691174" />
-    <state x="332" y="138" key="SettingsEditor/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1605081894383" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2" timestamp="1606926295704">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="277" y="170" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1605605991056" />
-    <state x="389" y="203" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606926295704" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1606714842634">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1605748641420" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1606714842634" />
-    <state x="395" y="228" key="git4idea.merge.GitPullDialog" timestamp="1606192649387">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state x="395" y="228" key="git4idea.merge.GitPullDialog/0.0.1368.872@0.0.1368.872" timestamp="1606192649387" />
-    <state x="64" y="68" key="new project wizard" timestamp="1606207865674">
-      <screen x="0" y="0" width="1368" height="872" />
-    </state>
-    <state x="64" y="68" key="new project wizard/0.0.1368.872@0.0.1368.872" timestamp="1606207865674" />
-    <state x="336" y="128" key="new project wizard/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1599637087772" />
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1616376341162" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UltraNote$Main.ic" NAME="Main Coverage Results" MODIFIED="1586693958468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

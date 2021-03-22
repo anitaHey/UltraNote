@@ -5,23 +5,20 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
-import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Transform;
 
 public class ResizeNode extends BasicNode {
     private String type;
     private PaperController paper_controller = PaperController.getInstance();
-    private Paper paper = paper_controller.getCurentPaper();
+    private Paper paper = paper_controller.getCurrentPaper();
     private double lastMouseX = 0, lastMouseY = 0, minW = 0, minH = 0, lastRotateX = 0, lastRotateY = 0;
     private boolean dragging = false, cropping = false, rotating = false;
     public BooleanProperty isCrop = new SimpleBooleanProperty(false);
@@ -41,32 +38,29 @@ public class ResizeNode extends BasicNode {
     }
 
     @FXML
-    VBox out_vbox;
-
-    @FXML
     public void initialize() {
         rotate_vbox = new VBox();
         rotate_vbox.setPrefWidth(20);
         rotate_vbox.setPrefHeight(50);
         node_rotate = new Pane();
 
-        Image img = new Image(getClass().getResource("../pic/rotate.png").toString());
-        ImageView imgView = new ImageView();
-        imgView.setImage(img);
-        imgView.setFitWidth(25);
-        imgView.setFitHeight(25);
-        node_rotate.getChildren().add(imgView);
-
-        Line line = new Line();
-        line.setStartX(0);
-        line.setStartY(0);
-        line.setEndX(0);
-        line.setEndY(20);
-
-        rotate_vbox.setAlignment(Pos.CENTER);
-        rotate_vbox.getChildren().add(node_rotate);
-        rotate_vbox.getChildren().add(line);
-        out_vbox.getChildren().add(0, rotate_vbox);
+//        Image img = new Image(getClass().getResource("../pic/rotate.png").toString());
+//        ImageView imgView = new ImageView();
+//        imgView.setImage(img);
+//        imgView.setFitWidth(25);
+//        imgView.setFitHeight(25);
+//        node_rotate.getChildren().add(imgView);
+//
+//        Line line = new Line();
+//        line.setStartX(0);
+//        line.setStartY(0);
+//        line.setEndX(0);
+//        line.setEndY(20);
+//
+//        rotate_vbox.setAlignment(Pos.CENTER);
+//        rotate_vbox.getChildren().add(node_rotate);
+//        rotate_vbox.getChildren().add(line);
+//        out_vbox.getChildren().add(0, rotate_vbox);
 
         Image tem = new Image("pic/rotate_cursor.png");
         rotate_cursor = new ImageCursor(tem, tem.getWidth() / 2, tem.getHeight() / 2);

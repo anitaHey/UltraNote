@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'Russo One';
+    src: url('font/RussoOne-Regular.ttf');
+}
+
+.font-size {
+    -fx-font-size:16px;
+    -fx-font-family: Microsoft JhengHei;
+}
+
+.main_color {
+    -fx-background-color: #74828F;
+}
+
+.title_word {
+    -fx-font-family: 'Russo One';
+    -fx-font-size: 50px;
+    -fx-text-fill: #EAEAEA;
+}
+
+.subtitle_word {
+    -fx-font-family: 'Russo One';
+    -fx-font-size: 40px;
+}
+
+.subtitle_small_word {
+    -fx-font-size: 20px;
+    -fx-text-fill: #a39e9e;
+}
+
+.text_field {
+    -fx-text-box-border: transparent;
+    -fx-background-color: -fx-text-box-border, -fx-background;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
+}
+
+.login {
+    -fx-background-color: #74828F;
+    -fx-border-color: transparent;
+    -fx-text-fill: #EAEAEA;
+}
+
+.close_btn{
+    -fx-background-color:transparent;
+    -fx-text-fill: #74828F;
+}
+
+.close_light_btn {
+    -fx-background-color:transparent;
+    -fx-text-fill: #EAEAEA;
+}
+
+.window_border{
+    -fx-border-color: #74828F;
+    -fx-background-color: #EAEAEA;
+}
+
+.login:hover {
+    -fx-background-color: #424a52;
+}
+
+.sign {
+    -fx-background-color: transparent;
+    -fx-font-size: 16px;
+    -fx-underline: true;
+}
+
+.sign:hover {
+    -fx-text-fill: #a39e9e;
+}
+
+.error_word {
+    -fx-text-fill: #ca3e47;
+}
+
+.scroll-pane{
+   -fx-background-color:transparent;
+}
+
+.scroll-pane .viewport {
+   -fx-background-color:transparent;
+}
+
+.vbox {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track {
+    -fx-background-color :transparent;
+    -fx-border-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :2.0em;
+}
+
+
+.scroll-bar:horizontal .increment-button ,
+.scroll-bar:horizontal .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 0.0 10.0 0.0;
+
+}
+
+.scroll-bar:vertical .increment-button ,
+.scroll-bar:vertical .decrement-button {
+    -fx-background-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-padding :0.0 10.0 0.0 0.0;
+
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape : " ";
+    -fx-padding :0.15em 0.0;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+    -fx-shape : " ";
+    -fx-padding :0.0 0.15em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color :derive(black,90.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color :derive(#4D4C4F,10.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}

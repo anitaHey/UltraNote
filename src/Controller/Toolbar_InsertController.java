@@ -39,7 +39,7 @@ public class Toolbar_InsertController {
             Text_box tem = new Text_box();
             tem.getStyleClass().add("text_border_focus");
             tem.requestFocus();
-            paper_controller.getCurentPaper().addNode(tem);
+            paper_controller.getCurrentPaper().addNode(tem);
         });
 
         toolbar_insert_phote_file.setOnAction(e -> {
@@ -66,7 +66,7 @@ public class Toolbar_InsertController {
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
-                    paper_controller.getCurentPaper().addNode(image);
+                    paper_controller.getCurrentPaper().addNode(image);
                 }
             }
         });
@@ -74,25 +74,25 @@ public class Toolbar_InsertController {
         toolbar_insert_code.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             CodeBlock codeBlock = new CodeBlock();
             codeBlock.requestFocus();
-            paper_controller.getCurentPaper().addNode(codeBlock);
+            paper_controller.getCurrentPaper().addNode(codeBlock);
         });
 
         toolbar_insert_list.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             CheckList checkList = new CheckList();
             checkList.requestFocus();
-            paper_controller.getCurentPaper().addNode(checkList);
+            paper_controller.getCurrentPaper().addNode(checkList);
         });
 
         toolbar_insert_vbox.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             Layout_VBox layout_vbox = new Layout_VBox();
             layout_vbox.requestFocus();
-            paper_controller.getCurentPaper().addNode(layout_vbox);
+            paper_controller.getCurrentPaper().addNode(layout_vbox);
         });
 
         toolbar_insert_hbox.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             Layout_HBox layout_hbox = new Layout_HBox();
             layout_hbox.requestFocus();
-            paper_controller.getCurentPaper().addNode(layout_hbox);
+            paper_controller.getCurrentPaper().addNode(layout_hbox);
         });
     }
 }

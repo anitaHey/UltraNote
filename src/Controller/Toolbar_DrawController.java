@@ -69,7 +69,7 @@ public class Toolbar_DrawController {
         cancel_pen.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             if (current_pen != null) {
                 current_pen.getStyleClass().remove("draw_pen_split_btn_pressed");
-                paper_controller.getCurentPaper().removeEventHandler(MouseEvent.ANY, paperDrawHandler);
+                paper_controller.getCurrentPaper().removeEventHandler(MouseEvent.ANY, paperDrawHandler);
                 current_pen = null;
             }
 
@@ -78,11 +78,11 @@ public class Toolbar_DrawController {
                 for (DrawLine line : all_line) line.setErase(false);
                 use_eraser = false;
 
-                paper_controller.getCurentPaper().setCursor(Cursor.DEFAULT);
-                paper_controller.getCurentPaper().removeEventHandler(MouseEvent.ANY, startEraseHandler);
+                paper_controller.getCurrentPaper().setCursor(Cursor.DEFAULT);
+                paper_controller.getCurrentPaper().removeEventHandler(MouseEvent.ANY, startEraseHandler);
             }
 
-            for (Object node : paper_controller.getCurentPaper().getAllNode()) {
+            for (Object node : paper_controller.getCurrentPaper().getAllNode()) {
                 try {
                     ((BasicNode) node).setDrag();
                 } catch (Exception e) {
@@ -124,15 +124,15 @@ public class Toolbar_DrawController {
                 draw_eraser.getStyleClass().remove("draw_pen_split_btn_pressed");
                 for (DrawLine line : all_line) line.setErase(false);
                 use_eraser = false;
-                paper_controller.getCurentPaper().setCursor(Cursor.DEFAULT);
-                paper_controller.getCurentPaper().removeEventHandler(MouseEvent.ANY, startEraseHandler);
+                paper_controller.getCurrentPaper().setCursor(Cursor.DEFAULT);
+                paper_controller.getCurrentPaper().removeEventHandler(MouseEvent.ANY, startEraseHandler);
             }
 
-            paper_controller.getCurentPaper().addEventHandler(MouseEvent.ANY, paperDrawHandler);
+            paper_controller.getCurrentPaper().addEventHandler(MouseEvent.ANY, paperDrawHandler);
             current_pen = ((DrawPen) mouseEvent.getSource());
             current_pen.getStyleClass().add("draw_pen_split_btn_pressed");
 
-            for (Object node : paper_controller.getCurentPaper().getAllNode()) {
+            for (Object node : paper_controller.getCurrentPaper().getAllNode()) {
                 try {
                     ((BasicNode) node).cancelDrag();
                 } catch (Exception e) {
@@ -148,16 +148,16 @@ public class Toolbar_DrawController {
 
             if (current_pen != null) current_pen.getStyleClass().remove("draw_pen_split_btn_pressed");
             current_pen = null;
-            paper_controller.getCurentPaper().removeEventHandler(MouseEvent.ANY, paperDrawHandler);
+            paper_controller.getCurrentPaper().removeEventHandler(MouseEvent.ANY, paperDrawHandler);
             draw_eraser.getStyleClass().add("draw_pen_split_btn_pressed");
             use_eraser = true;
 
-            for (Object node : paper_controller.getCurentPaper().getAllNode()) {
+            for (Object node : paper_controller.getCurrentPaper().getAllNode()) {
                 ((BasicNode) node).cancelDrag();
             }
 
-            paper_controller.getCurentPaper().addEventHandler(MouseEvent.ANY, startEraseHandler);
-            paper_controller.getCurentPaper().setCursor(eraser_cursor);
+            paper_controller.getCurrentPaper().addEventHandler(MouseEvent.ANY, startEraseHandler);
+            paper_controller.getCurrentPaper().setCursor(eraser_cursor);
         }
     };
 
@@ -166,7 +166,7 @@ public class Toolbar_DrawController {
             unsetPen();
         } else {
             if (mouseEvent.getEventType() == MouseEvent.DRAG_DETECTED) {
-                paper_controller.getCurentPaper().startFullDrag();
+                paper_controller.getCurrentPaper().startFullDrag();
                 for (DrawLine line : all_line) {
                     line.setErase(true);
                 }
@@ -189,7 +189,7 @@ public class Toolbar_DrawController {
                 new_draw = new DrawLine();
                 all_line.add(new_draw);
 
-                paper_controller.getCurentPaper().addNode(new_draw.getGroup());
+                paper_controller.getCurrentPaper().addNode(new_draw.getGroup());
                 new_draw.setStroke(current_pen.getPenWidth(), Color.web(current_pen.getPenColor()));
                 new_draw.getPath().getElements()
                         .add(new MoveTo(mouseEvent.getX(), mouseEvent.getY()));
@@ -198,8 +198,8 @@ public class Toolbar_DrawController {
                         .add(new LineTo(mouseEvent.getX(), mouseEvent.getY()));
             } else if (mouseEvent.getEventType() == MouseEvent.MOUSE_RELEASED) {
                 new_draw.setSize();
-                paper_controller.getCurentPaper().removeNode(new_draw.getGroup());
-                paper_controller.getCurentPaper().addNode(new_draw);
+                paper_controller.getCurrentPaper().removeNode(new_draw.getGroup());
+                paper_controller.getCurrentPaper().addNode(new_draw);
             }
         }
     };
@@ -210,7 +210,7 @@ public class Toolbar_DrawController {
 
     public void deleteDrawLine(DrawLine input) {
         all_line.remove(input);
-        paper_controller.getCurentPaper().removeNode(input);
+        paper_controller.getCurrentPaper().removeNode(input);
     }
 
     public void unsetPen() {
