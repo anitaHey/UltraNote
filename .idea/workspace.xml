@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FXML/ResizeNodeFxmlOld.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FXML/ObjectAddBtn.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Object/ObjectAddButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PaperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaperController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_DrawController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_DrawController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserSigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserSigninController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/CheckListBlockFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/CheckListBlockFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/ResizeNodeFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/ResizeNodeFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/CodeBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CodeBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/CropImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CropImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/Paper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/Paper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object/CheckListBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/CheckListBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/CheckList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/CheckList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/CheckList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CheckList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -530,26 +520,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="20201202 Add MessageController" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1129" height="184" key="GridCell.Tab.0.bottom" timestamp="1616383409802">
+    <state width="1128" height="184" key="GridCell.Tab.0.bottom" timestamp="1616489237008">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1129" height="184" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1616383409802" />
-    <state width="1129" height="184" key="GridCell.Tab.0.center" timestamp="1616383409802">
+    <state width="1128" height="184" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
+    <state width="1128" height="184" key="GridCell.Tab.0.center" timestamp="1616489237008">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1129" height="184" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1616383409802" />
-    <state width="1129" height="184" key="GridCell.Tab.0.left" timestamp="1616383409802">
+    <state width="1128" height="184" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
+    <state width="1128" height="184" key="GridCell.Tab.0.left" timestamp="1616489237008">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1129" height="184" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1616383409802" />
-    <state width="1129" height="184" key="GridCell.Tab.0.right" timestamp="1616383409802">
+    <state width="1128" height="184" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
+    <state width="1128" height="184" key="GridCell.Tab.0.right" timestamp="1616489237008">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1129" height="184" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1616383409802" />
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1616376341162">
+    <state width="1128" height="184" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1616461796092">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1616376341162" />
+    <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1616461796092" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UltraNote$Main.ic" NAME="Main Coverage Results" MODIFIED="1586693958468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
