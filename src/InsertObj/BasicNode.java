@@ -231,7 +231,9 @@ public class BasicNode extends VBox {
 
                 cursor = getResize(event, 15);
 
-                if (cursor == -1) {
+                if(type.equals("checkList") && !isBorder(event)){
+                    paper.setCursor(Cursor.DEFAULT);
+                } else if (cursor == -1) {
                     paper.setCursor(Cursor.MOVE);
                 } else {
                     paper.setCursor(cursor_arr.get(cursor));
@@ -242,9 +244,11 @@ public class BasicNode extends VBox {
                     this.lastMouseX = event.getSceneX();
                     this.lastMouseY = event.getSceneY();
 
-                    if (cursor == -1)
-                        paper.setCursor(Cursor.MOVE);
-                    this.dragging = true;
+                    if (!(type.equals("checkList") && !isBorder(event))) {
+                        if (cursor == -1)
+                            paper.setCursor(Cursor.MOVE);
+                        this.dragging = true;
+                    }
 
                     event.consume();
                 }

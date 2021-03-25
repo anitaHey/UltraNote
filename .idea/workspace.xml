@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FXML/ObjectAddBtn.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Object/ObjectAddButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/CheckList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/CheckList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InsertObj/CheckList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CheckList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -520,26 +520,31 @@
     <option name="LAST_COMMIT_MESSAGE" value="20201202 Add MessageController" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1128" height="184" key="GridCell.Tab.0.bottom" timestamp="1616489237008">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="274" key="GridCell.Tab.0.bottom" timestamp="1616679383427">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1128" height="184" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
-    <state width="1128" height="184" key="GridCell.Tab.0.center" timestamp="1616489237008">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616679383427" />
+    <state width="1876" height="274" key="GridCell.Tab.0.center" timestamp="1616679383427">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1128" height="184" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
-    <state width="1128" height="184" key="GridCell.Tab.0.left" timestamp="1616489237008">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616679383427" />
+    <state width="1876" height="274" key="GridCell.Tab.0.left" timestamp="1616679383427">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1128" height="184" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
-    <state width="1128" height="184" key="GridCell.Tab.0.right" timestamp="1616489237008">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616679383427" />
+    <state width="1876" height="274" key="GridCell.Tab.0.right" timestamp="1616679383427">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1128" height="184" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
-    <state x="372" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1616461796092">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616679383427" />
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1616643806987">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1616461796092" />
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616643806987" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UltraNote$Main.ic" NAME="Main Coverage Results" MODIFIED="1586693958468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -41,5 +41,20 @@ public class CheckList extends BasicNode {
             vbox.getChildren().remove(addBtn);
             add = false;
         });
+
+        addBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            if(add)
+                vbox.getChildren().add(vbox.getChildren().size()-1, new CheckListBlock());
+            else
+                vbox.getChildren().add(vbox.getChildren().size(), new CheckListBlock());
+        });
+
+        vbox.heightProperty().addListener((obs, oldValue, newValue) -> {
+            setMinH(newValue.doubleValue(), false);
+        });
+
+        vbox.widthProperty().addListener((obs, oldValue, newValue) -> {
+            setMinW(newValue.doubleValue(), false);
+        });
     }
 }
