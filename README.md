@@ -21,7 +21,8 @@ Each insertable object in UltraNote is a node which can move freely, and it can 
 ## Textbox
 <img width="800" src="/.meta/text.gif">
 Textbox including the change of text color, font family, font size, underline, italic, and bold. Because JavaFX's textarea can't change the font style, so I try to make a new textarea.
-<img width="600" src="/.meta/text_structure.png">
+
+<br><img width="600" src="/.meta/text_structure.png">
 
 Each line is Class TextLine which extends VBox. and each charcter is Class TextObj which extends Lable. So I can change the font style by changing lable's style in TextLine. And underline is another line in TextLine that implement by filled pane.
 
