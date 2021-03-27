@@ -30,3 +30,6 @@ Each line is Class TextLine which extends VBox. and each charcter is Class TextO
 <img width="800" src="/.meta/picture.gif">
 Picture can add border and change the style of border. Besides, it can crop proportionally even if picture is resized.
 
+<br><img width="600" src="/.meta/pic_structure.png">
+
+For the crop feature, I create a CropImage class which will record picture's FileInputStream, so that it can calculate the zoom ratio of the picture.
