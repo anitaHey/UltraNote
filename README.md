@@ -1,6 +1,6 @@
 <div align="center">
 <h1>UltraNote</h3>
-<img width="800" src="/.meta/login.JPG">
+<img width="1000" src="/.meta/login.JPG">
 </div>
 
 ## Overview
@@ -19,13 +19,13 @@ This project wants to provide a new using experience that differs from other app
 Each insertable object in UltraNote is a node which can move freely, and it can also resize and rotate.
 
 ## Textbox
-<img width="600" src="/.meta/text.gif">
+<img width="800" src="/.meta/text.gif">
 Textbox including the change of text color, font family, font size, underline, italic, and bold. Because JavaFX's textarea can't change the font style, so I try to make a new textarea.
-<img width="400" src="/.meta/text_structure.png">
+<img width="600" src="/.meta/text_structure.png">
 
 Each line is Class TextLine which extends VBox. and each charcter is Class TextObj which extends Lable. So I can change the font style by changing lable's style in TextLine. And underline is another line in TextLine that implement by filled pane.
 
 ## Picture
-<img width="600" src="/.meta/picture.gif">
+<img width="800" src="/.meta/picture.gif">
 Picture can add border and change the style of border. Besides, it can crop proportionally even if picture is resized.
 
