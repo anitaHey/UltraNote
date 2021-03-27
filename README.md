@@ -13,7 +13,4 @@ This project wants to provide a new using experience that differs from other app
 * Three-tier [REST architecture](https://en.wikipedia.org/wiki/Representational_state_transfer)
   - **Client** - Java FX 
   - **RESTful API** - Java 8
-  - **Backend** - Python 3.5 + Django 1.8.18    
-
-
-## Features
+  - **Backend** - Python 3.5 + Django 1.8.18 
