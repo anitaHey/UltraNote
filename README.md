@@ -1,6 +1,6 @@
 <div align="center">
-<h3>UltraNote</h3>
-<img src="/.meta/login.JPG">
+<h1>UltraNote</h3>
+<img width="800" src="/.meta/login.JPG">
 </div>
 
 ## Overview
@@ -14,3 +14,20 @@ This project wants to provide a new using experience that differs from other app
   - **Client** - Java FX 
   - **RESTful API** - Java 8
   - **Backend** - Python 3.5 + Django 1.8.18 
+
+## Basic Node
+Each insertable object in UltraNote is a node which can move freely, and it can also resize and rotate.
+
+## Textbox
+<img width="600" src="/.meta/text.gif">
+Textbox including the change of text color, font family, font size, underline, italic, and bold.<br>
+Because JavaFX's textarea can't change the font style, so I try to make a new textarea.
+
+<img width="400" src="/.meta/text_structure.png">
+
+Each line is Class TextLine which extends VBox. and each charcter is Class TextObj which extends Lable. So I can change the font style by changing lable's style in TextLine. And underline is another line in TextLine that implement by filled pane.
+
+## Picture
+<img width="600" src="/.meta/picture.gif">
+Picture can add border and change the style of border. Besides, it can crop proportionally even if picture is resized.
+
