@@ -33,3 +33,17 @@ Picture can add border and change the style of border. Besides, it can crop prop
 <br><img width="600" src="/.meta/pic_structure.png">
 
 For the crop feature, I create a CropImage class which will record picture's FileInputStream, so that it can calculate the zoom ratio of the picture.
+
+## Drawing
+<img width="800" src="/.meta/draw.gif">
+
+Each line is a path in JavaFX and it also a basic node that can be resized and rotated. When user click draw pen or eraser, other objects will set to undetectable and non-interactive to prevent affecting drawing.
+
+Eraser is detected by MouseDragEvent.MOUSE_DRAG_ENTERED, the line will be deleted when the mouse move over.
+
+## Programming
+<img width="800" src="/.meta/program.gif">
+
+It only supports Java programming in Ultranote now. It uses JavaCompiler and ProcessBuilder to let the code compile in application.
+
+The output will display above or display as a independent block. The result will start with "----MESSAGE----" when it gets error and "----OUTPUT----" when it gets the output.
