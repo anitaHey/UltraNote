@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20210327 Add picture">
+      <change afterPath="$PROJECT_DIR$/src/FXML/AudioControlFxml.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/CheckList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/CheckList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/BasicNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/CheckList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/CheckList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InsertObj/ResizeNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/BasicNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/BasicNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/ResizeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/ResizeNode.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +20,8 @@
       <list>
         <option value="Python Script" />
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -128,41 +127,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583287093195</updated>
-    </task>
-    <task id="LOCAL-00013" summary="20200410 Fix ResizeNode.">
-      <created>1586536834174</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1586536834174</updated>
-    </task>
-    <task id="LOCAL-00014" summary="20200411 Add node resize.">
-      <created>1586598939692</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1586598939692</updated>
-    </task>
-    <task id="LOCAL-00015" summary="20200414 Add picture border.">
-      <created>1586875248496</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1586875248496</updated>
-    </task>
-    <task id="LOCAL-00016" summary="20200416 Fixed crop img.">
-      <created>1587008743927</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1587008743927</updated>
-    </task>
-    <task id="LOCAL-00017" summary="20200418 Fix image crop.">
-      <created>1587228692854</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1587228692854</updated>
     </task>
     <task id="LOCAL-00018" summary="20200421 Fix picture crop.">
       <created>1587398985782</created>
@@ -472,7 +436,42 @@
       <option name="project" value="LOCAL" />
       <updated>1606926287790</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="20210325 Fix CheckList">
+      <created>1616679493825</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1616679493829</updated>
+    </task>
+    <task id="LOCAL-00063" summary="20210327 Add picture">
+      <created>1616815414864</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1616815414865</updated>
+    </task>
+    <task id="LOCAL-00064" summary="20210327 Add picture">
+      <created>1616829557030</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1616829557030</updated>
+    </task>
+    <task id="LOCAL-00065" summary="20210327 Add picture">
+      <created>1616836662850</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1616836662850</updated>
+    </task>
+    <task id="LOCAL-00066" summary="20210327 Add picture">
+      <created>1616846356791</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1616846356791</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -492,8 +491,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="20200810 Fix some bugs." />
-    <MESSAGE value="20200811 Add checkList" />
     <MESSAGE value="20200812 Add checklist drop detect." />
     <MESSAGE value="20200908 Fix CheckListBlock" />
     <MESSAGE value="20200910 Add layout box." />
@@ -517,34 +514,52 @@
     <MESSAGE value="20201201 Fix UI" />
     <MESSAGE value="20201202 Fix UI" />
     <MESSAGE value="20201202 Add MessageController" />
-    <option name="LAST_COMMIT_MESSAGE" value="20201202 Add MessageController" />
+    <MESSAGE value="20210325 Fix CheckList" />
+    <MESSAGE value="20210327 Add picture" />
+    <option name="LAST_COMMIT_MESSAGE" value="20210327 Add picture" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1876" height="274" key="GridCell.Tab.0.bottom" timestamp="1616679383427">
+    <state x="604" y="110" key="CommitChangelistDialog2" timestamp="1616846356253">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="604" y="110" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616846356253" />
+    <state width="1876" height="274" key="GridCell.Tab.0.bottom" timestamp="1616847154773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1128" height="184" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
-    <state width="1876" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616679383427" />
-    <state width="1876" height="274" key="GridCell.Tab.0.center" timestamp="1616679383427">
+    <state width="1876" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616847154773" />
+    <state width="1876" height="274" key="GridCell.Tab.0.center" timestamp="1616847154773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1128" height="184" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
-    <state width="1876" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616679383427" />
-    <state width="1876" height="274" key="GridCell.Tab.0.left" timestamp="1616679383427">
+    <state width="1876" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616847154773" />
+    <state width="1876" height="274" key="GridCell.Tab.0.left" timestamp="1616847154773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1128" height="184" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
-    <state width="1876" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616679383427" />
-    <state width="1876" height="274" key="GridCell.Tab.0.right" timestamp="1616679383427">
+    <state width="1876" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616847154773" />
+    <state width="1876" height="274" key="GridCell.Tab.0.right" timestamp="1616847154773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1128" height="184" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
-    <state width="1876" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616679383427" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1616643806987">
+    <state width="1876" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616847154773" />
+    <state x="552" y="251" key="Vcs.Push.Dialog.v2" timestamp="1616846361750">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="251" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616846361750" />
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1617343980230">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1616461796092" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616643806987" />
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1617343980230" />
+    <state x="759" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616836653524">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="759" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616836653524" />
+    <state x="672" y="309" key="git4idea.merge.GitPullDialog" timestamp="1616846212140">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="672" y="309" key="git4idea.merge.GitPullDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616846212140" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UltraNote$Main.ic" NAME="Main Coverage Results" MODIFIED="1586693958468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
