@@ -29,3 +29,11 @@
 .text_select{
     -fx-background-color: #a39e9e;
 }
+
+.sound_btn{
+     -fx-background-color: transparent;
+}
+
+.sound_btn:hover {
+    -fx-background-color:  rgba(208, 211, 214, 1);
+}

@@ -5,10 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
+import Object.AudioTrack;
 
 import java.io.*;
 import java.util.List;
+import java.util.Map;
 
 public class Toolbar_InsertController {
     private MainController controller = MainController.getInstance();
@@ -29,7 +33,7 @@ public class Toolbar_InsertController {
     @FXML
     VBox toolbar_insert_text, toolbar_insert_code, toolbar_insert_list, toolbar_insert_vbox, toolbar_insert_hbox;
     @FXML
-    MenuItem toolbar_insert_phote_file, toolbar_insert_phote_graph;
+    MenuItem toolbar_insert_phote_file, toolbar_insert_phote_graph, toolbar_insert_sound_file, toolbar_insert_sound_record;
 
     @FXML
     public void initialize() {
@@ -47,7 +51,7 @@ public class Toolbar_InsertController {
             fileChooser.setTitle("選擇圖片");
 
             FileChooser.ExtensionFilter imageFilter
-                    = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
+                    = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif");
             fileChooser.getExtensionFilters().add(imageFilter);
 
             List<File> photo_list = fileChooser.showOpenMultipleDialog(controller.getStage());
@@ -93,6 +97,29 @@ public class Toolbar_InsertController {
             Layout_HBox layout_hbox = new Layout_HBox();
             layout_hbox.requestFocus();
             paper_controller.getCurrentPaper().addNode(layout_hbox);
+        });
+
+        toolbar_insert_sound_file.setOnAction(e -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("選擇音訊");
+
+            FileChooser.ExtensionFilter soundFilter
+                    = new FileChooser.ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac");
+            fileChooser.getExtensionFilters().add(soundFilter);
+
+            List<File> sound_list = fileChooser.showOpenMultipleDialog(controller.getStage());
+
+            if (!sound_list.isEmpty()) {
+                for (File sound : sound_list) {
+                    Media media = new Media(sound.toURI().toString());
+                    MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+                    mediaPlayer.setOnReady(() -> {
+                        AudioTrack track = new AudioTrack(mediaPlayer);
+                        paper_controller.getCurrentPaper().addNode(new AudioControl(track));
+                    });
+                }
+            }
         });
     }
 }

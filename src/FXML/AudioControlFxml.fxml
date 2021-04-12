@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,20 +8,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="64.0" prefWidth="301.0" style="-fx-background-color: rgba(208, 211, 214, 0.7);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.AudioControlFxml">
+<fx:root alignment="CENTER" spacing="20.0" style="-fx-background-color: rgba(208, 211, 214, 0.7);" stylesheets="@../css/node_style.css" type="HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="34.0" fitWidth="21.0" layoutX="22.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pic/play.png" />
-         </image>
-      </ImageView>
-      <Slider layoutX="57.0" layoutY="20.0" prefHeight="22.0" prefWidth="128.0" />
-      <Label layoutX="198.0" layoutY="14.0" prefHeight="34.0" prefWidth="52.0" text="10:25" />
-      <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="250.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pic/audio_sound.png" />
-         </image>
-      </ImageView>
+      <Button fx:id="play_btn" mnemonicParsing="false" styleClass="sound_btn">
+         <graphic>
+            <ImageView fx:id="play_pic" fitHeight="34.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pic/play.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Slider fx:id="sound_track" prefHeight="22.0" prefWidth="128.0" />
+      <Label fx:id="time_label" prefHeight="34.0" text="10:25" />
+      <Button fx:id="volume_btn" mnemonicParsing="false" styleClass="sound_btn">
+         <graphic>
+            <ImageView fx:id="volume_pic" fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true" styleClass="sound_btn">
+               <image>
+                  <Image url="@../pic/audio_sound.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
-</AnchorPane>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</fx:root>

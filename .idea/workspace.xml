@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20210327 Add picture">
-      <change afterPath="$PROJECT_DIR$/src/FXML/AudioControlFxml.fxml" afterDir="false" />
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/InsertObj/AudioControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Object/AudioTrack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/BasicNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/BasicNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/ResizeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/InsertObj/ResizeNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Toolbar_InsertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/AudioControlFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/AudioControlFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/Toolbar_InsertFxml.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/node_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/node_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pic/icon.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pic/icon.pptx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +24,8 @@
       <list>
         <option value="Python Script" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -519,29 +523,33 @@
     <option name="LAST_COMMIT_MESSAGE" value="20210327 Add picture" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="277" y="95" key="#Auto_Import" timestamp="1618191143801">
+      <screen x="0" y="0" width="1368" height="872" />
+    </state>
+    <state x="277" y="95" key="#Auto_Import/0.0.1368.872@0.0.1368.872" timestamp="1618191143801" />
     <state x="604" y="110" key="CommitChangelistDialog2" timestamp="1616846356253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="604" y="110" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616846356253" />
-    <state width="1876" height="274" key="GridCell.Tab.0.bottom" timestamp="1616847154773">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1126" height="225" key="GridCell.Tab.0.bottom" timestamp="1618199767905">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1128" height="184" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
+    <state width="1126" height="225" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1618199767905" />
     <state width="1876" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616847154773" />
-    <state width="1876" height="274" key="GridCell.Tab.0.center" timestamp="1616847154773">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1126" height="225" key="GridCell.Tab.0.center" timestamp="1618199767905">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1128" height="184" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
+    <state width="1126" height="225" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1618199767905" />
     <state width="1876" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616847154773" />
-    <state width="1876" height="274" key="GridCell.Tab.0.left" timestamp="1616847154773">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1126" height="225" key="GridCell.Tab.0.left" timestamp="1618199767905">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1128" height="184" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
+    <state width="1126" height="225" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1618199767905" />
     <state width="1876" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616847154773" />
-    <state width="1876" height="274" key="GridCell.Tab.0.right" timestamp="1616847154773">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1126" height="225" key="GridCell.Tab.0.right" timestamp="1618199767905">
+      <screen x="0" y="0" width="1368" height="872" />
     </state>
-    <state width="1128" height="184" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1616489237008" />
+    <state width="1126" height="225" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1618199767905" />
     <state width="1876" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616847154773" />
     <state x="552" y="251" key="Vcs.Push.Dialog.v2" timestamp="1616846361750">
       <screen x="0" y="0" width="1920" height="1040" />
