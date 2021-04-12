@@ -69,6 +69,7 @@ public class AudioTrack extends HBox {
             play_pic.setImage(play);
             time_label.setText(durationString(sound_duration));
             sound_track.setValue(0);
+            player.pause();
         });
 
         player.currentTimeProperty().addListener((obs, oldVal, newVal) -> {

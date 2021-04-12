@@ -178,6 +178,67 @@
             </MenuItem>
          </items>
       </MenuButton>
+      <MenuButton mnemonicParsing="false" prefHeight="87.0" prefWidth="87.0" styleClass="toolbar_sm_button">
+         <graphic>
+            <VBox alignment="CENTER" prefHeight="62.0" prefWidth="60.0" spacing="8.0" styleClass="toolbar_sm_button">
+               <children>
+                  <ImageView fitHeight="49.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pic/video-player.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="71.0" prefWidth="114.0" styleClass="toolbar_button_label" text="影片" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </graphic>
+         <items>
+            <MenuItem fx:id="toolbar_insert_video_file" mnemonicParsing="false">
+               <graphic>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/folder.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="從檔案">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </MenuItem>
+            <MenuItem fx:id="toolbar_insert_video_record" mnemonicParsing="false">
+               <graphic>
+                  <HBox>
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pic/video-camera.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="從錄影">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+            </MenuItem>
+         </items>
+      </MenuButton>
       <Line endY="85.0" stroke="#949494">
          <HBox.margin>
             <Insets left="15.0" right="15.0" />

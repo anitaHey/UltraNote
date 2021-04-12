@@ -9,6 +9,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import Object.AudioTrack;
+import Object.VideoTrack;
 
 import java.io.*;
 import java.util.List;
@@ -33,7 +34,7 @@ public class Toolbar_InsertController {
     @FXML
     VBox toolbar_insert_text, toolbar_insert_code, toolbar_insert_list, toolbar_insert_vbox, toolbar_insert_hbox;
     @FXML
-    MenuItem toolbar_insert_phote_file, toolbar_insert_phote_graph, toolbar_insert_sound_file, toolbar_insert_sound_record;
+    MenuItem toolbar_insert_phote_file, toolbar_insert_phote_graph, toolbar_insert_sound_file, toolbar_insert_sound_record, toolbar_insert_video_file, toolbar_insert_video_record;
 
     @FXML
     public void initialize() {
@@ -117,6 +118,29 @@ public class Toolbar_InsertController {
                     mediaPlayer.setOnReady(() -> {
                         AudioTrack track = new AudioTrack(mediaPlayer);
                         paper_controller.getCurrentPaper().addNode(new AudioControl(track));
+                    });
+                }
+            }
+        });
+
+        toolbar_insert_video_file.setOnAction(e -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("選擇影片");
+
+            FileChooser.ExtensionFilter soundFilter
+                    = new FileChooser.ExtensionFilter("Video Files", "*.mp4","*.m4v");
+            fileChooser.getExtensionFilters().add(soundFilter);
+
+            List<File> sound_list = fileChooser.showOpenMultipleDialog(controller.getStage());
+
+            if (!sound_list.isEmpty()) {
+                for (File video : sound_list) {
+                    Media video_media = new Media(video.toURI().toString());
+                    MediaPlayer video_Player = new MediaPlayer(video_media);
+
+                    video_Player.setOnReady(() -> {
+                        VideoTrack track = new VideoTrack(video_Player);
+                        paper_controller.getCurrentPaper().addNode(new VideoControl(track));
                     });
                 }
             }
