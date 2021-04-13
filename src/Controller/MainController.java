@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class MainController {
     private static MainController instance;
-    public static Stage loginStage;
+    public Stage loginStage, signinStage;
     private Stage stage;
     private int toolbar_height = 138;
 
@@ -152,7 +152,7 @@ public class MainController {
 
         login.setOnAction(actionEvent -> {
             try {
-                showLogin(actionEvent);
+                showLogin();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -212,17 +212,37 @@ public class MainController {
         }
     }
 
-    private void showLogin(ActionEvent event) throws IOException {
+    public void showLogin() throws IOException {
         loginStage = new Stage();
 
         Scene scene = new Scene(new StackPane(), 965, 600);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/UserSignInFxml.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/UserLogInFxml.fxml"));
         scene.setRoot(loader.load());
         loginStage.setScene(scene);
         loginStage.initStyle(StageStyle.UNDECORATED);
         loginStage.initModality(Modality.WINDOW_MODAL);
-        loginStage.initOwner(
-                ((Node) event.getSource()).getScene().getWindow());
+        loginStage.initOwner(this.getStage().getScene().getWindow());
         loginStage.show();
+    }
+
+    public void showSignin() throws IOException {
+        signinStage = new Stage();
+
+        Scene scene = new Scene(new StackPane(), 965, 600);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/UserSignInFxml.fxml"));
+        scene.setRoot(loader.load());
+        signinStage.setScene(scene);
+        signinStage.initStyle(StageStyle.UNDECORATED);
+        signinStage.initModality(Modality.WINDOW_MODAL);
+        signinStage.initOwner(this.getStage().getScene().getWindow());
+        signinStage.show();
+    }
+
+    public Stage getLoginStage() {
+        return loginStage;
+    }
+
+    public Stage getSigninStage() {
+        return signinStage;
     }
 }

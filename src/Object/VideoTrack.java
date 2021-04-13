@@ -18,7 +18,6 @@ import java.util.logging.Logger;
 
 public class VideoTrack extends VBox {
     private MediaPlayer player;
-    private double sound_duration;
     private Image pause, play;
 
     public VideoTrack(MediaPlayer player) {

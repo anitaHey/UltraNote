@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -23,7 +24,8 @@ public class UserSigninController {
     private static UserSigninController instance;
     private Map<String, Integer> gender_str = new HashMap<>();
     public static Stage messageStage;
-    Pattern email_format = Pattern.compile("\\d+@\\d+.\\d+");
+    private MainController mainController = MainController.getInstance();
+    Pattern email_format = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     @FXML
     TextField email_text, name_text;
@@ -58,7 +60,7 @@ public class UserSigninController {
         gender_str.put("Other", 2);
 
         exit.setOnAction(actionEvent -> {
-            MainController.loginStage.close();
+            mainController.getSigninStage().close();
         });
 
         register_btn.setOnAction(actionEvent -> {
@@ -72,15 +74,16 @@ public class UserSigninController {
                     Response register = User.register(email, password, name, gender);
                     MessageController controller;
                     if(register.success()) {
-                        controller = new MessageController("Success! Please login again.");
+                        controller = new MessageController("Success! Please login again.", "signin", true);
                     } else {
-                        controller = new MessageController("Something error. Please try again.");
+                        controller = new MessageController("Something error. Please try again.", "signin", false);
                     }
 
-                    Scene scene = new Scene(new StackPane(), 965, 600);
+                    Scene scene = new Scene(new StackPane());
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/MessageFxml.fxml"));
-                    scene.setRoot(loader.load());
                     loader.setController(controller);
+                    scene.setRoot(loader.load());
+
                     messageStage = new Stage();
                     messageStage.setScene(scene);
                     messageStage.initStyle(StageStyle.UNDECORATED);
@@ -88,9 +91,18 @@ public class UserSigninController {
                     messageStage.initOwner(
                             ((Node) actionEvent.getSource()).getScene().getWindow());
                     messageStage.show();
+
                 } catch (Exception e){
                     e.printStackTrace();
                 }
+            }
+        });
+        back_btn.setOnAction(e-> {
+            mainController.getSigninStage().close();
+            try {
+                mainController.showLogin();
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
         });
     }

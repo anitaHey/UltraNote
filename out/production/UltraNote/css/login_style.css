@@ -8,6 +8,11 @@
     -fx-font-family: Microsoft JhengHei;
 }
 
+.big-font-size {
+     -fx-font-size:18px;
+     -fx-font-family: Microsoft JhengHei;
+ }
+
 .main_color {
     -fx-background-color: #74828F;
 }

@@ -29,7 +29,6 @@ public class NetworkUtils {
         Request request = new Request.Builder().url(url).post(body).build();
 
         try (Response response = CLIENT.newCall(request).execute()) {
-            System.out.println(response.body().string());
             return response.body().string();
         } catch (IOException e) {
             e.printStackTrace();

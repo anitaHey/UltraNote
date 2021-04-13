@@ -9,8 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class UserLoginController {
     private static UserLoginController instance;
+    private MainController mainController = MainController.getInstance();
 
     @FXML
     TextField email_text;
@@ -37,7 +40,7 @@ public class UserLoginController {
         setInstance(this);
 
         exit.setOnAction(actionEvent -> {
-            MainController.loginStage.close();
+            mainController.getLoginStage().close();
         });
 
         login_btn.setOnAction(actionEvent -> {
@@ -61,6 +64,13 @@ public class UserLoginController {
             }
         });
 
+        sign_btn.setOnAction(e -> {
+            mainController.getLoginStage().close();
+            try {
+                mainController.showSignin();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
     }
-
 }
