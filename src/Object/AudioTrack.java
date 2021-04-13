@@ -19,7 +19,6 @@ import java.util.logging.Logger;
 
 public class AudioTrack extends HBox {
     private MediaPlayer player;
-    private double sound_duration;
     private Image pause, play;
 
     public AudioTrack(MediaPlayer player) {
@@ -50,8 +49,7 @@ public class AudioTrack extends HBox {
 
     @FXML
     public void initialize() {
-        sound_duration = player.getMedia().getDuration().toMinutes();
-        time_label.setText(durationString(sound_duration));
+        time_label.setText(durationString(player.getMedia().getDuration().toSeconds()));
 
         sound_track.setMax(Math.floor(player.getMedia().getDuration().toSeconds()));
 
@@ -67,14 +65,14 @@ public class AudioTrack extends HBox {
 
         player.setOnEndOfMedia(() -> {
             play_pic.setImage(play);
-            time_label.setText(durationString(sound_duration));
+            time_label.setText(durationString(player.getMedia().getDuration().toSeconds()));
             sound_track.setValue(0);
             player.pause();
         });
 
         player.currentTimeProperty().addListener((obs, oldVal, newVal) -> {
             if (!sound_track.isValueChanging()) {
-                time_label.setText(durationString(newVal.toMinutes()));
+                time_label.setText(durationString(newVal.toSeconds()));
                 sound_track.setValue(Math.floor(newVal.toSeconds()));
             }
         });
@@ -84,7 +82,7 @@ public class AudioTrack extends HBox {
                 double currentTime = player.getCurrentTime().toSeconds();
                 if (Math.abs(currentTime - newValue.doubleValue()) > 1) {
                     player.seek(Duration.seconds(newValue.doubleValue()));
-                    time_label.setText(durationString(player.getCurrentTime().toMinutes()));
+                    time_label.setText(durationString(player.getCurrentTime().toSeconds()));
                 }
             }
         });
@@ -92,15 +90,17 @@ public class AudioTrack extends HBox {
         sound_track.valueChangingProperty().addListener((obs, oldVal, newVal) -> {
             if(!newVal){
                 player.seek(Duration.seconds(sound_track.getValue()));
-                time_label.setText(durationString(player.getCurrentTime().toMinutes()));
+                time_label.setText(durationString(player.getCurrentTime().toSeconds()));
             }
         });
     }
 
     private String durationString(double duration){
+        int min = (int) Math.floor(duration / 60);
+        duration = duration / 60 - min;
         duration =  Math.round(duration * 100.0)/100.0;
         String[] tem = String.valueOf(duration).split("\\.");
         if(tem[1].length() == 1) tem[1] += "0";
-        return tem[0] + ":" + tem[1];
+        return min + ":" + tem[1];
     }
 }

@@ -21,16 +21,16 @@
     -fx-border-width: 0 1 0 0;
 }
 
-.text_bg_none{
+.text_bg_none {
      -fx-border-color: transparent;
      -fx-border-width: 0 1 0 0;
- }
+}
 
-.text_select{
+.text_select {
     -fx-background-color: #a39e9e;
 }
 
-.sound_btn{
+.sound_btn {
      -fx-background-color: transparent;
 }
 
