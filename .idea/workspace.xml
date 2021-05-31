@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="">
+    <list default="true" id="cce8b23e-0e70-4073-8cad-93990430316a" name="Default Changelist" comment="20210327 Add picture">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/FXML/MessageFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/FXML/MessageFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/css/login_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/css/login_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/utility/NetworkUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/utility/NetworkUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserSigninController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserSigninController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/API/utility/NetworkUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/API/utility/NetworkUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/MessageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_DrawController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/Toolbar_DrawController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/UserLoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/UserLoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Controller/UserSigninController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Controller/UserSigninController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/UltraNote/Database/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/UltraNote/Database/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database/Database/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/Database/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FXML/MessageFxml.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/FXML/MessageFxml.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Object/VideoTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Object/VideoTrack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/login_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/login_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +25,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -531,49 +530,53 @@
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="277" y="95" key="#Auto_Import/0.0.1368.872@0.0.1368.872" timestamp="1618191143801" />
+    <state x="705" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1622440621281">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="705" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1622440621281" />
     <state x="430" y="62" key="CommitChangelistDialog2" timestamp="1618279664651">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="430" y="62" key="CommitChangelistDialog2/0.0.1368.872@0.0.1368.872" timestamp="1618279664651" />
     <state x="604" y="110" key="CommitChangelistDialog2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616846356253" />
-    <state width="1125" height="95" key="GridCell.Tab.0.bottom" timestamp="1618303506905">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="274" key="GridCell.Tab.0.bottom" timestamp="1622433200115">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1125" height="95" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1618303506905" />
-    <state width="1876" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1618244677453" />
-    <state width="1125" height="95" key="GridCell.Tab.0.center" timestamp="1618303506905">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1622433200115" />
+    <state width="1876" height="274" key="GridCell.Tab.0.center" timestamp="1622433200115">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1125" height="95" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1618303506905" />
-    <state width="1876" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1618244677453" />
-    <state width="1125" height="95" key="GridCell.Tab.0.left" timestamp="1618303506904">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1622433200115" />
+    <state width="1876" height="274" key="GridCell.Tab.0.left" timestamp="1622433200115">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1125" height="95" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1618303506904" />
-    <state width="1876" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1618244677453" />
-    <state width="1125" height="95" key="GridCell.Tab.0.right" timestamp="1618303506905">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="1876" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1622433200115" />
+    <state width="1876" height="274" key="GridCell.Tab.0.right" timestamp="1622433200115">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1125" height="95" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1618303506905" />
-    <state width="1876" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1618244677453" />
+    <state width="1876" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1622433200115" />
     <state x="393" y="210" key="Vcs.Push.Dialog.v2" timestamp="1618279671654">
       <screen x="0" y="0" width="1368" height="872" />
     </state>
     <state x="393" y="210" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1618279671654" />
     <state x="552" y="251" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616846361750" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1617343980230">
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog" timestamp="1622430287898">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="372" y="261" key="com.intellij.ide.util.TipDialog/0.0.1368.872@0.0.1368.872" timestamp="1616461796092" />
-    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1617343980230" />
+    <state x="522" y="311" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1622430287898" />
     <state x="759" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616836653524">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="759" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1616836653524" />
-    <state x="672" y="309" key="git4idea.merge.GitPullDialog" timestamp="1618231981030">
+    <state x="672" y="309" key="git4idea.merge.GitPullDialog" timestamp="1618843256640">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="672" y="309" key="git4idea.merge.GitPullDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1618231981030" />
+    <state x="672" y="309" key="git4idea.merge.GitPullDialog/0.0.1920.1040/-1920.9.1920.1040@0.0.1920.1040" timestamp="1618843256640" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/UltraNote$Main.ic" NAME="Main Coverage Results" MODIFIED="1586693958468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
